@@ -28,7 +28,6 @@ public class VentanaLogIn extends JFrame {
 	private JPasswordField pfContrasenia;
 	private JLabel lbEmail;
 	private JLabel lblContrasenia;
-	private JPanel panelContenidos;
 	private JLabel lb;
 	public Usuario u;
 	private JMenu menuUsuario;
@@ -37,17 +36,9 @@ public class VentanaLogIn extends JFrame {
 	public VentanaLogIn() {
 		this.setTitle("Easy Renting Motors");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(100, 100, 500, 250);
+		this.setBounds(100, 100, 616, 423);
 		this.setMinimumSize(new Dimension(250, 250));
 		
 		
-		
-		panelContenidos = new JPanel();
-		panelContenidos.setBackground(Color.WHITE);
-		setContentPane(panelContenidos);
-		panelContenidos.setLayout(new BorderLayout(15, 15));
-		
-		
 	}
-
 }
