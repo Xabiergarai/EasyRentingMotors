@@ -39,6 +39,6 @@ public class Categoria_A  {
 		return "Categoria_A [tipoCocheMini=" + tipoCocheMini + ", maletero=" + maletero + "]";
 	}
 	
-	
+	 
 
 }
