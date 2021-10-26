@@ -31,11 +31,6 @@ public class TestUsuario {
 		assertEquals("Contreras", u.getApellidos());						
 	}
 	
-	@Test
-	public void testUsuario() {
-		assertEquals("contre", u.getUsuario());						
-	}
-	
 	public void testSetNullNombre() {
 		assertThrows(NullPointerException.class,()-> u.setNombre(null));
 	}

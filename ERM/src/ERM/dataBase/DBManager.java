@@ -3,6 +3,10 @@ package ERM.dataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import ERM.clasesBasicas.Usuario;
+
 
 public class DBManager {
 
@@ -29,5 +33,23 @@ private Connection conn = null;
 			throw new DBException("Error cerrando la conexión con la BD", e);
 		}
 	}
+	
+	//REGISTRAR NUEVO USUARIO
+		public void registrarUsuario(Usuario usuario) throws DBException{
+			
+			String nomUsuario = usuario.getNombre();
+			String apellidosUsuario = usuario.getApellidos();
+			String contrasenya = usuario.getContrasenya();
+			String correo = usuario.getEmail();
+			
+			
+			
+			try (Statement stmt= conn.createStatement()) {
+				stmt.executeUpdate("INSERT INTO usuario (nomUsuario, apellidosUsuario, contrasenya, correo) VALUES ('" + nomUsuario + "', '"+ apellidosUsuario + "', '" + contrasenya + "', '" + correo + "')");
+			} catch (SQLException e) {
+				throw new DBException("No ha sido posible ejecutar la query");
+			}
+			
+		}
 	
 }
