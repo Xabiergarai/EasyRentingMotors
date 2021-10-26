@@ -50,15 +50,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public Usuario() {
-		super();
-		this.nombre = " ";
-		this.apellidos = "  ";
-		this.usuario = "  ";
-		this.contrasenya = " ";
-		this.email = "  ";
 	
-	
-	}
 	
 }
