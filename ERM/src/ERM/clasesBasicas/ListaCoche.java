@@ -16,7 +16,7 @@ public class ListaCoche extends Coche {
 		
 		lista.put(
 				01, 
-				new Coche("CCB", "Audi A3", "ClaseB", "Audi", "2018-07-06", "Gasolina" , 20.0000 , ""));
+				new Coche("CCB", "Audi A3", "CategoriaB", "Audi", "2018-07-06", "Gasolina" , 20.0000 , ""));
 				
 				lista.get(01);
 		

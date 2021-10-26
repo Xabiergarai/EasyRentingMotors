@@ -6,7 +6,7 @@ public class Coche implements Serializable {
 	
 	private String id;
 	private String nombre;
-	private String clase;
+	private String categoria;
 	private String marca;
 	private String fecha_creacion;
 	private String combustible;
