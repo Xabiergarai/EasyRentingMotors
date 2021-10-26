@@ -1,4 +1,4 @@
-package clasesBasicas;
+package ERM.clasesBasicas;
 
 import java.util.HashMap;
 import java.util.Map;
