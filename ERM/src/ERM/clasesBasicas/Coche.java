@@ -19,7 +19,7 @@ public class Coche implements Serializable {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.clase = clase;
+		this.categoria = clase;
 		this.marca = marca;
 		this.fecha_creacion = fecha_creacion;
 		this.combustible = combustible;
@@ -31,7 +31,7 @@ public class Coche implements Serializable {
 		super();
 		this.id = " ";
 		this.nombre = " ";
-		this.clase = " ";
+		this.categoria = " ";
 		this.marca = " ";
 		this.fecha_creacion = " ";
 		this.combustible = " ";
@@ -56,11 +56,11 @@ public class Coche implements Serializable {
 	}
 
 	public String getClase() {
-		return clase;
+		return categoria;
 	}
 
 	public void setClase(String clase) {
-		this.clase = clase;
+		this.categoria = clase;
 	}
 
 	public String getMarca() {
@@ -105,7 +105,7 @@ public class Coche implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + clase + ", marca=" + marca + ", fecha_creacion="
+		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + categoria + ", marca=" + marca + ", fecha_creacion="
 				+ fecha_creacion + ", combustible=" + combustible + ", precio=" + precio + ", rutaFoto=" + rutaFoto
 				+ "]";
 	}
