@@ -1,4 +1,4 @@
-package clasesBasicas;
+package ERM.clasesBasicas;
 
 public class ListaUsuario {
 

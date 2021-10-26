@@ -1,4 +1,4 @@
-package clasesBasicas;
+package ERM.clasesBasicas;
 
 import java.io.Serializable;
 
