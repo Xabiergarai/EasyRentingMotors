@@ -3,8 +3,11 @@ package clasesBasicas;
 public class Usuario {
 	
 	
-	private String nombre, apellidos, usuario, contrasenya, email;
-	
+	private String nombre;
+	private String apellidos;
+	private String usuario;
+	private String contrasenya;
+	private String email;
 	
 	
 	
@@ -60,5 +63,12 @@ public class Usuario {
 	
 	
 	}
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", usuario=" + usuario + ", contrasenya="
+				+ contrasenya + ", email=" + email + "]";
+	}
+	
+	
 	
 }
