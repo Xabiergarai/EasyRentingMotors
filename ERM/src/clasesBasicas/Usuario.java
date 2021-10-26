@@ -52,23 +52,8 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.email = email;
 	}
-
-	public Usuario() {
-		super();
-		this.nombre = " ";
-		this.apellidos = "  ";
-		this.usuario = "  ";
-		this.contrasenya = " ";
-		this.email = "  ";
-	
-	
-	}
-	@Override
-	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", usuario=" + usuario + ", contrasenya="
-				+ contrasenya + ", email=" + email + "]";
-	}
-	
-	
-	
 }
+
+	
+
+
