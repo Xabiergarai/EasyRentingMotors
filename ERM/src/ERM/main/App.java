@@ -2,7 +2,7 @@ package ERM.main;
 
 import java.awt.EventQueue;
 
-import ventanas.VentanaLogIn;
+import ERM.ventanasPrimarias.VentanaLogIn;
 
 public class App {
 

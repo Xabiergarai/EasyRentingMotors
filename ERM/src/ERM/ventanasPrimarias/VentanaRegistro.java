@@ -1,4 +1,4 @@
-package ERM.ventanas;
+package ERM.ventanasPrimarias;
 
 public class VentanaRegistro {
 

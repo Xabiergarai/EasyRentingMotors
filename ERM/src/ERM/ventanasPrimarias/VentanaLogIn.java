@@ -1,4 +1,4 @@
-package ERM.ventanas;
+package ERM.ventanasPrimarias;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

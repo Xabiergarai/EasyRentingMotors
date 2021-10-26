@@ -1,5 +1,5 @@
 package ERM.clasesBasicas;
 
-public class ClaseB {
+public class Categoria_B {
 
 }
