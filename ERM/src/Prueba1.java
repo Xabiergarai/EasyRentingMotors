@@ -7,7 +7,7 @@ public class Prueba1 {
 	public Prueba1(){
 		
 		
-		//arreglado
+		
 		
 		
 	}
