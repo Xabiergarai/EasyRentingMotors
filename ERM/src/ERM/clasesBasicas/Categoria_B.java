@@ -1,40 +1,45 @@
 package ERM.clasesBasicas;
 
-public class Categoria_B {
+public class Categoria_B extends Coche{
 	
-	private String cincoPuertas;
-	private boolean descaspotable;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int numPuertas;
+	private boolean descapotable;
 	private boolean deportivo;
-	
-	
-	public Categoria_B(String cincoPuertas, boolean descaspotable, boolean deportivo) {
-		super();
-		this.cincoPuertas = cincoPuertas;
-		this.descaspotable = descaspotable;
+		
+	public Categoria_B(String id, String nombre, String clase, String marca, String fecha_matriculacion,
+			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,
+			boolean deportivo) {
+		super(id, nombre, clase, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		this.numPuertas = numPuertas;
+		this.descapotable = descapotable;
 		this.deportivo = deportivo;
 	}
 	
 	public Categoria_B() {
 		super();
-		this.cincoPuertas = " ";
-		this.descaspotable = false;
+		this.numPuertas = 0;
+		this.descapotable = false;
 		this.deportivo = false;
 	}
 
-	public String getCincoPuertas() {
-		return cincoPuertas;
+	public int getNumPuertas() {
+		return numPuertas;
 	}
 
-	public void setCincoPuertas(String cincoPuertas) {
-		this.cincoPuertas = cincoPuertas;
+	public void setNumPuertas(int numPuertas) {
+		this.numPuertas = numPuertas;
 	}
 
-	public boolean isDescaspotable() {
-		return descaspotable;
+	public boolean isdescapotable() {
+		return descapotable;
 	}
 
-	public void setDescaspotable(boolean descaspotable) {
-		this.descaspotable = descaspotable;
+	public void setdescapotable(boolean descapotable) {
+		this.descapotable = descapotable;
 	}
 
 	public boolean isDeportivo() {
@@ -47,7 +52,7 @@ public class Categoria_B {
 
 	@Override
 	public String toString() {
-		return "Categoria_B [cincoPuertas=" + cincoPuertas + ", descaspotable=" + descaspotable + ", deportivo="
+		return "Categoria_B [descapotable=" + descapotable + ", deportivo="
 				+ deportivo + "]";
 	}
 	

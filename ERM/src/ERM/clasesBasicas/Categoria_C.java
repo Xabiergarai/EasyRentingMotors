@@ -1,27 +1,26 @@
 package ERM.clasesBasicas;
 
-public class Categoria_C {
+public class Categoria_C extends Coche{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String tipoTodoTerreno;
 	private boolean descapotable;
-	private String cincoPuertas;
-	private boolean deportivo;
 	
 	
 	public Categoria_C(String tipoTodoTerreno, boolean descapotable, String cincoPuertas, boolean deportivo) {
 		super();
 		this.tipoTodoTerreno = tipoTodoTerreno;
 		this.descapotable = descapotable;
-		this.cincoPuertas = cincoPuertas;
-		this.deportivo = deportivo;
+		
 	}
 	
 	public Categoria_C() {
 		super();
 		this.tipoTodoTerreno = " ";
 		this.descapotable = false;
-		this.cincoPuertas = " ";
-		this.deportivo = false;
 	}
 
 	public String getTipoTodoTerreno() {
@@ -40,26 +39,9 @@ public class Categoria_C {
 		this.descapotable = descapotable;
 	}
 
-	public String getCincoPuertas() {
-		return cincoPuertas;
-	}
-
-	public void setCincoPuertas(String cincoPuertas) {
-		this.cincoPuertas = cincoPuertas;
-	}
-
-	public boolean isDeportivo() {
-		return deportivo;
-	}
-
-	public void setDeportivo(boolean deportivo) {
-		this.deportivo = deportivo;
-	}
-
 	@Override
 	public String toString() {
-		return "Categoria_C [tipoTodoTerreno=" + tipoTodoTerreno + ", descapotable=" + descapotable + ", cincoPuertas="
-				+ cincoPuertas + ", deportivo=" + deportivo + "]";
+		return "Categoria_C [tipoTodoTerreno=" + tipoTodoTerreno + ", descapotable=" + descapotable + "]";
 	}
 	
 	

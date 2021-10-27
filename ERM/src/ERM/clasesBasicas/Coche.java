@@ -8,20 +8,20 @@ public class Coche implements Serializable {
 	private String nombre;
 	private String categoria;
 	private String marca;
-	private String fecha_creacion;
+	private String fecha_matriculacion;
 	private String combustible;
 	private double precio;
     private String rutaFoto;
     
     
-	public Coche(String id, String nombre, String clase, String marca, String fecha_creacion, String combustible,
+	public Coche(String id, String nombre, String clase, String marca, String fecha_matriculacion, String combustible,
 			double precio, String rutaFoto) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = clase;
 		this.marca = marca;
-		this.fecha_creacion = fecha_creacion;
+		this.fecha_matriculacion = fecha_matriculacion;
 		this.combustible = combustible;
 		this.precio = precio;
 		this.rutaFoto = rutaFoto;
@@ -33,7 +33,7 @@ public class Coche implements Serializable {
 		this.nombre = " ";
 		this.categoria = " ";
 		this.marca = " ";
-		this.fecha_creacion = " ";
+		this.fecha_matriculacion = " ";
 		this.combustible = " ";
 		this.precio = 0.0;
 		this.rutaFoto = " ";
@@ -71,12 +71,12 @@ public class Coche implements Serializable {
 		this.marca = marca;
 	}
 
-	public String getFecha_creacion() {
-		return fecha_creacion;
+	public String getfecha_matriculacion() {
+		return fecha_matriculacion;
 	}
 
-	public void setFecha_creacion(String fecha_creacion) {
-		this.fecha_creacion = fecha_creacion;
+	public void setfecha_matriculacion(String fecha_matriculacion) {
+		this.fecha_matriculacion = fecha_matriculacion;
 	}
 
 	public String getCombustible() {
@@ -105,8 +105,8 @@ public class Coche implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + categoria + ", marca=" + marca + ", fecha_creacion="
-				+ fecha_creacion + ", combustible=" + combustible + ", precio=" + precio + ", rutaFoto=" + rutaFoto
+		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + categoria + ", marca=" + marca + ", fecha_matriculacion="
+				+ fecha_matriculacion + ", combustible=" + combustible + ", precio=" + precio + ", rutaFoto=" + rutaFoto
 				+ "]";
 	}
 	

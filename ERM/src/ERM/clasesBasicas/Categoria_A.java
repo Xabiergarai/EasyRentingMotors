@@ -1,43 +1,45 @@
 package ERM.clasesBasicas;
 
-public class Categoria_A  {
+public class Categoria_A extends Coche{
 	
-	private String tipoCocheMini;
-	private String maletero;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int numPuertas;
+	private boolean maletero;
 	
-	
-	public Categoria_A(String tipoCocheMini, String maletero) {
+	public Categoria_A(int numPuertas, boolean maletero) {
 		super();
-		this.tipoCocheMini = tipoCocheMini;
+		this.numPuertas = numPuertas;
 		this.maletero = maletero;
 	}
-	
 	public Categoria_A() {
-		super();
-		this.tipoCocheMini = " ";
-		this.maletero = " ";
+		this.numPuertas = 0;
+		this.maletero = false;
 	}
-
-	public String getTipoCocheMini() {
-		return tipoCocheMini;
+		
+	public int getNumPuertas() {
+		return numPuertas;
 	}
-
-	public void setTipoCocheMini(String tipoCocheMini) {
-		this.tipoCocheMini = tipoCocheMini;
+	public void setNumPuertas(int numPuertas) {
+		this.numPuertas = numPuertas;
 	}
-
-	public String getMaletero() {
+	public boolean isMaletero() {
 		return maletero;
 	}
-
-	public void setMaletero(String maletero) {
+	public void setMaletero(boolean maletero) {
 		this.maletero = maletero;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Categoria_A [tipoCocheMini=" + tipoCocheMini + ", maletero=" + maletero + "]";
+		return "Categoria_A [numPuertas=" + numPuertas + ", maletero=" + maletero + "]";
 	}
+	
+	
+	
+	
 	
 	 
 

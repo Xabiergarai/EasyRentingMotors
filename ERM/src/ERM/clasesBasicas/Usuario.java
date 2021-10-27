@@ -5,6 +5,7 @@ public class Usuario {
 	
 	private String nombre;
 	private String apellidos;
+	private String nomUsuario;
 	private String contrasenya;
 	private String email;
 	
@@ -34,16 +35,26 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getNomUsuario() {
+		return nomUsuario;
+	}
+	public void setNomUsuario(String nomUsuario) {
+		this.nomUsuario = nomUsuario;
+	}
 	
 	
-	
-	public Usuario(String nombre, String apellidos, String usuario, String contrasenya, String email) {
+	public Usuario(String nombre, String apellidos, String nomUsuario, String contrasenya, String email) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
+		this.nomUsuario = nomUsuario;
 		this.contrasenya = contrasenya;
 		this.email = email;
 	}
+
+	
+	
+	
 }
 
 	
