@@ -1,22 +1,30 @@
 package ERM.ventanasPrimarias;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.regex.Pattern;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import ERM.clasesBasicas.*;
+import ERM.dataBase.DBException;
 
 
 
 public class VentanaRegistro extends JFrame {
 	
+	/**
+	 * Ventana en la cual el usuario se registra
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField tPNombre;
 	private JTextField tfApellidos;
 	private JTextField tPNombreUsuario;
@@ -33,12 +41,10 @@ public class VentanaRegistro extends JFrame {
 	private JButton btnRegistrarse;
 	private JButton btnAtras;
 	private TextPrompt tP;
+	public static Pattern patronEmail = Pattern
+			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
-	
-	
-	
-	
-	
+		
 	
 	public VentanaRegistro() {
 		this.setTitle("Registro");
@@ -52,7 +58,7 @@ public class VentanaRegistro extends JFrame {
 				setContentPane(panelContenidos);
 				panelContenidos.setLayout(new BorderLayout(15, 15));
 
-		      //Panel Central que contendra todo
+		        //Panel Central que contendra todo
 				JPanel panelCentral = new JPanel();
 				panelCentral.setBackground(Color.WHITE);
 				panelCentral.setLayout(new BorderLayout(0, 0));
@@ -113,45 +119,50 @@ public class VentanaRegistro extends JFrame {
 				panelInferior.add(panelInferiorCentral, BorderLayout.CENTER);
 
 				btnAtras = new JButton("Volver");
-				/*
-				 * 
-				 * 
-				 * 
-				 * 
-				 * Funcionalidad boton volver
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
+				btnAtras.addActionListener(e->{
+					VentanaLogIn vl = null;
+					try {
+						vl = new VentanaLogIn();
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					vl.setVisible(true);
+					dispose();				
+				});
 				
-
+				
 				panelInferiorCentral.add(btnAtras);
 
 				btnRegistrarse = new JButton("Registrarse");
-				/*
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * Funcionalidad boton Registrarse
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
-		
-				panelInferiorCentral.add(btnRegistrarse);
-
-			
-		
+				btnRegistrarse.addActionListener(e->{
+					/*
+					 * 
+					 * Funcionalidad de registrarse
+					 * 
+					 * 
+					 */
+				
+				
+				});		
+				panelInferiorCentral.add(btnRegistrarse);					
 				this.setVisible(true);
 
 	}
-
 	
+	
+	public static boolean comprobarPatronEmail(String email, boolean showErrorWindow) {
+		if(patronEmail.matcher(email).matches()) {
+			System.out.println(email + "Cumple el patron correctamente");
+			return patronEmail.matcher(email).matches();
+		}else {
+			if(showErrorWindow) {
+				JOptionPane.showMessageDialog(null, "El email " + email + "no cumple el patron correctamente" );
+				System.out.println("El email " + email + "no cumple el patron correctamente");
+			}
+			return false;
+		}
+	}
 	
 	 public static void main(String[] args) {
 
