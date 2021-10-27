@@ -13,7 +13,7 @@ public class TestUsuario {
 	
 	@BeforeEach
 	public void setup() {
-		 u= new Usuario("Javier", "Contreras", "contre", "123asd", "javicoa@opendeusto.es");	
+		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
 	}				
 	
 	@Test
@@ -23,7 +23,7 @@ public class TestUsuario {
 		
 	@Test
 	public void testContrasenya() {
-		assertEquals("123asd", u.getContrasenya());						
+		assertEquals("123", u.getContrasenya());						
 	}
 	
 	@Test
@@ -31,10 +31,11 @@ public class TestUsuario {
 		assertEquals("Contreras", u.getApellidos());						
 	}
 	
+	/*
 	public void testSetNullNombre() {
 		assertThrows(NullPointerException.class,()-> u.setNombre(null));
 	}
-	
+	*/
 	
 	
 }

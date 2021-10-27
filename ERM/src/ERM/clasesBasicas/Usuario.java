@@ -51,6 +51,15 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.email = email;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname + ", contrasenya="
+				+ contrasenya + ", email=" + email + "]";
+	}
+	
+	
 
 	
 	
