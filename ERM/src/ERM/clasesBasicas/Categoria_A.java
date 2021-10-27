@@ -2,42 +2,36 @@ package ERM.clasesBasicas;
 
 public class Categoria_A  {
 	
-	private String tipoCocheMini;
-	private String maletero;
+	private int numPuertas;
+	private boolean maletero;
 	
-	
-	public Categoria_A(String tipoCocheMini, String maletero) {
-		super();
-		this.tipoCocheMini = tipoCocheMini;
-		this.maletero = maletero;
+	public int getNumPuertas() {
+		return numPuertas;
 	}
-	
-	public Categoria_A() {
-		super();
-		this.tipoCocheMini = " ";
-		this.maletero = " ";
+	public void setNumPuertas(int numPuertas) {
+		this.numPuertas = numPuertas;
 	}
-
-	public String getTipoCocheMini() {
-		return tipoCocheMini;
-	}
-
-	public void setTipoCocheMini(String tipoCocheMini) {
-		this.tipoCocheMini = tipoCocheMini;
-	}
-
-	public String getMaletero() {
+	public boolean isMaletero() {
 		return maletero;
 	}
-
-	public void setMaletero(String maletero) {
+	public void setMaletero(boolean maletero) {
 		this.maletero = maletero;
 	}
-
+	
+	public Categoria_A(int numPuertas, boolean maletero) {
+		super();
+		this.numPuertas = numPuertas;
+		this.maletero = maletero;
+	}
+	
 	@Override
 	public String toString() {
-		return "Categoria_A [tipoCocheMini=" + tipoCocheMini + ", maletero=" + maletero + "]";
+		return "Categoria_A [numPuertas=" + numPuertas + ", maletero=" + maletero + "]";
 	}
+	
+	
+	
+	
 	
 	 
 

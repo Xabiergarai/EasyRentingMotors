@@ -2,39 +2,29 @@ package ERM.clasesBasicas;
 
 public class Categoria_B {
 	
-	private String cincoPuertas;
-	private boolean descaspotable;
+	private int numPuertas;
+	private boolean descapotable;
 	private boolean deportivo;
 	
 	
-	public Categoria_B(String cincoPuertas, boolean descaspotable, boolean deportivo) {
+	public Categoria_B(String cincoPuertas, boolean descapotable, boolean deportivo) {
 		super();
-		this.cincoPuertas = cincoPuertas;
-		this.descaspotable = descaspotable;
+		this.descapotable = descapotable;
 		this.deportivo = deportivo;
 	}
 	
 	public Categoria_B() {
 		super();
-		this.cincoPuertas = " ";
-		this.descaspotable = false;
+		this.descapotable = false;
 		this.deportivo = false;
 	}
 
-	public String getCincoPuertas() {
-		return cincoPuertas;
+	public boolean isdescapotable() {
+		return descapotable;
 	}
 
-	public void setCincoPuertas(String cincoPuertas) {
-		this.cincoPuertas = cincoPuertas;
-	}
-
-	public boolean isDescaspotable() {
-		return descaspotable;
-	}
-
-	public void setDescaspotable(boolean descaspotable) {
-		this.descaspotable = descaspotable;
+	public void setdescapotable(boolean descapotable) {
+		this.descapotable = descapotable;
 	}
 
 	public boolean isDeportivo() {
@@ -47,7 +37,7 @@ public class Categoria_B {
 
 	@Override
 	public String toString() {
-		return "Categoria_B [cincoPuertas=" + cincoPuertas + ", descaspotable=" + descaspotable + ", deportivo="
+		return "Categoria_B [descapotable=" + descapotable + ", deportivo="
 				+ deportivo + "]";
 	}
 	

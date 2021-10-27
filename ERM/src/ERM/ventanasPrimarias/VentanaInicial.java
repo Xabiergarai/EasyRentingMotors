@@ -2,6 +2,6 @@ package ERM.ventanasPrimarias;
 
 import javax.swing.JFrame;
 
-public class VentanaRegistro extends JFrame {
+public class VentanaInicial extends JFrame{
 
 }
