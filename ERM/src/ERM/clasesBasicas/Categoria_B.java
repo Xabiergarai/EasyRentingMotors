@@ -9,10 +9,7 @@ public class Categoria_B extends Coche{
 	private int numPuertas;
 	private boolean descapotable;
 	private boolean deportivo;
-	
-	
-	
-	
+		
 	public Categoria_B(String id, String nombre, String clase, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,
 			boolean deportivo) {

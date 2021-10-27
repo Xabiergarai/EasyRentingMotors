@@ -9,6 +9,16 @@ public class Categoria_A extends Coche{
 	private int numPuertas;
 	private boolean maletero;
 	
+	public Categoria_A(int numPuertas, boolean maletero) {
+		super();
+		this.numPuertas = numPuertas;
+		this.maletero = maletero;
+	}
+	public Categoria_A() {
+		this.numPuertas = 0;
+		this.maletero = false;
+	}
+		
 	public int getNumPuertas() {
 		return numPuertas;
 	}
@@ -20,16 +30,6 @@ public class Categoria_A extends Coche{
 	}
 	public void setMaletero(boolean maletero) {
 		this.maletero = maletero;
-	}
-	
-	public Categoria_A(int numPuertas, boolean maletero) {
-		super();
-		this.numPuertas = numPuertas;
-		this.maletero = maletero;
-	}
-	public Categoria_A() {
-		this.numPuertas = 0;
-		this.maletero = false;
 	}
 	
 	@Override
