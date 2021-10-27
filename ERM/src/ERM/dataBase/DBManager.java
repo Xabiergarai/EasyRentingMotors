@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
-import baseDatos.BDException;
 
 
 
@@ -21,11 +20,19 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 
 	
 	//CREAR CONEXION CON BD
-
-	public void connect(String nombre) throws DBException { 
+/**
+ * Inicializa una BD SQLITE y devuelve una conexión con ella
+ * 
+ * @param nombreBD Nombre de fichero de la base de datos
+ * @return Conexión con la base de datos indicada. Si hay algún error, se
+ *         devuelve null
+ * @throws BDException
+ */
+	public static Connection initBD(String nombre) throws DBException { 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:data/BD2"+ nombre);
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD2"+ nombre);
+			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
 		} catch (SQLException e) {
@@ -38,7 +45,7 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			throw new DBException("Error cerrando la conexión con la BD", e);
+			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
 	}
 	
@@ -53,48 +60,26 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 			throw new DBException("Error creando tabla de usuario a la BD", ex);
 
 		}
+		return statement;
+	} catch (SQLException e) {
+		return null;
+	}
 	
 	}
 	
-	
-	}
-	public static int existeUsuario(String nick, String contrasenia) throws BDException {
-		Connection con = connect("videoclub.sqlite3");
-		String sql = "SELECT * FROM Usuario WHERE nick='" + nick + "'";
-		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
+	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
+		Connection con = initBD(".sqlite3");
+		String sql = "INSERT INTO Usuario VALUES('" + nick + "','" + contrasenia + "')";
 		Statement st = null;
-		ResultSet rs = null;
-		int resultado = 0;
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery(sql);
-			if (!rs.next()) {
-				resultado = 0;
-				logger.log(Level.WARNING, "Usuario no exixtente");
-
-			} else {
-				String c = rs.getString(2);
-				if (c.equals(contrasenia)) {
-					resultado = 2;
-					logger.log(Level.FINE, "Usuario existente");
-
-				} else {
-					resultado = 1;
-					logger.log(Level.WARNING, "Contrase�a incorrecta");
-				}
-			}
+			st.executeUpdate(sql);
+			logger.log(Level.INFO, "Usuario a�adido correctamente");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new BDException("Error al mirar si existe usuarios en BD", e);
+			throw new DBException ("Error al insertar usuario en la BD", e);
 		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			if (st != null)
 				try {
 					st.close();
@@ -110,8 +95,8 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 					e.printStackTrace();
 				}
 		}
-		return resultado;
 	}
+	
 	
 	//REGISTRAR NUEVO USUARIO
 		public void registrarUsuario(Usuario usuario) throws DBException{
