@@ -66,6 +66,60 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	}
 	
 	}
+	public static int existeUsuario(String nick, String contrasenia) throws DBException {
+		Connection con = initBD("RentingMotors.sqlite3");
+		String sql = "SELECT * FROM Usuario WHERE nick='" + nick + "'";
+		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
+		Statement st = null;
+		ResultSet rs = null;
+		int resultado = 0;
+		try {
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			if (!rs.next()) {
+				resultado = 0;
+				logger.log(Level.WARNING, "Usuario no exixtente");
+
+			} else {
+				String c = rs.getString(2);
+				if (c.equals(contrasenia)) {
+					resultado = 2;
+					logger.log(Level.FINE, "Usuario existente");
+
+				} else {
+					resultado = 1;
+					logger.log(Level.WARNING, "Contraseña incorrecta");
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new DBException("Error al mirar si existe usuarios en BD", e);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		return resultado;
+	}
 	
 	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
 		Connection con = initBD(".sqlite3");

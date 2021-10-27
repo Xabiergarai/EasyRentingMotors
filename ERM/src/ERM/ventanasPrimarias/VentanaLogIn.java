@@ -116,7 +116,7 @@ public class VentanaLogIn extends JFrame {
 					String contrasenia = txtContrasenia.getText();				
 					int resultado;
 					try {
-						resultado = BDManager.existeUsuario(nick, contrasenia);
+						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO AL VIDEOCLUB");
 							
@@ -132,7 +132,7 @@ public class VentanaLogIn extends JFrame {
 
 						}
 						//vaciarCampos();
-					} catch (BDException e1) {
+					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
