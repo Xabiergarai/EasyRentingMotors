@@ -25,21 +25,11 @@ public class VentanaRegistro extends JFrame {
 	 * Ventana en la cual el usuario se registra
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField tPNombre;
-	private JTextField tfApellidos;
-	private JTextField tPNombreUsuario;
-	private JTextField tfEmail;
+	private JTextField tPNombre, tfApellidos, tPNombreUsuario, tfEmail;
 	private JPanel panelContenidos;
-	private JLabel lbNombre;
-	private JLabel lbApellidos;
-	private JLabel lbnomUsuario;
-	private JLabel lbEmail;
-	private JLabel lbContrasenia;
-	private JLabel lbConfirmarContrasenia;
-	private JPasswordField pfContrasenia;
-	private JPasswordField pfConfirmarContrasenia;
-	private JButton btnRegistrarse;
-	private JButton btnAtras;
+	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail,lbContrasenia, lbConfirmarContrasenia;
+	private JPasswordField pfContrasenia, pfConfirmarContrasenia;
+	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
 	public static Pattern patronEmail = Pattern
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
