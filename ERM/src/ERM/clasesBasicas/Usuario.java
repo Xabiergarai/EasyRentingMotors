@@ -5,7 +5,7 @@ public class Usuario {
 	
 	private String nombre;
 	private String apellidos;
-	private String nomUsuario;
+	private String nickname;
 	private String contrasenya;
 	private String email;
 	
@@ -36,18 +36,18 @@ public class Usuario {
 		this.email = email;
 	}
 	public String getNomUsuario() {
-		return nomUsuario;
+		return nickname;
 	}
 	public void setNomUsuario(String nomUsuario) {
-		this.nomUsuario = nomUsuario;
+		this.nickname = nomUsuario;
 	}
 	
 	
-	public Usuario(String nombre, String apellidos, String nomUsuario, String contrasenya, String email) {
+	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.nomUsuario = nomUsuario;
+		this.nickname = nickname;
 		this.contrasenya = contrasenya;
 		this.email = email;
 	}
