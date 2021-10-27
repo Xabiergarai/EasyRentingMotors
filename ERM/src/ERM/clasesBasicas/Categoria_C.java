@@ -1,7 +1,11 @@
 package ERM.clasesBasicas;
 
-public class Categoria_C {
+public class Categoria_C extends Coche{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String tipoTodoTerreno;
 	private boolean descapotable;
 	

@@ -1,7 +1,11 @@
 package ERM.clasesBasicas;
 
-public class Categoria_A  {
+public class Categoria_A extends Coche{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numPuertas;
 	private boolean maletero;
 	
@@ -22,6 +26,10 @@ public class Categoria_A  {
 		super();
 		this.numPuertas = numPuertas;
 		this.maletero = maletero;
+	}
+	public Categoria_A() {
+		this.numPuertas = 0;
+		this.maletero = false;
 	}
 	
 	@Override

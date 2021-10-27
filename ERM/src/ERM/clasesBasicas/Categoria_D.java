@@ -17,7 +17,7 @@ public class Categoria_D extends Coche {
 	
 	public Categoria_D() {
 		super();
-		this.tipoFurgoneta = " ";
+		this.tipoFurgoneta = "";
 	}
 
 	public String getTipoFurgoneta() {
