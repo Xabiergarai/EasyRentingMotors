@@ -1,9 +1,12 @@
 package ERM.ventanasPrimarias;
 
-import java.awt.BorderLayout; 
+import java.awt.BorderLayout;  
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
@@ -16,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import ERM.clasesBasicas.*;
 import ERM.dataBase.DBException;
+import ERM.dataBase.DBManager;
+
 
 
 
@@ -25,7 +30,7 @@ public class VentanaRegistro extends JFrame {
 	 * Ventana en la cual el usuario se registra
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField tPNombre, tfApellidos, tPNombreUsuario, tfEmail;
+	private JTextField tfNombre, tfApellidos, tfNombreUsuario, tfEmail;
 	private JPanel panelContenidos;
 	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail,lbContrasenia, lbConfirmarContrasenia;
 	private JPasswordField pfContrasenia, pfConfirmarContrasenia;
@@ -62,16 +67,16 @@ public class VentanaRegistro extends JFrame {
 				panelCentral.add(panelCentralSup, BorderLayout.NORTH);
 		
 				lbNombre = new JLabel("Nombre: ");
-				tPNombre = new JTextField();
-				tP = new TextPrompt("Nombre", tPNombre);
+				tfNombre = new JTextField();
+				tP = new TextPrompt("Nombre", tfNombre);
 
 				lbApellidos= new JLabel("Apellidos: ");
 				tfApellidos = new JTextField();
 				tP = new TextPrompt("Apellidos", tfApellidos);
 
 				lbnomUsuario = new JLabel("Nombre de usuario: ");
-				tPNombreUsuario = new JTextField();
-				tP = new TextPrompt("Nombre de Usuario", tPNombreUsuario);
+				tfNombreUsuario = new JTextField();
+				tP = new TextPrompt("Nombre de Usuario", tfNombreUsuario);
 				
 
 				lbEmail = new JLabel("Email: ");
@@ -87,11 +92,11 @@ public class VentanaRegistro extends JFrame {
 				tP = new TextPrompt("Confirmar contraseña", pfConfirmarContrasenia);
 
 				panelCentralSup.add(lbNombre);
-				panelCentralSup.add(tPNombre);
+				panelCentralSup.add(tfNombre);
 				panelCentralSup.add(lbApellidos);
 				panelCentralSup.add(tfApellidos);
 				panelCentralSup.add(lbnomUsuario);
-				panelCentralSup.add(tPNombreUsuario);
+				panelCentralSup.add(tfNombreUsuario);
 				panelCentralSup.add(lbEmail);
 				panelCentralSup.add(tfEmail);
 				panelCentralSup.add(lbContrasenia);
@@ -125,16 +130,59 @@ public class VentanaRegistro extends JFrame {
 				panelInferiorCentral.add(btnAtras);
 
 				btnRegistrarse = new JButton("Registrarse");
-				btnRegistrarse.addActionListener(e->{
-					/*
-					 * 
-					 * Funcionalidad de registrarse
-					 * 
-					 * 
-					 */
-				
-				
-				});		
+				btnRegistrarse.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						Object boton = e.getSource();
+						//comprobar el email y nongun campo en banco
+						if (boton == btnRegistrarse) {
+							if (tfNombre.getText().equals("") || tfNombre.getText().equals("")|| tfNombreUsuario.getText().equals("")) {
+								JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+							}
+							
+							if(!comprobarPatronEmail(tfEmail.getText(), false)) {
+								comprobarPatronEmail(tfEmail.getText(), true);
+							}
+						} else {
+							DBManager modSql = new DBManager();
+							
+							Usuario mod = new Usuario();							mod.setApellidos(tfApellidos.getText());
+							mod.setEmail(tfEmail.getText());
+							mod.setNombre(tfNombre.getName());
+							mod.setNomUsuario(tfNombreUsuario.getText());
+							
+							String nuevaContrasenia = Hash.sha1(String.valueOf(pfContrasenia.getPassword()));
+							mod.setContrasenya(nuevaContrasenia);
+							
+							try {
+								if (modSql.registrar(mod)) {
+									JOptionPane.showMessageDialog(null, "Registro realizado con exito");
+								} else {
+									JOptionPane.showMessageDialog(null, "No se ha podido registrar");
+								}
+							} catch (HeadlessException | DBException e2) {
+								// TODO Auto-generated catch block
+								e2.printStackTrace();
+							}
+							
+							JOptionPane.showMessageDialog(null, "Registro Completado");
+						
+							try {
+								modSql.disconnect();
+								VentanaLogIn vL = new VentanaLogIn();
+								vL.setVisible(true);
+							} catch (DBException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							dispose();
+							
+						}
+					}
+				});
+						
 				panelInferiorCentral.add(btnRegistrarse);					
 				this.setVisible(true);
 

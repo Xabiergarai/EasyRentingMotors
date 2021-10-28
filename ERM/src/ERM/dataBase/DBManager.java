@@ -1,7 +1,8 @@
 package ERM.dataBase;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,6 +18,9 @@ public class DBManager {
 
 private Connection conn = null; 
 private static Logger logger = Logger.getLogger(DBManager.class.getName());
+private static boolean LOGGING = true;
+private PreparedStatement ps = null;
+
 
 	
 	//CREAR CONEXION CON BD
@@ -31,7 +35,7 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	public static Connection initBD(String nombre) throws DBException { 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD2"+ nombre);
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:usuarios.db");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
@@ -144,23 +148,48 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	}
 	
 	
-	//REGISTRAR NUEVO USUARIO
-		public void registrarUsuario(Usuario usuario) throws DBException{
-			
-			String nomUsuario = usuario.getNombre();
-			String apellidosUsuario = usuario.getApellidos();
-			String contrasenya = usuario.getContrasenya();
-			String correo = usuario.getEmail();
-			
-			
-			
-			try (Statement stmt= conn.createStatement()) {
-				stmt.executeUpdate("INSERT INTO usuario (nomUsuario, apellidosUsuario, contrasenya, correo) VALUES ('" + nomUsuario + "', '"+ apellidosUsuario + "', '" + contrasenya + "', '" + correo + "')");
-			} catch (SQLException e) {
-				throw new DBException("No ha sido posible ejecutar la query");
-			}
-			
+	private static void log(Level level, String msg, Throwable exception) {
+		if (!LOGGING) {
+			return;
 		}
+		if (logger == null) {
+			logger = Logger.getLogger(DBManager.class.getName());
+			logger.setLevel(level.ALL);
+		}
+		if (exception == null) {
+			logger.log(level, msg);
+		} else {
+			logger.log(level, msg, exception);
+		}
+	}
+	
+	
+	//REGISTRAR NUEVO USUARIO
+	public boolean registrar(Usuario u) throws DBException {
+
+		try {
+			Connection con = initBD("usuarios.sqlite3");
+			
+			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
+			
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, u.getNombre());
+			ps.setString(2, u.getApellidos());
+			ps.setString(3, u.getNomUsuario());
+			ps.setString(4, u.getContrasenya());
+			ps.setString(5, u.getEmail());
+			
+			ps.execute();
+			log(Level.INFO, "Usuario registrado", null);
+
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			log(Level.SEVERE, "Error al insertar usuario", e);
+			return false;		}		
+
+	}
 	
 		//CERRAR CONEXION CON BD
 		public void disconnect() throws DBException {

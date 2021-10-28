@@ -4,7 +4,11 @@ public class Usuario {
 	
 	
 	private String nombre, apellidos, nickname, contrasenya, email;
-			
+	
+	
+	public Usuario() {
+
+	}
 	
 	public String getNombre() {
 		return nombre;
