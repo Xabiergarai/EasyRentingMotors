@@ -1,4 +1,4 @@
-package ERM.clasesBasicas;
+package ERM.categoriasCoche;
 
 public class Categoria_B extends Coche{
 	

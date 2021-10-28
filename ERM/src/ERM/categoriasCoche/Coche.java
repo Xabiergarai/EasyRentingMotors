@@ -1,4 +1,4 @@
-package ERM.clasesBasicas;
+package ERM.categoriasCoche;
 
 import java.io.Serializable;
 
