@@ -40,14 +40,6 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 		}
 	}
 	
-	//CERRAR CONEXION CON BD
-	public void disconnect() throws DBException {
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
-		}
-	}
 	
 	public static Statement usarCrearTablasBD(Connection con) throws DBException {
 	try {
@@ -170,4 +162,13 @@ private static Logger logger = Logger.getLogger(DBManager.class.getName());
 			
 		}
 	
+		//CERRAR CONEXION CON BD
+		public void disconnect() throws DBException {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
+			}
+		}
+		
 }
