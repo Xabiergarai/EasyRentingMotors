@@ -3,13 +3,8 @@ package ERM.clasesBasicas;
 public class Usuario {
 	
 	
-	private String nombre;
-	private String apellidos;
-	private String nickname;
-	private String contrasenya;
-	private String email;
-	
-	
+	private String nombre, apellidos, nickname, contrasenya, email;
+			
 	
 	public String getNombre() {
 		return nombre;
@@ -51,10 +46,16 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.email = email;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname + ", contrasenya="
+				+ contrasenya + ", email=" + email + "]";
+	}
+	
 
-	
-	
-	
+
 }
 
 	
