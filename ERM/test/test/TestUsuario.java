@@ -16,26 +16,66 @@ public class TestUsuario {
 		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
 	}				
 	
-	@Test
-	public void testNombre() {
-		assertEquals("Javier", u.getNombre());						
-	}
-		
-	@Test
-	public void testContrasenya() {
-		assertEquals("123", u.getContrasenya());						
-	}
 	
 	@Test
-	public void testApellido() {
-		assertEquals("Contreras", u.getApellidos());						
+	public void testToString() {
+		assertEquals("Usuario [nombre=Javier, apellidos=Contreras, nickname=j.contre, contrasenya=123, email=javicoa@opendeusto.es]", u.toString());
+	}
+				
+	
+	@Test
+	public void testgetApellidos() {
+		assertEquals("Contreras", u.getApellidos());
 	}
 	
-	/*
-	public void testSetNullNombre() {
-		assertThrows(NullPointerException.class,()-> u.setNombre(null));
+	@Test
+	public void testSetApellidos() {
+		u.setApellidos("Garai");
+		assertEquals("Garai", u.getApellidos());
 	}
-	*/
+	
+	@Test
+	public void testGetContrasenya() {
+		assertEquals("123", u.getContrasenya());
+	}
+	
+	@Test
+	public void testSetContrasenya() {
+		u.setContrasenya("321");
+		assertEquals("321", u.getContrasenya());
+	}
+	
+	@Test
+	public void testGetEmail() {
+		assertEquals("javicoa@opendeusto.es", u.getEmail());
+	}
+	
+	@Test
+	public void testSetEmail() {
+		u.setEmail("xabigarai@opendeusto.es");
+		assertEquals("xabigarai@opendeusto.es", u.getEmail());
+	}
+	
+	@Test
+	public void testGetNomUsuario() {
+		assertEquals("j.contre", u.getNomUsuario());
+	}
+	
+	@Test
+	public void testSetNomUsuario() {
+		u.setNomUsuario("Xabi00");
+		assertEquals("Xabi00", u.getNomUsuario());
+	}
+	
+	@Test
+	public void testGetNombre() {
+		assertEquals("Javier", u.getNombre());
+	}
 	
 	
+	@Test
+	public void testSetNombre() {
+		u.setNombre("Xabi");
+		assertEquals("Xabi", u.getNombre());
+	}
 }

@@ -54,11 +54,8 @@ public class Usuario {
 				+ contrasenya + ", email=" + email + "]";
 	}
 	
-	
 
-	
-	
-	
+
 }
 
 	
