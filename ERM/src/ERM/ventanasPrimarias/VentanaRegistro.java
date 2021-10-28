@@ -141,6 +141,7 @@ public class VentanaRegistro extends JFrame {
 							if (tfNombre.getText().equals("") || tfNombre.getText().equals("")|| tfNombreUsuario.getText().equals("")) {
 								JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
 							}
+					 
 							
 							if(!comprobarPatronEmail(tfEmail.getText(), false)) {
 								comprobarPatronEmail(tfEmail.getText(), true);
