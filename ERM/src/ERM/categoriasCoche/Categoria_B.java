@@ -10,10 +10,10 @@ public class Categoria_B extends Coche{
 	private boolean descapotable;
 	private boolean deportivo;
 		
-	public Categoria_B(String id, String nombre, String clase, String marca, String fecha_matriculacion,
+	public Categoria_B(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,
 			boolean deportivo) {
-		super(id, nombre, clase, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 		this.numPuertas = numPuertas;
 		this.descapotable = descapotable;
 		this.deportivo = deportivo;

@@ -10,9 +10,9 @@ public class Categoria_C extends Coche{
 	private boolean descapotable;
 	
 	
-	public Categoria_C(String id, String nombre, String clase, String marca, String fecha_matriculacion,
+	public Categoria_C(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, String tipoTodoTerreno, boolean descapotable) {
-		super(id, nombre, clase, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 		this.tipoTodoTerreno = tipoTodoTerreno;
 		this.descapotable = descapotable;
 	}

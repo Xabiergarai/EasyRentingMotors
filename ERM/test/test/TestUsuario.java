@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import ERM.clasesBasicas.Usuario;
 
-public class TestUsuario {
+public class TestUsuario extends GroupException {
 
 	private Usuario u;
 	
