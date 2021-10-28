@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
@@ -67,15 +67,10 @@ public class VentanaLogIn extends JFrame {
 			getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 			
 			
-			//usuario = new JLabel();
-			//usuario.setText("Introduzca el nombre de usuario");
 			
 			txtNombre = new JTextField();
 			txtNombre.setPreferredSize(new Dimension (200, 50));
 			posicionaLinea(panelCentro, "Introduzca el usuario", txtNombre);
-			
-			//contrasenia = new JLabel();
-			//contrasenia.setText("Introduzca la contrasenia");
 			
 			txtContrasenia = new JPasswordField();
 			txtContrasenia.setPreferredSize(new Dimension (200, 50));
@@ -121,8 +116,8 @@ public class VentanaLogIn extends JFrame {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO AL VIDEOCLUB");
 							
 							
-							//new VentanaCliente(nick);
-							//new Ventana();
+							//new VentanaPrincipal(nick);
+							
 							
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
@@ -157,5 +152,7 @@ public class VentanaLogIn extends JFrame {
 				tempPanel.add(campo);
 				cont.add(tempPanel);
 			}
+
+			 
 	}
 
