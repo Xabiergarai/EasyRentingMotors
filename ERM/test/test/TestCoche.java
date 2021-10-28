@@ -5,9 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import ERM.clasesBasicas.Coche;
+import ERM.categoriasCoche.Coche;
 
-class TestCoche {
+class TestCoche extends GroupException {
 
 	private Coche c;
 	

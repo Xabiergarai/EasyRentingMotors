@@ -3,6 +3,8 @@ package ERM.clasesBasicas;
 import java.util.HashMap;
 import java.util.Map;
 
+import ERM.categoriasCoche.Coche;
+
 public class ListaCoche extends Coche {
 	
 	private Map<Integer, Coche> coches;
