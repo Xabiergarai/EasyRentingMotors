@@ -168,7 +168,7 @@ private PreparedStatement ps = null;
 	public boolean registrar(Usuario u) throws DBException {
 
 		try {
-			Connection con = initBD("usuarios.sqlite3");
+			Connection con = initBD("usuarios.bd");
 			
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
 			

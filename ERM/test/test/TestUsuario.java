@@ -6,11 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import ERM.clasesBasicas.Usuario;
 
+
+/*
+ * 
+ * Esta clase se encarba para hacer test de la clase basica, Usuario.
+ * 
+ */
+
+
 public class TestUsuario extends GroupException {
 
 	private Usuario u;
-	
-	
+		
 	@BeforeEach
 	public void setup() {
 		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
@@ -21,8 +28,7 @@ public class TestUsuario extends GroupException {
 	public void testToString() {
 		assertEquals("Usuario [nombre=Javier, apellidos=Contreras, nickname=j.contre, contrasenya=123, email=javicoa@opendeusto.es]", u.toString());
 	}
-				
-	
+					
 	@Test
 	public void testgetApellidos() {
 		assertEquals("Contreras", u.getApellidos());
@@ -71,7 +77,6 @@ public class TestUsuario extends GroupException {
 	public void testGetNombre() {
 		assertEquals("Javier", u.getNombre());
 	}
-	
 	
 	@Test
 	public void testSetNombre() {

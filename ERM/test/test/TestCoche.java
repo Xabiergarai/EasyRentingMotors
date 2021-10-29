@@ -7,6 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import ERM.categoriasCoche.Coche;
 
+/*
+ * 
+ * Esta clase se encarba para hacer test de la clase basica, Coche.
+ * 
+ */
+
+
 class TestCoche extends GroupException {
 
 	private Coche c;
@@ -16,7 +23,12 @@ class TestCoche extends GroupException {
 		 c = new Coche("01", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "  ");	
 	}
 
-	
+	@Test
+	void testToString() {
+		assertEquals("Coche [id=01, nombre=A5, clase=A, marca=Audi, fecha_matriculacion=2008-01-12, combustible=Diesel, precio=50.0, rutaFoto=  ]"
+		, c.toString());	
+	}
+			
 	@Test
 	void testGetId() {
 		assertEquals("01", c.getId());
@@ -58,8 +70,8 @@ class TestCoche extends GroupException {
 	
 	@Test
 	void testSetMarca() {
-		c.setClase("BMW");;
-		assertEquals("Audi", c.getMarca());		
+		c.setMarca("BMW");;
+		assertEquals("BMW", c.getMarca());		
 	}
 	
 	@Test
@@ -86,15 +98,16 @@ class TestCoche extends GroupException {
 	}
 	
 	
-	
-	/*
-	 * 
-	 * Faltan mas
-	 * 
-	 * 
-	 * 
-	 */
-	
+	@Test
+	void testSetPrecio() {
+		c.setPrecio(1);
+		assertEquals(1, c.getPrecio());
+	}
+
+	@Test
+	void testGetPrecio() {
+		assertEquals(50.000, c.getPrecio());
+	}
 	
 				
 }

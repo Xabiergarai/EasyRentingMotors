@@ -3,7 +3,7 @@ package ERM.categoriasCoche;
 import java.io.Serializable;
 
 public class Coche implements Serializable {
-	
+		
 	private String id;
 	private String nombre;
 	private String categoria;
@@ -109,6 +109,7 @@ public class Coche implements Serializable {
 				+ fecha_matriculacion + ", combustible=" + combustible + ", precio=" + precio + ", rutaFoto=" + rutaFoto
 				+ "]";
 	}
+	
 	
 	
 
