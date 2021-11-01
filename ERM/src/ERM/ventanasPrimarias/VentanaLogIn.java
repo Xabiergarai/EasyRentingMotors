@@ -42,7 +42,7 @@ public class VentanaLogIn extends JFrame {
 	public static String nick;
 	
 	
-		public VentanaLogIn() throws DBException{
+		public VentanaLogIn() {
 			super();
 			
 			

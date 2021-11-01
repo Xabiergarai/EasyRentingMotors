@@ -41,7 +41,7 @@ public class VentanaRegistro extends JFrame {
 
 		
 	
-	public VentanaRegistro() {
+	public VentanaRegistro() throws DBException {
 		this.setTitle("Registro");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 500, 100);
@@ -116,12 +116,7 @@ public class VentanaRegistro extends JFrame {
 				btnAtras = new JButton("Volver");
 				btnAtras.addActionListener(e->{
 					VentanaLogIn vl = null;
-					try {
-						vl = new VentanaLogIn();
-					} catch (DBException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					vl = new VentanaLogIn();
 					vl.setVisible(true);
 					dispose();				
 				});
@@ -209,7 +204,12 @@ public class VentanaRegistro extends JFrame {
 
 	            @Override
 	            public void run() {
-	                new VentanaRegistro();
+	                try {
+						new VentanaRegistro();
+					} catch (DBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 	        }); 
 	    }
