@@ -26,7 +26,6 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
-import paneles.PanelFondo;
 
 public class VentanaLogIn extends JFrame {
 	/**
@@ -117,7 +116,7 @@ public class VentanaLogIn extends JFrame {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO AL EASYRENTINGMOTORS");
 							
 							
-							//new VentanaPrincipal(nick);
+						//	new VentanaUtil();
 							
 							
 						}else if(resultado == 1) {
@@ -127,6 +126,7 @@ public class VentanaLogIn extends JFrame {
 							btnRegistrar.setVisible(true);
 
 						}
+						//Servira para poder meter nuevos usuarios sin tener que borrarlos a mano
 						//vaciarCampos();
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
@@ -136,7 +136,14 @@ public class VentanaLogIn extends JFrame {
 					
 				}
 			});
-			
+			btnSalir.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					System.exit(0);
+				}
+			});
 			
 			
 		}
