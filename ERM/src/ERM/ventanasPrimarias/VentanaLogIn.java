@@ -26,6 +26,7 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
+import paneles.PanelFondo;
 
 public class VentanaLogIn extends JFrame {
 	/**
@@ -51,7 +52,7 @@ public class VentanaLogIn extends JFrame {
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			//setExtendedState(MAXIMIZED_BOTH);
 			
-			//panelCentro = PanelFondo
+			panelCentro = new PanelFondo("imagenes/loggo.jpg");
 			panelCentro.setLayout(new BoxLayout(panelCentro, BoxLayout.Y_AXIS));
 			panelCentro.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, true));
 			
@@ -113,7 +114,7 @@ public class VentanaLogIn extends JFrame {
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
-							JOptionPane.showMessageDialog(null, "BIENVENIDO AL VIDEOCLUB");
+							JOptionPane.showMessageDialog(null, "BIENVENIDO AL EASYRENTINGMOTORS");
 							
 							
 							//new VentanaPrincipal(nick);
