@@ -26,6 +26,7 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
+import baseDatos.BD;
 
 public class VentanaLogIn extends JFrame {
 	/**
@@ -122,12 +123,14 @@ public class VentanaLogIn extends JFrame {
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
 						}else {
+							DBManager.insertarUsuario(nick, contrasenia);
 							JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
-							btnRegistrar.setVisible(true);
+							
+							new VentanaRegistro();
 
 						}
 						//Servira para poder meter nuevos usuarios sin tener que borrarlos a mano
-						//vaciarCampos();
+						vaciarCampos();
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -146,6 +149,10 @@ public class VentanaLogIn extends JFrame {
 			});
 			
 			
+		}
+		public void vaciarCampos(){
+			txtNombre.setText("");
+			txtContrasenia.setText("");
 		}
 		
 			private void posicionaLinea(Container cont, String etiqueta, Component campo) {

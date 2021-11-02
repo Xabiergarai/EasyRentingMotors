@@ -43,10 +43,20 @@ private PreparedStatement ps = null;
 			throw new DBException("Error conectando a la BD", e);
 		}
 	}
-	
+	/**
+	 * Crea las tablas de la base de datos. Si ya existen, las deja tal cual.
+	 * Devuelve un statement para trabajar con esa base de datos
+	 * 
+	 * @param con Conexión ya creada y abierta a la base de datos
+	 * @return sentencia de trabajo si se crea correctamente, null si hay cualquier
+	 *         error
+	 * @throws BDException
+	 */
 	
 	public static Statement usarCrearTablasBD(Connection con) throws DBException {
-	try {
+		logger.log(Level.INFO, "Creando tablas...");
+
+		try {
 		Statement statement = con.createStatement();
 		try {
 			statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " con string)");
