@@ -37,7 +37,7 @@ private PreparedStatement ps = null;
 	public static Connection initBD(String nombre) throws DBException { 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:usuarios.db");
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/usuarios");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
@@ -138,7 +138,7 @@ private PreparedStatement ps = null;
 	}
 	
 	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
-		Connection con = initBD("usurios.db");
+		Connection con = initBD("usuarios.db");
 		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "')";
 		Statement st = null;
 		try {
@@ -207,7 +207,9 @@ private PreparedStatement ps = null;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log(Level.SEVERE, "Error al insertar usuario", e);
-			return false;		}		
+			return false;		
+			
+		}		
 
 	}
 	
