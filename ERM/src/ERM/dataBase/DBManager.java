@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.junit.jupiter.params.converter.JavaTimeConversionPattern;
+
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
 
@@ -43,10 +45,20 @@ private PreparedStatement ps = null;
 			throw new DBException("Error conectando a la BD", e);
 		}
 	}
-	
+	/**
+	 * Crea las tablas de la base de datos. Si ya existen, las deja tal cual.
+	 * Devuelve un statement para trabajar con esa base de datos
+	 * 
+	 * @param con Conexión ya creada y abierta a la base de datos
+	 * @return sentencia de trabajo si se crea correctamente, null si hay cualquier
+	 *         error
+	 * @throws BDException
+	 */
 	
 	public static Statement usarCrearTablasBD(Connection con) throws DBException {
-	try {
+		logger.log(Level.INFO, "Creando tablas...");
+
+		try {
 		Statement statement = con.createStatement();
 		try {
 			statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " con string)");
@@ -62,9 +74,17 @@ private PreparedStatement ps = null;
 	}
 	
 	}
+	/**
+	 Este metodo comprobara si existe el usuario en concre	 * @param nick
+	 * @param contrasenia
+	 * @return
+	 * @throws DBException
+	 */
+	 
+	
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
-		Connection con = initBD("RentingMotors.sqlite3");
-		String sql = "SELECT * FROM Usuario WHERE nick='" + nick + "'";
+		Connection con = initBD("usuarios.db");
+		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick +","+ contrasenia + "'";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
@@ -118,8 +138,8 @@ private PreparedStatement ps = null;
 	}
 	
 	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
-		Connection con = initBD(".sqlite3");
-		String sql = "INSERT INTO Usuario VALUES('" + nick + "','" + contrasenia + "')";
+		Connection con = initBD("usurios.db");
+		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "')";
 		Statement st = null;
 		try {
 			st = con.createStatement();
