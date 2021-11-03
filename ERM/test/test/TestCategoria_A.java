@@ -26,13 +26,7 @@ class TestCategoria_A extends GroupException {
 		assertEquals(true, a.isMaletero());
 	}
 	
-	
-	
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-	
+
 	
 
 }

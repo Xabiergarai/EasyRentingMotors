@@ -30,9 +30,6 @@ class TestCategoria_D {
 	
 	
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+	
 
 }
