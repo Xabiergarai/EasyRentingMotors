@@ -206,6 +206,7 @@ private PreparedStatement ps = null;
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			log(Level.SEVERE, "Error al insertar usuario", e);
 			return false;		}		
 

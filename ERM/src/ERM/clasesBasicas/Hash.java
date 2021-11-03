@@ -1,5 +1,6 @@
 package ERM.clasesBasicas;
 
+
 public class Hash {
 
 	/**
