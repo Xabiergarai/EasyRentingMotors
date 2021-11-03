@@ -41,6 +41,7 @@ public class VentanaInicial extends JFrame{
 		
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
+		setBounds(100, 100, 638, 639);
 		
 		JButton btnRegistro = new JButton("REGISTRO");
 		btnRegistro.addActionListener(e->{
@@ -51,10 +52,11 @@ public class VentanaInicial extends JFrame{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			vr.setVisible(true);										
+			vr.setVisible(true);
+			dispose();
 		});
 	
-		btnRegistro.setBounds(293, 482, 273, 48);
+		btnRegistro.setBounds(317, 518, 284, 48);
 		getContentPane().add(btnRegistro);
 	
 		JLabel lblLogo = new JLabel("Foto");
@@ -68,7 +70,7 @@ public class VentanaInicial extends JFrame{
 		JLabel lblTitulo = new JLabel("EASY RENTING MOTORS");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Algerian", Font.BOLD, 40));
-		lblTitulo.setBounds(23, 28, 543, 71);
+		lblTitulo.setBounds(23, 28, 564, 71);
 		getContentPane().add(lblTitulo);
 	
 		
@@ -77,11 +79,18 @@ public class VentanaInicial extends JFrame{
 			VentanaLogIn vi = null;
 			vi = new VentanaLogIn();
 			vi.setVisible(true);
+			dispose();
 		
 		});
 		
-		btnLogin.setBounds(23, 482, 255, 48);
+		btnLogin.setBounds(23, 518, 284, 48);
 		getContentPane().add(btnLogin);
+		
+		JLabel lblNewLabel = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
+		lblNewLabel.setBounds(23, 110, 554, 14);
+		getContentPane().add(lblNewLabel);
 	}
 	
 	 
