@@ -9,10 +9,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.junit.jupiter.params.converter.JavaTimeConversionPattern;
 
 import ERM.clasesBasicas.Usuario;
-import ERM.dataBase.*;
 
 
 
@@ -136,10 +134,17 @@ private static PreparedStatement ps = null;
 		}
 		return resultado;
 	}
+
 	/*
 	public static void insertarUsuario(String nick,String apellidos, String contrasenia,String nickname, String email) throws DBException{
 		Connection con = initBD("usurios.db");
 		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "','"+apellidos+"','"+nickname+"','"+email+"','"+"')";
+=======
+	
+	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
+		Connection con = initBD("usuarios.db");
+		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "')";
+>>>>>>> fbf5d7a2217adea9737dba5a58ab1fa56735be2b
 		Statement st = null;
 		try {
 			st = con.createStatement();
@@ -188,11 +193,10 @@ private static PreparedStatement ps = null;
 	public  boolean registrar(Usuario u) throws DBException {
 
 		try {
-			Connection con = initBD("usuarios.bd");
-			
+		    Connection con = initBD("usuarios.bd");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
 			
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			
 			ps.setString(1, u.getNombre());
 			ps.setString(2, u.getApellidos());
@@ -208,7 +212,9 @@ private static PreparedStatement ps = null;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log(Level.SEVERE, "Error al insertar usuario", e);
-			return false;		}		
+			return false;		
+			
+		}		
 
 	}
 	
