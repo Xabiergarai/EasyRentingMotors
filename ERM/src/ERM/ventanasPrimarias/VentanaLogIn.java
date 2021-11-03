@@ -26,7 +26,6 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
-import baseDatos.BD;
 
 public class VentanaLogIn extends JFrame {
 	/**
@@ -167,7 +166,6 @@ public class VentanaLogIn extends JFrame {
 				tempPanel.add(campo);
 				cont.add(tempPanel);
 			}
-
-			 
+			
 	}
 

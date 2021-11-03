@@ -72,8 +72,9 @@ private PreparedStatement ps = null;
 	}
 	
 	}
+	
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
-		Connection con = initBD("RentingMotors.sqlite3");
+		Connection con = initBD("usuarios.db");
 		String sql = "SELECT * FROM Usuario WHERE nick='" + nick + "'";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
@@ -128,7 +129,7 @@ private PreparedStatement ps = null;
 	}
 	
 	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
-		Connection con = initBD(".sqlite3");
+		Connection con = initBD("usurios.db");
 		String sql = "INSERT INTO Usuario VALUES('" + nick + "','" + contrasenia + "')";
 		Statement st = null;
 		try {

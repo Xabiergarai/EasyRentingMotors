@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import ERM.dataBase.DBException;
 
@@ -85,4 +86,8 @@ public class VentanaInicial extends JFrame{
 		btnLogin.setBounds(23, 482, 255, 48);
 		getContentPane().add(btnLogin);
 	}
+	
+	 
+	
 }
+
