@@ -40,11 +40,5 @@ class TestCategoria_B {
 	
 	
 	
-	
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
 
 }
