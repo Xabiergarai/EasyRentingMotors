@@ -41,23 +41,22 @@ public class VentanaInicial extends JFrame{
 		
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
+		setBounds(100, 100, 638, 639);
 		
 		JButton btnRegistro = new JButton("REGISTRO");
-		btnRegistro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				VentanaRegistro registro = null;
-				try {
-					registro = new VentanaRegistro();
-				} catch (DBException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				registro.setVisible(true);
-				dispose();
+		btnRegistro.addActionListener(e->{
+			VentanaRegistro vr = null;
+			try {
+				vr = new VentanaRegistro();
+			} catch (DBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
+			vr.setVisible(true);
+			dispose();
 		});
 	
-		btnRegistro.setBounds(293, 482, 273, 48);
+		btnRegistro.setBounds(317, 518, 284, 48);
 		getContentPane().add(btnRegistro);
 	
 		JLabel lblLogo = new JLabel("Foto");
@@ -71,20 +70,27 @@ public class VentanaInicial extends JFrame{
 		JLabel lblTitulo = new JLabel("EASY RENTING MOTORS");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Algerian", Font.BOLD, 40));
-		lblTitulo.setBounds(23, 28, 543, 71);
+		lblTitulo.setBounds(23, 28, 564, 71);
 		getContentPane().add(lblTitulo);
+	
 		
 		JButton btnLogin = new JButton("LOGIN");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				VentanaLogIn login = new VentanaLogIn();
-				login.setVisible(true);
-				dispose();
-			}
+		btnLogin.addActionListener(e->{
+			VentanaLogIn vi = null;
+			vi = new VentanaLogIn();
+			vi.setVisible(true);
+			dispose();
+		
 		});
-		btnLogin.setBounds(23, 482, 255, 48);
+		
+		btnLogin.setBounds(23, 518, 284, 48);
 		getContentPane().add(btnLogin);
+		
+		JLabel lblNewLabel = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
+		lblNewLabel.setBounds(23, 110, 554, 14);
+		getContentPane().add(lblNewLabel);
 	}
 	
 	 

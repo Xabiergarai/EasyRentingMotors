@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import ERM.ventanasPrimarias.VentanaInicial;
 import ERM.ventanasPrimarias.VentanaLogIn;
 
 public class App {
@@ -32,8 +33,8 @@ public class App {
 			@Override
 			public void run() {
 				try {
-					VentanaLogIn vl = new VentanaLogIn();
-					vl.setVisible(true);
+					VentanaInicial vi = new VentanaInicial();
+					vi.setVisible(true);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +44,6 @@ public class App {
 		});
 		
 		
-        logger.info("Programa finalizado");
-
 		
 	}
 
