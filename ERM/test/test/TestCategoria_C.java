@@ -31,9 +31,5 @@ class TestCategoria_C {
 	
 	
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
 
 }

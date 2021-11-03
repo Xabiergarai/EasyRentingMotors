@@ -42,7 +42,7 @@ public class VentanaLogIn extends JFrame {
 	public static String nick;
 	
 	
-		public VentanaLogIn() throws DBException{
+		public VentanaLogIn() {
 			super();
 			
 			
@@ -51,7 +51,7 @@ public class VentanaLogIn extends JFrame {
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			//setExtendedState(MAXIMIZED_BOTH);
 			
-			//panelCentro = PanelFondo
+			panelCentro = new PanelFondo("imagenes/loggo.jpg");
 			panelCentro.setLayout(new BoxLayout(panelCentro, BoxLayout.Y_AXIS));
 			panelCentro.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, true));
 			
@@ -113,20 +113,23 @@ public class VentanaLogIn extends JFrame {
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
-							JOptionPane.showMessageDialog(null, "BIENVENIDO AL VIDEOCLUB");
+							JOptionPane.showMessageDialog(null, "BIENVENIDO AL EASYRENTINGMOTORS");
 							
 							
-							//new VentanaPrincipal(nick);
+						//	new VentanaUtil();
 							
 							
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
 						}else {
+							DBManager.insertarUsuario(nick, contrasenia);
 							JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
-							btnRegistrar.setVisible(true);
+							
+							new VentanaRegistro();
 
 						}
-						//vaciarCampos();
+						//Servira para poder meter nuevos usuarios sin tener que borrarlos a mano
+						vaciarCampos();
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -135,9 +138,20 @@ public class VentanaLogIn extends JFrame {
 					
 				}
 			});
+			btnSalir.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					System.exit(0);
+				}
+			});
 			
 			
-			
+		}
+		public void vaciarCampos(){
+			txtNombre.setText("");
+			txtContrasenia.setText("");
 		}
 		
 			private void posicionaLinea(Container cont, String etiqueta, Component campo) {
@@ -152,7 +166,6 @@ public class VentanaLogIn extends JFrame {
 				tempPanel.add(campo);
 				cont.add(tempPanel);
 			}
-
-			 
+			
 	}
 
