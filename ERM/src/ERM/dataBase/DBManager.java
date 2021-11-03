@@ -21,7 +21,7 @@ public class DBManager {
 private Connection conn = null; 
 private static Logger logger = Logger.getLogger(DBManager.class.getName());
 private static boolean LOGGING = true;
-private PreparedStatement ps = null;
+private static PreparedStatement ps = null;
 
 
 	
@@ -61,7 +61,7 @@ private PreparedStatement ps = null;
 		try {
 		Statement statement = con.createStatement();
 		try {
-			statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " con string)");
+			statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " contrasenya string"+ " apellidos string, "+ " email string) ");
 
 		} catch (SQLException ex) {
 			logger.log(Level.WARNING, "Tabla Usuario ya existente");
@@ -84,7 +84,7 @@ private PreparedStatement ps = null;
 	
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
 		Connection con = initBD("usuarios.db");
-		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick +","+ contrasenia + "'";
+		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick+"'"  ;
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
@@ -136,10 +136,10 @@ private PreparedStatement ps = null;
 		}
 		return resultado;
 	}
-	
-	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
+	/*
+	public static void insertarUsuario(String nick,String apellidos, String contrasenia,String nickname, String email) throws DBException{
 		Connection con = initBD("usurios.db");
-		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "')";
+		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "','"+apellidos+"','"+nickname+"','"+email+"','"+"')";
 		Statement st = null;
 		try {
 			st = con.createStatement();
@@ -167,7 +167,7 @@ private PreparedStatement ps = null;
 		}
 	}
 	
-	
+	*/
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;
@@ -185,7 +185,7 @@ private PreparedStatement ps = null;
 	
 	
 	//REGISTRAR NUEVO USUARIO
-	public boolean registrar(Usuario u) throws DBException {
+	public  boolean registrar(Usuario u) throws DBException {
 
 		try {
 			Connection con = initBD("usuarios.bd");
@@ -220,5 +220,10 @@ private PreparedStatement ps = null;
 				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 			}
 		}
+		public static void registrar(String nick, String contrasenia) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 		
 }

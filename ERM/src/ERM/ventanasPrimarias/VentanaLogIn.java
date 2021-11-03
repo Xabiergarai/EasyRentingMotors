@@ -24,6 +24,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import ERM.clasesBasicas.Hash;
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
 
@@ -106,9 +107,9 @@ public class VentanaLogIn extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					
+				
 					String nick = txtNombre.getText();
-					String contrasenia = txtContrasenia.getText();				
+					String contrasenia = Hash.sha1(String.valueOf(txtContrasenia.getPassword()));				
 					int resultado;
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
@@ -122,7 +123,7 @@ public class VentanaLogIn extends JFrame {
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
 						}else {
-							DBManager.insertarUsuario(nick, contrasenia);
+							DBManager.registrar(nick, contrasenia);
 							JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
 							
 							new VentanaRegistro();
