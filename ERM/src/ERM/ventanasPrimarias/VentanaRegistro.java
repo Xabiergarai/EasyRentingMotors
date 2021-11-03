@@ -131,7 +131,7 @@ public class VentanaRegistro extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						// TODO Auto-generated method stub
 						Object boton = e.getSource();
-						//comprobar el email y nongun campo en banco
+						//comprobar el email y ningun campo en banco
 						if (boton == btnRegistrarse) {
 							if (tfNombre.getText().equals("") || tfNombre.getText().equals("")|| tfNombreUsuario.getText().equals("")) {
 								JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
@@ -144,7 +144,8 @@ public class VentanaRegistro extends JFrame {
 						} else {
 							DBManager modSql = new DBManager();
 							
-							Usuario mod = new Usuario();							mod.setApellidos(tfApellidos.getText());
+							Usuario mod = new Usuario();							
+							mod.setApellidos(tfApellidos.getText());							
 							mod.setEmail(tfEmail.getText());
 							mod.setNombre(tfNombre.getName());
 							mod.setNomUsuario(tfNombreUsuario.getText());

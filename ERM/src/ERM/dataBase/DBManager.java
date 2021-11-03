@@ -188,11 +188,10 @@ private PreparedStatement ps = null;
 	public boolean registrar(Usuario u) throws DBException {
 
 		try {
-			Connection con = initBD("usuarios.bd");
-			
+		    Connection con = initBD("usuarios.bd");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
 			
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			
 			ps.setString(1, u.getNombre());
 			ps.setString(2, u.getApellidos());
