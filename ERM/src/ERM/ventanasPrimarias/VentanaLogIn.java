@@ -101,12 +101,12 @@ public class VentanaLogIn extends JFrame {
 			});
 				
 			
-			
+			/*
 			btnAdmin = new JButton();
 			btnAdmin.setToolTipText("Administracion");
 			btnAdmin.setText("Admin");
 			panelBotonera.add(btnAdmin);
-			
+			*/
 			btnSalir = new JButton();
 			btnSalir.setToolTipText("Pulsa para salir");
 			btnSalir.setText("Salir");
@@ -139,7 +139,6 @@ public class VentanaLogIn extends JFrame {
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
 						}else {
-							DBManager.registrar(nick, contrasenia);
 							JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
 							
 							new VentanaRegistro();

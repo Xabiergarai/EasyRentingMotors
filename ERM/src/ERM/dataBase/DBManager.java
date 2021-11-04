@@ -135,44 +135,7 @@ private static PreparedStatement ps = null;
 		return resultado;
 	}
 
-	/*
-	public static void insertarUsuario(String nick,String apellidos, String contrasenia,String nickname, String email) throws DBException{
-		Connection con = initBD("usurios.db");
-		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "','"+apellidos+"','"+nickname+"','"+email+"','"+"')";
-=======
-	
-	public static void insertarUsuario(String nick, String contrasenia) throws DBException{
-		Connection con = initBD("usuarios.db");
-		String sql = "INSERT INTO Usuarios VALUES('" + nick + "','" + contrasenia + "')";
->>>>>>> fbf5d7a2217adea9737dba5a58ab1fa56735be2b
-		Statement st = null;
-		try {
-			st = con.createStatement();
-			st.executeUpdate(sql);
-			logger.log(Level.INFO, "Usuario a�adido correctamente");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new DBException ("Error al insertar usuario en la BD", e);
-		} finally {
-			if (st != null)
-				try {
-					st.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if (con != null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
-	}
-	
-	*/
+
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;
@@ -225,10 +188,6 @@ private static PreparedStatement ps = null;
 			} catch (SQLException e) {
 				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 			}
-		}
-		public static void registrar(String nick, String contrasenia) {
-			// TODO Auto-generated method stub
-			
 		}
 		
 		
