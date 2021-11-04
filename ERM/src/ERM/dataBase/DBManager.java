@@ -157,7 +157,7 @@ private static PreparedStatement ps = null;
 
 		try {
 		    Connection con = initBD("usuarios.bd");
-			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
 			
 			ps = con.prepareStatement(sql);
 			
@@ -168,6 +168,7 @@ private static PreparedStatement ps = null;
 			ps.setString(5, u.getEmail());
 			
 			ps.execute();
+			System.out.println("dnkajnd");
 			log(Level.INFO, "Usuario registrado", null);
 
 			return true;

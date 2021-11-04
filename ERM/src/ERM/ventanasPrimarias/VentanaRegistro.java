@@ -131,16 +131,14 @@ public class VentanaRegistro extends JFrame {
 						// TODO Auto-generated method stub
 						Object boton = e.getSource();
 						//comprobar el email y nongun campo en banco
-						if (boton == btnRegistrarse) {
+				
 							if (tfNombre.getText().equals("") || tfNombre.getText().equals("")|| tfNombreUsuario.getText().equals("")) {
 								JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
-							}
-					 
+							}					 
 							
 							if(!comprobarPatronEmail(tfEmail.getText(), false)) {
 								comprobarPatronEmail(tfEmail.getText(), true);
 							}
-						} else {
 							DBManager modSql = new DBManager();
 							
 							Usuario mod = new Usuario();		
@@ -165,18 +163,10 @@ public class VentanaRegistro extends JFrame {
 							
 							JOptionPane.showMessageDialog(null, "Registro Completado");
 						
-							try {
-								modSql.disconnect();
-								VentanaLogIn vL = new VentanaLogIn();
-								vL.setVisible(true);
-							} catch (DBException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-							dispose();
-							
+									VentanaLogIn vL = new VentanaLogIn();
+									vL.setVisible(true);
+									dispose();							
 						}
-					}
 				});
 						
 				panelInferiorCentral.add(btnRegistrarse);					
