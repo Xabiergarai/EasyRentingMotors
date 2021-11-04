@@ -24,7 +24,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import ERM.clasesBasicas.Hash;
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
 
@@ -119,19 +118,19 @@ public class VentanaLogIn extends JFrame {
 				dispose();
 			});
 			
-			btnEntrar.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			 
+			 
+			btnEntrar.addActionListener(e->{
 					// TODO Auto-generated method stub
 				
 					String nick = txtNombre.getText();
-					String contrasenia = Hash.sha1(String.valueOf(txtContrasenia.getPassword()));				
+					
+					String contrasenia = txtContrasenia.getText();				
 					int resultado;
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
-							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASYRENTINGMOTORS");
+							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 							
 							
 						//	new VentanaUtil();
@@ -154,17 +153,27 @@ public class VentanaLogIn extends JFrame {
 					}
 					
 					
-				}
+				
 			});
 			
 			
 		}
+		/**
+		 * Este metodo se encarga de vaciar los campos
+		 */
 		public void vaciarCampos(){
 			txtNombre.setText("");
 			txtContrasenia.setText("");
 		}
 		
-			private void posicionaLinea(Container cont, String etiqueta, Component campo) {
+		/**
+		 * Este metodo sirve para alinear campos
+		 * @param cont
+		 * @param etiqueta
+		 * @param campo
+		 */
+		
+		void posicionaLinea(Container cont, String etiqueta, Component campo) {
 				JPanel tempPanel = new JPanel();
 				tempPanel.setOpaque(false);
 				tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); //se hace un flow ajustado a la izquierda

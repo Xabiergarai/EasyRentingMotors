@@ -95,7 +95,7 @@ private static PreparedStatement ps = null;
 				logger.log(Level.WARNING, "Usuario no exixtente");
 
 			} else {
-				String c = rs.getString(2);
+				String c = rs.getString(4);
 				if (c.equals(contrasenia)) {
 					resultado = 2;
 					logger.log(Level.FINE, "Usuario existente");
