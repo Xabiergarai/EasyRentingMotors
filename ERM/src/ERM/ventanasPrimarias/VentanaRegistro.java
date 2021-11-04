@@ -148,9 +148,8 @@ public class VentanaRegistro extends JFrame {
 							mod.setEmail(tfEmail.getText());
 							mod.setNombre(tfNombre.getName());
 							mod.setNomUsuario(tfNombreUsuario.getText());
+							mod.setContrasenya(pfContrasenia.getText());
 							
-							String nuevaContrasenia = Hash.sha1(String.valueOf(pfContrasenia.getPassword()));
-							mod.setContrasenya(nuevaContrasenia);
 							
 							try {
 								if (modSql.registrar(mod)) {
