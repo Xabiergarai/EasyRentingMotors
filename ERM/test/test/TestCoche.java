@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import ERM.categoriasCoche.Coche;
 
-/*
+/**
  * 
- * Esta clase se encarba para hacer test de la clase basica, Coche.
+ * Esta clase se encarga para hacer test de la clase basica, Coche.
  * 
  */
 

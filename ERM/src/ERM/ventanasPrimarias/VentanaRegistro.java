@@ -114,9 +114,9 @@ public class VentanaRegistro extends JFrame {
 
 				btnAtras = new JButton("Volver");
 				btnAtras.addActionListener(e->{
-					VentanaLogIn vl = null;
-					vl = new VentanaLogIn();
-					vl.setVisible(true);
+					VentanaInicial vi = null;
+					vi = new VentanaInicial();
+					vi.setVisible(true);
 					dispose();				
 				});
 				

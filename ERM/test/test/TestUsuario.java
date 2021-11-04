@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import ERM.clasesBasicas.Usuario;
 
 
-/*
+/**
  * 
- * Esta clase se encarba para hacer test de la clase basica, Usuario.
+ * Esta clase se encarga para hacer test de la clase basica, Usuario.
  * 
  */
 
