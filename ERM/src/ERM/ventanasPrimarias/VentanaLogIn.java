@@ -75,25 +75,31 @@ public class VentanaLogIn extends JFrame {
 			
 			txtContrasenia = new JPasswordField();
 			txtContrasenia.setPreferredSize(new Dimension (200, 50));
-			posicionaLinea(panelCentro, "Introduzca la contrasenia", txtContrasenia);
+			posicionaLinea(panelCentro, "Introduzca la contraseña", txtContrasenia);
 			
 			 
 			
 			btnEntrar = new JButton();
 			btnEntrar.setToolTipText("Aï¿½ade los parametros pedidos y pulsa el boton");
-			btnEntrar.setText("Iniciar sesion");
+			btnEntrar.setText("Iniciar sesi\u00F3n");
 			panelBotonera.add(btnEntrar);
-			
-			btnSalir = new JButton();
-			btnSalir.setToolTipText("Pulsa para salir");
-			btnSalir.setText("Salir");
-			panelBotonera.add(btnSalir);
 			
 			btnRegistrar = new JButton();
 			btnRegistrar.setToolTipText("Pulsa para registrarte");
 			btnRegistrar.setText("Registro");
-			btnRegistrar.setVisible(false);
 			panelBotonera.add(btnRegistrar);
+			
+			btnRegistrar.addActionListener(e->{
+				VentanaRegistro vr = null;
+				try {
+					vr = new VentanaRegistro();
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				vr.setVisible(true);
+				dispose();
+			});
 				
 			
 			
@@ -101,6 +107,17 @@ public class VentanaLogIn extends JFrame {
 			btnAdmin.setToolTipText("Administracion");
 			btnAdmin.setText("Admin");
 			panelBotonera.add(btnAdmin);
+			
+			btnSalir = new JButton();
+			btnSalir.setToolTipText("Pulsa para salir");
+			btnSalir.setText("Salir");
+			panelBotonera.add(btnSalir);
+			btnSalir.addActionListener(e->{
+				VentanaInicial vi = null;
+				vi = new VentanaInicial();
+				vi.setVisible(true);
+				dispose();
+			});
 			
 			btnEntrar.addActionListener(new ActionListener() {
 				
@@ -114,7 +131,7 @@ public class VentanaLogIn extends JFrame {
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
-							JOptionPane.showMessageDialog(null, "BIENVENIDO AL EASYRENTINGMOTORS");
+							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASYRENTINGMOTORS");
 							
 							
 						//	new VentanaUtil();
@@ -137,14 +154,6 @@ public class VentanaLogIn extends JFrame {
 					}
 					
 					
-				}
-			});
-			btnSalir.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					System.exit(0);
 				}
 			});
 			

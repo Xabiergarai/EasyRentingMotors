@@ -36,8 +36,7 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField pfContrasenia, pfConfirmarContrasenia;
 	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
-	public static Pattern patronEmail = Pattern
-			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	public static Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
 		
 	
@@ -144,7 +143,8 @@ public class VentanaRegistro extends JFrame {
 						} else {
 							DBManager modSql = new DBManager();
 							
-							Usuario mod = new Usuario();							mod.setApellidos(tfApellidos.getText());
+							Usuario mod = new Usuario();		
+							mod.setApellidos(tfApellidos.getText());
 							mod.setEmail(tfEmail.getText());
 							mod.setNombre(tfNombre.getName());
 							mod.setNomUsuario(tfNombreUsuario.getText());
@@ -191,8 +191,8 @@ public class VentanaRegistro extends JFrame {
 			return patronEmail.matcher(email).matches();
 		}else {
 			if(showErrorWindow) {
-				JOptionPane.showMessageDialog(null, "El email " + email + "no cumple el patron correctamente" );
-				System.out.println("El email " + email + "no cumple el patron correctamente");
+				JOptionPane.showMessageDialog(null, "El email " + email + " no cumple el patron correctamente" );
+				System.out.println("El email " + email + " no cumple el patron correctamente");
 			}
 			return false;
 		}

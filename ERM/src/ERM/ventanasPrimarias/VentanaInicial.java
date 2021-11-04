@@ -80,6 +80,7 @@ public class VentanaInicial extends JFrame{
 			vi = new VentanaLogIn();
 			vi.setVisible(true);
 			dispose();
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login", JOptionPane.INFORMATION_MESSAGE);
 		
 		});
 		
