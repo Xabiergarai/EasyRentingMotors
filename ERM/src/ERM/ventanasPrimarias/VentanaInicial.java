@@ -10,7 +10,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.Image;
+import java.awt.*;
 
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -58,12 +58,6 @@ public class VentanaInicial extends JFrame{
 	
 		btnRegistro.setBounds(317, 518, 284, 48);
 		getContentPane().add(btnRegistro);
-	
-		JLabel lblLogo = new JLabel("Foto");
-		lblLogo.setBounds(185, 192, 149, 113);
-		ImageIcon ico = new ImageIcon("EasyRentingMotors/imagenes/loggo.png");
-        ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH));
-        lblLogo.setIcon(img);
 		
 		
 		
@@ -92,9 +86,15 @@ public class VentanaInicial extends JFrame{
 		lblNewLabel.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
 		lblNewLabel.setBounds(23, 110, 554, 14);
 		getContentPane().add(lblNewLabel);
+		
+		JLabel lblLogo1 = new JLabel("Logo");
+		lblLogo1.setBounds(153, 200, 303, 236);
+		ImageIcon ico = new ImageIcon("EasyRentingMotors/imagenes/logo.png");
+        ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
+        lblLogo1.setIcon(img);
+        getContentPane().add(lblLogo1);
+		
+		
 	}
-	
-	 
-	
 }
 
