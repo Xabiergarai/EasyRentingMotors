@@ -88,8 +88,8 @@ public class VentanaInicial extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblLogo1 = new JLabel("Logo");
-		lblLogo1.setBounds(153, 200, 303, 236);
-		ImageIcon ico = new ImageIcon("EasyRentingMotors/imagenes/logo.png");
+		lblLogo1.setBounds(160, 210, 313, 246);
+		ImageIcon ico = new ImageIcon("imagenes/logo.png");
         ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
         lblLogo1.setIcon(img);
         getContentPane().add(lblLogo1);
