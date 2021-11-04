@@ -151,6 +151,7 @@ public class VentanaRegistro extends JFrame {
 							mod.setContrasenya(pfContrasenia.getText());
 							
 							
+							
 							try {
 								if (modSql.registrar(mod)) {
 									JOptionPane.showMessageDialog(null, "Registro realizado con exito");
