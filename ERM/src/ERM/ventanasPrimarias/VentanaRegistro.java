@@ -138,7 +138,7 @@ public class VentanaRegistro extends JFrame {
 							
 							if(!comprobarPatronEmail(tfEmail.getText(), false)) {
 								comprobarPatronEmail(tfEmail.getText(), true);
-							}
+							}else {
 							DBManager modSql = new DBManager();
 							
 							Usuario mod = new Usuario();		
@@ -167,6 +167,7 @@ public class VentanaRegistro extends JFrame {
 									vL.setVisible(true);
 									dispose();							
 						}
+					}
 				});
 						
 				panelInferiorCentral.add(btnRegistrarse);					
