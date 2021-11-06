@@ -37,6 +37,13 @@ private Categoria_B b;
 	}
 	
 	@Test
+	public void testSetNumPuertas() {		
+		b.setNumPuertas(4);
+		assertEquals(4,b.getNumPuertas());
+	}	
+	
+	
+	@Test
 	public void testGetDescapotable() {				
 		assertEquals(false,b.isdescapotable());
 	} 
@@ -45,9 +52,6 @@ private Categoria_B b;
 	@Test
 	public void testGetDeportivo() {						
 		assertEquals(false,b.isDeportivo());
-	} 
-	
-	
-	
+	} 			
 
 }

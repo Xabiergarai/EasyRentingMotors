@@ -31,9 +31,16 @@ private Categoria_D d;
 	}
 	
 	@Test
+	public void setTipoFurgoneta() {
+		d.setTipoFurgoneta("Vito");
+		assertEquals("Vito", d.getTipoFurgoneta());
+	}
+	
+	
+	@Test
 	public void testGetDescapotable() {		
 		assertEquals(false, d.isDescapotable());
 	}
-		
+						
 
 }

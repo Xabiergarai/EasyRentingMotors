@@ -28,11 +28,15 @@ private Categoria_C c;
 					"2018/10-15", "Gasolina", 9999.99, " ", "cuatroxcuatro", true );
 	}
 	
-	
-
 	@Test
 	public void testGetTipoTodoTerreno() {		
 		assertEquals("cuatroxcuatro", c.getTipoTodoTerreno());
+	}
+	
+	@Test
+	public void testSetTipoTodoTerreno() {	
+		c.setTipoTodoTerreno("vito");
+		assertEquals("vito", c.getTipoTodoTerreno());
 	}
 	
 	@Test
