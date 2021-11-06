@@ -1,6 +1,6 @@
 package ERM.ventanasPrimarias;
 
-import java.awt.BorderLayout;  
+import java.awt.BorderLayout;   
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -16,13 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import ERM.clasesBasicas.*;
 import ERM.dataBase.DBException;
 import ERM.dataBase.DBManager;
-
-
-
 
 public class VentanaRegistro extends JFrame {
 	
@@ -32,7 +28,7 @@ public class VentanaRegistro extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField tfNombre, tfApellidos, tfNombreUsuario, tfEmail;
 	private JPanel panelContenidos;
-	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail,lbContrasenia, lbConfirmarContrasenia;
+	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail,lbContrasenia;
 	private JPasswordField pfContrasenia, pfConfirmarContrasenia;
 	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
@@ -86,7 +82,7 @@ public class VentanaRegistro extends JFrame {
 				pfContrasenia = new JPasswordField();
 				tP = new TextPrompt("Contraseña", pfContrasenia);
 
-				lbConfirmarContrasenia = new JLabel("");
+				new JLabel("");
 				pfConfirmarContrasenia = new JPasswordField();
 				tP = new TextPrompt("Confirmar contraseña", pfConfirmarContrasenia);
 
@@ -126,16 +122,15 @@ public class VentanaRegistro extends JFrame {
 				btnRegistrarse = new JButton("Registrarse");
 				btnRegistrarse.addActionListener(new ActionListener() {
 					
+					@SuppressWarnings("deprecation")
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						// TODO Auto-generated method stub
-						Object boton = e.getSource();
-						//comprobar el email y nongun campo en banco
-				
+						
+							//compruebar ningun campo en banco				
 							if (tfNombre.getText().equals("") || tfNombre.getText().equals("")|| tfNombreUsuario.getText().equals("")) {
 								JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
 							}					 
-							
+							//compruebar que cumple el patron del email
 							if(!comprobarPatronEmail(tfEmail.getText(), false)) {
 								comprobarPatronEmail(tfEmail.getText(), true);
 							}else {
@@ -189,19 +184,4 @@ public class VentanaRegistro extends JFrame {
 		}
 	}
 	
-	 public static void main(String[] args) {
-
-	        SwingUtilities.invokeLater(new Runnable() {
-
-	            @Override
-	            public void run() {
-	                try {
-						new VentanaRegistro();
-					} catch (DBException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	            }
-	        }); 
-	    }
 }
