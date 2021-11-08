@@ -133,8 +133,8 @@ public class VentanaLogIn extends JFrame {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 							
 							
-						//	new VentanaUtil();
-							
+							new VentanaPrincipal();
+							dispose();
 							
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
