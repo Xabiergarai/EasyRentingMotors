@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-//Fondo para la VentanaUsuario
+//Fondo para la VentanaLogin
 public class PanelFondo extends JPanel {
 	private String fondo;
 	public PanelFondo(String fondo){
@@ -20,9 +20,7 @@ public class PanelFondo extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.fondo = fondo;
 	}
-	/**
-	 * La funcionalidad es pintar el fondo de un componente.
-	 */
+	
 	public void paintComponent(Graphics g){
 		Dimension tamanio = getSize();
 		ImageIcon imagenFondo = new ImageIcon(fondo);
