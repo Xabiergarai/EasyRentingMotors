@@ -168,7 +168,7 @@ private static PreparedStatement ps = null;
 			ps.setString(5, u.getEmail());
 			
 			ps.execute();
-			System.out.println("dnkajnd");
+			System.out.println("Usuario registrado");
 			log(Level.INFO, "Usuario registrado", null);
 
 			return true;

@@ -7,7 +7,8 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 		setSize(400, 360);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);					
+		setVisible(true);
+		setTitle("Menu Principal");
 	}
 				
 	

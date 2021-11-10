@@ -29,7 +29,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField tfNombre, tfApellidos, tfNombreUsuario, tfEmail;
 	private JPanel panelContenidos;
 	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail,lbContrasenia;
-	private JPasswordField pfContrasenia, pfConfirmarContrasenia;
+	private JPasswordField pfContrasenia;
 	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
 	public static Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -81,10 +81,7 @@ public class VentanaRegistro extends JFrame {
 				lbContrasenia = new JLabel("Contraseña: ");
 				pfContrasenia = new JPasswordField();
 				tP = new TextPrompt("Contraseña", pfContrasenia);
-
-				new JLabel("");
-				pfConfirmarContrasenia = new JPasswordField();
-				tP = new TextPrompt("Confirmar contraseña", pfConfirmarContrasenia);
+				
 
 				panelCentralSup.add(lbNombre);
 				panelCentralSup.add(tfNombre);
