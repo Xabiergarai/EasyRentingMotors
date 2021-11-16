@@ -115,7 +115,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 			});
 		
-		URL iconURL1 = getClass().getResource("/cocheClaseB.png");
+		URL iconURL1 = getClass().getResource("/cocheClaseB.jpg");
 		JLabel lblNewLabel_2 = new JLabel("Categoria B");
 		lblNewLabel_2.setBounds(90, 62, 106, 77);
 		frame.getContentPane().add(lblNewLabel_2);
@@ -141,7 +141,7 @@ public class VentanaPrincipal extends JFrame {
 		lblNewLabel_3.setBounds(83, 224, 126, 77);
 		frame.getContentPane().add(lblNewLabel_3);
 
-		URL iconURL2 = getClass().getResource("/cocheClaseC.png");
+		URL iconURL2 = getClass().getResource("/cocheClaseC.jpg");
 		ImageIcon ico4= new ImageIcon(iconURL2);
 		ImageIcon img4= new ImageIcon(ico4.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3.setIcon(img4);
