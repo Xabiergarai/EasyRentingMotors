@@ -1,6 +1,7 @@
 package ERM.ventanasPrimarias;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -26,7 +27,7 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
-
+import java.awt.EventQueue;
 public class VentanaLogIn extends JFrame {
 	/**
 	 * 
@@ -34,12 +35,27 @@ public class VentanaLogIn extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	
+	private JFrame frame;
 	private JPanel panelCentro, panelBase, panelBotonera ;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenia;
 	private JLabel usuario, contrasenia;
 	private JButton btnEntrar, btnSalir, btnRegistrar, btnAdmin, btnFavoritos;
 	public static String nick;
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaLogIn window = new VentanaLogIn();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	
 		public VentanaLogIn() {
@@ -74,7 +90,7 @@ public class VentanaLogIn extends JFrame {
 			
 			txtContrasenia = new JPasswordField();
 			txtContrasenia.setPreferredSize(new Dimension (200, 50));
-			posicionaLinea(panelCentro, "Introduzca la contraseña", txtContrasenia);
+			posicionaLinea(panelCentro, "Introduzca la contraseï¿½a", txtContrasenia);
 			
 			 
 			
