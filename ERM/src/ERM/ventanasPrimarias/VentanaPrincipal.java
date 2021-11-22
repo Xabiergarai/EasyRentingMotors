@@ -93,12 +93,12 @@ public class VentanaPrincipal extends JFrame {
 		
 		
 		
-		URL iconURL = getClass().getResource("/cocheClaseA.jpg");
+		
 		JLabel lblNewLabel_1 = new JLabel("Categoria A");
 		lblNewLabel_1.setBounds(275, 62, 126, 77);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		ImageIcon ico2= new ImageIcon(iconURL);
+		ImageIcon ico2= new ImageIcon("imagenes/cocheClaseA.jpg");
 		ImageIcon img2= new ImageIcon(ico2.getImage().getScaledInstance(lblNewLabel_1.getWidth(), lblNewLabel_1.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_1.setIcon(img2);
 		
@@ -115,11 +115,10 @@ public class VentanaPrincipal extends JFrame {
 				}
 			});
 		
-		URL iconURL1 = getClass().getResource("/cocheClaseB.jpg");
 		JLabel lblNewLabel_2 = new JLabel("Categoria B");
 		lblNewLabel_2.setBounds(90, 62, 106, 77);
 		frame.getContentPane().add(lblNewLabel_2);
-		ImageIcon ico3= new ImageIcon(iconURL1);
+		ImageIcon ico3= new ImageIcon("imagenes/cocheClaseB.jpg");
 		ImageIcon img3= new ImageIcon(ico3.getImage().getScaledInstance(lblNewLabel_2.getWidth(), lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(img3);
 		
@@ -141,8 +140,8 @@ public class VentanaPrincipal extends JFrame {
 		lblNewLabel_3.setBounds(83, 224, 126, 77);
 		frame.getContentPane().add(lblNewLabel_3);
 
-		URL iconURL2 = getClass().getResource("/cocheClaseC.jpg");
-		ImageIcon ico4= new ImageIcon(iconURL2);
+
+		ImageIcon ico4= new ImageIcon("imagenes/cocheClaseC.jpg");
 		ImageIcon img4= new ImageIcon(ico4.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3.setIcon(img4);
 		
@@ -165,8 +164,7 @@ public class VentanaPrincipal extends JFrame {
 		lblNewLabel_3_1.setBounds(275, 224, 126, 77);
 		frame.getContentPane().add(lblNewLabel_3_1);
 		
-		URL iconURL3 = getClass().getResource("/cocheClaseD.jpg");
-		ImageIcon ico5= new ImageIcon(iconURL3);
+		ImageIcon ico5= new ImageIcon("imagenes/cocheClaseD.jpg");
 		ImageIcon img5= new ImageIcon(ico5.getImage().getScaledInstance(lblNewLabel_3_1.getWidth(), lblNewLabel_3_1.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3_1.setIcon(img5);
 		

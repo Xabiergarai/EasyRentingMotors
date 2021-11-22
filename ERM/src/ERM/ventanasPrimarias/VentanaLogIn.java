@@ -143,14 +143,16 @@ public class VentanaLogIn extends JFrame {
 					
 					String contrasenia = txtContrasenia.getText();				
 					int resultado;
+					VentanaPrincipal vp;
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 							
 							
-							new VentanaPrincipal();
+							vp= new VentanaPrincipal();
 							dispose();
+							vp.setVisible(true);
 							
 						}else if(resultado == 1) {
 							JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!", JOptionPane.ERROR_MESSAGE);
