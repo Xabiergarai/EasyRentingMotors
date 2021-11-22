@@ -51,7 +51,6 @@ public class VentanaPrincipal extends JFrame {
 
 
 		VentanaLogIn vp = new VentanaLogIn();
-	
 
 	/**
 	 * Launch the application.
@@ -80,23 +79,23 @@ public class VentanaPrincipal extends JFrame {
 	 * Initialize the contents of the frame.
  */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Easy Renting Motors");
-		frame.getContentPane().setLayout(null);
+		
+		setSize(1000,1250);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Easy Renting Motors");
+		getContentPane().setLayout(null);
 		
 		JLabel lblSeccionesCoches = new JLabel("Categorias de los coches");
 		lblSeccionesCoches.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblSeccionesCoches.setBounds(128, 11, 242, 26);
-		frame.getContentPane().add(lblSeccionesCoches);
+		getContentPane().add(lblSeccionesCoches);
 		
 		
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("Categoria A");
 		lblNewLabel_1.setBounds(275, 62, 126, 77);
-		frame.getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);
 		
 		ImageIcon ico2= new ImageIcon("imagenes/cocheClaseA.jpg");
 		ImageIcon img2= new ImageIcon(ico2.getImage().getScaledInstance(lblNewLabel_1.getWidth(), lblNewLabel_1.getHeight(), Image.SCALE_SMOOTH));
@@ -106,18 +105,18 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaA.setForeground(Color.WHITE);
 		btncategoriaA.setBackground(new Color(255, 165, 0));
 		btncategoriaA.setBounds(83, 150, 126, 48);
-		frame.getContentPane().add(btncategoriaA); 
+		getContentPane().add(btncategoriaA); 
 				
 			btncategoriaA.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 			VentanaCategoriaA.main(carrito);
-				frame.dispose();
+				dispose();
 				}
 			});
 		
 		JLabel lblNewLabel_2 = new JLabel("Categoria B");
 		lblNewLabel_2.setBounds(90, 62, 106, 77);
-		frame.getContentPane().add(lblNewLabel_2);
+		getContentPane().add(lblNewLabel_2);
 		ImageIcon ico3= new ImageIcon("imagenes/cocheClaseB.jpg");
 		ImageIcon img3= new ImageIcon(ico3.getImage().getScaledInstance(lblNewLabel_2.getWidth(), lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(img3);
@@ -126,19 +125,19 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaB.setForeground(Color.WHITE);
 		btncategoriaB.setBackground(new Color(255, 165, 0));
 		btncategoriaB.setBounds(275, 150, 126, 48);
-		frame.getContentPane().add(btncategoriaB); 
+		getContentPane().add(btncategoriaB); 
 			
 		btncategoriaB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				VentanaCategoriaB.main(carrito);
-				frame.dispose();
+				dispose();
 				}
 			});
 		
 		JLabel lblNewLabel_3 = new JLabel("Categoria C");
 		lblNewLabel_3.setBackground(Color.WHITE);
 		lblNewLabel_3.setBounds(83, 224, 126, 77);
-		frame.getContentPane().add(lblNewLabel_3);
+		getContentPane().add(lblNewLabel_3);
 
 
 		ImageIcon ico4= new ImageIcon("imagenes/cocheClaseC.jpg");
@@ -149,12 +148,12 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaC.setForeground(Color.WHITE);
 		btncategoriaC.setBackground(new Color(255, 165, 0));
 		btncategoriaC.setBounds(83, 339, 126, 48);
-		frame.getContentPane().add(btncategoriaC);
+		getContentPane().add(btncategoriaC);
 		
 		btncategoriaC.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						VentanaCategoriaC.main(carrito);
-						frame.dispose();
+						dispose();
 					}
 				 });
 		
@@ -162,7 +161,7 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblNewLabel_3_1 = new JLabel("Categoria D");
 		lblNewLabel_3_1.setBackground(Color.WHITE);
 		lblNewLabel_3_1.setBounds(275, 224, 126, 77);
-		frame.getContentPane().add(lblNewLabel_3_1);
+		getContentPane().add(lblNewLabel_3_1);
 		
 		ImageIcon ico5= new ImageIcon("imagenes/cocheClaseD.jpg");
 		ImageIcon img5= new ImageIcon(ico5.getImage().getScaledInstance(lblNewLabel_3_1.getWidth(), lblNewLabel_3_1.getHeight(), Image.SCALE_SMOOTH));
@@ -173,31 +172,31 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaD.setForeground(Color.WHITE);
 		btncategoriaD.setBackground(new Color(255, 165, 0));
 		btncategoriaD.setBounds(275, 339, 126, 48);
-		frame.getContentPane().add(btncategoriaD);
+		getContentPane().add(btncategoriaD);
 		
 		  
 		btncategoriaD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaCategoriaD.main(carrito);
-				frame.dispose();
+				dispose();
 			}
 		 });
 		
 		
 		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
+		setJMenuBar(menuBar);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesion");
 		mntmNewMenuItem_1.setForeground(Color.RED);
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaLogIn.main(null);
-				frame.dispose();
+				dispose();
 			}
 		});
 		menuBar.add(mntmNewMenuItem_1);
 		
-
+		//setVisible(true);
 		
 	 }
 }
