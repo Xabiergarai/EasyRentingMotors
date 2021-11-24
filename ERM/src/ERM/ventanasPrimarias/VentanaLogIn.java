@@ -44,19 +44,6 @@ public class VentanaLogIn extends JFrame {
 	public static String nick;
 	
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaLogIn window = new VentanaLogIn();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
 	
 		public VentanaLogIn() {
 			super();
@@ -90,7 +77,7 @@ public class VentanaLogIn extends JFrame {
 			
 			txtContrasenia = new JPasswordField();
 			txtContrasenia.setPreferredSize(new Dimension (200, 50));
-			posicionaLinea(panelCentro, "Introduzca la contraseï¿½a", txtContrasenia);
+			posicionaLinea(panelCentro, "Introduzca la contraseña", txtContrasenia);
 			
 			 
 			
@@ -132,6 +119,7 @@ public class VentanaLogIn extends JFrame {
 				vi = new VentanaInicial();
 				vi.setVisible(true);
 				dispose();
+				
 			});
 			
 			 
@@ -190,18 +178,49 @@ public class VentanaLogIn extends JFrame {
 		 * @param campo
 		 */
 		
-		void posicionaLinea(Container cont, String etiqueta, Component campo) {
-				JPanel tempPanel = new JPanel();
-				tempPanel.setOpaque(false);
-				tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); //se hace un flow ajustado a la izquierda
-				JLabel l = new JLabel(etiqueta);
-				l.setPreferredSize(new Dimension(250, 50));
-				l.setFont(new Font(Font.SANS_SERIF,Font.BOLD,18));
-				l.setForeground(Color.WHITE);
-				tempPanel.add(l);
-				tempPanel.add(campo);
-				cont.add(tempPanel);
-			}
+		
+Runnable r1 = new Runnable() {
 			
-	}
+			@Override
+			public void run() {
+				while(true) {
+					usuario.setForeground(Color.GREEN);
+					contrasenia.setForeground(Color.RED);
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					usuario.setForeground(Color.BLACK);
+					contrasenia.setForeground(Color.BLACK);
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				
+			}
+		};
+		Thread th1 = new Thread(r1);
+		
+		
+		void posicionaLinea(Container cont, String etiqueta, Component campo) {
+			JPanel tempPanel = new JPanel();
+			tempPanel.setOpaque(false);
+			tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); //se hace un flow ajustado a la izquierda
+			JLabel l = new JLabel(etiqueta);
+			l.setPreferredSize(new Dimension(250, 50));
+			l.setFont(new Font(Font.SANS_SERIF,Font.BOLD,18));
+			th1.start();
+			tempPanel.add(l);
+			tempPanel.add(campo);
+			cont.add(tempPanel);
+		}
+		
+}
 

@@ -190,7 +190,7 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_1.setForeground(Color.RED);
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaLogIn.main(null);
+				
 				dispose();
 			}
 		});
