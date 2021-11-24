@@ -73,6 +73,7 @@ public class VentanaPrincipal extends JFrame {
 	 */
 	public VentanaPrincipal() {
 		initialize();
+		setVisible(true);
 	}
 
 	/**

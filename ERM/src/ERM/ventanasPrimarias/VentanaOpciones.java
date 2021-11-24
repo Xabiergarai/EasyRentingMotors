@@ -24,7 +24,7 @@ public class VentanaOpciones extends JFrame {
 	private JPanel contentPane,panelSur,panelCentral;
 	private JButton btnAtras, btnComprar,btnVender,btnAlquilar;
 	private JFrame ventanaActual;
-
+	
 	
 	public VentanaOpciones() {
 		// TODO Auto-generated constructor stub
@@ -47,9 +47,13 @@ public class VentanaOpciones extends JFrame {
 		
 		
 		btnComprar= new JButton("Comprar");
+		btnComprar.setBackground(Color.WHITE);
 		btnVender= new JButton("Vender");
+		btnVender.setBackground(Color.WHITE);
 		btnAlquilar= new JButton("Alquilar");
+		btnAlquilar.setBackground(Color.WHITE);
 		btnAtras = new JButton("SALIR");
+		btnAtras.setBackground(Color.WHITE);
 		
 		panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
@@ -85,43 +89,80 @@ public class VentanaOpciones extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				new VentanaPrincipal();
+				ventanaActual.setVisible(false);
 			}
 		});
 		
-		btnAtras.addMouseListener(new MouseListener() {
+		
+		
+		
+		
+		
+Runnable r1 = new Runnable() {
 			
 			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
+			public void run() {
+				while(true) {
+					btnComprar.setForeground(Color.GREEN);
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					btnComprar.setForeground(Color.BLACK);
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				
+			}
+		};
+		Thread t1 = new Thread(r1);
+		t1.start();
 
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
+		
+		
+		
+		
+btnAtras.addMouseListener(new MouseListener() {
+
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
 				btnAtras.setBackground(Color.RED);
-
+				
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
-		
+
 		setVisible(true);
 	}
 	
