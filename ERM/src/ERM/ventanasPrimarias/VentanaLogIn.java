@@ -131,14 +131,14 @@ public class VentanaLogIn extends JFrame {
 					
 					String contrasenia = txtContrasenia.getText();				
 					int resultado;
-					VentanaPrincipal vp;
+					VentanaOpciones vp;
 					try {
 						resultado = DBManager.existeUsuario(nick, contrasenia);
 						if(resultado == 2) {
 							JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 							
 							
-							vp= new VentanaPrincipal();
+							vp= new VentanaOpciones();
 							dispose();
 							vp.setVisible(true);
 							
@@ -178,36 +178,7 @@ public class VentanaLogIn extends JFrame {
 		 * @param campo
 		 */
 		
-		
-Runnable r1 = new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true) {
-					usuario.setForeground(Color.GREEN);
-					contrasenia.setForeground(Color.RED);
-					try {
-						Thread.sleep(500);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					usuario.setForeground(Color.BLACK);
-					contrasenia.setForeground(Color.BLACK);
-					try {
-						Thread.sleep(500);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-				
-				
-			}
-		};
-		Thread th1 = new Thread(r1);
-		
+
 		
 		void posicionaLinea(Container cont, String etiqueta, Component campo) {
 			JPanel tempPanel = new JPanel();
@@ -216,7 +187,7 @@ Runnable r1 = new Runnable() {
 			JLabel l = new JLabel(etiqueta);
 			l.setPreferredSize(new Dimension(250, 50));
 			l.setFont(new Font(Font.SANS_SERIF,Font.BOLD,18));
-			th1.start();
+			l.setForeground(Color.BLACK);
 			tempPanel.add(l);
 			tempPanel.add(campo);
 			cont.add(tempPanel);
