@@ -25,6 +25,12 @@ private Categoria_D d;
 	}
 	
 	
+	
+	@Test
+	public void testGetId() {
+		assertEquals("CD01", d.getId());
+	}
+	
 	@Test
 	public void testGetTipoFurgoneta() {					
 		assertEquals("Tipo transporter", d.getTipoFurgoneta());
