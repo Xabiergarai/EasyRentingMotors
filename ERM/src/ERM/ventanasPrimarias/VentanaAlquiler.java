@@ -55,7 +55,7 @@ public class VentanaAlquiler extends JFrame{
 
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			 public void actionPerformed(ActionEvent e) {
 				Coche v = (Coche) comboVehiculos.getSelectedItem();
 				Usuario usu = new Usuario();
 
