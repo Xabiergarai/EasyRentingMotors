@@ -17,12 +17,8 @@ import javax.swing.SwingUtilities;
 
 import ERM.dataBase.DBException;
 
+public class VentanaInicial extends JFrame {
 
-
-
-
-public class VentanaInicial extends JFrame{
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,16 +31,15 @@ public class VentanaInicial extends JFrame{
 			}
 		});
 	}
-	
+
 	public VentanaInicial() {
-		
-		
+
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 638, 639);
-		
+
 		JButton btnRegistro = new JButton("REGISTRO");
-		btnRegistro.addActionListener(e->{
+		btnRegistro.addActionListener(e -> {
 			VentanaRegistro vr = null;
 			try {
 				vr = new VentanaRegistro();
@@ -55,46 +50,43 @@ public class VentanaInicial extends JFrame{
 			vr.setVisible(true);
 			dispose();
 		});
-	
+
 		btnRegistro.setBounds(317, 518, 284, 48);
 		getContentPane().add(btnRegistro);
-		
-		
-		
+
 		JLabel lblTitulo = new JLabel("EASY RENTING MOTORS");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Algerian", Font.BOLD, 40));
 		lblTitulo.setBounds(23, 28, 564, 71);
 		getContentPane().add(lblTitulo);
-	
-		
+
 		JButton btnLogin = new JButton("LOGIN");
-		btnLogin.addActionListener(e->{
+		btnLogin.addActionListener(e -> {
 			VentanaLogIn vi = null;
 			vi = new VentanaLogIn();
 			vi.setVisible(true);
 			dispose();
-			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login", JOptionPane.INFORMATION_MESSAGE);
-		
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
+					JOptionPane.INFORMATION_MESSAGE);
+
 		});
-		
+
 		btnLogin.setBounds(23, 518, 284, 48);
 		getContentPane().add(btnLogin);
-		
+
 		JLabel lblNewLabel = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
 		lblNewLabel.setBounds(23, 110, 554, 14);
 		getContentPane().add(lblNewLabel);
-		
+
 		JLabel lblLogo1 = new JLabel("Logo");
 		lblLogo1.setBounds(160, 210, 313, 246);
 		ImageIcon ico = new ImageIcon("imagenes/logo.png");
-        ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
-        lblLogo1.setIcon(img);
-        getContentPane().add(lblLogo1);
-		
-		
+		ImageIcon img = new ImageIcon(
+				ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
+		lblLogo1.setIcon(img);
+		getContentPane().add(lblLogo1);
+
 	}
 }
-
