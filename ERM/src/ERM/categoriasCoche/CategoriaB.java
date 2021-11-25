@@ -1,6 +1,6 @@
 package ERM.categoriasCoche;
 
-public class Categoria_B extends Coche{
+public class CategoriaB extends Coche{
 	
 	/**
 	 * 
@@ -10,7 +10,7 @@ public class Categoria_B extends Coche{
 	private boolean descapotable;
 	private boolean deportivo;
 		
-	public Categoria_B(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
+	public CategoriaB(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,
 			boolean deportivo) {
 		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
@@ -19,7 +19,7 @@ public class Categoria_B extends Coche{
 		this.deportivo = deportivo;
 	}
 	
-	public Categoria_B() {
+	public CategoriaB() {
 		super();
 		this.numPuertas = 0;
 		this.descapotable = false;
@@ -52,7 +52,7 @@ public class Categoria_B extends Coche{
 
 	@Override
 	public String toString() {
-		return "Categoria_B [descapotable=" + descapotable + ", deportivo="
+		return "CategoriaB [descapotable=" + descapotable + ", deportivo="
 				+ deportivo + "]";
 	}
 	

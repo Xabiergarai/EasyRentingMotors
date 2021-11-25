@@ -14,66 +14,55 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
 public class VentanaOpciones extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane,panelSur,panelCentral;
-	private JButton btnAtras, btnComprar,btnVender,btnAlquilar;
+	private JPanel contentPane, panelSur, panelCentral;
+	private JButton btnAtras, btnComprar, btnVender, btnAlquilar;
 	private JFrame ventanaActual;
-	
-	
+
 	public VentanaOpciones() {
 		// TODO Auto-generated constructor stub
-		
+
 		ventanaActual = this;
 		setTitle("VENTANA OPCIONES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(500, 500, 500, 500);
-		
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		
-		panelCentral= new JPanel();
-		contentPane.add(panelCentral,BorderLayout.CENTER);
-		
-	
-		
-		
-		btnComprar= new JButton("Comprar");
+		panelCentral = new JPanel();
+		contentPane.add(panelCentral, BorderLayout.CENTER);
+
+		btnComprar = new JButton("Comprar");
 		btnComprar.setBackground(Color.WHITE);
-		btnVender= new JButton("Vender");
+		btnVender = new JButton("Vender");
 		btnVender.setBackground(Color.WHITE);
-		btnAlquilar= new JButton("Alquilar");
+		btnAlquilar = new JButton("Alquilar");
 		btnAlquilar.setBackground(Color.WHITE);
 		btnAtras = new JButton("SALIR");
 		btnAtras.setBackground(Color.WHITE);
-		
+
 		panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(new GridLayout(0, 2, 0, 0));
-		panelCentral.setBorder(new EmptyBorder(5, 5, 5,5));
-		
-		
-		
-		
+		panelCentral.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 		panelCentral.add(btnComprar);
 		panelCentral.add(btnVender);
 		panelCentral.add(btnAlquilar);
 		panelCentral.add(btnAtras);
-		
+
 		panelCentral.setBackground(Color.BLACK);
-		
-		
-		
+
 		btnAtras.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -81,10 +70,9 @@ public class VentanaOpciones extends JFrame {
 				ventanaActual.setVisible(false);
 			}
 		});
-		
-		
+
 		btnComprar.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -92,17 +80,12 @@ public class VentanaOpciones extends JFrame {
 				ventanaActual.setVisible(false);
 			}
 		});
-		
-		
-		
-		
-		
-		
-Runnable r1 = new Runnable() {
-			
+
+		Runnable r1 = new Runnable() {
+
 			@Override
 			public void run() {
-				while(true) {
+				while (true) {
 					btnComprar.setForeground(Color.GREEN);
 					try {
 						Thread.sleep(500);
@@ -117,56 +100,48 @@ Runnable r1 = new Runnable() {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 				}
-				
-				
+
 			}
 		};
 		Thread t1 = new Thread(r1);
 		t1.start();
 
-		
-		
-		
-		
-btnAtras.addMouseListener(new MouseListener() {
+		btnAtras.addMouseListener(new MouseListener() {
 
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
 				btnAtras.setBackground(Color.RED);
-				
+
 			}
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
 		setVisible(true);
 	}
-	
 
-
-		
 }
