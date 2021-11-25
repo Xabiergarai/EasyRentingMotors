@@ -70,7 +70,15 @@ public class VentanaOpciones extends JFrame {
 				ventanaActual.setVisible(false);
 			}
 		});
-
+btnAlquilar.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		new VentanaAlquiler();
+		setVisible(false);
+	}
+});
 		btnComprar.addActionListener(new ActionListener() {
 
 			@Override
