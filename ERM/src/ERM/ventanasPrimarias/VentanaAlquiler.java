@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import ERM.categoriasCoche.Coche;
+import ERM.clasesBasicas.Alquiler;
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.DBManager;
 
@@ -25,7 +28,7 @@ public class VentanaAlquiler extends JFrame{
 	public static Connection con;
 	public static String nombreBD = "usuarios.db";
 
-	private JComboBox<Coche>comoboCoche;
+	private JComboBox<Coche>comboCoche;
 	private JButton btnALquilar;
 
 	public VentanaAlquiler() {
@@ -45,37 +48,51 @@ public class VentanaAlquiler extends JFrame{
 		contentPane.add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(new GridLayout(0, 1, 0, 0));
 		
+		comboCoche = new JComboBox<>();
+		panelCentral.add(comboCoche);
+		
+		
 		panelBotonera = new JPanel();
 		panelAbajo.add(panelBotonera);
 		
 		btnALquilar = new JButton("REALIZAR ALQUILER");
 		panelBotonera.add(btnALquilar);
 		
-		setVisible(true);
+		cargarComboVehiculos();
 
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
-			 public void actionPerformed(ActionEvent e) {
-				Coche v = (Coche) comboVehiculos.getSelectedItem();
-				Usuario usu = new Usuario();
-
-				Date fecha = new Date(System.currentTimeMillis());
-				Alquiler venta = new Alquiler(usu.getNomUsuario(), v.getId(), fecha);
-				con = BD.initBD(nombreBD);
-				BD.insertarVenta(con, venta);
-				BD.closeBD(con);
-				JOptionPane.showMessageDialog(null, "VENTA INSERTADA");
+			public void actionPerformed(ActionEvent e) {
+				String sql = "SELECT nickname FROM Usuarios ";
+				Statement st = null;
+				ResultSet rs = null;
+				rs = st.executeQuery(sql);
+				
+				Coche c = (Coche) comboCoche.getSelectedItem();
+				Date fechainit = new Date(System.currentTimeMillis());
+				//Date fechaFin=
+				Alquiler alq = new Alquiler(rs.getString(3), c.getId(), fechainit,fechaFin);
+				con = DBManager.initBD(nombreBD);
+				//DBManager.insertarAlquiler(con, alq);
+				//DBManager.disconnect();
+				JOptionPane.showMessageDialog(null, "ALQUILER INSERTADO");
 			}
 		});
 		
+		
+		setVisible(true);
+
 	}
 	private void cargarComboVehiculos() {
 		con = DBManager.initBD(nombreBD);
-		ArrayList<Coche> av = DBManager.obtenerCoches(con);
-		DBManager.disconect();
-		for(Coche v : av) {	
-			comoboCoche.addItem(v);
+		ArrayList<Coche> ac = DBManager.obtenerCoches(con);
+		DBManager.disconnect();
+		for(Coche v : ac) {	
+			comboCoche.addItem(v);
 }
 		
+		
 	}
+	
+	
 }
