@@ -47,10 +47,5 @@ public class CategoriaA extends Coche {
 		return "CategoriaA [numPuertas=" + numPuertas + ", maletero=" + maletero + "]";
 	}
 
-	
-	
-	
-	
 }
-	
 	

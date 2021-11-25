@@ -3,7 +3,7 @@ package ERM.categoriasCoche;
 import java.io.Serializable;
 
 public class Coche implements Serializable {
-		
+
 	private String id;
 	private String nombre;
 	private String categoria;
@@ -11,9 +11,8 @@ public class Coche implements Serializable {
 	private String fecha_matriculacion;
 	private String combustible;
 	private double precio;
-    private String rutaFoto;
-    
-    
+	private String rutaFoto;
+
 	public Coche(String id, String nombre, String clase, String marca, String fecha_matriculacion, String combustible,
 			double precio, String rutaFoto) {
 		super();
@@ -26,7 +25,7 @@ public class Coche implements Serializable {
 		this.precio = precio;
 		this.rutaFoto = rutaFoto;
 	}
-	
+
 	public Coche() {
 		super();
 		this.id = " ";
@@ -105,15 +104,10 @@ public class Coche implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + categoria + ", marca=" + marca + ", fecha_matriculacion="
-				+ fecha_matriculacion + ", combustible=" + combustible + ", precio=" + precio + ", rutaFoto=" + rutaFoto
-				+ "]";
+		return "Coche [id=" + id + ", nombre=" + nombre + ", clase=" + categoria + ", marca=" + marca
+				+ ", fecha_matriculacion=" + fecha_matriculacion + ", combustible=" + combustible + ", precio=" + precio
+				+ ", rutaFoto=" + rutaFoto + "]";
 	}
-	
-	
-	
-
 
 }
-
 

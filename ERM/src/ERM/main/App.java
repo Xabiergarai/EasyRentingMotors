@@ -11,24 +11,20 @@ import ERM.ventanasPrimarias.VentanaInicial;
 import ERM.ventanasPrimarias.VentanaLogIn;
 
 public class App {
-	
+
 	public static Logger logger = Logger.getLogger(App.class.getName());
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		   try (FileInputStream fis = new FileInputStream("logger.properties")) {
-	            LogManager.getLogManager().readConfiguration(fis);
-	        } catch (IOException e) {
-	            logger.log(Level.SEVERE, "No se pudo leer el fichero de configuracion del logger");
-	        }
-		
-	        logger.info("Programa comenzado");
 
-		
-		
-	        
-	     
+		try (FileInputStream fis = new FileInputStream("logger.properties")) {
+			LogManager.getLogManager().readConfiguration(fis);
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, "No se pudo leer el fichero de configuracion del logger");
+		}
+
+		logger.info("Programa comenzado");
+
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -42,9 +38,7 @@ public class App {
 
 			}
 		});
-		
-		
-		
+
 	}
 
 }
