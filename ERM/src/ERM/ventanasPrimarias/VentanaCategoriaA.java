@@ -60,7 +60,7 @@ import java.awt.*;
 
 			 ArrayList<CategoriaA> CategoriaA = new ArrayList<CategoriaA>();
 			/* try {
-				CategoriaAes = BD.listarCategoriA();
+				CategoriaA = BD.listarCategoriaA();
 			} catch (DBException e1) {
 				e1.printStackTrace();
 			} */
@@ -68,7 +68,7 @@ import java.awt.*;
 			JPanel CategoriaAPanel = new JPanel(new FlowLayout());
 			for (CategoriaA o : CategoriaA) {
 				JPanel CategoriaAsPanel = CochePanel(o, carrito);
-				CategoriaAPanel.add(CategoriaAPanel);
+				CategoriaAPanel.add(CategoriaAsPanel);
 			}
 			CategoriaAPanel.setBounds(50,100,500,700);
 			JScrollPane scrollPane = new JScrollPane(

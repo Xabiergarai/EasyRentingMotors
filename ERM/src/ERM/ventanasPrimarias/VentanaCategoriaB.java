@@ -64,7 +64,7 @@ import java.awt.*;
 
 			 ArrayList<CategoriaB> CategoriaB = new ArrayList<CategoriaB>();
 			/* try {
-				CategoriaBes = BD.listarCategoriA();
+				CategoriaB = BD.listarCategoriaB();
 			} catch (DBException e1) {
 				e1.printStackTrace();
 			} */
