@@ -1,12 +1,13 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions. *;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ERM.categoriasCoche.Categoria_B;
-import ERM.categoriasCoche.Categoria_C;
+import ERM.categoriasCoche.CategoriaC;
+
+
 
 
 /**
@@ -20,11 +21,11 @@ class TestCategoria_C {
 	
 	
 	
-private Categoria_C c;
+private CategoriaC c;
 	
 	@BeforeEach
 	public void setUp() {
-		 c= new Categoria_C("CC01", "Suzuki Vitara", "C", "Suzuki",
+		 c= new CategoriaC("CC01", "Suzuki Vitara", "C", "Suzuki",
 					"2018/10-15", "Gasolina", 9999.99, " ", "cuatroxcuatro", true );
 	}
 	

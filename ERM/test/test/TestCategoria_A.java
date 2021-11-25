@@ -1,11 +1,11 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*; 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ERM.categoriasCoche.Categoria_A;
+import ERM.categoriasCoche.CategoriaA;
 
 
 /**
@@ -18,11 +18,11 @@ import ERM.categoriasCoche.Categoria_A;
 class TestCategoria_A extends GroupException {
 	
 	
-	private Categoria_A a;
+	private CategoriaA a;
 	
 	@BeforeEach
 	public void setUp() {
-		 a= new Categoria_A("CA01", "Citroen C1", "A", "Citroen",
+		 a= new CategoriaA("CA01", "Citroen C1", "A", "Citroen",
 				"2019/06-05", "Diesel", 4999.99, " ", 3, true);
 	}
 	

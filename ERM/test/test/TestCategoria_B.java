@@ -1,12 +1,12 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*; 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ERM.categoriasCoche.Categoria_A;
-import ERM.categoriasCoche.Categoria_B;
+import ERM.categoriasCoche.CategoriaB;
+
 
 
 
@@ -22,11 +22,11 @@ class TestCategoria_B {
 	
 	
 	
-private Categoria_B b;
+private CategoriaB b;
 	
 	@BeforeEach
 	public void setUp() {
-		 b= new Categoria_B("CB01", "Audi A3", "B", "Audi",
+		 b= new CategoriaB("CB01", "Audi A3", "B", "Audi",
 					"2020/01-05", "Gasolina", 19999.99, " ",5, false, false );
 	}
 	
