@@ -32,6 +32,19 @@ private CategoriaB b;
 	
 	
 	@Test
+	public void testGetId() {				
+		assertEquals("CB01", b.getId());
+	}
+	
+	@Test
+	public void testSetId() {		
+		b.setId("1");
+		assertEquals("1",b.getId());
+	}	
+	
+	
+	
+	@Test
 	public void testGetNumPuertas() {				
 		assertEquals(5, b.getNumPuertas());
 	}
