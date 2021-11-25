@@ -24,13 +24,28 @@ private Categoria_D d;
 					"2021/08-27", "Diesel", 7499.99," ", "Tipo transporter", true);
 	}
 	
-	
-	
 	@Test
 	public void testGetId() {
 		assertEquals("CD01", d.getId());
 	}
 	
+	@Test
+	public void testSetId() {
+		d.setId("02");
+		assertEquals("02", d.getId());
+	}
+	
+	@Test
+	public void testGetNombre() {
+		assertEquals("Volkswagen Transporter", d.getNombre());
+	}
+	
+	@Test
+	public void testSetNombre() {
+		d.setNombre("Transp");
+		assertEquals("Transp", d.getNombre());
+	}
+						
 	@Test
 	public void testGetTipoFurgoneta() {					
 		assertEquals("Tipo transporter", d.getTipoFurgoneta());

@@ -25,7 +25,27 @@ class TestCategoria_A extends GroupException {
 		 a= new Categoria_A("CA01", "Citroen C1", "A", "Citroen",
 				"2019/06-05", "Diesel", 4999.99, " ", 3, true);
 	}
-		
+	
+	@Test
+	public void testGetId() {
+		assertEquals("CA01", a.getId());
+	}
+	
+	
+	@Test
+	public void testSetId() {
+		a.setId("01");
+		assertEquals("01", a.getId());
+	}
+			
+	@Test
+	public void testSetNombre() {
+		a.setNombre("camion");
+		assertEquals("camion", a.getNombre());
+	}
+	
+	
+	
 	@Test
 	public void testGetNumPuertas() {	
 		assertEquals(3, a.getNumPuertas());
