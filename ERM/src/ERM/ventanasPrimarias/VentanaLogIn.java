@@ -1,6 +1,6 @@
 package ERM.ventanasPrimarias;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 
 import java.awt.Color;
 import java.awt.Component;
@@ -10,7 +10,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.util.InvalidPropertiesFormatException;
+import java.util.Properties;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -27,6 +36,7 @@ import javax.swing.SwingUtilities;
 
 import ERM.clasesBasicas.Usuario;
 import ERM.dataBase.*;
+
 import java.awt.EventQueue;
 
 public class VentanaLogIn extends JFrame {
@@ -146,6 +156,30 @@ public class VentanaLogIn extends JFrame {
 
 		});
 
+		this.addWindowListener(new WindowAdapter() {
+			public void windowOpened(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		Properties properties = new Properties();
+		try {
+			properties.loadFromXML(new FileInputStream("usuarios.xml"));
+			String usuario = properties.getProperty("Usuario");
+			String contrasenia = properties.getProperty("Contrasenia");
+			VentanaLogIn.this.txtNombre.setText(usuario);
+			txtContrasenia.setText(contrasenia);
+		} catch (FileNotFoundException e2) {
+			e2.printStackTrace();
+		}catch(InvalidPropertiesFormatException e3){
+			e3.printStackTrace();
+		}catch(IOException e4){
+			e4.printStackTrace();
+		}
+		
+		}
+			
+	});
+	
+	
 	}
 
 	/**
@@ -176,5 +210,9 @@ public class VentanaLogIn extends JFrame {
 		tempPanel.add(campo);
 		cont.add(tempPanel);
 	}
+	
+	
+	
+	
 
 }
