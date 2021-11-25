@@ -13,7 +13,7 @@ public class CategoriaB extends Coche {
 	public CategoriaB(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,
 			boolean deportivo) {
-		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		
 		this.numPuertas = numPuertas;
 		this.descapotable = descapotable;
 		this.deportivo = deportivo;
@@ -34,11 +34,11 @@ public class CategoriaB extends Coche {
 		this.numPuertas = numPuertas;
 	}
 
-	public boolean isdescapotable() {
+	public boolean isDescapotable() {
 		return descapotable;
 	}
 
-	public void setdescapotable(boolean descapotable) {
+	public void setDescapotable(boolean descapotable) {
 		this.descapotable = descapotable;
 	}
 

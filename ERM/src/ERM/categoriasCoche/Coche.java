@@ -13,7 +13,7 @@ public class Coche implements Serializable {
 	private double precio;
 	private String rutaFoto;
 
-	public Coche(String id, String nombre, String clase, String marca, String fecha_matriculacion, String combustible,
+	public Coche(String id, String nombre,String Categoria,  String clase, String marca, String fecha_matriculacion, String combustible,
 			double precio, String rutaFoto) {
 		super();
 		this.id = id;
@@ -53,6 +53,15 @@ public class Coche implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getCategoria() {
+		return nombre;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	
 
 	public String getClase() {
 		return categoria;

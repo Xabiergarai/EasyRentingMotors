@@ -11,7 +11,7 @@ public class CategoriaA extends Coche {
 
 	public CategoriaA(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean maletero) {
-		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		
 		this.numPuertas = numPuertas;
 		this.maletero = maletero;
 	}
@@ -47,5 +47,10 @@ public class CategoriaA extends Coche {
 		return "CategoriaA [numPuertas=" + numPuertas + ", maletero=" + maletero + "]";
 	}
 
+	
+	
+	
+	
 }
+	
 	

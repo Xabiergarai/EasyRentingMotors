@@ -15,7 +15,7 @@ public class ListaCoche extends Coche {
 
 		Map<Integer, Coche> lista = listaCoche.getCoches();
 
-		lista.put(01, new Coche("CCB", "Audi A3", "CategoriaB", "Audi", "2018-07-06", "Gasolina", 20.0000, ""));
+		lista.put(01, new Coche("CCB", "Audi A3", "CategoriaB","Clase B",  "Audi", "2018-07-06", "Gasolina", 20.0000, ""));
 
 		lista.get(01);
 

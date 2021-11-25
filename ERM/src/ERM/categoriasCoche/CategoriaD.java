@@ -9,12 +9,19 @@ public class CategoriaD extends Coche {
 	private String tipoFurgoneta;
 	boolean descapotable;
 
-	public CategoriaD(String id, String nombre, String categoria, String marca, String fecha_creacion,
+	public CategoriaD(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, String tipoFurgoneta, boolean descapotable) {
 
-		super(id, nombre, categoria, marca, fecha_creacion, combustible, precio, rutaFoto);
+		
 		this.tipoFurgoneta = tipoFurgoneta;
+		this.descapotable = descapotable;
 
+
+	}
+	public CategoriaD() {
+		super();
+		this.tipoFurgoneta= " ";
+		this.descapotable = false;
 	}
 
 	public String getTipoFurgoneta() {

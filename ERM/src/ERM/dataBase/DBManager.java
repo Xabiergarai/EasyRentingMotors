@@ -6,14 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import ERM.clasesBasicas.Usuario;
+import ERM.categoriasCoche.*;
 
 public class DBManager {
 
-	private Connection conn = null;
+	private static Connection conn = null;
 	private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
@@ -177,9 +179,147 @@ public class DBManager {
 		}
 
 	}
+	
+	public static ArrayList<CategoriaA> listarCategoriaA() throws DBException {
+		
+		ArrayList <CategoriaA> CategoriaA = new ArrayList<>();
+		Connection con = initBD("usuarios.bd");
+		
+		try(Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, maletero FROM CategoriaA");
+			
+			while(rs.next()) {
+				 CategoriaA CategoriAs = new CategoriaA();
+			  CategoriAs.setId("id");
+			  CategoriAs.setNombre(rs.getString("nombre"));
+			  CategoriAs.setCategoria(rs.getString("Categoria"));
+			  CategoriAs.setMarca(rs.getString("marca"));
+			  CategoriAs.setfecha_matriculacion(rs.getString("fecha_matriculacion"));
+			  CategoriAs.setCombustible(rs.getString("combustible"));
+			  CategoriAs.setPrecio(rs.getInt("precio"));
+			  CategoriAs.setRutaFoto(rs.getString("rutaFoto"));
+			  CategoriAs.setNumPuertas(rs.getInt("numPuertas"));
+			  if(rs.getInt("maletero") == 1) {
+				  CategoriAs.setMaletero(true);
+			  } else {
+				  CategoriAs.setMaletero(false);
+			  }
+				CategoriaA.add(CategoriAs);
+			}
+ 			
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de la Categoria A", e);
+		}
+		return CategoriaA;
+	}
+	
+public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
+		
+		ArrayList <CategoriaB> CategoriaB = new ArrayList<>();
+		Connection con = initBD("usuarios.bd");
+		
+		try(Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable FROM CategoriaB");
+			
+			while(rs.next()) {
+				 CategoriaB CategoriBs = new CategoriaB();
+			  CategoriBs.setId("id");
+			  CategoriBs.setNombre(rs.getString("nombre"));
+			  CategoriBs.setCategoria(rs.getString("Categoria"));
+			  CategoriBs.setMarca(rs.getString("marca"));
+			  CategoriBs.setfecha_matriculacion(rs.getString("fecha_matriculacion"));
+			  CategoriBs.setCombustible(rs.getString("combustible"));
+			  CategoriBs.setPrecio(rs.getInt("precio"));
+			  CategoriBs.setRutaFoto(rs.getString("rutaFoto"));
+			  CategoriBs.setNumPuertas(rs.getInt("numPuertas"));
+			  if(rs.getInt("descapotable") == 1) {
+				  CategoriBs.setDescapotable(true);
+			  } else {
+				  CategoriBs.setDescapotable(false);
+			  }
+			  if(rs.getInt("deportivo") == 1) {
+				  CategoriBs.setDeportivo(true);
+			  } else {
+				  CategoriBs.setDeportivo(false);;
+			  }
+				CategoriaB.add(CategoriBs);
+			}
+ 			
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de la Categoria B", e);
+		}
+		return CategoriaB;
+	}
 
+public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
+	
+	ArrayList <CategoriaC> CategoriaC = new ArrayList<>();
+	Connection con = initBD("usuarios.bd");
+	
+	try(Statement stmt = con.createStatement()) {
+		ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoTodoTerreno, descapotable FROM CategoriaC");
+		
+		while(rs.next()) {
+			 CategoriaC CategoriCs = new CategoriaC();
+		  CategoriCs.setId("id");
+		  CategoriCs.setNombre(rs.getString("nombre"));
+		  CategoriCs.setCategoria(rs.getString("Categoria"));
+		  CategoriCs.setMarca(rs.getString("marca"));
+		  CategoriCs.setfecha_matriculacion(rs.getString("fecha_matriculacion"));
+		  CategoriCs.setCombustible(rs.getString("combustible"));
+		  CategoriCs.setPrecio(rs.getInt("precio"));
+		  CategoriCs.setRutaFoto(rs.getString("rutaFoto"));
+		  CategoriCs.setTipoTodoTerreno(rs.getString("tipoTodoTerreno"));
+		  if(rs.getInt("descapotable") == 1) {
+			  CategoriCs.setDescapotable(true);
+		  } else {
+			   CategoriCs.setDescapotable(false);
+		 }
+		  CategoriaC.add(CategoriCs);
+		} 
+	}  catch (SQLException e) {
+		throw new DBException("Error obteniendo todos los coches de la Categoria C", e);
+	}
+	return CategoriaC;
+	}
+	
+public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
+	
+	ArrayList <CategoriaD> CategoriaD = new ArrayList<>();
+	Connection con = initBD("usuarios.bd");
+	
+	try(Statement stmt = con.createStatement()) {
+		ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoFurgoneta, descapotable FROM CategoriaD");
+		
+		while(rs.next()) {
+			 CategoriaD CategoriDs = new CategoriaD();
+		  CategoriDs.setId("id");
+		  CategoriDs.setNombre(rs.getString("nombre"));
+		  CategoriDs.setCategoria(rs.getString("Categoria"));
+		  CategoriDs.setMarca(rs.getString("marca"));
+		  CategoriDs.setfecha_matriculacion(rs.getString("fecha_matriculacion"));
+		  CategoriDs.setCombustible(rs.getString("combustible"));
+		  CategoriDs.setPrecio(rs.getInt("precio"));
+		  CategoriDs.setRutaFoto(rs.getString("rutaFoto"));
+		  CategoriDs.setTipoFurgoneta(rs.getString("tipoFurgoneta"));
+		  if(rs.getInt("descapotable") == 1) {
+			  CategoriDs.setDescapotable(true);
+		  } else {
+			  CategoriDs.setDescapotable(false);
+		  }
+			CategoriaD.add(CategoriDs);
+		}
+			
+	} catch (SQLException e) {
+		throw new DBException("Error obteniendo todos los coches de la Categoria D", e);
+	}
+	return CategoriaD;
+}
+
+
+ 
 	// CERRAR CONEXION CON BD
-	public void disconnect() throws DBException {
+	public static void disconnect() throws DBException {
 		try {
 			conn.close();
 		} catch (SQLException e) {

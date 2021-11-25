@@ -12,7 +12,7 @@ public class CategoriaC extends Coche {
 	public CategoriaC(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, String tipoTodoTerreno, boolean descapotable) {
 
-		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+		
 		this.tipoTodoTerreno = tipoTodoTerreno;
 		this.descapotable = descapotable;
 	}
