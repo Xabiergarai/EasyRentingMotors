@@ -1,6 +1,6 @@
 package ERM.categoriasCoche;
 
-public class Categoria_C extends Coche{
+public class CategoriaC extends Coche{
 	
 	/**
 	 * 
@@ -10,7 +10,7 @@ public class Categoria_C extends Coche{
 	private boolean descapotable;
 	
 	
-	public Categoria_C(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
+	public CategoriaC(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, String tipoTodoTerreno, boolean descapotable) {
 		
 		super(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
@@ -19,7 +19,7 @@ public class Categoria_C extends Coche{
 	}
 	
 	
-	public Categoria_C() {
+	public CategoriaC() {
 		super();
 		this.tipoTodoTerreno = " ";
 		this.descapotable = false;
@@ -53,7 +53,7 @@ public class Categoria_C extends Coche{
 
 	@Override
 	public String toString() {
-		return "Categoria_C [tipoTodoTerreno=" + tipoTodoTerreno + ", descapotable=" + descapotable + "]";
+		return "CategoriaC [tipoTodoTerreno=" + tipoTodoTerreno + ", descapotable=" + descapotable + "]";
 	}
 	
 	

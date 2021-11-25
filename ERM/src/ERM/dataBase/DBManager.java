@@ -1,6 +1,6 @@
 package ERM.dataBase;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,30 +9,25 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import ERM.clasesBasicas.Usuario;
-
-
 
 public class DBManager {
 
-private Connection conn = null; 
-private static Logger logger = Logger.getLogger(DBManager.class.getName());
-private static boolean LOGGING = true;
-private static PreparedStatement ps = null;
+	private Connection conn = null;
+	private static Logger logger = Logger.getLogger(DBManager.class.getName());
+	private static boolean LOGGING = true;
+	private static PreparedStatement ps = null;
 
-
-	
-	//CREAR CONEXION CON BD
-/**
- * Inicializa una BD SQLITE y devuelve una conexión con ella
- * 
- * @param nombreBD Nombre de fichero de la base de datos
- * @return Conexión con la base de datos indicada. Si hay algún error, se
- *         devuelve null
- * @throws BDException
- */
-	public static Connection initBD(String nombre) throws DBException { 
+	// CREAR CONEXION CON BD
+	/**
+	 * Inicializa una BD SQLITE y devuelve una conexión con ella
+	 * 
+	 * @param nombreBD Nombre de fichero de la base de datos
+	 * @return Conexión con la base de datos indicada. Si hay algún error, se
+	 *         devuelve null
+	 * @throws BDException
+	 */
+	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:usuarios.db");
@@ -43,6 +38,7 @@ private static PreparedStatement ps = null;
 			throw new DBException("Error conectando a la BD", e);
 		}
 	}
+
 	/**
 	 * Crea las tablas de la base de datos. Si ya existen, las deja tal cual.
 	 * Devuelve un statement para trabajar con esa base de datos
@@ -52,37 +48,39 @@ private static PreparedStatement ps = null;
 	 *         error
 	 * @throws BDException
 	 */
-	
+
 	public static Statement usarCrearTablasBD(Connection con) throws DBException {
 		logger.log(Level.INFO, "Creando tablas...");
 
 		try {
-		Statement statement = con.createStatement();
-		try {
-			statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " contrasenya string"+ " apellidos string, "+ " email string) ");
+			Statement statement = con.createStatement();
+			try {
+				statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " contrasenya string"
+						+ " apellidos string, " + " email string) ");
 
-		} catch (SQLException ex) {
-			logger.log(Level.WARNING, "Tabla Usuario ya existente");
-			throw new DBException("Error creando tabla de usuario a la BD", ex);
+			} catch (SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Usuario ya existente");
+				throw new DBException("Error creando tabla de usuario a la BD", ex);
 
+			}
+			return statement;
+		} catch (SQLException e) {
+			return null;
 		}
-		return statement;
-	} catch (SQLException e) {
-		return null;
+
 	}
-	
-	}
+
 	/**
-	 Este metodo comprobara si existe el usuario en concre	 * @param nick
+	 * Este metodo comprobara si existe el usuario en concre * @param nick
+	 * 
 	 * @param contrasenia
 	 * @return
 	 * @throws DBException
 	 */
-	 
-	
+
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
 		Connection con = initBD("usuarios.db");
-		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick+"'"  ;
+		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick + "'";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
@@ -135,7 +133,6 @@ private static PreparedStatement ps = null;
 		return resultado;
 	}
 
-
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;
@@ -150,23 +147,22 @@ private static PreparedStatement ps = null;
 			logger.log(level, msg, exception);
 		}
 	}
-	
-	
-	//REGISTRAR NUEVO USUARIO
-	public  boolean registrar(Usuario u) throws DBException {
+
+	// REGISTRAR NUEVO USUARIO
+	public boolean registrar(Usuario u) throws DBException {
 
 		try {
-		    Connection con = initBD("usuarios.bd");
+			Connection con = initBD("usuarios.bd");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
-			
+
 			ps = con.prepareStatement(sql);
-			
+
 			ps.setString(1, u.getNombre());
 			ps.setString(2, u.getApellidos());
 			ps.setString(3, u.getNomUsuario());
 			ps.setString(4, u.getContrasenya());
 			ps.setString(5, u.getEmail());
-			
+
 			ps.execute();
 			System.out.println("Usuario registrado");
 			log(Level.INFO, "Usuario registrado", null);
@@ -176,20 +172,19 @@ private static PreparedStatement ps = null;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			log(Level.SEVERE, "Error al insertar usuario", e);
-			return false;		
-			
-		}		
+			return false;
+
+		}
 
 	}
-	
-		//CERRAR CONEXION CON BD
-		public void disconnect() throws DBException {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
-			}
+
+	// CERRAR CONEXION CON BD
+	public void disconnect() throws DBException {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
-		
-		
+	}
+
 }
