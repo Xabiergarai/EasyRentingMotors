@@ -20,18 +20,19 @@ import javax.swing.border.EmptyBorder;
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
 import erm.clasesBasicas.Usuario;
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
 public class VentanaAlquiler extends JFrame{
 
 	private JPanel contentPane,panelAbajo,panelCentral,panelBotonera;
 	public static Connection con;
-	public static String nombreBD = "usuarios.db";
+	public static String nombreBD = "EasyRentingMotors.db";
 
 	private JComboBox<Coche>comboCoche;
 	private JButton btnALquilar;
 
-	public VentanaAlquiler() {
+	public VentanaAlquiler() throws DBException {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +84,7 @@ public class VentanaAlquiler extends JFrame{
 		setVisible(true);
 
 	}
-	private void cargarComboVehiculos() {
+	private void cargarComboVehiculos() throws DBException {
 		con = DBManager.initBD(nombreBD);
 		ArrayList<Coche> ac = DBManager.obtenerCoches(con);
 		DBManager.disconnect();
