@@ -1,4 +1,5 @@
 package ERM.ventanasPrimarias;
+import ERM.dataBase.*;
 
 import java.util.ArrayList;
 
@@ -63,11 +64,11 @@ import java.awt.*;
 			frame.getContentPane().setLayout(null);
 
 			 ArrayList<CategoriaB> CategoriaB = new ArrayList<CategoriaB>();
-			/* try {
-				CategoriaB = BD.listarCategoriaB();
+			try {
+				CategoriaB = DBManager.listarCategoriaB();
 			} catch (DBException e1) {
 				e1.printStackTrace();
-			} */
+			}
 
 			JPanel CategoriaBPanel = new JPanel(new FlowLayout());
 			for (CategoriaB o : CategoriaB) {
@@ -126,7 +127,7 @@ import java.awt.*;
 			});
 			mnNewMenu.add(mntmNewMenuItem_3);
 
-			JLabel lblNewLabel_1_1 = new JLabel("Categoria A");
+			JLabel lblNewLabel_1_1 = new JLabel("Categoria B");
 			lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 			lblNewLabel_1_1.setBounds(194, 34, 178, 43);
 			frame.getContentPane().add(lblNewLabel_1_1);

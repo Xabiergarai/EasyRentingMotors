@@ -16,7 +16,8 @@ import java.awt.*;
 	import java.util.ArrayList;
 
 	import java.util.Random;
-
+	import ERM.dataBase.*;
+	
 	public class VentanaCategoriaC {
 
 		private JFrame frame;
@@ -63,11 +64,11 @@ import java.awt.*;
 			frame.getContentPane().setLayout(null);
 
 			 ArrayList<CategoriaC> CategoriaC = new ArrayList<CategoriaC>();
-			/* try {
-				CategoriaC = BD.listarCategoriC();
+			 try {
+				CategoriaC = DBManager.listarCategoriaC();
 			} catch (DBException e1) {
 				e1.printStackTrace();
-			} */
+			} 
 
 			JPanel CategoriaCPanel = new JPanel(new FlowLayout());
 			for (CategoriaC o : CategoriaC) {
@@ -126,7 +127,7 @@ import java.awt.*;
 			});
 			mnNewMenu.add(mntmNewMenuItem_3);
 
-			JLabel lblNewLabel_1_1 = new JLabel("Categoria A");
+			JLabel lblNewLabel_1_1 = new JLabel("Categoria C");
 			lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 			lblNewLabel_1_1.setBounds(194, 34, 178, 43);
 			frame.getContentPane().add(lblNewLabel_1_1);

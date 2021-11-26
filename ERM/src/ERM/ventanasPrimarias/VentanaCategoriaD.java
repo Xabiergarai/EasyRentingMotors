@@ -1,4 +1,5 @@
 package ERM.ventanasPrimarias;
+import ERM.dataBase.*;
 
 import ERM.categoriasCoche.CategoriaD;
 import ERM.categoriasCoche.Coche;
@@ -59,11 +60,11 @@ import java.awt.*;
 			frame.getContentPane().setLayout(null);
 
 			 ArrayList<CategoriaD> CategoriaD = new ArrayList<CategoriaD>();
-			/* try {
-				CategoriaD = BD.listarCategoriD();
+			try {
+				CategoriaD = DBManager.listarCategoriaD();
 			} catch (DBException e1) {
 				e1.printStackTrace();
-			} */
+			} 
 
 			JPanel CategoriaDPanel = new JPanel(new FlowLayout());
 			for (CategoriaD o : CategoriaD) {
@@ -122,7 +123,7 @@ import java.awt.*;
 			});
 			mnNewMenu.add(mntmNewMenuItem_3);
 
-			JLabel lblNewLabel_1_1 = new JLabel("Categoria A");
+			JLabel lblNewLabel_1_1 = new JLabel("Categoria D");
 			lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 			lblNewLabel_1_1.setBounds(194, 34, 178, 43);
 			frame.getContentPane().add(lblNewLabel_1_1);

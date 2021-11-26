@@ -1,4 +1,5 @@
 package ERM.ventanasPrimarias;
+import ERM.dataBase.*;
 
 import ERM.categoriasCoche.CategoriaA;
 import ERM.categoriasCoche.Coche;
@@ -59,11 +60,11 @@ import java.awt.*;
 			frame.getContentPane().setLayout(null);
 
 			 ArrayList<CategoriaA> CategoriaA = new ArrayList<CategoriaA>();
-			/* try {
-				CategoriaA = BD.listarCategoriaA();
+			 try {
+				CategoriaA = DBManager.listarCategoriaA();
 			} catch (DBException e1) {
 				e1.printStackTrace();
-			} */
+			}
 
 			JPanel CategoriaAPanel = new JPanel(new FlowLayout());
 			for (CategoriaA o : CategoriaA) {
