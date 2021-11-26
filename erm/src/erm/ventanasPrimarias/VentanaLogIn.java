@@ -34,7 +34,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import ERM.dataBase.*;
+import erm.dataBase.*;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;

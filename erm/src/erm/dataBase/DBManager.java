@@ -15,7 +15,8 @@ import erm.categoriasCoche.CategoriaB;
 import erm.categoriasCoche.CategoriaC;
 import erm.categoriasCoche.CategoriaD;
 import erm.clasesBasicas.Usuario;
-import ERM.categoriasCoche.*;
+import erm.categoriasCoche.*;
+import erm.ventanasPrimarias.*;
 
 public class DBManager {
 
