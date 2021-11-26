@@ -184,14 +184,14 @@ public class DBManager {
 	public static ArrayList<CategoriaA> listarCategoriaA() throws DBException {
 		
 		ArrayList <CategoriaA> CategoriaA = new ArrayList<>();
-		Connection con = initBD("usuarios.bd");
+		Connection con = initBD("EasyRentingMotors.db");
 		
 		try(Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, maletero FROM CategoriaA");
 			
 			while(rs.next()) {
 				 CategoriaA CategoriAs = new CategoriaA();
-			  CategoriAs.setId("id");
+			  CategoriAs.setId(rs.getString("id"));
 			  CategoriAs.setNombre(rs.getString("nombre"));
 			  CategoriAs.setCategoria(rs.getString("Categoria"));
 			  CategoriAs.setMarca(rs.getString("marca"));
@@ -217,14 +217,14 @@ public class DBManager {
 public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 		
 		ArrayList <CategoriaB> CategoriaB = new ArrayList<>();
-		Connection con = initBD("usuarios.bd");
+		Connection con = initBD("EasyRentingMotors.db");
 		
 		try(Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable FROM CategoriaB");
 			
 			while(rs.next()) {
 				 CategoriaB CategoriBs = new CategoriaB();
-			  CategoriBs.setId("id");
+			  CategoriBs.setId(rs.getString("id"));
 			  CategoriBs.setNombre(rs.getString("nombre"));
 			  CategoriBs.setCategoria(rs.getString("Categoria"));
 			  CategoriBs.setMarca(rs.getString("marca"));
@@ -255,14 +255,14 @@ public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
 	
 	ArrayList <CategoriaC> CategoriaC = new ArrayList<>();
-	Connection con = initBD("usuarios.bd");
+	Connection con = initBD("EasyRentingMotors.db");
 	
 	try(Statement stmt = con.createStatement()) {
 		ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoTodoTerreno, descapotable FROM CategoriaC");
 		
 		while(rs.next()) {
 			 CategoriaC CategoriCs = new CategoriaC();
-		  CategoriCs.setId("id");
+		  CategoriCs.setId(rs.getString("id"));
 		  CategoriCs.setNombre(rs.getString("nombre"));
 		  CategoriCs.setCategoria(rs.getString("Categoria"));
 		  CategoriCs.setMarca(rs.getString("marca"));
@@ -287,14 +287,14 @@ public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
 public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 	
 	ArrayList <CategoriaD> CategoriaD = new ArrayList<>();
-	Connection con = initBD("usuarios.bd");
+	Connection con = initBD("EasyRentingMotors.db");
 	
 	try(Statement stmt = con.createStatement()) {
 		ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoFurgoneta, descapotable FROM CategoriaD");
 		
 		while(rs.next()) {
 			 CategoriaD CategoriDs = new CategoriaD();
-		  CategoriDs.setId("id");
+		  CategoriDs.setId(rs.getString("id"));
 		  CategoriDs.setNombre(rs.getString("nombre"));
 		  CategoriDs.setCategoria(rs.getString("Categoria"));
 		  CategoriDs.setMarca(rs.getString("marca"));
