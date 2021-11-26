@@ -323,7 +323,44 @@ public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 }
 
 
- 
+public static ArrayList<Coche> obtenerCoches(Connection con){
+	ArrayList<Coche> av = new ArrayList<>();
+	String sent = "SELECT * FROM Vehiculo";
+	Statement st = null;
+	
+	try {
+		st = con.createStatement();
+		ResultSet rs = st.executeQuery(sent);
+		while(rs.next()) {
+			String id = rs.getString("id");
+			String nombre = rs.getString("nombre");
+			String Categoria = rs.getString("categoria");
+			String clase = rs.getString("clase");
+			String marca = rs.getString("marca");
+			String fecha_matriculacion = rs.getString("fecha_matriculacion");
+			String combustible = rs.getString("combustible");
+			String rutaFoto = rs.getString("rutaFoto");
+			
+			double precio = rs.getDouble("precio");
+			Coche v = new Coche(id, nombre, Categoria, clase, marca, fecha_matriculacion, combustible, precio, rutaFoto);
+			av.add(v);
+		}
+		rs.close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		if(st!=null) {
+			try {
+				st.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	return av;
+}
 	// CERRAR CONEXION CON BD
 	public static void disconnect() throws DBException {
 		try {
