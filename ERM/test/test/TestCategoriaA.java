@@ -15,7 +15,7 @@ import ERM.categoriasCoche.CategoriaA;
  */
 
 
-class TestCategoria_A extends GroupException {
+class TestCategoriaA extends GroupException {
 	
 	
 	private CategoriaA a;
