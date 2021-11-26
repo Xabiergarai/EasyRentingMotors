@@ -189,6 +189,34 @@ public class WebcamViewer extends JFrame implements Runnable,ActionListener, Web
 			}
 		}
 	}
+	
+	@Override
+	public void webcamFound(WebcamDiscoveryEvent event) {
+		if (picker != null) {
+			picker.addItem(event.getWebcam());
+		}
+	}
+
+	@Override
+	public void webcamGone(WebcamDiscoveryEvent event) {
+		if (picker != null) {
+			picker.removeItem(event.getWebcam());
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == boton) {
+			BufferedImage image = webcam.getImage();
+
+			try {
+				ImageIO.write(image, "JPG", new File("test.jpg"));
+				System.out.println("Foto Obtenida");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
 
 
 		
