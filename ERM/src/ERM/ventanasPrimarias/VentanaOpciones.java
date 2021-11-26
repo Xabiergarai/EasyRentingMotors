@@ -28,7 +28,7 @@ public class VentanaOpciones extends JFrame {
 		// TODO Auto-generated constructor stub
 
 		ventanaActual = this;
-		setTitle("VENTANA OPCIONES");
+		setTitle("Menú inicial");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(500, 500, 500, 500);
 
