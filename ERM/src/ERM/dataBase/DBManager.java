@@ -32,7 +32,7 @@ public class DBManager {
 	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:usuarios.db");
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:EasyRentingMotors.db");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
@@ -81,7 +81,7 @@ public class DBManager {
 	 */
 
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
-		Connection con = initBD("usuarios.db");
+		Connection con = initBD("EasyRentingMotors.db");
 		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick + "'";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
@@ -155,7 +155,7 @@ public class DBManager {
 
 		try {
 			//cambiar la conexion a la nueva bd
-			Connection con = initBD("usuarios.bd");
+			Connection con = initBD("EasyRentingMotors.bd");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
