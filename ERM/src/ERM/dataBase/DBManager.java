@@ -154,6 +154,7 @@ public class DBManager {
 	public boolean registrar(Usuario u) throws DBException {
 
 		try {
+			//cambiar la conexion a la nueva bd
 			Connection con = initBD("usuarios.bd");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
 
