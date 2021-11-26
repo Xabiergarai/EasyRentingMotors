@@ -17,7 +17,7 @@ import erm.categoriasCoche.CategoriaC;
  */
 
 
-class TestCategoriaC {
+class CategoriaCTest {
 	
 	
 	

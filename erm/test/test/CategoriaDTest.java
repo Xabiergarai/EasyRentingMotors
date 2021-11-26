@@ -14,7 +14,7 @@ import erm.categoriasCoche.CategoriaD;
 
 
 
-class TestCategoriaD {
+class CategoriaDTest {
 	
 	
 private CategoriaD d;

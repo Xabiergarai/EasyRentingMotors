@@ -14,7 +14,7 @@ import erm.clasesBasicas.Usuario;
  */
 
 
-public class TestUsuario extends GroupException {
+public class UsuarioTest extends GroupException {
 
 	private Usuario u;
 		
