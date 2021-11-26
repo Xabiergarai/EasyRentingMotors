@@ -155,7 +155,7 @@ public class VentanaLogIn extends JFrame {
 			}
 
 		});
-
+		/*
 		this.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 			// TODO Auto-generated method stub
@@ -178,7 +178,7 @@ public class VentanaLogIn extends JFrame {
 		}
 			
 	});
-	
+	*/
 	
 	}
 
