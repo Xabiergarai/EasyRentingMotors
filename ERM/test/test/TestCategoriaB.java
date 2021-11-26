@@ -58,7 +58,7 @@ private CategoriaB b;
 	
 	@Test
 	public void testGetDescapotable() {				
-		assertEquals(false,b.isdescapotable());
+		assertEquals(false,b.isDescapotable());
 	} 
 	 
 	
