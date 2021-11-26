@@ -155,7 +155,7 @@ public class DBManager {
 
 		try {
 			//cambiar la conexion a la nueva bd
-			Connection con = initBD("EasyRentingMotors.bd");
+			Connection con = initBD("EasyRentingMotors.db");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
