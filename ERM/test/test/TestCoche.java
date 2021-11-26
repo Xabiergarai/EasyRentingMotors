@@ -20,7 +20,7 @@ class TestCoche extends GroupException {
 	
 	@BeforeEach
 	void setUpCoche() {
-		 c = new Coche("01", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "  ");	
+		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "  ");	
 	}
 
 	@Test
