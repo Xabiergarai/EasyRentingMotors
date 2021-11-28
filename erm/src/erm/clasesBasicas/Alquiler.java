@@ -6,14 +6,14 @@ public class Alquiler {
 
 	private String nomUsuario;
 	private String idCoche;
-	private Date fechaInicio,fechaFin;
+	private String fechaInicio,fechaFin;
 	
 	public Alquiler(){
 		super();
 	
 	}
 
-	public Alquiler(String nomUsuario, String idCoche, Date fechaInicio, Date fechaFin) {
+	public Alquiler(String nomUsuario, String idCoche, String fechaInicio, String fechaFin) {
 		super();
 		this.nomUsuario = nomUsuario;
 		this.idCoche = idCoche;
@@ -37,19 +37,19 @@ public class Alquiler {
 		this.idCoche = idCoche;
 	}
 
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

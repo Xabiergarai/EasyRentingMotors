@@ -60,22 +60,24 @@ public class DBManager {
 		logger.log(Level.INFO, "Creando tablas...");
 
 		try {
-			Statement statement = con.createStatement();
+			Statement statement1 = con.createStatement();
 			try {
-				statement.executeUpdate("create table if not exists Usuario " + "(nick string, " + " contrasenya string"
+				statement1.executeUpdate("create table if not exists Usuario " + "(nick string, " + " contrasenya string"
 						+ " apellidos string, " + " email string) ");
 
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				throw new DBException("Error creando tabla de usuario a la BD", ex);
-
+			
 			}
-			return statement;
+			
+			statement1.executeUpdate("create table if not exists Coche"+"(id string,"+" nombre string"+"categoria string"+"fechamatriculacion string"+"combustible string"+"precio float"+"rutaFoto string"+"numPuertas ing"+"maletero int)");
+		
+			return statement1;
 		} catch (SQLException e) {
 			return null;
 		}
-
-	}
+		}
 
 	/**
 	 * Este metodo comprobara si existe el usuario en concre * @param nick
@@ -325,7 +327,7 @@ public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 
 public static ArrayList<Coche> obtenerCoches(Connection con){
 	ArrayList<Coche> av = new ArrayList<>();
-	String sent = "SELECT * FROM Vehiculo";
+	String sent = "SELECT * FROM Coche";
 	Statement st = null;
 	
 	try {
