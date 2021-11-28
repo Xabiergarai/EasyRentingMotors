@@ -228,7 +228,7 @@ public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 		Connection con = initBD("EasyRentingMotors.db");
 		
 		try(Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable FROM CategoriaB");
+			ResultSet rs = stmt.executeQuery("Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable, deportivo FROM CategoriaB");
 			
 			while(rs.next()) {
 				 CategoriaB CategoriBs = new CategoriaB();
