@@ -23,7 +23,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import com.toedter.calendar.JCalendar;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
@@ -47,8 +46,9 @@ public class VentanaAlquiler extends JFrame{
 
 	private JComboBox<Coche>comboCoche;
 	private JButton btnALquilar;
+	 
 
-	public VentanaAlquiler() throws DBException {
+	public VentanaAlquiler()  {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,11 +126,9 @@ String nom = textNombre.getText();
 				Coche c = (Coche) comboCoche.getSelectedItem();
 				Date fechainit = new Date(System.currentTimeMillis());
 				String fi=sdf.format(fechainit);
-				//Date fechaFin=
 				Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
-				//con = DBManager.initBD(nombreBD);
-				//DBManager.insertarAlquiler(con, alq);
-				//DBManager.disconnect();
+				con = DBManager.initBD(nombreBD);
+				DBManager.disconnect();
 				JOptionPane.showMessageDialog(null, "ALQUILER INSERTADO");
 			}
 		});

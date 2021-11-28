@@ -14,6 +14,7 @@ import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.CategoriaB;
 import erm.categoriasCoche.CategoriaC;
 import erm.categoriasCoche.CategoriaD;
+import erm.clasesBasicas.Alquiler;
 import erm.clasesBasicas.Usuario;
 import erm.categoriasCoche.*;
 import erm.ventanasPrimarias.*;
@@ -370,6 +371,11 @@ public static ArrayList<Coche> obtenerCoches(Connection con){
 		} catch (SQLException e) {
 			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
+	}
+
+	public static void insertarAlquiler(Connection con, Alquiler alq) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

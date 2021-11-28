@@ -14,8 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import erm.dataBase.DBException;
-
 public class VentanaOpciones extends JFrame {
 
 	/**
@@ -77,12 +75,7 @@ btnAlquilar.addActionListener(new ActionListener() {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		try {
-			new VentanaAlquiler();
-		} catch (DBException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		new VentanaAlquiler();
 		setVisible(false);
 	}
 });
