@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -326,8 +327,8 @@ public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 }
 
 
-public static ArrayList<Coche> obtenerCoches(Connection con){
-	ArrayList<Coche> av = new ArrayList<>();
+public static List<Coche> obtenerCoches(Connection con){
+	List<Coche> av = new ArrayList<>();
 	String sent = "SELECT * FROM Coche";
 	Statement st = null;
 	

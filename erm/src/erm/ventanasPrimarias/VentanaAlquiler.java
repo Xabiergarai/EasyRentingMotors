@@ -95,7 +95,8 @@ public class VentanaAlquiler extends JFrame{
 		calendario.setWeekdayForeground(Color.GRAY);
 		// Establecer las fechas mínima y máxima seleccionable
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String fechaMin = "2021-11-16";
+		Date fechaM =  new Date(System.currentTimeMillis());
+		String fechaMin=sdf.format(fechaM);
 		String fechaMax = "2022-12-31";
 		try {
 			Date fMin = sdf.parse(fechaMin);
@@ -153,7 +154,7 @@ public class VentanaAlquiler extends JFrame{
 	}
 	private void cargarComboVehiculos() throws DBException {
 		con = DBManager.initBD(nombreBD);
-		ArrayList<Coche> ac = DBManager.obtenerCoches(con);
+		ArrayList<Coche> ac = (ArrayList<Coche>) DBManager.obtenerCoches(con);
 		DBManager.disconnect();
 		for(Coche v : ac) {	
 			comboCoche.addItem(v);
