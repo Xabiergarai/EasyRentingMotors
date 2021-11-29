@@ -7,6 +7,8 @@ import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
 import java.awt.*;
+import erm.categoriasCoche.*;
+import erm.clasesBasicas.*;
 
 	import javax.swing.*;
 	import java.awt.event.ActionEvent;
@@ -155,10 +157,28 @@ import java.awt.*;
 			label.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(label);
+			
+			JButton btnAnadirAlCarrito = new JButton("Agregar al carrito");
+			btnAnadirAlCarrito.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnAnadirAlCarrito.setForeground(Color.WHITE);
+			btnAnadirAlCarrito.setBackground(new Color(255, 165, 0));
+			btnAnadirAlCarrito.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					Coches.getCoches().put(
+							new Random().nextInt(), o
+							);
+					carrito.add(o);
+				}
+			});
+			btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
+			panel.add(btnAnadirAlCarrito);
+
 			return panel;
+		}	
 
 		}	
-	}
+	
 
 
 
