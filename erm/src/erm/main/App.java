@@ -16,7 +16,7 @@ public class App {
 	public static Logger logger = Logger.getLogger(App.class.getName());
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 		try (FileInputStream fis = new FileInputStream("logger.properties")) {
 			LogManager.getLogManager().readConfiguration(fis);
