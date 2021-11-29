@@ -126,9 +126,11 @@ public class VentanaAlquiler extends JFrame{
 				
 				Date fechaf = calendario.getDate();
 				String ff = sdf.format(fechaf);
-
+				int pos= comboCoche.getSelectedIndex();
+				if(!pos==-1)
+					
 				
-				Coche c = (Coche) comboCoche.getSelectedItem();
+				Coche c =  comboCoche.getSelectedItem();
 				Date fechainit = new Date(System.currentTimeMillis());
 				String fi=sdf.format(fechainit);
 				Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
