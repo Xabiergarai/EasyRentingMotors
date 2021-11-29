@@ -92,7 +92,7 @@ import java.awt.*;
 			JMenuItem mntmNewMenuItem_2 = new JMenuItem("Categoria A");
 			mntmNewMenuItem_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					VentanaCategoriaB.main(null);
+					VentanaCategoriaA.main(null);
 					frame.dispose();
 				}
 			});
