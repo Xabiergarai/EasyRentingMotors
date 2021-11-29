@@ -51,6 +51,42 @@ public VentanaAjustes() {
 	BotonSeguridad.setBounds(57, 144, 297, 23);
 	getContentPane().add(BotonSeguridad);
 	
+
+	JButton BotonPago = new JButton("Metodos de pago");
+	BotonPago.setBackground(UIManager.getColor("CheckBox.background"));
+	BotonPago.setBounds(57, 163, 297, 23);
+	getContentPane().add(BotonPago);
+	
+	JButton botonCerrarSesion = new JButton("Cerrar Sesion");
+	botonCerrarSesion.setBackground(UIManager.getColor("CheckBox.background"));
+	botonCerrarSesion.setBounds(57, 239, 297, 23);
+	getContentPane().add(botonCerrarSesion);
+	
+	JButton BotonSalir = new JButton("Salir de la aplicacion");
+	BotonSalir.setBackground(UIManager.getColor("CheckBox.background"));
+	BotonSalir.setBounds(57, 263, 297, 23);
+	getContentPane().add(BotonSalir);
+	
+	JButton BotonInformacion = new JButton("Contacto");
+	BotonInformacion.setBackground(UIManager.getColor("CheckBox.background"));
+	BotonInformacion.setBounds(57, 353, 297, 23);
+	getContentPane().add(BotonInformacion);
+	
+	JButton btnvlvAtras = new JButton("Volver atras");
+	btnvlvAtras.setBackground(UIManager.getColor("CheckBox.background"));
+	btnvlvAtras.setBounds(57, 376, 297, 23);
+	getContentPane().add(btnvlvAtras);
+	
+	JButton btnVentasEInformacion = new JButton("Ventas e informacion");
+	btnVentasEInformacion.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		}
+	});
+	btnVentasEInformacion.setBackground(UIManager.getColor("CheckBox.background"));
+	btnVentasEInformacion.setBounds(57, 106, 297, 20);
+	getContentPane().add(btnVentasEInformacion);
+	
+	
 	
 	}
 
