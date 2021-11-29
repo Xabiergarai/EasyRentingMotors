@@ -47,6 +47,24 @@ public class VentanaPrincipal extends JFrame {
 	// }
 	// }
 	// }
+	
+	/**
+	 * Launch the application
+	 */
+	
+	public static void main(String[] args) {
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaPrincipal window = new VentanaPrincipal();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	VentanaLogIn vp = new VentanaLogIn();
 
