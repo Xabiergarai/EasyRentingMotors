@@ -38,7 +38,7 @@ public class DBManager {
 	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:EasyRentingMotors.db");
+			 conn = DriverManager.getConnection("jdbc:sqlite:EasyRentingMotors.db");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
@@ -89,14 +89,14 @@ public class DBManager {
 	 */
 
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
-		Connection con = initBD("EasyRentingMotors.db");
+		 conn = initBD("EasyRentingMotors.db");
 		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick + "'";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
 		int resultado = 0;
 		try {
-			st = con.createStatement();
+			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			if (!rs.next()) {
 				resultado = 0;
@@ -132,9 +132,9 @@ public class DBManager {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			if (con != null)
+			if (conn != null)
 				try {
-					con.close();
+					conn.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -362,20 +362,16 @@ public static ArrayList<Coche> obtenerCoches(Connection con){
 			}
 		}
 	}
-	return av;
+	return av ;
 }
 	// CERRAR CONEXION CON BD
 	public static void disconnect() throws DBException {
 		try {
-			conn.close();
+			 conn = initBD("EasyRentingMotors.db");
+			 conn.close();
 		} catch (SQLException e) {
 			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
-	}
-
-	public static void insertarAlquiler(Connection con, Alquiler alq) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

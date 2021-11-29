@@ -23,10 +23,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.toedter.calendar.JCalendar;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
-import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
@@ -36,7 +36,7 @@ public class VentanaAlquiler extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane,panelAbajo,panelCentral,panelBotonera;
+	private JPanel contentPane,panelAbajo,panelCentral,panelNorte,panelBotonera;
 	public static Connection con;
 	public static String nombreBD = "EasyRentingMotors.db";
 	
@@ -48,7 +48,7 @@ public class VentanaAlquiler extends JFrame{
 	private JButton btnALquilar;
 	 
 
-	public VentanaAlquiler()  {
+	public VentanaAlquiler() throws DBException  {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +60,10 @@ public class VentanaAlquiler extends JFrame{
 		
 		panelAbajo = new JPanel();
 		contentPane.add(panelAbajo, BorderLayout.SOUTH);
+		
+		panelNorte= new JPanel();
+		contentPane.add(panelNorte,BorderLayout.NORTH);
+		panelNorte.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		panelCentral = new JPanel();
 		contentPane.add(panelCentral, BorderLayout.CENTER);
@@ -74,7 +78,7 @@ public class VentanaAlquiler extends JFrame{
 		
 		
 		comboCoche = new JComboBox<>();
-		panelCentral.add(comboCoche);
+		panelNorte.add(comboCoche);
 		
 		calendario = new JCalendar();
 		panelCentral.add(calendario);
@@ -117,7 +121,7 @@ public class VentanaAlquiler extends JFrame{
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-String nom = textNombre.getText();
+				String nom = textNombre.getText();
 				
 				Date fechaf = calendario.getDate();
 				String ff = sdf.format(fechaf);
@@ -127,8 +131,18 @@ String nom = textNombre.getText();
 				Date fechainit = new Date(System.currentTimeMillis());
 				String fi=sdf.format(fechainit);
 				Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
-				con = DBManager.initBD(nombreBD);
-				DBManager.disconnect();
+				try {
+					con = DBManager.initBD(nombreBD);
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					DBManager.disconnect();
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "ALQUILER INSERTADO");
 			}
 		});
