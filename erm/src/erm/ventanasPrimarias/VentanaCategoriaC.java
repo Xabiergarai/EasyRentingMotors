@@ -126,8 +126,21 @@ public class VentanaCategoriaC {
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_1_1.setBounds(194, 34, 178, 43);
 		frame.getContentPane().add(lblNewLabel_1_1);
-
+		
+		JButton btnCarritoCompra = new JButton("Carrito");
+		btnCarritoCompra.setBounds(250, 550, 80, 30);
+		btnCarritoCompra.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaCarritoCompra.main(carrito);
+				
+			}
+		});
+		frame.getContentPane().add(btnCarritoCompra);
 	}
+
+	
 
 	private JPanel CochePanel(CategoriaC o, ArrayList<Coche> carrito) {
 		JPanel panel = new JPanel();

@@ -132,7 +132,20 @@ import erm.clasesBasicas.*;
 			lblNewLabel_1_1.setBounds(194, 34, 178, 43);
 			frame.getContentPane().add(lblNewLabel_1_1);
 			
+			JButton btnCarritoCompra = new JButton("Carrito");
+			btnCarritoCompra.setBounds(250, 550, 80, 30);
+			btnCarritoCompra.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					VentanaCarritoCompra.main(carrito);
+					
+				}
+			});
+			frame.getContentPane().add(btnCarritoCompra);
 		}
+			
+		
 		private JPanel CochePanel(CategoriaB o, ArrayList<Coche> carrito) {
 			JPanel panel =  new JPanel();
 			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
