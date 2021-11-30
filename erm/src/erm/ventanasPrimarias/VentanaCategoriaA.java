@@ -124,7 +124,15 @@ import erm.categoriasCoche.*;
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem_3);
+			
+			JMenuItem mntmNewMenuItem_4 = new JMenuItem("Volver a menu");
+			mntmNewMenuItem_4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					VentanaPrincipal.main(null);
+					frame.dispose();
+				}
+			});
+			mnNewMenu.add(mntmNewMenuItem_4);
 
 			JLabel lblNewLabel_1_1 = new JLabel("Categoria A");
 			lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));

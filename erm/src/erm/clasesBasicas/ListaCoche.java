@@ -2,12 +2,13 @@ package erm.clasesBasicas;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import erm.categoriasCoche.Coche;
 
 public class ListaCoche extends Coche {
 
-	private Map<Integer, Coche> coches;
+	private Map<Integer, Coche> coches = new TreeMap<>();
 
 	public static void main(String[] args) {
 

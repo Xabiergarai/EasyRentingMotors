@@ -2,7 +2,7 @@ package erm.ventanasPrimarias;
 
 import erm.categoriasCoche.*;
 import erm.clasesBasicas.*;
-
+import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -127,15 +127,15 @@ public class VentanaCarritoCompra extends JFrame {
 		btnRealizarPedido.setBackground(Color.YELLOW);
 		btnRealizarPedido.setBounds(98, 555, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
-		/* btnRealizarPedido.addActionListener(new ActionListener() {
+		 btnRealizarPedido.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new VentanaTransaccion();
+				new VentanaTransaccionCompra();
 				frame.dispose();
 			}
-		}); */
+		}); 
 		
 		
 		JLabel lblFormasDePago = new JLabel("Formas de pago");
