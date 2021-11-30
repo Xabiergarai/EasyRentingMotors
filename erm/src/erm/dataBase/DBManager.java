@@ -6,8 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -365,6 +368,24 @@ public static List<Coche> obtenerCoches(Connection con){
 	}
 	return av ;
 }
+
+public static TreeSet<String> obtenerNombresCoches() throws SQLException{
+	Statement statement = conn.createStatement();
+	String sent = "SELECT nombre from Coche";
+	TreeSet<String> tsnomb = new TreeSet<>();
+	ResultSet rs = statement.executeQuery(sent);
+	while(rs.next()) {
+		String n = rs.getString("nombre");
+	
+		
+		tsnomb.add(n);
+	}
+	rs.close();
+	return tsnomb;
+}
+
+
+
 	// CERRAR CONEXION CON BD
 	public static void disconnect() throws DBException {
 		try {

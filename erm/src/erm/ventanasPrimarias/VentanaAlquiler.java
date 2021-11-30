@@ -13,6 +13,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.TreeSet;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -44,11 +46,11 @@ public class VentanaAlquiler extends JFrame{
 	private JTextField textNombre;
 	private JCalendar calendario;
 
-	private JComboBox<Coche>comboCoche;
+	private JComboBox<String>comboCoche;
 	private JButton btnALquilar;
 	 
 
-	public VentanaAlquiler() throws DBException  {
+	public VentanaAlquiler() throws DBException, SQLException  {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,7 +109,10 @@ public class VentanaAlquiler extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		System.out.println("no llega");
 		
+		cargarComboVehiculos();
+		System.out.println("Llega");
 		Date fechaDelCalendario = calendario.getDate();
 		String fc = sdf.format(fechaDelCalendario);
 		
@@ -117,7 +122,7 @@ public class VentanaAlquiler extends JFrame{
 		btnALquilar = new JButton("REALIZAR ALQUILER");
 		panelBotonera.add(btnALquilar);
 		
-		cargarComboVehiculos();
+		
 
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
@@ -127,13 +132,13 @@ public class VentanaAlquiler extends JFrame{
 				Date fechaf = calendario.getDate();
 				String ff = sdf.format(fechaf);
 				int pos= comboCoche.getSelectedIndex();
-				if(!pos==-1)
+				//if(!pos==-1)
 					
 				
-				Coche c =  comboCoche.getSelectedItem();
+				//Coche c =  comboCoche.getSelectedItem();
 				Date fechainit = new Date(System.currentTimeMillis());
 				String fi=sdf.format(fechainit);
-				Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
+				//Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
 				try {
 					con = DBManager.initBD(nombreBD);
 				} catch (DBException e1) {
@@ -154,11 +159,12 @@ public class VentanaAlquiler extends JFrame{
 		setVisible(true);
 
 	}
-	private void cargarComboVehiculos() throws DBException {
+	private void cargarComboVehiculos() throws DBException, SQLException {
 		con = DBManager.initBD(nombreBD);
-		ArrayList<Coche> ac = (ArrayList<Coche>) DBManager.obtenerCoches(con);
+		TreeSet<String> ac =  DBManager.obtenerNombresCoches();
 		DBManager.disconnect();
-		for(Coche v : ac) {	
+		for(String v : ac) {	
+			System.out.println(v);
 			comboCoche.addItem(v);
 }
 		
