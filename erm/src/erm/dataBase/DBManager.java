@@ -377,7 +377,6 @@ public static TreeSet<String> obtenerNombresCoches() throws SQLException{
 	while(rs.next()) {
 		String n = rs.getString("nombre");
 	
-		
 		tsnomb.add(n);
 	}
 	rs.close();
