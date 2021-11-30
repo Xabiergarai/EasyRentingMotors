@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
+import erm.ventanasSecundarias.VentanaAjustes;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;

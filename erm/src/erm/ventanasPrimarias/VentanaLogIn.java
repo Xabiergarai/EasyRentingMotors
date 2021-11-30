@@ -38,6 +38,7 @@ import erm.dataBase.*;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasSecundarias.VentanaOpciones;
 
 import java.awt.EventQueue;
 

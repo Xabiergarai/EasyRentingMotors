@@ -1,4 +1,4 @@
-package erm.ventanasPrimarias;
+package erm.ventanasSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import erm.ventanasPrimarias.VentanaPrincipal;
 
 
 public class VentanaTransaccionCompra extends JFrame {

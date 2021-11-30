@@ -1,4 +1,4 @@
-package erm.ventanasPrimarias;
+package erm.ventanasSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import erm.dataBase.DBException;
+import erm.ventanasPrimarias.VentanaAlquiler;
+import erm.ventanasPrimarias.VentanaLogIn;
+import erm.ventanasPrimarias.VentanaPrincipal;
 
 public class VentanaOpciones extends JFrame {
 
