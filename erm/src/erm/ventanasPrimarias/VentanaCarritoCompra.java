@@ -4,6 +4,7 @@ import erm.categoriasCoche.*;
 import erm.clasesBasicas.*;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +24,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private DefaultTableModel carritoModeloTabla;
 	private JLabel lblTotal;
 	private double precioTotal;
-	//public static Contenedora contenedora;
+	public static Contenedora contenedora;
 	
 
 	/**
@@ -47,7 +48,7 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 	
 	public VentanaCarritoCompra() {
-		//contenedora = new Contenedora();
+		contenedora = new Contenedora();
 		initialize(null);
 	}
 	public VentanaCarritoCompra(ListaCoche Coches, ArrayList<Coche> carrito) {
@@ -96,6 +97,13 @@ public class VentanaCarritoCompra extends JFrame {
 				
 		JButton btnGuardarLista = new JButton("Guardar lista");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
+		btnGuardarLista.addActionListener(new ActionListener() {
+			
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+		});
 		frame.getContentPane().add(btnGuardarLista);
 		
 		JButton btnSeguirComprando = new JButton("Seguir comprando");
