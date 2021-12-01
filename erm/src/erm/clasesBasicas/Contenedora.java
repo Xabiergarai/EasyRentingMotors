@@ -71,7 +71,7 @@ import erm.categoriasCoche.Coche;
 		/**
 		 * Metodo que guarda el contenido del carrito en un fichero de texto para generar la factura
 		 */
-		/* public void guardarCarritoEnFicheroDeTexto(String nombreUsuario) {
+		 public void guardarCarritoEnFicheroDeTexto(String nombreUsuario) {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			Date fecha = new Date(System.currentTimeMillis()); //fecha actual
 			String nomfich = nombreUsuario+ " " +sdf.format(fecha)+".txt";
@@ -93,11 +93,11 @@ import erm.categoriasCoche.Coche;
 					pw.close();
 				}
 			}
-		} */
+		} 
 	 public void guardarListaCochesEnFichero() {
 
 			try {
-				FileOutputStream fos = new FileOutputStream("Coches.DAT");
+				FileOutputStream fos = new FileOutputStream("CompraCoches.txt");
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				for(Coche p: listaCoches)
 					oos.writeObject(p);
@@ -119,7 +119,7 @@ import erm.categoriasCoche.Coche;
 		
 		public void cargarFicheroCoches() {
 			try {
-				FileInputStream fis = new FileInputStream("Coches.DAT");
+				FileInputStream fis = new FileInputStream("CompraCoches.txt");
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				Object p = ois.readObject();
 				while(p!=null) {

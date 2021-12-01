@@ -1,7 +1,8 @@
 package erm.ventanasPrimarias;
 
-import erm.categoriasCoche.*;
+import erm.categoriasCoche.*; 
 import erm.clasesBasicas.*;
+import erm.clasesBasicas.Contenedora;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
 
@@ -100,7 +101,10 @@ public class VentanaCarritoCompra extends JFrame {
 		btnGuardarLista.addActionListener(new ActionListener() {
 			
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {			
+			contenedora.guardarListaCochesEnFichero();
+			contenedora.cargarFicheroCoches();
+	//		contenedora.guardarCarritoEnFicheroDeTexto();
 			
 		}
 		});

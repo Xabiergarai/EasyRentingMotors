@@ -130,7 +130,7 @@ import erm.clasesBasicas.*;
 			JMenuItem mntmNewMenuItem_4 = new JMenuItem("Volver a menu");
 			mntmNewMenuItem_4.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					VentanaPrincipal.main(null);
+					VentanaInicial.main(null);
 					frame.dispose();
 				}
 			});
