@@ -25,7 +25,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextPane;
 
-import com.github.sarxos.webcam.WebcamViewer;
+import erm.webcam.WebcamViewer;
 
 import erm.ventanasSecundarias.VentanaVentasInformacion;
 
@@ -119,6 +119,16 @@ public class VentanaVenderCoche extends JFrame{
 		btnCamara.setBounds(112, 415, 93, 29);
 		getContentPane().add(btnCamara);
 		
+	
+		btnCamara.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WebcamViewer wc = new WebcamViewer();
+				wc.run();  
+				
+			}
+		});
+		
 		JButton btnImagen = new JButton("Imagen");
 		btnImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -165,10 +175,6 @@ public class VentanaVenderCoche extends JFrame{
 			//descripcion = textoDescripcion.getText();
 			
 		
-		
-			
-	
-				
 			
             VentanaPrincipal va = new VentanaPrincipal();
 			setVisible(false);
@@ -191,20 +197,7 @@ public class VentanaVenderCoche extends JFrame{
 		btnAtras.setBounds(219, 467, 89, 28);
 		getContentPane().add(btnAtras);
 		
-	
-		
-		btnCamara.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				WebcamViewer wc = new WebcamViewer();
-				wc.run();  
-				
-			}
-		});
-		
-	//
-		
-		
+			
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

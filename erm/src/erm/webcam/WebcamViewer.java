@@ -27,7 +27,7 @@ import com.github.sarxos.webcam.WebcamPicker;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import erm.ventanasPrimarias.*;
-
+import erm.ventanasSecundarias.*;
 
 
 public class WebcamViewer extends JFrame implements Runnable,ActionListener, WebcamListener, WindowListener, UncaughtExceptionHandler, ItemListener, WebcamDiscoveryListener {
@@ -44,7 +44,7 @@ public class WebcamViewer extends JFrame implements Runnable,ActionListener, Web
 
 		Webcam.addDiscoveryListener(this);
 
-		setTitle("Java Webcam FutStore");
+		setTitle("Java Webcam ERM");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setLayout(new BorderLayout());
 
