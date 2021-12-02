@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 
 public class VentanaVentasInformacion extends JFrame {
 
+	//
 	public VentanaVentasInformacion() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
