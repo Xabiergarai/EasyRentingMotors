@@ -132,6 +132,8 @@ public class VentanaAlquiler extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				escribirProductosEnFichero(pw,sdf);	
+				JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
+						JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 		});
