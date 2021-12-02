@@ -5,7 +5,7 @@ import java.util.Date;
 public class Alquiler {
 
 	private String nomUsuario;
-	private String idCoche;
+	private String nomCoche;
 	private String fechaInicio,fechaFin;
 	
 	public Alquiler(){
@@ -13,10 +13,10 @@ public class Alquiler {
 	
 	}
 
-	public Alquiler(String nomUsuario, String idCoche, String fechaInicio, String fechaFin) {
+	public Alquiler(String nomUsuario, String nomCoche, String fechaInicio, String fechaFin) {
 		super();
 		this.nomUsuario = nomUsuario;
-		this.idCoche = idCoche;
+		this.nomCoche = nomCoche;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 	}
@@ -29,12 +29,12 @@ public class Alquiler {
 		this.nomUsuario = nomUsuario;
 	}
 
-	public String getIdCoche() {
-		return idCoche;
+	public String getnomCoche() {
+		return nomCoche;
 	}
 
-	public void setIdCoche(String idCoche) {
-		this.idCoche = idCoche;
+	public void setIdCoche(String nomCoche) {
+		this.nomCoche = nomCoche;
 	}
 
 	public String getFechaInicio() {
@@ -55,7 +55,7 @@ public class Alquiler {
 
 	@Override
 	public String toString() {
-		return "Alquiler [nomUsuario=" + nomUsuario + ", idCoche=" + idCoche + ", fechaInicio=" + fechaInicio
+		return "Alquiler [nomUsuario=" + nomUsuario + ", nomCoche=" + nomCoche + ", fechaInicio=" + fechaInicio
 				+ ", fechaFin=" + fechaFin + "]";
 	}
 	

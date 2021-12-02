@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JCalendar;
 
@@ -50,7 +53,7 @@ public class VentanaAlquiler extends JFrame{
 	private JButton btnALquilar;
 	 
 
-	public VentanaAlquiler() throws DBException, SQLException  {
+	public VentanaAlquiler() throws DBException, SQLException, FileNotFoundException  {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -122,39 +125,17 @@ public class VentanaAlquiler extends JFrame{
 		btnALquilar = new JButton("REALIZAR ALQUILER");
 		panelBotonera.add(btnALquilar);
 		
-		
+		PrintWriter pw = new PrintWriter("Alquileres.TXT");
 
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String nom = textNombre.getText();
 				
-				Date fechaf = calendario.getDate();
-				String ff = sdf.format(fechaf);
-				int pos= comboCoche.getSelectedIndex();
-				//if(!pos==-1)
-					
-				
-				//Coche c =  comboCoche.getSelectedItem();
-				Date fechainit = new Date(System.currentTimeMillis());
-				String fi=sdf.format(fechainit);
-				//Alquiler alq = new Alquiler(textNombre.getText(), c.getId(), fi,ff);
-				try {
-					con = DBManager.initBD(nombreBD);
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					DBManager.disconnect();
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				JOptionPane.showMessageDialog(null, "ALQUILER INSERTADO");
+				escribirProductosEnFichero(pw,sdf);	
 			}
+			
 		});
-		
+	
 		
 		setVisible(true);
 
@@ -164,12 +145,23 @@ public class VentanaAlquiler extends JFrame{
 		TreeSet<String> ac =  DBManager.obtenerNombresCoches();
 		DBManager.disconnect();
 		for(String v : ac) {	
-			System.out.println(v);
 			comboCoche.addItem(v);
 }
 		
 		
 	}
-	
+	private void escribirProductosEnFichero( PrintWriter pw,SimpleDateFormat sdf) {
+		
+			String nomcoche =(String) comboCoche.getSelectedItem(); ;
+			String nomcliente =  textNombre.getText();
+			Date fechaf = calendario.getDate();
+			String ff = sdf.format(fechaf);
+			Date fechainit = new Date(System.currentTimeMillis());
+			String fi=sdf.format(fechainit);
+			
+			pw.println(nomcoche+" "+nomcliente+" "+ff+" "+fi);
+			
+		
+	}
 	
 }
