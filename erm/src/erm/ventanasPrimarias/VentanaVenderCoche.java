@@ -40,20 +40,21 @@ public class VentanaVenderCoche extends JFrame{
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 546);
-		getContentPane().setBackground(Color.PINK);
+		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 		
-		JLabel lblFutStore2 = new JLabel("FUTSTORE");
-		lblFutStore2.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblFutStore2.setBounds(141, 11, 131, 60);
-		getContentPane().add(lblFutStore2);
+		JLabel lblERM = new JLabel("Easy Renting Motors");
+		lblERM.setForeground(new Color(255, 165, 0));
+		lblERM.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblERM.setBounds(99, 11, 223, 60);
+		getContentPane().add(lblERM);
 		
 		JLabel lblNewLabel = new JLabel("Introduce los datos del coche que deseas vender");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel.setBounds(35, 82, 373, 28);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Equipo");
+		JLabel lblNewLabel_1 = new JLabel("Nombre");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(21, 121, 65, 28);
 		getContentPane().add(lblNewLabel_1);
@@ -64,7 +65,7 @@ public class VentanaVenderCoche extends JFrame{
 		textoEquipo.setBounds(106, 120, 216, 28);
 		getContentPane().add(textoEquipo);
 		
-		JLabel lblNewLabel_2 = new JLabel("Temporada");
+		JLabel lblNewLabel_2 = new JLabel("Categoria");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(21, 160, 81, 28);
 		getContentPane().add(lblNewLabel_2);
@@ -75,7 +76,7 @@ public class VentanaVenderCoche extends JFrame{
 		textoTemporada.setBounds(106, 158, 216, 28);
 		getContentPane().add(textoTemporada);
 		
-		JLabel lblNewLabel_3 = new JLabel("Talla");
+		JLabel lblNewLabel_3 = new JLabel("Marca");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_3.setBounds(21, 204, 46, 14);
 		getContentPane().add(lblNewLabel_3);
@@ -153,7 +154,8 @@ public class VentanaVenderCoche extends JFrame{
 			String talla;
 			String precio;
 			//String descripcion;
-		
+			
+			//int a = VentanaLogin.getUsuarioId();
 			
 			//idUsuario = a;
 			equipo = textoEquipo.getText();
@@ -164,8 +166,9 @@ public class VentanaVenderCoche extends JFrame{
 			
 		
 		
-		
 			
+	
+				
 			
             VentanaPrincipal va = new VentanaPrincipal();
 			setVisible(false);

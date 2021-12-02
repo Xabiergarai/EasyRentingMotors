@@ -26,7 +26,7 @@ public class VentanaVentasInformacion extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Ventas ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setForeground(new Color(0, 0, 255));
+		lblNewLabel.setForeground(new Color(255, 165, 0));
 		lblNewLabel.setBounds(172, 28, 90, 20);
 		getContentPane().add(lblNewLabel);
 
@@ -36,6 +36,10 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().add(btnInfoVentas);
 
 		JButton btnVenderCoche = new JButton("Vender coche");
+		btnVenderCoche.setBackground(UIManager.getColor("CheckBox.background"));
+		btnVenderCoche.setBounds(67, 77, 297, 29);
+		getContentPane().add(btnVenderCoche);
+		
 		btnVenderCoche.addActionListener(new ActionListener() {
 			 @Override
 			 public void actionPerformed(ActionEvent e) {
@@ -44,9 +48,7 @@ public class VentanaVentasInformacion extends JFrame {
 					dispose();
 				 }
 		 });
-		btnVenderCoche.setBackground(UIManager.getColor("CheckBox.background"));
-		btnVenderCoche.setBounds(67, 77, 297, 29);
-		getContentPane().add(btnVenderCoche);
+		
 
 		JButton btnVolverAtras = new JButton("Volver atras");
 		btnVolverAtras.setBackground(UIManager.getColor("CheckBox.background"));

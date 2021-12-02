@@ -22,7 +22,7 @@ public class VentanaAjustes extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel lblConfiguracion = new JLabel("Configuracion");
-		lblConfiguracion.setForeground(new Color(0, 0, 255));
+		lblConfiguracion.setForeground(new Color(255, 165, 0));
 		lblConfiguracion.setBackground(Color.PINK);
 		lblConfiguracion.setFont(new Font("Tahoma", Font.ITALIC, 22));
 		lblConfiguracion.setBounds(10, 11, 297, 29);
