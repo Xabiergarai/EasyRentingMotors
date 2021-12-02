@@ -144,8 +144,8 @@ public class VentanaAjustes extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// VentanaAyudaInformacion v4 = new VentanaAyudaInformacion();
-				// v4.setVisible(true);
+				 VentanaContacto v4 = new VentanaContacto();
+				 v4.setVisible(true);
 				dispose();
 
 			}
