@@ -18,11 +18,11 @@ public class VentanaAjustes extends JFrame {
 	public VentanaAjustes() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
-		getContentPane().setBackground(UIManager.getColor("EditorPane.disabledBackground"));
+		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 
 		JLabel lblConfiguracion = new JLabel("Configuracion");
-		lblConfiguracion.setForeground(UIManager.getColor("ComboBox.selectionBackground"));
+		lblConfiguracion.setForeground(new Color(0, 0, 255));
 		lblConfiguracion.setBackground(Color.PINK);
 		lblConfiguracion.setFont(new Font("Tahoma", Font.ITALIC, 22));
 		lblConfiguracion.setBounds(10, 11, 297, 29);
@@ -92,8 +92,8 @@ public class VentanaAjustes extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// VentanaVentasEInformacion v5 = new VentanaVentasEInformacion();
-				// v5.setVisible(true);
+				VentanaVentasInformacion v5 = new VentanaVentasInformacion();
+				v5.setVisible(true);
 				dispose();
 			}
 		});
