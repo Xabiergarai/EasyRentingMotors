@@ -195,6 +195,7 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mntmNewMenuItem_1);
 
 		JButton btnAjustes = new JButton("Ajustes");
+		btnAjustes.setBackground(new Color(255, 204, 102));
 		menuBar.add(btnAjustes);
 
 		btnAjustes.addActionListener(new ActionListener() {
