@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
+import erm.ventanasPrimarias.VentanaVenderCoche;
+
 public class VentanaVentasInformacion extends JFrame {
 
 	//
@@ -33,14 +35,18 @@ public class VentanaVentasInformacion extends JFrame {
 		btnInfoVentas.setBounds(67, 117, 297, 29);
 		getContentPane().add(btnInfoVentas);
 
-		JButton btnVenderCamisetas = new JButton("Vender camisetas");
-		btnVenderCamisetas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnVenderCamisetas.setBackground(UIManager.getColor("CheckBox.background"));
-		btnVenderCamisetas.setBounds(67, 77, 297, 29);
-		getContentPane().add(btnVenderCamisetas);
+		JButton btnVenderCoche = new JButton("Vender coche");
+		btnVenderCoche.addActionListener(new ActionListener() {
+			 @Override
+			 public void actionPerformed(ActionEvent e) {
+				 VentanaVenderCoche v2 = new VentanaVenderCoche();
+				 v2.setVisible(true);
+					dispose();
+				 }
+		 });
+		btnVenderCoche.setBackground(UIManager.getColor("CheckBox.background"));
+		btnVenderCoche.setBounds(67, 77, 297, 29);
+		getContentPane().add(btnVenderCoche);
 
 		JButton btnVolverAtras = new JButton("Volver atras");
 		btnVolverAtras.setBackground(UIManager.getColor("CheckBox.background"));
