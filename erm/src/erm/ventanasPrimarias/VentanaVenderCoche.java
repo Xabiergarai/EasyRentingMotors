@@ -25,8 +25,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextPane;
 
+import FutStore.clasesBasicas.Camiseta;
+import FutStore.dataBase.DBManager;
 import erm.webcam.WebcamViewer;
-
+import erm.categoriasCoche.Coche;
 import erm.ventanasSecundarias.VentanaVentasInformacion;
 
 public class VentanaVenderCoche extends JFrame{
@@ -174,6 +176,19 @@ public class VentanaVenderCoche extends JFrame{
 		    precio = textoPrecio.getText();
 			//descripcion = textoDescripcion.getText();
 			
+		   /* Coche coche = new Coche(nombre, Double.parseDouble(precio), talla);
+			
+			
+			DBManager db = new DBManager();
+			
+			try {
+				db.connect();
+				
+				db.insertarVenta(coche);
+				db.disconnect();
+			}catch (Exception e3){
+				
+			}*/
 		
 			
             VentanaPrincipal va = new VentanaPrincipal();
