@@ -38,7 +38,6 @@ import erm.dataBase.*;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
-import erm.ventanasSecundarias.VentanaOpciones;
 
 import java.awt.EventQueue;
 
@@ -131,13 +130,13 @@ public class VentanaLogIn extends JFrame {
 
 			String contrasenia = txtContrasenia.getText();
 			int resultado;
-			VentanaOpciones vp;
+			VentanaPrincipal vp;
 			try {
 				resultado = DBManager.existeUsuario(nick, contrasenia);
 				if (resultado == 2) {
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 
-					vp = new VentanaOpciones();
+					vp = new VentanaPrincipal();
 					dispose();
 					vp.setVisible(true);
 

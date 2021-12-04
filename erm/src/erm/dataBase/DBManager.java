@@ -390,17 +390,18 @@ public class DBManager {
 		return tsnomb;
 	}
 
-//INSERTAR NUEVA VENTA DE CAMISETAS
+	//INSERTAR NUEVA VENTA DE COCHES
 	public void insertarVenta(Coche coche) throws DBException {
 		String nombre = coche.getNombre();
 		String categoria = coche.getCategoria();
 		String marca = coche.getMarca();
+		String combustible = coche.getCombustible();
 		double precio = coche.getPrecio();
 
 		try (Statement stmt = conn.createStatement()) {
 
-			stmt.executeUpdate("INSERT INTO camiseta (nombre, categoria,marca, precio) VALUES (' " + nombre + " ',  ' "
-					+ categoria + "', ' " + marca + "' ," + precio + ")");
+			stmt.executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' " + nombre + " ',  ' "
+					+ categoria + "', ' " + marca + "' ," +combustible+ "' ," + precio + ")");
 
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");

@@ -4,14 +4,20 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 
+import erm.dataBase.DBException;
+import erm.ventanasPrimarias.VentanaAlquiler;
+import erm.ventanasPrimarias.VentanaInicial;
 import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
+import java.awt.SystemColor;
 
 public class VentanaAjustes extends JFrame {
 
@@ -36,47 +42,47 @@ public class VentanaAjustes extends JFrame {
 
 		JLabel lblSesion = new JLabel("Sesion");
 		lblSesion.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblSesion.setBounds(10, 208, 69, 20);
+		lblSesion.setBounds(10, 230, 69, 20);
 		getContentPane().add(lblSesion);
 
 		JLabel lblContacto = new JLabel("Servicio");
 		lblContacto.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblContacto.setBounds(10, 312, 110, 20);
+		lblContacto.setBounds(10, 334, 110, 20);
 		getContentPane().add(lblContacto);
 
 		JButton BotonPrivacidad = new JButton("Privacidad");
 		BotonPrivacidad.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonPrivacidad.setBounds(57, 125, 297, 20);
+		BotonPrivacidad.setBounds(57, 144, 297, 20);
 		getContentPane().add(BotonPrivacidad);
 
 		JButton BotonSeguridad = new JButton("Seguridad");
 		BotonSeguridad.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonSeguridad.setBounds(57, 144, 297, 23);
+		BotonSeguridad.setBounds(57, 163, 297, 23);
 		getContentPane().add(BotonSeguridad);
 
 		JButton BotonPago = new JButton("Metodos de pago");
 		BotonPago.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonPago.setBounds(57, 163, 297, 23);
+		BotonPago.setBounds(57, 182, 297, 23);
 		getContentPane().add(BotonPago);
 
 		JButton botonCerrarSesion = new JButton("Cerrar Sesion");
 		botonCerrarSesion.setBackground(UIManager.getColor("CheckBox.background"));
-		botonCerrarSesion.setBounds(57, 239, 297, 23);
+		botonCerrarSesion.setBounds(57, 261, 297, 23);
 		getContentPane().add(botonCerrarSesion);
 
 		JButton BotonSalir = new JButton("Salir de la aplicacion");
 		BotonSalir.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonSalir.setBounds(57, 263, 297, 23);
+		BotonSalir.setBounds(57, 285, 297, 23);
 		getContentPane().add(BotonSalir);
 
 		JButton BotonInformacion = new JButton("Contacto");
 		BotonInformacion.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonInformacion.setBounds(57, 353, 297, 23);
+		BotonInformacion.setBounds(57, 375, 297, 23);
 		getContentPane().add(BotonInformacion);
 
 		JButton btnvlvAtras = new JButton("Volver atras");
 		btnvlvAtras.setBackground(UIManager.getColor("CheckBox.background"));
-		btnvlvAtras.setBounds(57, 376, 297, 23);
+		btnvlvAtras.setBounds(57, 398, 297, 23);
 		getContentPane().add(btnvlvAtras);
 
 		JButton btnVentasEInformacion = new JButton("Ventas e informacion");
@@ -87,6 +93,26 @@ public class VentanaAjustes extends JFrame {
 		btnVentasEInformacion.setBackground(UIManager.getColor("CheckBox.background"));
 		btnVentasEInformacion.setBounds(57, 106, 297, 20);
 		getContentPane().add(btnVentasEInformacion);
+		
+		JButton btnAlquiler = new JButton("Alquileres");
+		btnAlquiler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				VentanaAlquiler v1;
+				try {
+					v1 = new VentanaAlquiler();
+					v1.setVisible(true);
+					dispose();
+				} catch (FileNotFoundException | DBException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		btnAlquiler.setBackground(UIManager.getColor("CheckBox.background"));
+		btnAlquiler.setBounds(57, 125, 297, 20);
+		getContentPane().add(btnAlquiler);
 
 		btnVentasEInformacion.addActionListener(new ActionListener() {
 
@@ -113,7 +139,7 @@ public class VentanaAjustes extends JFrame {
 		botonCerrarSesion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaLogIn vl = new VentanaLogIn();
+				VentanaInicial vl = new VentanaInicial();
 				vl.setVisible(true);
 				dispose();
 

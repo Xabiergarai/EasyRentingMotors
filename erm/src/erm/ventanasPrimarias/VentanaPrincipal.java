@@ -119,7 +119,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(lblNewLabel_2);
 		ImageIcon ico3 = new ImageIcon("imagenes/cocheClaseB.jpg");
 		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblNewLabel_2.getWidth(),
-				lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
+		lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(img3);
 
 		JButton btncategoriaB = new JButton("Categoria B");
@@ -165,7 +165,7 @@ public class VentanaPrincipal extends JFrame {
 
 		ImageIcon ico5 = new ImageIcon("imagenes/cocheClaseD.jpg");
 		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblNewLabel_3_1.getWidth(),
-				lblNewLabel_3_1.getHeight(), Image.SCALE_SMOOTH));
+		lblNewLabel_3_1.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3_1.setIcon(img5);
 
 		JButton btncategoriaD = new JButton("Categoria D");
@@ -189,13 +189,21 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				VentanaInicial v3 = new VentanaInicial();
+				v3.setVisible(true);
 				dispose();
 			}
 		});
 		menuBar.add(mntmNewMenuItem_1);
+		
+		JButton btnPerfil = new JButton("");
+		btnPerfil.setBackground(new Color(255, 222, 173));
+		btnPerfil.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoPerfil.png"));
+		menuBar.add(btnPerfil);
 
-		JButton btnAjustes = new JButton("Ajustes");
-		btnAjustes.setBackground(new Color(255, 204, 102));
+		JButton btnAjustes = new JButton("");
+		btnAjustes.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAjustes.png"));
+		btnAjustes.setBackground(new Color(255, 222, 173));
 		menuBar.add(btnAjustes);
 
 		btnAjustes.addActionListener(new ActionListener() {
