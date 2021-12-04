@@ -198,11 +198,11 @@ public class VentanaPrincipal extends JFrame {
 		
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setBackground(new Color(255, 222, 173));
-		btnPerfil.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoPerfil.png"));
+		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
 		menuBar.add(btnPerfil);
 
 		JButton btnAjustes = new JButton("");
-		btnAjustes.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAjustes.png"));
+		btnAjustes.setIcon(new ImageIcon("imagenes/iconoAjustes.png"));
 		btnAjustes.setBackground(new Color(255, 222, 173));
 		menuBar.add(btnAjustes);
 

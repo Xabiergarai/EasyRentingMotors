@@ -55,7 +55,7 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(Volver);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoGmail.png"));
+		btnNewButton.setIcon(new ImageIcon("imagenes/iconoGmail.png"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(java.awt.Desktop.isDesktopSupported()) {
@@ -78,7 +78,7 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoInstagram.png"));
+		btnNewButton_1.setIcon(new ImageIcon("imagenes/iconoInstagram.png"));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(java.awt.Desktop.isDesktopSupported()) {
