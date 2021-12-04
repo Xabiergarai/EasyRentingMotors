@@ -5,14 +5,11 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JTextArea;
-
-
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -24,18 +21,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextPane;
-
-import FutStore.clasesBasicas.Camiseta;
-import FutStore.dataBase.DBManager;
 import erm.webcam.WebcamViewer;
 import erm.categoriasCoche.Coche;
 import erm.ventanasSecundarias.VentanaVentasInformacion;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
 
 public class VentanaVenderCoche extends JFrame{
+
 	private JButton btnAtras;
 	public static int idVenta;
-	
-	
 	
 	public VentanaVenderCoche() {
 		
@@ -51,71 +46,65 @@ public class VentanaVenderCoche extends JFrame{
 		lblERM.setBounds(99, 11, 223, 60);
 		getContentPane().add(lblERM);
 		
-		JLabel lblNewLabel = new JLabel("Introduce los datos del coche que deseas vender");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel.setBounds(35, 82, 373, 28);
-		getContentPane().add(lblNewLabel);
+		JLabel lblTitulo = new JLabel("Introduce los datos del coche que deseas vender");
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblTitulo.setBounds(35, 82, 373, 28);
+		getContentPane().add(lblTitulo);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(21, 121, 65, 28);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNombre.setBounds(21, 121, 65, 28);
+		getContentPane().add(lblNombre);
 		
-		JTextArea textoEquipo = new JTextArea();
-		textoEquipo.setTabSize(18);
-		textoEquipo.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textoEquipo.setBounds(106, 120, 216, 28);
-		getContentPane().add(textoEquipo);
+		JTextArea textoNombre = new JTextArea();
+		textoNombre.setTabSize(18);
+		textoNombre.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		textoNombre.setBounds(106, 120, 99, 28);
+		getContentPane().add(textoNombre);
 		
-		JLabel lblNewLabel_2 = new JLabel("Categoria");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(21, 160, 81, 28);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblCategoria = new JLabel("Categoria");
+		lblCategoria.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategoria.setBounds(215, 121, 81, 28);
+		getContentPane().add(lblCategoria);
 		
-		JTextArea textoTemporada = new JTextArea();
-		textoTemporada.setTabSize(18);
-		textoTemporada.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textoTemporada.setBounds(106, 158, 216, 28);
-		getContentPane().add(textoTemporada);
+		JLabel lblMarca = new JLabel("Marca");
+		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMarca.setBounds(21, 176, 46, 14);
+		getContentPane().add(lblMarca);
 		
-		JLabel lblNewLabel_3 = new JLabel("Marca");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_3.setBounds(21, 204, 46, 14);
-		getContentPane().add(lblNewLabel_3);
+		JTextArea textoMarca = new JTextArea();
+		textoMarca.setTabSize(18);
+		textoMarca.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		textoMarca.setBounds(106, 168, 216, 28);
+		getContentPane().add(textoMarca);
 		
-		JTextArea textoTalla = new JTextArea();
-		textoTalla.setTabSize(18);
-		textoTalla.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textoTalla.setBounds(106, 201, 216, 28);
-		getContentPane().add(textoTalla);
-		
-		JLabel lblNewLabel_4 = new JLabel("Precio");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_4.setBounds(21, 251, 46, 14);
-		getContentPane().add(lblNewLabel_4);
+		JLabel lblPrecio = new JLabel("Precio");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPrecio.setBounds(21, 251, 46, 14);
+		getContentPane().add(lblPrecio);
 		
 		JTextPane textoPrecio = new JTextPane();
-		textoPrecio.setBounds(106, 240, 223, 25);
+		textoPrecio.setBounds(106, 248, 223, 25);
 		getContentPane().add(textoPrecio);
 		
-		JLabel label_1 = new JLabel("\u20AC");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label_1.setBounds(343, 245, 33, 20);
-		getContentPane().add(label_1);
+		JLabel labelEuro = new JLabel("\u20AC");
+		labelEuro.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelEuro.setBounds(357, 248, 33, 20);
+		getContentPane().add(labelEuro);
 		
-		JLabel lblNewLabel_5 = new JLabel("Descripcion");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_5.setBounds(21, 295, 110, 28);
-		getContentPane().add(lblNewLabel_5);
+		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDescripcion.setBounds(21, 299, 99, 28);
+		getContentPane().add(lblDescripcion);
 		
 		JTextArea textoDescripcion = new JTextArea();
-		textoDescripcion.setBounds(116, 279, 281, 84);
+		textoDescripcion.setBounds(106, 299, 281, 84);
 		getContentPane().add(textoDescripcion);
 		
-		JLabel lblNewLabel_6 = new JLabel("Imagen");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_6.setBounds(21, 414, 81, 20);
-		getContentPane().add(lblNewLabel_6);
+		JLabel lblImagen = new JLabel("Imagen");
+		lblImagen.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblImagen.setBounds(21, 414, 81, 20);
+		getContentPane().add(lblImagen);
 		
 		JButton btnCamara = new JButton("Camara");
 		btnCamara.setBounds(112, 415, 93, 29);
@@ -131,14 +120,11 @@ public class VentanaVenderCoche extends JFrame{
 			}
 		});
 		
+		//Boton imagen
 		JButton btnImagen = new JButton("Imagen");
-		btnImagen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnImagen.setBounds(215, 415, 93, 29);
 		getContentPane().add(btnImagen);
-		//BOTON IMAGEN 
+		 
 				btnImagen.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -160,20 +146,20 @@ public class VentanaVenderCoche extends JFrame{
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			//int idUsuario;
-			String equipo; 
-			//String temporada;
-			String talla;
-			String precio;
-			//String descripcion;
+				
+			String nombre; 
+			String categoria;
+			String marca;
+			double precio;
+			String descripcion;
 			
 			//int a = VentanaLogin.getUsuarioId();
 			
 			//idUsuario = a;
-			equipo = textoEquipo.getText();
+			nombre =textoNombre.getText();
 			//temporada = textoTemporada.getText();
-			talla = textoTalla.getText();
-		    precio = textoPrecio.getText();
+			marca = textoMarca.getText();
+			//precio = textoPrecio.getText();
 			//descripcion = textoDescripcion.getText();
 			
 		   /* Coche coche = new Coche(nombre, Double.parseDouble(precio), talla);
@@ -192,8 +178,8 @@ public class VentanaVenderCoche extends JFrame{
 		
 			
             VentanaPrincipal va = new VentanaPrincipal();
-			setVisible(false);
-			va.setVisible(true);
+				setVisible(false);
+				va.setVisible(true);
 			
 			
 			}
@@ -211,6 +197,32 @@ public class VentanaVenderCoche extends JFrame{
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAtras.setBounds(219, 467, 89, 28);
 		getContentPane().add(btnAtras);
+		
+		JLabel lblCombustible = new JLabel("Combustible");
+		lblCombustible.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCombustible.setBounds(21, 212, 134, 14);
+		getContentPane().add(lblCombustible);
+		
+		JRadioButton rdDiesel = new JRadioButton("Diesel");
+		rdDiesel.setBounds(140, 210, 81, 23);
+		getContentPane().add(rdDiesel);
+		
+		JRadioButton rdGasolina = new JRadioButton("Gasolina");
+		rdGasolina.setBounds(239, 210, 81, 23);
+		getContentPane().add(rdGasolina);
+		
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(rdGasolina);
+		grupo.add(rdDiesel);
+		
+		JComboBox cbCategoria = new JComboBox();
+		cbCategoria.setBounds(298, 121, 99, 22);
+		getContentPane().add(cbCategoria);
+		
+		cbCategoria.addItem("Categoria A");
+		cbCategoria.addItem("Categoria B");
+		cbCategoria.addItem("Categoria C");
+		cbCategoria.addItem("Categoria D");
 		
 			
 		btnAtras.addActionListener(new ActionListener() {
@@ -231,9 +243,5 @@ public class VentanaVenderCoche extends JFrame{
 		public static int getVentaId(){
 			return idVenta;
 			}
-		
-	
-	
-
 	}
 
