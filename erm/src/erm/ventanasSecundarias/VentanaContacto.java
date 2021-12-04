@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.event.AncestorListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 
 public class VentanaContacto extends JFrame {
 	
@@ -54,6 +55,7 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(Volver);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoGmail.png"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(java.awt.Desktop.isDesktopSupported()) {
@@ -72,10 +74,11 @@ public class VentanaContacto extends JFrame {
 		});
 		
 	
-		btnNewButton.setBounds(50, 80, 52, 38);
+		btnNewButton.setBounds(62, 89, 43, 29);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoInstagram.png"));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(java.awt.Desktop.isDesktopSupported()) {
@@ -92,7 +95,7 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 	
-		btnNewButton_1.setBounds(50, 155, 52, 38);
+		btnNewButton_1.setBounds(62, 155, 43, 38);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnCafe = new JButton("\u00BFUn caf\u00E9?");
