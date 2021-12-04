@@ -57,7 +57,7 @@ public class VentanaCategoriaC {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
-		frame.setTitle("Ishop");
+		frame.setTitle("ERMotors");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -126,7 +126,7 @@ public class VentanaCategoriaC {
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Volver a menu");
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaInicial.main(null);
+				VentanaPrincipal.main(null);
 				frame.dispose();
 			}
 		});
