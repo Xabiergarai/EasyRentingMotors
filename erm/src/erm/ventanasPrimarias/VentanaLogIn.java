@@ -16,6 +16,7 @@ import java.awt.event.WindowListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.InvalidPathException;
 import java.util.InvalidPropertiesFormatException;
@@ -162,10 +163,11 @@ public class VentanaLogIn extends JFrame {
 			public void windowOpened(WindowEvent e) {
 			// TODO Auto-generated method stub
 			
-		Properties properties = new Properties();
 		try {
-			properties.loadFromXML(new FileInputStream("usuarios.xml"));
-			String usuario = properties.getProperty("Usuario");
+			FileReader reader = new FileReader("usuario.properties");
+			Properties properties = new Properties();
+            properties.load(reader);
+            String usuario = properties.getProperty("Usuario");
 			String contrasenia = properties.getProperty("Contrasenia");
 			VentanaLogIn.this.txtNombre.setText(usuario);
 			txtContrasenia.setText(contrasenia);
