@@ -17,6 +17,10 @@ import javax.swing.ImageIcon;
 
 public class VentanaContacto extends JFrame {
 
+	/**
+	 * Creamos la ventana
+	 */
+	
 	public VentanaContacto() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);

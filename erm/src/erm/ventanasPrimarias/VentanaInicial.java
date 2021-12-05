@@ -19,6 +19,11 @@ import erm.dataBase.DBException;
 
 public class VentanaInicial extends JFrame {
 
+	/**
+	 * Desde donde se ejecuta la aplicación
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -32,6 +37,9 @@ public class VentanaInicial extends JFrame {
 		});
 	}
 
+	/**
+	 * Create the frame
+	 */
 	public VentanaInicial() {
 
 		getContentPane().setBackground(Color.WHITE);

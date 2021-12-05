@@ -38,6 +38,7 @@ public class CategoriaA extends Coche {
 		this.maletero = maletero;
 	}
 
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

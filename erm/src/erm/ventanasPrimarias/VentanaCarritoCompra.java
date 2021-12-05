@@ -45,7 +45,7 @@ public class VentanaCarritoCompra extends JFrame {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame
 	 */
 	
 	public VentanaCarritoCompra() {

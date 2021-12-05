@@ -37,9 +37,6 @@ import erm.dataBase.DBManager;
 
 public class VentanaAlquiler extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane,panelAbajo,panelCentral,panelNorte,panelBotonera;
 	public static Connection con;
@@ -53,6 +50,13 @@ public class VentanaAlquiler extends JFrame{
 	private JButton btnALquilar;
 	 
 
+	/**
+	 * Create the frame
+	 * @throws DBException
+	 * @throws SQLException
+	 * @throws FileNotFoundException
+	 */
+	
 	public VentanaAlquiler() throws DBException, SQLException, FileNotFoundException  {
 		
 		

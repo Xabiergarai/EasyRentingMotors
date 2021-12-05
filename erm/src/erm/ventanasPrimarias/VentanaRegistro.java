@@ -24,9 +24,6 @@ import erm.dataBase.DBManager;
 
 public class VentanaRegistro extends JFrame {
 
-	/**
-	 * Ventana en la cual el usuario se registra
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField tfNombre, tfApellidos, tfNombreUsuario, tfEmail;
 	private JPanel panelContenidos;
@@ -34,9 +31,13 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField pfContrasenia;
 	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
-	public static Pattern patronEmail = Pattern
-			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	public static Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
+
+	/**
+	 * Ventana en la cual el usuario se registra
+	 */
+	
 	public VentanaRegistro() throws DBException {
 		this.setTitle("Registro");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -21,6 +21,10 @@ import java.awt.SystemColor;
 
 public class VentanaAjustes extends JFrame {
 
+	/**
+	 * Creamos la ventana
+	 */
+	
 	public VentanaAjustes() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
@@ -50,35 +54,35 @@ public class VentanaAjustes extends JFrame {
 		lblContacto.setBounds(10, 334, 110, 20);
 		getContentPane().add(lblContacto);
 
-		JButton BotonPrivacidad = new JButton("Privacidad");
-		BotonPrivacidad.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonPrivacidad.setBounds(57, 144, 297, 20);
-		getContentPane().add(BotonPrivacidad);
+		JButton botonPrivacidad = new JButton("Privacidad");
+		botonPrivacidad.setBackground(UIManager.getColor("CheckBox.background"));
+		botonPrivacidad.setBounds(57, 144, 297, 20);
+		getContentPane().add(botonPrivacidad);
 
-		JButton BotonSeguridad = new JButton("Seguridad");
-		BotonSeguridad.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonSeguridad.setBounds(57, 163, 297, 23);
-		getContentPane().add(BotonSeguridad);
+		JButton botonSeguridad = new JButton("Seguridad");
+		botonSeguridad.setBackground(UIManager.getColor("CheckBox.background"));
+		botonSeguridad.setBounds(57, 163, 297, 23);
+		getContentPane().add(botonSeguridad);
 
-		JButton BotonPago = new JButton("Metodos de pago");
-		BotonPago.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonPago.setBounds(57, 182, 297, 23);
-		getContentPane().add(BotonPago);
+		JButton botonPago = new JButton("Metodos de pago");
+		botonPago.setBackground(UIManager.getColor("CheckBox.background"));
+		botonPago.setBounds(57, 182, 297, 23);
+		getContentPane().add(botonPago);
 
 		JButton botonCerrarSesion = new JButton("Cerrar Sesion");
 		botonCerrarSesion.setBackground(UIManager.getColor("CheckBox.background"));
 		botonCerrarSesion.setBounds(57, 261, 297, 23);
 		getContentPane().add(botonCerrarSesion);
 
-		JButton BotonSalir = new JButton("Salir de la aplicacion");
-		BotonSalir.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonSalir.setBounds(57, 285, 297, 23);
-		getContentPane().add(BotonSalir);
+		JButton botonSalir = new JButton("Salir de la aplicacion");
+		botonSalir.setBackground(UIManager.getColor("CheckBox.background"));
+		botonSalir.setBounds(57, 285, 297, 23);
+		getContentPane().add(botonSalir);
 
-		JButton BotonInformacion = new JButton("Contacto");
-		BotonInformacion.setBackground(UIManager.getColor("CheckBox.background"));
-		BotonInformacion.setBounds(57, 375, 297, 23);
-		getContentPane().add(BotonInformacion);
+		JButton botonContacto = new JButton("Contacto");
+		botonContacto.setBackground(UIManager.getColor("CheckBox.background"));
+		botonContacto.setBounds(57, 375, 297, 23);
+		getContentPane().add(botonContacto);
 
 		JButton btnvlvAtras = new JButton("Volver atras");
 		btnvlvAtras.setBackground(UIManager.getColor("CheckBox.background"));
@@ -120,7 +124,7 @@ public class VentanaAjustes extends JFrame {
 			}
 		});
 
-		BotonPrivacidad.addActionListener(new ActionListener() {
+		botonPrivacidad.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -142,7 +146,7 @@ public class VentanaAjustes extends JFrame {
 			}
 		});
 
-		BotonPago.addActionListener(new ActionListener() {
+		botonPago.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -154,7 +158,7 @@ public class VentanaAjustes extends JFrame {
 
 		});
 
-		BotonSalir.addActionListener(new ActionListener() {
+		botonSalir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(-1);
@@ -162,7 +166,7 @@ public class VentanaAjustes extends JFrame {
 			}
 		});
 
-		BotonInformacion.addActionListener(new ActionListener() {
+		botonContacto.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -174,7 +178,7 @@ public class VentanaAjustes extends JFrame {
 
 		});
 
-		BotonSeguridad.addActionListener(new ActionListener() {
+		botonSeguridad.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// VentanaSeguridad vs = new VentanaSeguridad();

@@ -23,6 +23,11 @@ import erm.clasesBasicas.Usuario;
 import erm.categoriasCoche.*;
 import erm.ventanasPrimarias.*;
 
+/**
+ * Base de datos de Easy Renting Motors
+ * @author gutia
+ *
+ */
 public class DBManager {
 
 	private static Connection conn = null;
@@ -88,9 +93,9 @@ public class DBManager {
 	}
 
 	/**
-	 * Este metodo comprueba si existe un usuario en concreto * @param nick
-	 * 
-	 * @param contrasenia
+	 * Este metodo comprueba si existe un usuario en concreto 
+	 * @param nick - Nick del usuario
+	 * @param contrasenia - Contraseña del usuario
 	 * @return
 	 * @throws DBException
 	 */

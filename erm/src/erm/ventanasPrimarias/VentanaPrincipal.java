@@ -40,14 +40,14 @@ public class VentanaPrincipal extends JFrame {
 	ArrayList<Coche> carrito = new ArrayList<Coche>();
 	ListaCoche listaCoche = new ListaCoche();
 
-	// public void cargarFotos() {
-	// for(Coche p: VentanaLogIn.contenedora.getListaCoches()) {
-	// if(p instanceof Categoria_A) {
-	// PanelCategoria_A panel = new PanelCategoriaA((Categoria_A ) p,ventana);
-	// pCentral.add(panel);
-	// }
-	// }
-	// }
+	/* public void cargarFotos() {
+	 for(Coche p: VentanaLogIn.contenedora.getListaCoches()) {
+	 if(p instanceof Categoria_A) {
+	 PanelCategoria_A panel = new PanelCategoriaA((Categoria_A ) p,ventana);
+	 pCentral.add(panel);
+	 }
+	 }
+	 }*/
 
 	/**
 	 * Launch the application
@@ -92,14 +92,13 @@ public class VentanaPrincipal extends JFrame {
 		lblSeccionesCoches.setBounds(128, 11, 242, 26);
 		getContentPane().add(lblSeccionesCoches);
 
-		JLabel lblNewLabel_1 = new JLabel("Categoria A");
-		lblNewLabel_1.setBounds(275, 62, 126, 77);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblCategoriaA = new JLabel("Categoria A");
+		lblCategoriaA.setBounds(275, 62, 126, 77);
+		getContentPane().add(lblCategoriaA);
 
 		ImageIcon ico2 = new ImageIcon("imagenes/cocheClaseA.jpg");
-		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblNewLabel_1.getWidth(),
-				lblNewLabel_1.getHeight(), Image.SCALE_SMOOTH));
-		lblNewLabel_1.setIcon(img2);
+		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblCategoriaA.getWidth(), lblCategoriaA.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaA.setIcon(img2);
 
 		JButton btncategoriaA = new JButton("Categoria A");
 		btncategoriaA.setForeground(Color.WHITE);
@@ -114,13 +113,12 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_2 = new JLabel("Categoria B");
-		lblNewLabel_2.setBounds(90, 62, 106, 77);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblCategoriaB = new JLabel("Categoria B");
+		lblCategoriaB.setBounds(90, 62, 106, 77);
+		getContentPane().add(lblCategoriaB);
 		ImageIcon ico3 = new ImageIcon("imagenes/cocheClaseB.jpg");
-		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblNewLabel_2.getWidth(),
-		lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
-		lblNewLabel_2.setIcon(img3);
+		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblCategoriaB.getWidth(), lblCategoriaB.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaB.setIcon(img3);
 
 		JButton btncategoriaB = new JButton("Categoria B");
 		btncategoriaB.setForeground(Color.WHITE);
@@ -135,15 +133,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_3 = new JLabel("Categoria C");
-		lblNewLabel_3.setBackground(Color.WHITE);
-		lblNewLabel_3.setBounds(83, 224, 126, 77);
-		getContentPane().add(lblNewLabel_3);
+		JLabel lblCategoriaC = new JLabel("Categoria C");
+		lblCategoriaC.setBackground(Color.WHITE);
+		lblCategoriaC.setBounds(83, 224, 126, 77);
+		getContentPane().add(lblCategoriaC);
 
 		ImageIcon ico4 = new ImageIcon("imagenes/cocheClaseC.jpg");
-		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblNewLabel_3.getWidth(),
-				lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
-		lblNewLabel_3.setIcon(img4);
+		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblCategoriaC.getWidth(), lblCategoriaC.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaC.setIcon(img4);
 
 		JButton btncategoriaC = new JButton("Categoria C");
 		btncategoriaC.setForeground(Color.WHITE);
@@ -158,15 +155,15 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_3_1 = new JLabel("Categoria D");
-		lblNewLabel_3_1.setBackground(Color.WHITE);
-		lblNewLabel_3_1.setBounds(275, 224, 126, 77);
-		getContentPane().add(lblNewLabel_3_1);
+		JLabel lblCategoriaD = new JLabel("Categoria D");
+		lblCategoriaD.setBackground(Color.WHITE);
+		lblCategoriaD.setBounds(275, 224, 126, 77);
+		getContentPane().add(lblCategoriaD);
 
 		ImageIcon ico5 = new ImageIcon("imagenes/cocheClaseD.jpg");
-		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblNewLabel_3_1.getWidth(),
-		lblNewLabel_3_1.getHeight(), Image.SCALE_SMOOTH));
-		lblNewLabel_3_1.setIcon(img5);
+		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblCategoriaD.getWidth(),
+				lblCategoriaD.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaD.setIcon(img5);
 
 		JButton btncategoriaD = new JButton("Categoria D");
 		btncategoriaD.setForeground(Color.WHITE);

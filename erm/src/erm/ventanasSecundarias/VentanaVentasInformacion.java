@@ -16,7 +16,10 @@ import erm.ventanasPrimarias.VentanaVenderCoche;
 
 public class VentanaVentasInformacion extends JFrame {
 
-	//
+	/**
+	 * Creamos la ventana
+	 */
+	
 	public VentanaVentasInformacion() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);

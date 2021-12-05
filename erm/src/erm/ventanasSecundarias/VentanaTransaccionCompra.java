@@ -27,6 +27,7 @@ public class VentanaTransaccionCompra extends JFrame {
 			}
 		});
 	}
+	
 	private JPanel pCentral;
 	public VentanaTransaccionCompra() {
 		setBounds(800,300,400,100);
