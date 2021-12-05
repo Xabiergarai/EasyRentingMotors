@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Propiedades de registro</comment>
+<entry key="usuario">j.contre</entry>
+<entry key="contrasena">23</entry>
+</properties>

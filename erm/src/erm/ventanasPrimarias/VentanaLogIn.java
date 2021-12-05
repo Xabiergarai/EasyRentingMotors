@@ -157,16 +157,34 @@ public class VentanaLogIn extends JFrame {
 				e1.printStackTrace();
 			}
 
+			Properties properties = new Properties();
+			try {
+				//leer el archivo properties
+				//primero tiene que cargarlo
+				properties.loadFromXML(new FileInputStream("usuario.xml"));
+				String usuario = properties.getProperty("Usuario");
+				String contrasena = properties.getProperty("Contrasenia");
+				VentanaLogIn.this.txtNombre.setText(usuario);
+				txtContrasenia.setText(contrasenia);
+				} catch (FileNotFoundException e2) {
+					e2.printStackTrace();
+				}catch(InvalidPropertiesFormatException e3){
+					e3.printStackTrace();
+				}catch(IOException e4){
+					e4.printStackTrace();
+				}
+			
 		});
-		/*
+		
 		this.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 			// TODO Auto-generated method stub
 			
-		try {
-			FileReader reader = new FileReader("usuario.properties");
 			Properties properties = new Properties();
-            properties.load(reader);
+			try {
+					//leer el archivo properties
+					//primero tiene que cargarlo
+			properties.loadFromXML(new FileInputStream("usuario.xml"));
             String usuario = properties.getProperty("Usuario");
 			String contrasenia = properties.getProperty("Contrasenia");
 			VentanaLogIn.this.txtNombre.setText(usuario);
@@ -182,7 +200,7 @@ public class VentanaLogIn extends JFrame {
 		}
 			
 	});
-	*/
+	
 	
 	}
 
