@@ -175,7 +175,7 @@ public class DBManager {
 	
 	public boolean registrar(Usuario u) throws DBException {
 
-		try (Statement stmt = conn.createStatement()) {
+		try {
 
 			// cambiar la conexion a la nueva bd
 			Connection con = initBD("EasyRentingMotors.db");

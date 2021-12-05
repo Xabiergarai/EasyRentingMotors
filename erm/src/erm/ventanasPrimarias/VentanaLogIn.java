@@ -148,6 +148,7 @@ public class VentanaLogIn extends JFrame {
 					JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
 
 					new VentanaRegistro();
+					dispose();
 
 				}
 				// Servira para poder meter nuevos usuarios sin tener que borrarlos a mano
