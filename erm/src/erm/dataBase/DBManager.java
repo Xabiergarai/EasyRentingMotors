@@ -48,7 +48,7 @@ public class DBManager {
 	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:EasyRentingMotors.db");
+			conn = DriverManager.getConnection("jdbc:sqlite:data/EasyRentingMotors.db");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
