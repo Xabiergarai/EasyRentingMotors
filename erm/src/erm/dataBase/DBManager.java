@@ -30,7 +30,7 @@ public class DBManager {
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
 
-	// CREAR CONEXION CON BD
+	
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexiÃ³n con ella
 	 * 
@@ -39,6 +39,7 @@ public class DBManager {
 	 *         devuelve null
 	 * @throws BDException
 	 */
+	
 	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -87,7 +88,7 @@ public class DBManager {
 	}
 
 	/**
-	 * Este metodo comprobara si existe el usuario en concre * @param nick
+	 * Este metodo comprueba si existe un usuario en concreto * @param nick
 	 * 
 	 * @param contrasenia
 	 * @return
@@ -164,10 +165,18 @@ public class DBManager {
 		}
 	}
 
-	// REGISTRAR NUEVO USUARIO
+	/**
+	 * Este metodo nos permitirá poder registrarnos como usuarios de ERM
+	 * 
+	 * @param u
+	 * @return
+	 * @throws DBException
+	 */
+	
 	public boolean registrar(Usuario u) throws DBException {
 
-		try {
+		try (Statement stmt = conn.createStatement()) {
+
 			// cambiar la conexion a la nueva bd
 			Connection con = initBD("EasyRentingMotors.db");
 			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
@@ -195,6 +204,13 @@ public class DBManager {
 
 	}
 
+	/**
+	 * Lista todos los coches de la Categoria A
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
+	
 	public static ArrayList<CategoriaA> listarCategoriaA() throws DBException {
 
 		ArrayList<CategoriaA> CategoriaA = new ArrayList<>();
@@ -229,6 +245,13 @@ public class DBManager {
 		return CategoriaA;
 	}
 
+	/**
+	 * Lista todos los coches de la Categoria B
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
+	
 	public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 
 		ArrayList<CategoriaB> CategoriaB = new ArrayList<>();
@@ -269,6 +292,13 @@ public class DBManager {
 		return CategoriaB;
 	}
 
+	/**
+	 * Lista todos los coches de la Categoria C
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
+	
 	public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
 
 		ArrayList<CategoriaC> CategoriaC = new ArrayList<>();
@@ -302,6 +332,13 @@ public class DBManager {
 		return CategoriaC;
 	}
 
+	/**
+	 * Lista todos los coches de la Categoria D
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
+	
 	public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 
 		ArrayList<CategoriaD> CategoriaD = new ArrayList<>();
@@ -335,6 +372,13 @@ public class DBManager {
 		}
 		return CategoriaD;
 	}
+
+	/**
+	 * Obtiene todos los coches de ERM
+	 * 
+	 * @param con
+	 * @return
+	 */
 
 	public static List<Coche> obtenerCoches(Connection con) {
 		List<Coche> av = new ArrayList<>();
@@ -376,6 +420,13 @@ public class DBManager {
 		return av;
 	}
 
+	/**
+	 * Obtiene los nombres de un conjunto de coches
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
+	
 	public static TreeSet<String> obtenerNombresCoches() throws SQLException {
 		Statement statement = conn.createStatement();
 		String sent = "SELECT nombre from Coche";
@@ -390,7 +441,13 @@ public class DBManager {
 		return tsnomb;
 	}
 
-	//INSERTAR NUEVA VENTA DE COCHES
+	/**
+	 * Este metodo nos permite insertar los coches que queremos poner en venta
+	 * 
+	 * @param coche
+	 * @throws DBException
+	 */
+	
 	public void insertarVenta(Coche coche) throws DBException {
 		String nombre = coche.getNombre();
 		String categoria = coche.getCategoria();
@@ -400,15 +457,20 @@ public class DBManager {
 
 		try (Statement stmt = conn.createStatement()) {
 
-			stmt.executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' " + nombre + " ',  ' "
-					+ categoria + "', ' " + marca + "' ," +combustible+ "' ," + precio + ")");
+			stmt.executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' " + nombre
+					+ " ',  ' " + categoria + "', ' " + marca + "' ," + combustible + "' ," + precio + ")");
 
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
 
-	// CERRAR CONEXION CON BD
+	/**
+	 * Cerramos conexión con la BD
+	 * 
+	 * @throws DBException
+	 */
+
 	public static void disconnect() throws DBException {
 		try {
 			conn = initBD("EasyRentingMotors.db");

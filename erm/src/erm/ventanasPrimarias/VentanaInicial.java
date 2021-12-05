@@ -65,26 +65,27 @@ public class VentanaInicial extends JFrame {
 			VentanaLogIn vi = null;
 			vi = new VentanaLogIn();
 			vi.setVisible(true);
-			dispose();
 			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
 					JOptionPane.INFORMATION_MESSAGE);
+
+			dispose();
 
 		});
 
 		btnLogin.setBounds(23, 518, 284, 48);
 		getContentPane().add(btnLogin);
 
-		JLabel lblNewLabel = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
-		lblNewLabel.setBounds(23, 110, 554, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblBienvenido = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
+		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBienvenido.setFont(new Font("Zilla Slab", Font.ITALIC, 18));
+		lblBienvenido.setBounds(23, 110, 554, 14);
+		getContentPane().add(lblBienvenido);
 
 		JLabel lblLogo1 = new JLabel("Logo");
 		lblLogo1.setBounds(160, 210, 313, 246);
 		ImageIcon ico = new ImageIcon("imagenes/logo.png");
 		ImageIcon img = new ImageIcon(
-				ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
+		ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo1.setIcon(img);
 		getContentPane().add(lblLogo1);
 
