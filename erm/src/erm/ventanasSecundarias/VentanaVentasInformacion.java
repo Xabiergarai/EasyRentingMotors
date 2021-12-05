@@ -24,11 +24,11 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().setForeground(Color.WHITE);
 		getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Ventas ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setForeground(new Color(255, 165, 0));
-		lblNewLabel.setBounds(172, 28, 90, 20);
-		getContentPane().add(lblNewLabel);
+		JLabel lblVentas = new JLabel("Ventas ");
+		lblVentas.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblVentas.setForeground(new Color(255, 165, 0));
+		lblVentas.setBounds(172, 28, 90, 20);
+		getContentPane().add(lblVentas);
 
 		JButton btnInfoVentas = new JButton("Informacion de ventas");
 		btnInfoVentas.setBackground(UIManager.getColor("CheckBox.background"));

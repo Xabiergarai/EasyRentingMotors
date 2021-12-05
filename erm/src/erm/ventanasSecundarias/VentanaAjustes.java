@@ -34,11 +34,11 @@ public class VentanaAjustes extends JFrame {
 		lblConfiguracion.setBounds(10, 11, 297, 29);
 		getContentPane().add(lblConfiguracion);
 
-		JLabel lblDatosDeTu = new JLabel("Datos de tu cuenta\r\n");
-		lblDatosDeTu.setBackground(Color.PINK);
-		lblDatosDeTu.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblDatosDeTu.setBounds(10, 66, 229, 20);
-		getContentPane().add(lblDatosDeTu);
+		JLabel lblDatosCuenta = new JLabel("Datos de tu cuenta\r\n");
+		lblDatosCuenta.setBackground(Color.PINK);
+		lblDatosCuenta.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblDatosCuenta.setBounds(10, 66, 229, 20);
+		getContentPane().add(lblDatosCuenta);
 
 		JLabel lblSesion = new JLabel("Sesion");
 		lblSesion.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -86,18 +86,14 @@ public class VentanaAjustes extends JFrame {
 		getContentPane().add(btnvlvAtras);
 
 		JButton btnVentasEInformacion = new JButton("Ventas e informacion");
-		btnVentasEInformacion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnVentasEInformacion.setBackground(UIManager.getColor("CheckBox.background"));
 		btnVentasEInformacion.setBounds(57, 106, 297, 20);
 		getContentPane().add(btnVentasEInformacion);
-		
+
 		JButton btnAlquiler = new JButton("Alquileres");
 		btnAlquiler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				VentanaAlquiler v1;
 				try {
 					v1 = new VentanaAlquiler();
@@ -107,7 +103,7 @@ public class VentanaAjustes extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
 		btnAlquiler.setBackground(UIManager.getColor("CheckBox.background"));
@@ -170,8 +166,8 @@ public class VentanaAjustes extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 VentanaContacto v4 = new VentanaContacto();
-				 v4.setVisible(true);
+				VentanaContacto v4 = new VentanaContacto();
+				v4.setVisible(true);
 				dispose();
 
 			}
