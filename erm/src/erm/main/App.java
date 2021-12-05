@@ -17,13 +17,6 @@ public class App {
 
 	public static void main(String[] args) {
 		
-
-		try (FileInputStream fis = new FileInputStream("logger.properties")) {
-			LogManager.getLogManager().readConfiguration(fis);
-		} catch (IOException e) {
-			logger.log(Level.SEVERE, "No se pudo leer el fichero de configuracion del logger");
-		}
-
 		logger.info("Programa comenzado");
 
 		EventQueue.invokeLater(new Runnable() {
