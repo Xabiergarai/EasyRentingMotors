@@ -470,6 +470,20 @@ public class DBManager {
 		}
 	}
 
+	public void insertarAlquiler(Alquiler alquiler) throws SQLException {
+		String nombUsuario=alquiler.getNomUsuario();
+		String nomCoche=alquiler.getnomCoche();
+		String fInicio=alquiler.getFechaInicio();
+		String fFin=alquiler.getFechaFin();
+		
+		Statement stmt= conn.createStatement();
+		
+		stmt.executeUpdate("INSERT INTO alquileres(nomUsuario,nomCoche,fInicio,fFin) VALUES (' "+nombUsuario+" ', "+nomCoche+ " ',  ' " +fInicio+ " ',  ' " +fFin+")");
+	}
+	
+	
+	
+	
 	/**
 	 * Cerramos conexión con la BD
 	 * 
