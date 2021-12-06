@@ -41,7 +41,7 @@ class CocheTest extends GroupException {
 	
 	@Test
 	void testGetNombre() {
-		assertEquals("A5", c.getNombre());
+		assertEquals("Audi A5", c.getNombre());
 	}
 	
 	@Test
