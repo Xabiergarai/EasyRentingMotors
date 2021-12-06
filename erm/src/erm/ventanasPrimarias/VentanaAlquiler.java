@@ -162,12 +162,16 @@ public class VentanaAlquiler extends JFrame{
 						JOptionPane.INFORMATION_MESSAGE);
 				
 				
-				try {
-					DBManager.insertarAlquiler(al);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+					try {
+						DBManager.insertarAlquiler(al);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 			}
 			
 		});

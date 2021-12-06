@@ -76,6 +76,9 @@ public class DBManager {
 				statement1.executeUpdate("create table if not exists Usuario " + "(nick string, "
 						+ " contrasenya string" + " apellidos string, " + " email string) ");
 
+				statement1.executeUpdate("create table if not exists Alquileres " + "(nomUsuario string, "
+						+ " nomCoche string" + " fInicio string, " + " fFin string) ");
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				throw new DBException("Error creando tabla de usuario a la BD", ex);
@@ -86,6 +89,7 @@ public class DBManager {
 					+ "categoria string" + "fechamatriculacion string" + "combustible string" + "precio float"
 					+ "rutaFoto string" + "numPuertas ing" + "maletero int)");
 
+			
 			return statement1;
 		} catch (SQLException e) {
 			return null;
@@ -468,15 +472,20 @@ public class DBManager {
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
-	}public static void insertarAlquiler(Alquiler alquiler) throws SQLException {
-		String nombUsuario=alquiler.getNomUsuario();
-		String nomCoche=alquiler.getnomCoche();
-		String fInicio=alquiler.getFechaInicio();
-		String fFin=alquiler.getFechaFin();
+	}public static void insertarAlquiler(Alquiler alquiler)throws DBException, SQLException  {
 		
-		Statement stmt= conn.createStatement();
+		Connection con = initBD("EasyRentingMotors.db");
+		String sql = "INSERT INTO Alquileres (nomUsuario,	nomCoche, fInicio, fFin) VALUES(?,?,?,?)";
+
+		ps = con.prepareStatement(sql);
+
+		ps.setString(1, alquiler.getNomUsuario());
+		ps.setString(2, alquiler.getnomCoche());
+		ps.setString(3, alquiler.getFechaInicio());
+		ps.setString(4, alquiler.getFechaFin());
 		
-		stmt.executeUpdate("INSERT INTO alquileres(nomUsuario,nomCoche,fInicio,fFin) VALUES (' "+nombUsuario+" ', "+nomCoche+ " ',  ' " +fInicio+ " ',  ' " +fFin+")");
+
+		ps.execute();
 	}
 	
 
