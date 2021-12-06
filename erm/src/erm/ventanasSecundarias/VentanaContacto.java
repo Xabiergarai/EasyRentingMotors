@@ -59,7 +59,12 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(btnVolver);
 
 		JButton btnGmail = new JButton("");
+		btnGmail.setBackground(new Color(255, 255, 255));
 		btnGmail.setIcon(new ImageIcon("imagenes/iconoGmail.png"));
+		btnGmail.setFocusPainted(false);
+		btnGmail.setBorderPainted(false);
+		btnGmail.setContentAreaFilled(false);
+		
 		btnGmail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (java.awt.Desktop.isDesktopSupported()) {
@@ -79,11 +84,16 @@ public class VentanaContacto extends JFrame {
 
 		});
 
-		btnGmail.setBounds(62, 89, 43, 29);
+		btnGmail.setBounds(72, 89, 42, 29);
 		getContentPane().add(btnGmail);
 
 		JButton btnInstagram = new JButton("");
+		btnInstagram.setBackground(new Color(255, 255, 255));
 		btnInstagram.setIcon(new ImageIcon("imagenes/iconoInstagram.png"));
+		btnInstagram.setFocusPainted(false);
+		btnInstagram.setBorderPainted(false);
+		btnInstagram.setContentAreaFilled(false);
+
 		btnInstagram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (java.awt.Desktop.isDesktopSupported()) {
@@ -101,7 +111,7 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 
-		btnInstagram.setBounds(62, 155, 43, 38);
+		btnInstagram.setBounds(71, 155, 43, 38);
 		getContentPane().add(btnInstagram);
 
 		JButton btnCafe = new JButton("\u00BFUn caf\u00E9?");

@@ -181,7 +181,8 @@ public class VentanaPrincipal extends JFrame {
 		setJMenuBar(menuBar);
 
 		JMenuItem mntmCerrarSesion = new JMenuItem("Cerrar sesion");
-		mntmCerrarSesion.setForeground(Color.RED);
+		mntmCerrarSesion.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		mntmCerrarSesion.setForeground(new Color(255, 153, 0));
 		mntmCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -193,13 +194,15 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mntmCerrarSesion);
 		
 		JButton btnPerfil = new JButton("");
-		btnPerfil.setBackground(new Color(255, 222, 173));
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
+		btnPerfil.setFocusPainted(false);
+		btnPerfil.setContentAreaFilled(false);
 		menuBar.add(btnPerfil);
 
 		JButton btnAjustes = new JButton("");
 		btnAjustes.setIcon(new ImageIcon("imagenes/iconoAjustes.png"));
-		btnAjustes.setBackground(new Color(255, 222, 173));
+		btnAjustes.setFocusPainted(false);
+		btnAjustes.setContentAreaFilled(false);
 		menuBar.add(btnAjustes);
 
 		btnAjustes.addActionListener(new ActionListener() {

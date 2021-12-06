@@ -125,6 +125,8 @@ import erm.categoriasCoche.*;
 				}
 			});
 			
+			mnCat.add(mntmCatD);
+			
 			JMenuItem mntmCatInicio = new JMenuItem("Volver a inicio");
 			mntmCatInicio.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
