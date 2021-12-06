@@ -34,6 +34,7 @@ import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasSecundarias.VentanaAjustes;
 
 public class VentanaAlquiler extends JFrame{
 
@@ -47,8 +48,9 @@ public class VentanaAlquiler extends JFrame{
 	private JCalendar calendario;
 
 	private JComboBox<String>comboCoche;
-	private JButton btnALquilar;
+	private JButton btnALquilar,btnAtras;
 	 
+	private VentanaAjustes va;
 
 	/**
 	 * Create the frame
@@ -78,7 +80,7 @@ public class VentanaAlquiler extends JFrame{
 		contentPane.add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		lblNombre = new JLabel("Introduce tu nombre:");
+		lblNombre = new JLabel("Nombre:");
 		panelAbajo.add(lblNombre);
 
 		textNombre = new JTextField();
@@ -126,8 +128,12 @@ public class VentanaAlquiler extends JFrame{
 		panelBotonera = new JPanel();
 		panelAbajo.add(panelBotonera);
 		
+		
 		btnALquilar = new JButton("REALIZAR ALQUILER");
 		panelBotonera.add(btnALquilar);
+		
+		btnAtras=new JButton("Atras");
+		panelBotonera.add(btnAtras);
 		
 		PrintWriter pw = new PrintWriter("Alquileres.TXT");
 
@@ -141,10 +147,21 @@ public class VentanaAlquiler extends JFrame{
 			}
 			
 		});
+		btnAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				 va=new VentanaAjustes();
+				 va.setVisible(true);
+					dispose();
+
+			}
+			
+		});
 	
 		
-		setVisible(true);
-
+		
 	}
 	private void cargarComboVehiculos() throws DBException, SQLException {
 		con = DBManager.initBD(nombreBD);
