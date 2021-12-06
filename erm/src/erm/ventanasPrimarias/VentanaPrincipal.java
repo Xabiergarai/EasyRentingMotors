@@ -161,8 +161,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(lblCategoriaD);
 
 		ImageIcon ico5 = new ImageIcon("imagenes/cocheClaseD.jpg");
-		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblCategoriaD.getWidth(),
-				lblCategoriaD.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblCategoriaD.getWidth(),lblCategoriaD.getHeight(), Image.SCALE_SMOOTH));
 		lblCategoriaD.setIcon(img5);
 
 		JButton btncategoriaD = new JButton("Categoria D");
@@ -181,9 +180,9 @@ public class VentanaPrincipal extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesion");
-		mntmNewMenuItem_1.setForeground(Color.RED);
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+		JMenuItem mntmCerrarSesion = new JMenuItem("Cerrar sesion");
+		mntmCerrarSesion.setForeground(Color.RED);
+		mntmCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				VentanaInicial v3 = new VentanaInicial();
@@ -191,7 +190,7 @@ public class VentanaPrincipal extends JFrame {
 				dispose();
 			}
 		});
-		menuBar.add(mntmNewMenuItem_1);
+		menuBar.add(mntmCerrarSesion);
 		
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setBackground(new Color(255, 222, 173));

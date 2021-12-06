@@ -88,59 +88,59 @@ import erm.clasesBasicas.*;
 			menuBar.setBounds(0, 0, 99, 22);
 			frame.getContentPane().add(menuBar);
 
-			JMenu mnNewMenu = new JMenu("Categorias");
-			menuBar.add(mnNewMenu);
+			JMenu mnCat = new JMenu("Categorias");
+			menuBar.add(mnCat);
 
-			JMenuItem mntmNewMenuItem_2 = new JMenuItem("Categoria A");
-			mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			JMenuItem mntmCatA = new JMenuItem("Categoria A");
+			mntmCatA.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VentanaCategoriaA.main(null);
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem_2);
+			mnCat.add(mntmCatA);
 
-			JMenuItem mntmNewMenuItem = new JMenuItem("Categoria B");
-			mntmNewMenuItem.addActionListener(new ActionListener() {
+			JMenuItem mntmCatB= new JMenuItem("Categoria B");
+			mntmCatB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VentanaCategoriaB.main(null);
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem);
+			mnCat.add(mntmCatB);
 
-			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Categoria C");
-			mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			JMenuItem mntmCatC = new JMenuItem("Categoria C");
+			mntmCatC.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VentanaCategoriaC.main(null);
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem_1);
+			mnCat.add(mntmCatC);
 
-			JMenuItem mntmNewMenuItem_3 = new JMenuItem("Categoria D");
-			mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			JMenuItem mntmCatD = new JMenuItem("Categoria D");
+			mntmCatD.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VentanaCategoriaD.main(null);
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem_3);
+			mnCat.add(mntmCatD);
 			
 
-			JMenuItem mntmNewMenuItem_4 = new JMenuItem("Volver a menu");
-			mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			JMenuItem mntmCatInicio = new JMenuItem("Volver a inicio");
+			mntmCatInicio.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VentanaPrincipal.main(null);
 					frame.dispose();
 				}
 			});
-			mnNewMenu.add(mntmNewMenuItem_4);
+			mnCat.add(mntmCatInicio);
 
-			JLabel lblNewLabel_1_1 = new JLabel("Categoria B");
-			lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
-			lblNewLabel_1_1.setBounds(194, 34, 178, 43);
-			frame.getContentPane().add(lblNewLabel_1_1);
+			JLabel lblCatB = new JLabel("Categoria B");
+			lblCatB.setFont(new Font("Tahoma", Font.BOLD, 24));
+			lblCatB.setBounds(194, 34, 178, 43);
+			frame.getContentPane().add(lblCatB);
 			
 			JButton btnCarritoCompra = new JButton("Carrito");
 			btnCarritoCompra.setBounds(250, 550, 80, 30);
@@ -162,25 +162,25 @@ import erm.clasesBasicas.*;
 			panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 			panel.setBackground(Color.WHITE);
 
-			JLabel lblNewLabel = new JLabel();
-			lblNewLabel.setBounds(72, 90, 124, 141);
+			JLabel lblImagen = new JLabel();
+			lblImagen.setBounds(72, 90, 124, 141);
 			ImageIcon ico1= new ImageIcon(o.getRutaFoto());//meter las rutas en la bd
-			ImageIcon img1= new ImageIcon(ico1.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
-			lblNewLabel.setIcon(img1);
-			lblNewLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-			panel.add(lblNewLabel);
+			ImageIcon img1= new ImageIcon(ico1.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+			lblImagen.setIcon(img1);
+			lblImagen.setAlignmentX(Component.CENTER_ALIGNMENT);
+			panel.add(lblImagen);
 
-			JLabel lblNewLabel_2 = new JLabel(o.getNombre());
-			lblNewLabel_2.setBackground(Color.WHITE);
-			lblNewLabel_2.setToolTipText("");
-			lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-			lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
-			panel.add(lblNewLabel_2);
+			JLabel lblNombre = new JLabel(o.getNombre());
+			lblNombre.setBackground(Color.WHITE);
+			lblNombre.setToolTipText("");
+			lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
+			panel.add(lblNombre);
 
-			JLabel label = new JLabel(String.valueOf(o.getPrecio()));
-			label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-			label.setAlignmentX(Component.CENTER_ALIGNMENT);
-			panel.add(label);
+			JLabel lblPrecio = new JLabel(String.valueOf(o.getPrecio()));
+			lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
+			panel.add(lblPrecio);
 			
 			JButton btnAnadirAlCarrito = new JButton("Agregar al carrito");
 			btnAnadirAlCarrito.setFont(new Font("Tahoma", Font.BOLD, 11));
