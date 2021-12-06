@@ -468,9 +468,7 @@ public class DBManager {
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
-	}
-
-	public void insertarAlquiler(Alquiler alquiler) throws SQLException {
+	}public static void insertarAlquiler(Alquiler alquiler) throws SQLException {
 		String nombUsuario=alquiler.getNomUsuario();
 		String nomCoche=alquiler.getnomCoche();
 		String fInicio=alquiler.getFechaInicio();
@@ -480,6 +478,8 @@ public class DBManager {
 		
 		stmt.executeUpdate("INSERT INTO alquileres(nomUsuario,nomCoche,fInicio,fFin) VALUES (' "+nombUsuario+" ', "+nomCoche+ " ',  ' " +fInicio+ " ',  ' " +fFin+")");
 	}
+	
+
 	
 	
 	
@@ -499,4 +499,5 @@ public class DBManager {
 		}
 	}
 
+	
 }

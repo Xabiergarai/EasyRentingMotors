@@ -29,6 +29,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.demo.DateChooserPanel;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
@@ -118,10 +120,9 @@ public class VentanaAlquiler extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println("no llega");
+		
 		
 		cargarComboVehiculos();
-		System.out.println("Llega");
 		Date fechaDelCalendario = calendario.getDate();
 		String fc = sdf.format(fechaDelCalendario);
 		
@@ -141,9 +142,32 @@ public class VentanaAlquiler extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				DBManager db=new DBManager();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				
+				
+			    Date d=new Date(System.currentTimeMillis());
+			    Date d2=new Date();
+			    d2=calendario.getDate();
+			    
+				String nomUsuario=textNombre.getText();       
+				String nomCoche=(String) comboCoche.getSelectedItem();
+				String fInicio=sdf.format(d);
+				String fFin=sdf.format(d2);
+				
+				Alquiler al=new Alquiler(nomUsuario,nomCoche,fInicio,fFin);
+				
 				escribirProductosEnFichero(pw,sdf);	
 				JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
 						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				try {
+					DBManager.insertarAlquiler(al);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			
 		});
