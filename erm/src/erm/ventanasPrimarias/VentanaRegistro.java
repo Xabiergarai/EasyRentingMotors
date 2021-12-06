@@ -3,6 +3,7 @@ package erm.ventanasPrimarias;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -39,83 +40,85 @@ public class VentanaRegistro extends JFrame {
 	 */
 	
 	public VentanaRegistro() throws DBException {
+
 		this.setTitle("Registro");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(100, 100, 500, 100);
+		this.setBounds(100, 100, 545, 409);
 		this.setMinimumSize(new Dimension(250, 300));
-
-		// panel principal
-		panelContenidos = new JPanel();
-		panelContenidos.setBackground(Color.WHITE);
-		setContentPane(panelContenidos);
-		panelContenidos.setLayout(new BorderLayout(15, 15));
-
-		// Panel Central que contendra todo
-		JPanel panelCentral = new JPanel();
-		panelCentral.setBackground(Color.WHITE);
-		panelCentral.setLayout(new BorderLayout(0, 0));
-		panelContenidos.add(panelCentral, BorderLayout.CENTER);
-
-		// central superior panel
-		JPanel panelCentralSup = new JPanel();
-		panelCentralSup.setBackground(Color.WHITE);
-		panelCentralSup.setLayout(new GridLayout(6, 2, 5, 15));
-
-		panelCentral.add(panelCentralSup, BorderLayout.NORTH);
-
+		
 		lbNombre = new JLabel("Nombre: ");
+		lbNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbNombre.setBounds(104, 87, 74, 16);
 		tfNombre = new JTextField();
+		tfNombre.setBounds(274, 87, 137, 22);
 		tP = new TextPrompt("Nombre", tfNombre);
+		getContentPane().setLayout(null);
+		getContentPane().add(lbNombre);
+		getContentPane().add(tfNombre);
 
+		
+		
 		lbApellidos = new JLabel("Apellidos: ");
+		lbApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbApellidos.setBounds(104, 127, 74, 16);
 		tfApellidos = new JTextField();
+		tfApellidos.setBounds(274, 127, 137, 22);
 		tP = new TextPrompt("Apellidos", tfApellidos);
+		getContentPane().add(lbApellidos);
+		getContentPane().add(tfApellidos);
 
+
+		
+		
 		lbnomUsuario = new JLabel("Nombre de usuario: ");
+		lbnomUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbnomUsuario.setBounds(104, 167, 143, 16);
 		tfNombreUsuario = new JTextField();
+		tfNombreUsuario.setBounds(274, 167, 137, 22);
 		tP = new TextPrompt("Nombre de Usuario", tfNombreUsuario);
+		getContentPane().add(lbnomUsuario);
+		getContentPane().add(tfNombreUsuario);
 
+		
 		lbEmail = new JLabel("Email: ");
+		lbEmail.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbEmail.setBounds(104, 207, 56, 16);
 		tfEmail = new JTextField();
+		tfEmail.setBounds(274, 207, 137, 22);
 		tP = new TextPrompt("Email", tfEmail);
+		getContentPane().add(lbEmail);
+		getContentPane().add(tfEmail);
 
+		
 		lbContrasenia = new JLabel("Contraseña: ");
+		lbContrasenia.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lbContrasenia.setBounds(104, 247, 90, 16);
 		pfContrasenia = new JPasswordField();
+		pfContrasenia.setBounds(274, 247, 137, 22);
 		tP = new TextPrompt("Contraseña", pfContrasenia);
+		getContentPane().add(lbContrasenia);
+		getContentPane().add(pfContrasenia);
 
-		panelCentralSup.add(lbNombre);
-		panelCentralSup.add(tfNombre);
-		panelCentralSup.add(lbApellidos);
-		panelCentralSup.add(tfApellidos);
-		panelCentralSup.add(lbnomUsuario);
-		panelCentralSup.add(tfNombreUsuario);
-		panelCentralSup.add(lbEmail);
-		panelCentralSup.add(tfEmail);
-		panelCentralSup.add(lbContrasenia);
-		panelCentralSup.add(pfContrasenia);
-
-		// Panel Inferior
-		JPanel panelInferior = new JPanel();
-		panelInferior.setBackground(Color.WHITE);
-		panelInferior.setLayout(new BorderLayout(0, 0));
-		panelCentral.add(panelInferior, BorderLayout.SOUTH);
-
-		JPanel panelInferiorCentral = new JPanel();
-		panelInferiorCentral.setBackground(Color.WHITE);
-		panelInferiorCentral.setLayout(new GridLayout(1, 2, 5, 0));
-		panelInferior.add(panelInferiorCentral, BorderLayout.CENTER);
-
+	
 		btnAtras = new JButton("Volver");
+		btnAtras.setBounds(125, 301, 97, 25);
 		btnAtras.addActionListener(e -> {
 			VentanaInicial vi = null;
 			vi = new VentanaInicial();
 			vi.setVisible(true);
 			dispose();
 		});
+		getContentPane().add(btnAtras);
 
-		panelInferiorCentral.add(btnAtras);
-
+		
 		btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.setBounds(283, 301, 109, 25);
+		getContentPane().add(btnRegistrarse);
+		
+		JLabel lblPorFavorRellene = new JLabel("Por favor, rellene todos los campos.");
+		lblPorFavorRellene.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblPorFavorRellene.setBounds(104, 40, 307, 16);
+		getContentPane().add(lblPorFavorRellene);
 		btnRegistrarse.addActionListener(new ActionListener() {
 
 			@SuppressWarnings("deprecation")
@@ -159,12 +162,16 @@ public class VentanaRegistro extends JFrame {
 				}
 			}
 		});
-
-		panelInferiorCentral.add(btnRegistrarse);
+		
 		this.setVisible(true);
 
+		
+		
 	}
 
+	
+
+	
 	public static boolean comprobarPatronEmail(String email, boolean showErrorWindow) {
 		if (patronEmail.matcher(email).matches()) {
 			System.out.println(email + "Cumple el patron correctamente");
@@ -177,5 +184,5 @@ public class VentanaRegistro extends JFrame {
 			return false;
 		}
 	}
+	}
 
-}
