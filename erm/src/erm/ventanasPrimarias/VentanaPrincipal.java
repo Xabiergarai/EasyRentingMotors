@@ -68,6 +68,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	VentanaLogIn vp = new VentanaLogIn();
+	private JLabel lblCategoriaA;
 
 	/**
 	 * Create the application.
@@ -93,12 +94,12 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(lblSeccionesCoches);
 
 		JLabel lblCategoriaA = new JLabel("Categoria A");
-		lblCategoriaA.setBounds(275, 62, 126, 77);
+		lblCategoriaA.setBounds(83, 62, 126, 77);
 		getContentPane().add(lblCategoriaA);
-
-		ImageIcon ico2 = new ImageIcon("imagenes/cocheClaseA.jpg");
-		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblCategoriaA.getWidth(), lblCategoriaA.getHeight(), Image.SCALE_SMOOTH));
-		lblCategoriaA.setIcon(img2);
+		ImageIcon ico3 = new ImageIcon("imagenes/cocheClaseA.jpg");
+		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblCategoriaA.getWidth(), lblCategoriaA.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaA.setIcon(img3);
+		
 
 		JButton btncategoriaA = new JButton("Categoria A");
 		btncategoriaA.setForeground(Color.WHITE);
@@ -114,12 +115,13 @@ public class VentanaPrincipal extends JFrame {
 		});
 
 		JLabel lblCategoriaB = new JLabel("Categoria B");
-		lblCategoriaB.setBounds(90, 62, 106, 77);
+		lblCategoriaB.setBounds(275, 62, 126, 77);
 		getContentPane().add(lblCategoriaB);
-		ImageIcon ico3 = new ImageIcon("imagenes/cocheClaseB.jpg");
-		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblCategoriaB.getWidth(), lblCategoriaB.getHeight(), Image.SCALE_SMOOTH));
-		lblCategoriaB.setIcon(img3);
 
+		ImageIcon ico2 = new ImageIcon("imagenes/cocheClaseB.jpg");
+		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblCategoriaB.getWidth(), lblCategoriaB.getHeight(), Image.SCALE_SMOOTH));
+		lblCategoriaB.setIcon(img2);
+		
 		JButton btncategoriaB = new JButton("Categoria B");
 		btncategoriaB.setForeground(Color.WHITE);
 		btncategoriaB.setBackground(new Color(255, 165, 0));
@@ -135,7 +137,7 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblCategoriaC = new JLabel("Categoria C");
 		lblCategoriaC.setBackground(Color.WHITE);
-		lblCategoriaC.setBounds(83, 224, 126, 77);
+		lblCategoriaC.setBounds(83, 239, 126, 77);
 		getContentPane().add(lblCategoriaC);
 
 		ImageIcon ico4 = new ImageIcon("imagenes/cocheClaseC.jpg");
@@ -157,7 +159,7 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblCategoriaD = new JLabel("Categoria D");
 		lblCategoriaD.setBackground(Color.WHITE);
-		lblCategoriaD.setBounds(275, 224, 126, 77);
+		lblCategoriaD.setBounds(275, 239, 126, 77);
 		getContentPane().add(lblCategoriaD);
 
 		ImageIcon ico5 = new ImageIcon("imagenes/cocheClaseD.jpg");
