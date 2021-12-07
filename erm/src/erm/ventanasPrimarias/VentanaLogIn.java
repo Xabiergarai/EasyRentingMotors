@@ -208,7 +208,7 @@ public class VentanaLogIn extends JFrame {
 			fos = new FileOutputStream(configFile);
 		
 			Properties propConfig = new Properties();
-			propConfig.setProperty("Nombre de usuario", txtNombre.getText());
+			propConfig.setProperty("Username", txtNombre.getText());
 			propConfig.setProperty("Contrasenia", txtContrasenia.getText());
 			propConfig.store(fos, "Configuracion del programa");
 			fos.close();
