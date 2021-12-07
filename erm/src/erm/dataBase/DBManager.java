@@ -58,45 +58,6 @@ public class DBManager {
 	}
 
 	/**
-	 * Crea las tablas de la base de datos. Si ya existen, las deja tal cual.
-	 * Devuelve un statement para trabajar con esa base de datos
-	 * 
-	 * @param con Conexión ya creada y abierta a la base de datos
-	 * @return sentencia de trabajo si se crea correctamente, null si hay cualquier
-	 *         error
-	 * @throws BDException
-	 */
-
-	public static Statement usarCrearTablasBD(Connection con) throws DBException {
-		logger.log(Level.INFO, "Creando tablas...");
-
-		try {
-			Statement statement1 = con.createStatement();
-			try {
-				statement1.executeUpdate("create table if not exists Usuario " + "(nick string, "
-						+ " contrasenya string" + " apellidos string, " + " email string) ");
-
-				statement1.executeUpdate("create table if not exists Alquileres " + "(nomUsuario string, "
-						+ " nomCoche string" + " fInicio string, " + " fFin string) ");
-
-			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Usuario ya existente");
-				throw new DBException("Error creando tabla de usuario a la BD", ex);
-
-			}
-
-			statement1.executeUpdate("create table if not exists Coche" + "(id string," + " nombre string"
-					+ "categoria string" + "fechamatriculacion string" + "combustible string" + "precio float"
-					+ "rutaFoto string" + "numPuertas ing" + "maletero int)");
-
-			
-			return statement1;
-		} catch (SQLException e) {
-			return null;
-		}
-	}
-
-	/**
 	 * Este metodo comprueba si existe un usuario en concreto 
 	 * @param nick - Nick del usuario
 	 * @param contrasenia - Contraseña del usuario
