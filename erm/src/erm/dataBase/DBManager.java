@@ -488,10 +488,37 @@ public class DBManager {
 		ps.execute();
 	}
 	
+	  /* public ArrayList<Carrito> obtenerCarrito() {
+	        String sentSQL = "SELECT * FROM carrito";
+	        ArrayList<Carrito> al = new ArrayList<>();
+	        try {
+	            Statement st = conn.createStatement();
+	            ResultSet rs = st.executeQuery(sentSQL);
+	            while (rs.next()) {
+	                String id = rs.getString("id");
+	                String nombre = rs.getString("nombre");
+	                double precio = rs.getDouble("precio");
+	                String fecha = rs.getString("fecha");
+	                
+	                
 
-	
-	
-	
+	                Carrito p = new Carrito(id, nombre, precio, fecha);
+	                al.add(p);
+	            }
+	            rs.close();
+	            st.close();
+	        } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	            try {
+	                throw new DBException("No se han obtenido Coches", e);
+	            } catch (DBException e1) {
+	                // TODO Auto-generated catch block
+	                e1.printStackTrace();
+	            }
+	        }
+	        return al;
+	    } */
 	
 	/**
 	 * Cerramos conexión con la BD

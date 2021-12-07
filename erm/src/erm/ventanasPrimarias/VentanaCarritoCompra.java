@@ -186,7 +186,7 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Precio");
 		setTableContent(carrito);
 	}
-
+	
 	public void setTableContent(ArrayList<Coche> carrito) {
 		clear();
 		System.out.println(carrito);
@@ -201,7 +201,7 @@ public class VentanaCarritoCompra extends JFrame {
 		}
 		updatePrecioTotal();
 	}
-
+	
 	public void clear() {
 	    this.precioTotal = 0;
 		this.carritoModeloTabla.setRowCount(0);

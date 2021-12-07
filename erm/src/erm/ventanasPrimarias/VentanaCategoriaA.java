@@ -21,6 +21,7 @@ import erm.categoriasCoche.*;
 
 		private JFrame frame;
 		private ListaCoche Coches;
+		DBManager con = new DBManager();
 
 		/**
 		 * Launch the application.
@@ -195,12 +196,13 @@ import erm.categoriasCoche.*;
 					carrito.add(o);
 				}
 			});
+			
+			
 			btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(btnAnadirAlCarrito);
 
 			return panel;
 		}	
-		
 		
 	}
 		
