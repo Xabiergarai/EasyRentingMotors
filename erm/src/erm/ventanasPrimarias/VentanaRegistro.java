@@ -229,6 +229,7 @@ public class VentanaRegistro extends JFrame {
 			FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
 		    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 		    outStream.writeUTF("\n"+ tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," + tfNombreUsuario.getText());
+		    outStream.write("\n".getBytes());
 		    outStream.close();
 		} catch (Exception e) {
 			// TODO: handle exception
