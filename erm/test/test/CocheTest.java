@@ -19,7 +19,7 @@ class CocheTest extends GroupException {
 	
 	@BeforeEach
 	void setUpCoche() {
-		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "  ");	
+		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "imagen");	
 	}
 			
 	@Test
@@ -102,5 +102,15 @@ class CocheTest extends GroupException {
 		assertEquals(50.000, c.getPrecio());
 	}
 	
+	@Test
+	void testGetRutaFoto() {
+		assertEquals("imagen", c.getRutaFoto());
+	}
+	
+	@Test
+	void testSetRutaFoto() {
+		c.setRutaFoto("imagen1");
+		assertEquals("imagen1", c.getRutaFoto());
+	}
 				
 }
