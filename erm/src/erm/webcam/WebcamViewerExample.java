@@ -1,5 +1,6 @@
 package erm.webcam;
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,12 +26,11 @@ import com.github.sarxos.webcam.WebcamListener;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamPicker;
 import com.github.sarxos.webcam.WebcamResolution;
-
 import erm.ventanasPrimarias.*;
 import erm.ventanasSecundarias.*;
 
 
-public class WebcamViewer extends JFrame implements Runnable,ActionListener, WebcamListener, WindowListener, UncaughtExceptionHandler, ItemListener, WebcamDiscoveryListener {
+public class WebcamViewerExample extends JFrame implements Runnable,ActionListener, WebcamListener, WindowListener, UncaughtExceptionHandler, ItemListener, WebcamDiscoveryListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -61,7 +61,7 @@ public class WebcamViewer extends JFrame implements Runnable,ActionListener, Web
 		}
 
 		webcam.setViewSize(WebcamResolution.VGA.getSize());
-		webcam.addWebcamListener(WebcamViewer.this);
+		webcam.addWebcamListener(WebcamViewerExample.this);
 
 		panel = new WebcamPanel(webcam, false);
 		panel.setFPSDisplayed(true);
@@ -89,7 +89,7 @@ public class WebcamViewer extends JFrame implements Runnable,ActionListener, Web
 	}
 
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new WebcamViewer());
+		SwingUtilities.invokeLater(new WebcamViewerExample());
 	}
 
 	@Override
@@ -218,7 +218,4 @@ public class WebcamViewer extends JFrame implements Runnable,ActionListener, Web
 		}
 	}
 
-
-		
-	
 }

@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextPane;
-import erm.webcam.WebcamViewer;
+import erm.webcam.WebcamViewerExample;
 import erm.categoriasCoche.Coche;
 import erm.ventanasSecundarias.VentanaVentasInformacion;
 import javax.swing.JRadioButton;
@@ -104,18 +104,6 @@ public class VentanaVenderCoche extends JFrame {
 		lblImagen.setBounds(21, 414, 81, 20);
 		getContentPane().add(lblImagen);
 
-		JButton btnCamara = new JButton("Camara");
-		btnCamara.setBounds(112, 415, 93, 29);
-		getContentPane().add(btnCamara);
-
-		btnCamara.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				WebcamViewer wc = new WebcamViewer();
-				wc.run();
-
-			}
-		});
 
 		// Boton imagen
 		JButton btnImagen = new JButton("Imagen");
@@ -216,6 +204,20 @@ public class VentanaVenderCoche extends JFrame {
 		cbCategoria.addItem("Categoria B");
 		cbCategoria.addItem("Categoria C");
 		cbCategoria.addItem("Categoria D");
+		
+
+		JButton btnCamara = new JButton("Camara");
+		btnCamara.setBounds(112, 415, 93, 29);
+		getContentPane().add(btnCamara);
+
+		btnCamara.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WebcamViewerExample wc = new WebcamViewerExample();
+				wc.run();  
+				
+			}
+		});
 
 		btnAtras.addActionListener(new ActionListener() {
 			@Override

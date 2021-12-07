@@ -3,6 +3,7 @@ package erm.ventanasPrimarias;
 import erm.categoriasCoche.*; 
 import erm.clasesBasicas.*;
 import erm.clasesBasicas.Contenedora;
+import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
 
