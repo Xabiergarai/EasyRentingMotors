@@ -36,8 +36,9 @@ public class VentanaRegistro extends JFrame {
 
 
 	/**
-	 * Ventana en la cual el usuario se registra
+	 * Ventana en la cual el usuario se registra.
 	 */
+	
 	
 	public VentanaRegistro() throws DBException {
 
@@ -55,7 +56,6 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().setLayout(null);
 		getContentPane().add(lbNombre);
 		getContentPane().add(tfNombre);
-
 		
 		
 		lbApellidos = new JLabel("Apellidos: ");
@@ -66,8 +66,6 @@ public class VentanaRegistro extends JFrame {
 		tP = new TextPrompt("Apellidos", tfApellidos);
 		getContentPane().add(lbApellidos);
 		getContentPane().add(tfApellidos);
-
-
 		
 		
 		lbnomUsuario = new JLabel("Nombre de usuario: ");
@@ -163,13 +161,8 @@ public class VentanaRegistro extends JFrame {
 			}
 		});
 		
-		this.setVisible(true);
-
-		
-		
+		this.setVisible(true);		
 	}
-
-	
 
 	
 	public static boolean comprobarPatronEmail(String email, boolean showErrorWindow) {
