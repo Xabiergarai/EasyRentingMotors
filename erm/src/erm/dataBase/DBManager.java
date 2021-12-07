@@ -25,7 +25,6 @@ import erm.ventanasPrimarias.*;
 
 /**
  * Base de datos de Easy Renting Motors
- * @author gutia
  *
  */
 public class DBManager {
