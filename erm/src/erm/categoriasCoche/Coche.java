@@ -26,6 +26,8 @@ public class Coche implements Serializable {
 		this.rutaFoto = rutaFoto;
 	}
 
+	//
+	
 	public Coche() {
 		super();
 		this.id = " ";
