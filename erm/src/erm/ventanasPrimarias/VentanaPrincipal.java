@@ -40,15 +40,7 @@ public class VentanaPrincipal extends JFrame {
 	ArrayList<Coche> carrito = new ArrayList<Coche>();
 	ListaCoche listaCoche = new ListaCoche();
 
-	/* public void cargarFotos() {
-	 for(Coche p: VentanaLogIn.contenedora.getListaCoches()) {
-	 if(p instanceof Categoria_A) {
-	 PanelCategoria_A panel = new PanelCategoriaA((Categoria_A ) p,ventana);
-	 pCentral.add(panel);
-	 }
-	 }
-	 }*/
-
+	
 	/**
 	 * Launch the application
 	 */
