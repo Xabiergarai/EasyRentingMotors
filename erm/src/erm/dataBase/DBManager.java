@@ -106,14 +106,17 @@ public class DBManager {
 
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
 		conn = initBD("EasyRentingMotors.db");
-		String sql = "SELECT * FROM Usuarios WHERE nickname='" + nick + "'";
+		String sql = "SELECT * FROM Usuarios WHERE nickname= ?";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
 		int resultado = 0;
-		try {
-			st = conn.createStatement();
-			rs = st.executeQuery(sql);
+		
+		try (PreparedStatement stmt = conn.prepareStatement(sql)){
+			
+			stmt.setString(1, nick);
+			rs = stmt.executeQuery();
+			
 			if (!rs.next()) {
 				resultado = 0;
 				logger.log(Level.WARNING, "Usuario no exixtente");
@@ -223,12 +226,12 @@ public class DBManager {
 	public static ArrayList<CategoriaA> listarCategoriaA() throws DBException {
 
 		ArrayList<CategoriaA> CategoriaA = new ArrayList<>();
-		Connection con = initBD("EasyRentingMotors.db");
-
-		try (Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery(
-					"Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, maletero FROM CategoriaA");
-
+		Connection conn = initBD("EasyRentingMotors.db");
+		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, maletero FROM CategoriaA";
+		
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+			
 			while (rs.next()) {
 				CategoriaA CategoriAs = new CategoriaA();
 				CategoriAs.setId(rs.getString("id"));
@@ -264,11 +267,12 @@ public class DBManager {
 	public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 
 		ArrayList<CategoriaB> CategoriaB = new ArrayList<>();
-		Connection con = initBD("EasyRentingMotors.db");
+		Connection conn = initBD("EasyRentingMotors.db");
+		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable, deportivo FROM CategoriaB";
 
-		try (Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery(
-					"Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, descapotable, deportivo FROM CategoriaB");
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+					
 
 			while (rs.next()) {
 				CategoriaB CategoriBs = new CategoriaB();
@@ -311,12 +315,12 @@ public class DBManager {
 	public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
 
 		ArrayList<CategoriaC> CategoriaC = new ArrayList<>();
-		Connection con = initBD("EasyRentingMotors.db");
+		Connection conn = initBD("EasyRentingMotors.db");
+		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoTodoTerreno, descapotable FROM CategoriaC";
 
-		try (Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery(
-					"Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoTodoTerreno, descapotable FROM CategoriaC");
-
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+					
 			while (rs.next()) {
 				CategoriaC CategoriCs = new CategoriaC();
 				CategoriCs.setId(rs.getString("id"));
@@ -351,12 +355,11 @@ public class DBManager {
 	public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 
 		ArrayList<CategoriaD> CategoriaD = new ArrayList<>();
-		Connection con = initBD("EasyRentingMotors.db");
-
-		try (Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery(
-					"Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoFurgoneta, descapotable FROM CategoriaD");
-
+		Connection conn = initBD("EasyRentingMotors.db");
+		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoFurgoneta, descapotable FROM CategoriaD";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+					
 			while (rs.next()) {
 				CategoriaD CategoriDs = new CategoriaD();
 				CategoriDs.setId(rs.getString("id"));
@@ -392,11 +395,10 @@ public class DBManager {
 	public static List<Coche> obtenerCoches(Connection con) {
 		List<Coche> av = new ArrayList<>();
 		String sent = "SELECT * FROM Coche";
-		Statement st = null;
 
-		try {
-			st = con.createStatement();
-			ResultSet rs = st.executeQuery(sent);
+		try (PreparedStatement stmt = conn.prepareStatement(sent)) {
+			ResultSet rs = stmt.executeQuery();
+			
 			while (rs.next()) {
 				String id = rs.getString("id");
 				String nombre = rs.getString("nombre");
@@ -416,16 +418,8 @@ public class DBManager {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			if (st != null) {
-				try {
-					st.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
+		
 		return av;
 	}
 
@@ -437,10 +431,10 @@ public class DBManager {
 	 */
 	
 	public static TreeSet<String> obtenerNombresCoches() throws SQLException {
-		Statement statement = conn.createStatement();
 		String sent = "SELECT nombre from Coche";
+		PreparedStatement stmt = conn.prepareStatement(sent);
 		TreeSet<String> tsnomb = new TreeSet<>();
-		ResultSet rs = statement.executeQuery(sent);
+		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			String n = rs.getString("nombre");
 
@@ -451,12 +445,29 @@ public class DBManager {
 	}
 
 	/**
-	 * Este metodo nos permite insertar los coches que queremos poner en venta
-	 * 
-	 * @param coche
+	 * Nos permite meter el alquiler de coche que queremos hacer. En las fechas deseadas.
+	 * @param alquiler
 	 * @throws DBException
+	 * @throws SQLException
 	 */
 	
+	public static void insertarAlquiler(Alquiler alquiler)throws DBException, SQLException  {
+		
+		Connection con = initBD("EasyRentingMotors.db");
+		String sql = "INSERT INTO Alquileres (nomUsuario,	nomCoche, fInicio, fFin) VALUES(?,?,?,?)";
+
+		ps = con.prepareStatement(sql);
+
+		ps.setString(1, alquiler.getNomUsuario());
+		ps.setString(2, alquiler.getnomCoche());
+		ps.setString(3, alquiler.getFechaInicio());
+		ps.setString(4, alquiler.getFechaFin());
+		
+
+		ps.execute();
+	}
+
+	/*
 	public void insertarVenta(Coche coche) throws DBException {
 		String nombre = coche.getNombre();
 		String categoria = coche.getCategoria();
@@ -472,23 +483,10 @@ public class DBManager {
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
-	}public static void insertarAlquiler(Alquiler alquiler)throws DBException, SQLException  {
-		
-		Connection con = initBD("EasyRentingMotors.db");
-		String sql = "INSERT INTO Alquileres (nomUsuario,	nomCoche, fInicio, fFin) VALUES(?,?,?,?)";
-
-		ps = con.prepareStatement(sql);
-
-		ps.setString(1, alquiler.getNomUsuario());
-		ps.setString(2, alquiler.getnomCoche());
-		ps.setString(3, alquiler.getFechaInicio());
-		ps.setString(4, alquiler.getFechaFin());
-		
-
-		ps.execute();
 	}
 	
-	  /* public ArrayList<Carrito> obtenerCarrito() {
+	
+	public ArrayList<Carrito> obtenerCarrito() {
 	        String sentSQL = "SELECT * FROM carrito";
 	        ArrayList<Carrito> al = new ArrayList<>();
 	        try {
