@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -138,7 +139,7 @@ public class VentanaLogIn extends JFrame {
 				resultado = DBManager.existeUsuario(nick, contrasenia);
 				if (resultado == 2) {
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
-
+					cargarProperties();
 					vp = new VentanaPrincipal();
 					dispose();
 					vp.setVisible(true);
@@ -160,50 +161,11 @@ public class VentanaLogIn extends JFrame {
 				e1.printStackTrace();
 			}
 
-			Properties properties = new Properties();
-			try {
-				// leer el archivo properties
-				// primero tiene que cargarlo
-				properties.loadFromXML(new FileInputStream("usuario.xml"));
-				String usuario = properties.getProperty("Usuario");
-				String contrasena = properties.getProperty("Contrasenia");
-				VentanaLogIn.this.txtNombre.setText(usuario);
-				txtContrasenia.setText(contrasenia);
-			} catch (FileNotFoundException e2) {
-				e2.printStackTrace();
-			} catch (InvalidPropertiesFormatException e3) {
-				e3.printStackTrace();
-			} catch (IOException e4) {
-				e4.printStackTrace();
-			}
+
 
 		});
 
-		this.addWindowListener(new WindowAdapter() {
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-
-				Properties properties = new Properties();
-				try {
-					// leer el archivo properties
-					// primero tiene que cargarlo
-					properties.loadFromXML(new FileInputStream("usuario.xml"));
-					String usuario = properties.getProperty("Usuario");
-					String contrasenia = properties.getProperty("Contrasenia");
-					VentanaLogIn.this.txtNombre.setText(usuario);
-					txtContrasenia.setText(contrasenia);
-				} catch (FileNotFoundException e2) {
-					e2.printStackTrace();
-				} catch (InvalidPropertiesFormatException e3) {
-					e3.printStackTrace();
-				} catch (IOException e4) {
-					e4.printStackTrace();
-				}
-
-			}
-
-		});
-
+	
 	}
 
 	/**
@@ -235,4 +197,25 @@ public class VentanaLogIn extends JFrame {
 		cont.add(tempPanel);
 	}
 
+	
+	public void cargarProperties() {
+		FileOutputStream fos = null;
+		File configFile = null;
+		
+		try {
+			configFile = new File("config.properties");
+			fos = new FileOutputStream(configFile);
+		
+			Properties propConfig = new Properties();
+			propConfig.setProperty("username", txtNombre.getText());		
+			propConfig.setProperty("password", txtContrasenia.getText());			
+			propConfig.store(fos, "Configuracion del programa");
+			fos.close();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
 }
