@@ -17,11 +17,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="librerias/bridj-0.6.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="librerias/jgoodies-forms-1.8.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -37,12 +32,17 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="librerias/webcam-capture-0.3.10.jar">
+	<classpathentry kind="lib" path="librerias/jgoodies-common-1.8.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="librerias/jgoodies-common-1.8.0.jar">
+	<classpathentry kind="lib" path="librerias/bridj-0.7.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="librerias/webcam-capture-0.3.12.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

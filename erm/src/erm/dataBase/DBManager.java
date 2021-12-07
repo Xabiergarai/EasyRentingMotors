@@ -427,6 +427,22 @@ public class DBManager {
 
 		ps.execute();
 	}
+	
+	/**
+	 * Cambiar contraseña para usuario
+	 * @param user
+	 * @throws DBException
+	 */
+		public void cambiarContrasenya(Usuario user) throws DBException {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"UPDATE usuario SET contrasenya= ? WHERE nomUsuario ='" + user.getNomUsuario() + "'")) {
+				stmt.setString(1, user.getContrasenya());
+				stmt.executeUpdate();
+
+			} catch (SQLException e) {
+				throw new DBException("No ha sido posible ejecutar la query");
+			}
+		}
 
 	/*
 	public void insertarVenta(Coche coche) throws DBException {

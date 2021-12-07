@@ -104,7 +104,7 @@ public class VentanaAlquiler extends JFrame{
 		calendario.setWeekOfYearVisible(false);
 		calendario.setMaxDayCharacters(2);
 		calendario.setForeground(Color.BLACK);
-		calendario.setSundayForeground(Color.RED);
+		calendario.setSundayForeground(Color.ORANGE);
 		calendario.setWeekdayForeground(Color.GRAY);
 		// Establecer las fechas mínima y máxima seleccionable
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
