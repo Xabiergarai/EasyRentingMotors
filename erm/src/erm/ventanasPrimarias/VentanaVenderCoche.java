@@ -187,7 +187,7 @@ public class VentanaVenderCoche extends JFrame {
 		JRadioButton rdDiesel = new JRadioButton("Diesel");
 		rdDiesel.setBounds(140, 210, 81, 23);
 		getContentPane().add(rdDiesel);
-
+		//
 		JRadioButton rdGasolina = new JRadioButton("Gasolina");
 		rdGasolina.setBounds(239, 210, 81, 23);
 		getContentPane().add(rdGasolina);
