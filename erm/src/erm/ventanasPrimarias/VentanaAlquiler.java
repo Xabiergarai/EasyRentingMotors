@@ -136,7 +136,7 @@ public class VentanaAlquiler extends JFrame{
 		btnAtras=new JButton("Atras");
 		panelBotonera.add(btnAtras);
 		
-		PrintWriter pw = new PrintWriter("Alquileres.TXT");
+		PrintWriter pw = new PrintWriter("Alquileres.txt");
 
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
