@@ -21,12 +21,6 @@ class CocheTest extends GroupException {
 	void setUpCoche() {
 		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "  ");	
 	}
-
-	@Test
-	void testToString() {
-		assertEquals("Coche [id=01, nombre=A5, clase=A, marca=Audi, fecha_matriculacion=2008-01-12, combustible=Diesel, precio=50.0, rutaFoto=  ]"
-		, c.toString());	
-	}
 			
 	@Test
 	void testGetId() {

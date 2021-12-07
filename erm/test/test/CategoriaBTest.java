@@ -29,13 +29,7 @@ private CategoriaB b;
 		 b= new CategoriaB("CB01", "Audi A3", "B", "Audi",
 					"2020/01-05", "Gasolina", 19999.99, " ",5, false, false );
 	}
-	
-	
-	@Test
-	public void testGetId() {				
-		assertEquals("CB01", b.getId());
-	}
-	
+		
 	@Test
 	public void testSetId() {		
 		b.setId("1");

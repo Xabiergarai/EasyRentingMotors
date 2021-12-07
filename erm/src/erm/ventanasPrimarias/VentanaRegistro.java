@@ -153,7 +153,7 @@ public class VentanaRegistro extends JFrame {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}
-
+					
 					JOptionPane.showMessageDialog(null, "Registro Completado");
 
 					VentanaLogIn vL = new VentanaLogIn();
