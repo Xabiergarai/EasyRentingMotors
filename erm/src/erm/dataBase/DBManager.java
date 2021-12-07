@@ -37,7 +37,7 @@ public class DBManager {
 
 	
 	/**
-	 * Inicializa una BD SQLITE y devuelve una conexión con ella
+	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
 	 * @param nombreBD Nombre de fichero de la base de datos
 	 * @return Conexión con la base de datos indicada. Si hay algún error, se
