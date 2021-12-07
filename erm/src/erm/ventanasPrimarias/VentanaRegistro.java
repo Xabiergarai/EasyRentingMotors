@@ -151,13 +151,9 @@ public class VentanaRegistro extends JFrame {
 					mod.setContrasenya(pfContrasenia.getText());
 
 					try {
-						if (modSql.registrar(mod)) {
-							
-								aniadirUsuarioAFichero();
-								System.out.println("fichero regis");
-							
-
-							
+						if (modSql.registrar(mod)) {							
+							aniadirUsuarioAFichero();
+							System.out.println("fichero regis");													
 							JOptionPane.showMessageDialog(null, "Registro realizado con exito");
 						} else {
 							JOptionPane.showMessageDialog(null, "No se ha podido registrar");
@@ -165,6 +161,9 @@ public class VentanaRegistro extends JFrame {
 					} catch (HeadlessException | DBException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
 					
 					JOptionPane.showMessageDialog(null, "Registro Completado");
@@ -194,7 +193,7 @@ public class VentanaRegistro extends JFrame {
 	}
 	
 	
-	
+	/*
 	public void aniadirUsuarioAFichero() {
 		FileOutputStream fos = null;
 		File configFile = null;
@@ -224,12 +223,12 @@ public class VentanaRegistro extends JFrame {
 		}
 
 	}
-	
+	*/
 	public void aniadirUsuarioAFichero() throws IOException {
 		try {
 			FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
 		    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-		    outStream.writeUTF("\n" + tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText() + tfNombreUsuario.getText());
+		    outStream.writeUTF("\n"+ tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," + tfNombreUsuario.getText());
 		    outStream.close();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -238,5 +237,5 @@ public class VentanaRegistro extends JFrame {
 
 	
 	}
-	*/
+	
 	}
