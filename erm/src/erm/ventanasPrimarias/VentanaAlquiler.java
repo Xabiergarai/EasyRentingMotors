@@ -45,6 +45,8 @@ public class VentanaAlquiler extends JFrame{
 	public static Connection con;
 	public static String nombreBD = "EasyRentingMotors.db";
 	
+	private PrintWriter pw;
+	
 	private JLabel lblNombre;
 	private JTextField textNombre;
 	private JCalendar calendario;
@@ -136,8 +138,7 @@ public class VentanaAlquiler extends JFrame{
 		btnAtras=new JButton("Atras");
 		panelBotonera.add(btnAtras);
 		
-		PrintWriter pw = new PrintWriter("Alquileres.txt");
-
+		
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -202,7 +203,9 @@ public class VentanaAlquiler extends JFrame{
 		
 	}
 	private void escribirProductosEnFichero( PrintWriter pw,SimpleDateFormat sdf) {
-		
+		try {
+			pw = new PrintWriter("Alquileres.txt");
+
 			String nomcoche =(String) comboCoche.getSelectedItem(); ;
 			String nomcliente =  textNombre.getText();
 			Date fechaf = calendario.getDate();
@@ -212,6 +215,12 @@ public class VentanaAlquiler extends JFrame{
 			
 			pw.println(nomcoche+" "+nomcliente+" "+ff+" "+fi);
 			
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 	}
 	
