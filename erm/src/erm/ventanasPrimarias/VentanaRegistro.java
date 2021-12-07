@@ -161,10 +161,7 @@ public class VentanaRegistro extends JFrame {
 					} catch (HeadlessException | DBException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					} 
 					
 					JOptionPane.showMessageDialog(null, "Registro Completado");
 
@@ -193,14 +190,13 @@ public class VentanaRegistro extends JFrame {
 	}
 	
 	
-	/*
+	
 	public void aniadirUsuarioAFichero() {
-		FileOutputStream fos = null;
-		File configFile = null;
+		
 		try {
 			FileWriter fw = new FileWriter("usuarioRegistrados.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("\n" + tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText() + tfNombreUsuario.getText());
+			bw.write( "\n" + tfNombre.getText() + "  " + tfApellidos.getText()+ " ha iniciado sesion con el usuario " + tfNombreUsuario.getText()+ " con contrasenia " +  pfContrasenia.getText() );
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -223,12 +219,12 @@ public class VentanaRegistro extends JFrame {
 		}
 
 	}
-	*/
+	
 	public void aniadirUsuarioAFichero() throws IOException {
 		try {
 			FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
 		    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-		    outStream.writeUTF("\n"+ tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," + tfNombreUsuario.getText());
+		    outStream.write("\n"+ tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," + tfNombreUsuario.getText());
 		    outStream.write("\n".getBytes());
 		    outStream.close();
 		} catch (Exception e) {
@@ -238,5 +234,5 @@ public class VentanaRegistro extends JFrame {
 
 	
 	}
-	
+	*/
 	}
