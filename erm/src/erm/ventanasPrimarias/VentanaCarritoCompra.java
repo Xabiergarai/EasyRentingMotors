@@ -89,36 +89,26 @@ public class VentanaCarritoCompra extends JFrame {
 		
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
-		btnVaciarCesta.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnVaciarCesta.addActionListener(e -> {
 				clear();
-			}
 		});
 		frame.getContentPane().add(btnVaciarCesta);
 				
 		JButton btnGuardarLista = new JButton("Guardar lista");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
-		btnGuardarLista.addActionListener(new ActionListener() {
-			
-		@Override
-		public void actionPerformed(ActionEvent e) {			
+		btnGuardarLista.addActionListener(e -> {			
 			contenedora.guardarListaCochesEnFichero();
 			contenedora.cargarFicheroCoches();
 	//		contenedora.guardarCarritoEnFicheroDeTexto();
 			
-		}
 		});
 		frame.getContentPane().add(btnGuardarLista);
 		
 		JButton btnSeguirComprando = new JButton("Seguir comprando");
 		btnSeguirComprando.setBounds(90, 407, 212, 29);
 		frame.getContentPane().add(btnSeguirComprando);
-		btnSeguirComprando.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnSeguirComprando.addActionListener(e -> {
 				frame.dispose();
-			}
 		});
 		
 		JLabel lblPremium = new JLabel("* Con Easy Renting Motors puedes benificiarte de gastos");
@@ -139,14 +129,10 @@ public class VentanaCarritoCompra extends JFrame {
 		btnRealizarPedido.setBackground(Color.YELLOW);
 		btnRealizarPedido.setBounds(98, 555, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
-		 btnRealizarPedido.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		 btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
 				new VentanaTransaccionCompra();
 				frame.dispose();
-			}
 		}); 
 		
 		

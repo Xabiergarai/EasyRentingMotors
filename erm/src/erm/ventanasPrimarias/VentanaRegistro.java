@@ -40,22 +40,21 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField pfContrasenia;
 	private JButton btnRegistrarse, btnAtras;
 	private TextPrompt tP;
-	public static Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	public static Pattern patronEmail = Pattern
+			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 	public final static String ficheroUsuarios = "usuariosRegistrados.txt";
-
 
 	/**
 	 * Ventana en la cual el usuario se registra.
 	 */
-	
-	
+
 	public VentanaRegistro() throws DBException {
 
 		this.setTitle("Registro");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 545, 409);
 		this.setMinimumSize(new Dimension(250, 300));
-		
+
 		lbNombre = new JLabel("Nombre: ");
 		lbNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lbNombre.setBounds(104, 87, 74, 16);
@@ -65,8 +64,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().setLayout(null);
 		getContentPane().add(lbNombre);
 		getContentPane().add(tfNombre);
-		
-		
+
 		lbApellidos = new JLabel("Apellidos: ");
 		lbApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lbApellidos.setBounds(104, 127, 74, 16);
@@ -75,8 +73,7 @@ public class VentanaRegistro extends JFrame {
 		tP = new TextPrompt("Apellidos", tfApellidos);
 		getContentPane().add(lbApellidos);
 		getContentPane().add(tfApellidos);
-		
-		
+
 		lbnomUsuario = new JLabel("Nombre de usuario: ");
 		lbnomUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lbnomUsuario.setBounds(104, 167, 143, 16);
@@ -86,7 +83,6 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lbnomUsuario);
 		getContentPane().add(tfNombreUsuario);
 
-		
 		lbEmail = new JLabel("Email: ");
 		lbEmail.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lbEmail.setBounds(104, 207, 56, 16);
@@ -96,7 +92,6 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lbEmail);
 		getContentPane().add(tfEmail);
 
-		
 		lbContrasenia = new JLabel("Contraseña: ");
 		lbContrasenia.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lbContrasenia.setBounds(104, 247, 90, 16);
@@ -106,7 +101,6 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lbContrasenia);
 		getContentPane().add(pfContrasenia);
 
-	
 		btnAtras = new JButton("Volver");
 		btnAtras.setBounds(125, 301, 97, 25);
 		btnAtras.addActionListener(e -> {
@@ -117,65 +111,58 @@ public class VentanaRegistro extends JFrame {
 		});
 		getContentPane().add(btnAtras);
 
-		
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBounds(283, 301, 109, 25);
 		getContentPane().add(btnRegistrarse);
-		
+
 		JLabel lblPorFavorRellene = new JLabel("Por favor, rellene todos los campos.");
 		lblPorFavorRellene.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblPorFavorRellene.setBounds(104, 40, 307, 16);
 		getContentPane().add(lblPorFavorRellene);
-		btnRegistrarse.addActionListener(new ActionListener() {
+		btnRegistrarse.addActionListener(e -> {
 
-			@SuppressWarnings("deprecation")
-			@Override
-			public void actionPerformed(ActionEvent e) {
+			// compruebar ningun campo en banco
+			if (tfNombre.getText().equals("") || tfNombre.getText().equals("")
+					|| tfNombreUsuario.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+			}
+			// compruebar que cumple el patron del email
+			if (!comprobarPatronEmail(tfEmail.getText(), false)) {
+				comprobarPatronEmail(tfEmail.getText(), true);
+			} else {
+				DBManager modSql = new DBManager();
 
-				// compruebar ningun campo en banco
-				if (tfNombre.getText().equals("") || tfNombre.getText().equals("")
-						|| tfNombreUsuario.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+				Usuario mod = new Usuario();
+				mod.setApellidos(tfApellidos.getText());
+				mod.setEmail(tfEmail.getText());
+				mod.setNombre(tfNombre.getText());
+				mod.setNomUsuario(tfNombreUsuario.getText());
+				mod.setContrasenya(pfContrasenia.getText());
+
+				try {
+					if (modSql.registrar(mod)) {
+						aniadirUsuarioAFichero();
+						System.out.println("fichero regis");
+						JOptionPane.showMessageDialog(null, "Registro realizado con exito");
+					} else {
+						JOptionPane.showMessageDialog(null, "No se ha podido registrar");
+					}
+				} catch (HeadlessException | DBException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
 				}
-				// compruebar que cumple el patron del email
-				if (!comprobarPatronEmail(tfEmail.getText(), false)) {
-					comprobarPatronEmail(tfEmail.getText(), true);
-				} else {
-					DBManager modSql = new DBManager();
 
-					Usuario mod = new Usuario();
-					mod.setApellidos(tfApellidos.getText());
-					mod.setEmail(tfEmail.getText());
-					mod.setNombre(tfNombre.getText());
-					mod.setNomUsuario(tfNombreUsuario.getText());
-					mod.setContrasenya(pfContrasenia.getText());
+				JOptionPane.showMessageDialog(null, "Registro Completado");
 
-					try {
-						if (modSql.registrar(mod)) {							
-							aniadirUsuarioAFichero();
-							System.out.println("fichero regis");													
-							JOptionPane.showMessageDialog(null, "Registro realizado con exito");
-						} else {
-							JOptionPane.showMessageDialog(null, "No se ha podido registrar");
-						}
-					} catch (HeadlessException | DBException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					} 
-					
-					JOptionPane.showMessageDialog(null, "Registro Completado");
-
-					VentanaLogIn vL = new VentanaLogIn();
-					vL.setVisible(true);
-					dispose();
-				}
+				VentanaLogIn vL = new VentanaLogIn();
+				vL.setVisible(true);
+				dispose();
 			}
 		});
-		
-		this.setVisible(true);		
+
+		this.setVisible(true);
 	}
 
-	
 	public static boolean comprobarPatronEmail(String email, boolean showErrorWindow) {
 		if (patronEmail.matcher(email).matches()) {
 			System.out.println(email + "Cumple el patron correctamente");
@@ -188,15 +175,14 @@ public class VentanaRegistro extends JFrame {
 			return false;
 		}
 	}
-	
-	
-	
+
 	public void aniadirUsuarioAFichero() {
-		
+
 		try {
 			FileWriter fw = new FileWriter("usuarioRegistrados.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write( "\n" + tfNombre.getText() + "  " + tfApellidos.getText()+ " ha iniciado sesion con el usuario " + tfNombreUsuario.getText()+ " con contrasenia " +  pfContrasenia.getText() );
+			bw.write("\n" + tfNombre.getText() + "  " + tfApellidos.getText() + " ha iniciado sesion con el usuario "
+					+ tfNombreUsuario.getText() + " con contrasenia " + pfContrasenia.getText());
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -206,33 +192,26 @@ public class VentanaRegistro extends JFrame {
 
 	}
 	/*
-	public void aniadirUsuarioAFichero() {
-		try {
-			FileWriter fw = new FileWriter(ficheroUsuarios, true);
-		    BufferedWriter bw = new BufferedWriter(new FileWriter("usuariosRegistrados.txt", true));
-			bw.write("\n" + tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText() + tfNombreUsuario.getText());
-			bw.close();
-			fw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-	
-	public void aniadirUsuarioAFichero() throws IOException {
-		try {
-			FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
-		    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-		    outStream.write("\n"+ tfNombre.getText() + ", " + pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," + tfNombreUsuario.getText());
-		    outStream.write("\n".getBytes());
-		    outStream.close();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-
-	
-	}
-	*/
-	}
+	 * public void aniadirUsuarioAFichero() { try { FileWriter fw = new
+	 * FileWriter(ficheroUsuarios, true); BufferedWriter bw = new BufferedWriter(new
+	 * FileWriter("usuariosRegistrados.txt", true)); bw.write("\n" +
+	 * tfNombre.getText() + ", " + pfContrasenia.getText() + ", " +
+	 * tfNombreUsuario.getText() + tfNombreUsuario.getText()); bw.close();
+	 * fw.close(); } catch (IOException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); }
+	 * 
+	 * }
+	 * 
+	 * public void aniadirUsuarioAFichero() throws IOException { try {
+	 * FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
+	 * DataOutputStream outStream = new DataOutputStream(new
+	 * BufferedOutputStream(fos)); outStream.write("\n"+ tfNombre.getText() + ", " +
+	 * pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," +
+	 * tfNombreUsuario.getText()); outStream.write("\n".getBytes());
+	 * outStream.close(); } catch (Exception e) { // TODO: handle exception
+	 * e.printStackTrace(); }
+	 * 
+	 * 
+	 * }
+	 */
+}

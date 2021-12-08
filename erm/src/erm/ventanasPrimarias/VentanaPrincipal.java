@@ -99,11 +99,9 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaA.setBounds(83, 150, 126, 48);
 		getContentPane().add(btncategoriaA);
 
-		btncategoriaA.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btncategoriaA.addActionListener(e -> {
 				VentanaCategoriaA.main(carrito);
 				dispose();
-			}
 		});
 
 		JLabel lblCategoriaB = new JLabel("Categoria B");
@@ -120,11 +118,9 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaB.setBounds(275, 150, 126, 48);
 		getContentPane().add(btncategoriaB);
 
-		btncategoriaB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btncategoriaB.addActionListener(e -> {
 				VentanaCategoriaB.main(carrito);
 				dispose();
-			}
 		});
 
 		JLabel lblCategoriaC = new JLabel("Categoria C");
@@ -142,11 +138,9 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaC.setBounds(83, 339, 126, 48);
 		getContentPane().add(btncategoriaC);
 
-		btncategoriaC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btncategoriaC.addActionListener(e -> {
 				VentanaCategoriaC.main(carrito);
 				dispose();
-			}
 		});
 
 		JLabel lblCategoriaD = new JLabel("Categoria D");
@@ -164,11 +158,9 @@ public class VentanaPrincipal extends JFrame {
 		btncategoriaD.setBounds(275, 339, 126, 48);
 		getContentPane().add(btncategoriaD);
 
-		btncategoriaD.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btncategoriaD.addActionListener(e -> {
 				VentanaCategoriaD.main(carrito);
 				dispose();
-			}
 		});
 
 		JMenuBar menuBar = new JMenuBar();
@@ -177,13 +169,11 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmCerrarSesion = new JMenuItem("Cerrar sesion");
 		mntmCerrarSesion.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		mntmCerrarSesion.setForeground(new Color(255, 153, 0));
-		mntmCerrarSesion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		mntmCerrarSesion.addActionListener(e -> {
 
 				VentanaInicial v3 = new VentanaInicial();
 				v3.setVisible(true);
 				dispose();
-			}
 		});
 		menuBar.add(mntmCerrarSesion);
 		
@@ -199,13 +189,11 @@ public class VentanaPrincipal extends JFrame {
 		btnAjustes.setContentAreaFilled(false);
 		menuBar.add(btnAjustes);
 
-		btnAjustes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnAjustes.addActionListener(e -> {
+			
 				VentanaAjustes v1 = new VentanaAjustes();
 				v1.setVisible(true);
 				dispose();
-			}
-
 		});
 	}
 }

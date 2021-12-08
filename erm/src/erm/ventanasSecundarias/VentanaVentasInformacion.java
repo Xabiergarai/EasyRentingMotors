@@ -43,14 +43,11 @@ public class VentanaVentasInformacion extends JFrame {
 		btnVenderCoche.setBounds(67, 77, 297, 29);
 		getContentPane().add(btnVenderCoche);
 		
-		btnVenderCoche.addActionListener(new ActionListener() {
-			 @Override
-			 public void actionPerformed(ActionEvent e) {
+		btnVenderCoche.addActionListener(e -> {
 				 VentanaVenderCoche v2 = new VentanaVenderCoche();
 				 v2.setVisible(true);
 					dispose();
-				 }
-		 });
+		});
 		
 
 		JButton btnVolverAtras = new JButton("Volver atras");
@@ -58,14 +55,10 @@ public class VentanaVentasInformacion extends JFrame {
 		btnVolverAtras.setBounds(67, 197, 297, 29);
 		getContentPane().add(btnVolverAtras);
 		
-		btnVolverAtras.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnVolverAtras.addActionListener(e -> {
 				VentanaAjustes v3 = new VentanaAjustes();
 				v3.setVisible(true);
 				dispose();
-			}
 		});
 		
 

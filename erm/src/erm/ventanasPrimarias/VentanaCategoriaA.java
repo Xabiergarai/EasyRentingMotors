@@ -92,48 +92,38 @@ import erm.categoriasCoche.*;
 			menuBar.add(mnCat);
 
 			JMenuItem mntmCatA = new JMenuItem("Categoria A");
-			mntmCatA.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			mntmCatA.addActionListener(e -> {
 					VentanaCategoriaA.main(null);
 					frame.dispose();
-				}
 			});
 			mnCat.add(mntmCatA);
 
 			JMenuItem mntmCatB = new JMenuItem("Categoria B");
-			mntmCatB.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			mntmCatB.addActionListener(e -> {
 					VentanaCategoriaB.main(null);
 					frame.dispose();
-				}
 			});
 			mnCat.add(mntmCatB);
 
 			JMenuItem mntmCatC = new JMenuItem("Categoria C");
-			mntmCatC.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			mntmCatC.addActionListener(e -> {
 					VentanaCategoriaC.main(null);
 					frame.dispose();
-				}
 			});
 			mnCat.add(mntmCatC);
 
 			JMenuItem mntmCatD = new JMenuItem("Categoria D");
-			mntmCatD.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			mntmCatD.addActionListener(e -> {
 					VentanaCategoriaD.main(null);
 					frame.dispose();
-				}
 			});
 			
 			mnCat.add(mntmCatD);
 			
 			JMenuItem mntmCatInicio = new JMenuItem("Volver a inicio");
-			mntmCatInicio.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			mntmCatInicio.addActionListener(e -> {
 					VentanaPrincipal.main(null);
 					frame.dispose();
-				}
 			});
 			mnCat.add(mntmCatInicio);
 
@@ -144,13 +134,8 @@ import erm.categoriasCoche.*;
 			
 			JButton btnCarritoCompra = new JButton("Carrito");
 			btnCarritoCompra.setBounds(250, 550, 80, 30);
-			btnCarritoCompra.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			btnCarritoCompra.addActionListener(e -> {
 					VentanaCarritoCompra.main(carrito);
-					
-				}
 			});
 			frame.getContentPane().add(btnCarritoCompra);
 		}
@@ -187,14 +172,11 @@ import erm.categoriasCoche.*;
 			btnAnadirAlCarrito.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnAnadirAlCarrito.setForeground(Color.WHITE);
 			btnAnadirAlCarrito.setBackground(new Color(255, 165, 0));
-			btnAnadirAlCarrito.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			btnAnadirAlCarrito.addActionListener(e -> {
 					Coches.getCoches().put(
 							new Random().nextInt(), o
 							);
 					carrito.add(o);
-				}
 			});
 			
 			

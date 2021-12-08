@@ -110,9 +110,8 @@ public class VentanaVenderCoche extends JFrame {
 		btnImagen.setBounds(215, 415, 93, 29);
 		getContentPane().add(btnImagen);
 
-		btnImagen.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnImagen.addActionListener(e -> {
+			
 				JFileChooser fileChooser = new JFileChooser();
 				JFileChooser fc = new JFileChooser();
 				fc.setCurrentDirectory(new File(".")); // Abre el directorio raiz de mi proyecto
@@ -123,7 +122,6 @@ public class VentanaVenderCoche extends JFrame {
 					ficheroSeleccionado.getAbsolutePath();
 
 				}
-			}
 		});
 
 		JButton btnGuardar = new JButton("Guardar");
@@ -167,10 +165,6 @@ public class VentanaVenderCoche extends JFrame {
 		});
 
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnGuardar.setBounds(106, 467, 93, 29);
 		getContentPane().add(btnGuardar);
 
@@ -210,23 +204,19 @@ public class VentanaVenderCoche extends JFrame {
 		btnCamara.setBounds(112, 415, 93, 29);
 		getContentPane().add(btnCamara);
 
-		btnCamara.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnCamara.addActionListener(e -> {
+			
 				WebcamViewerExample wc = new WebcamViewerExample();
 				wc.run();  
 				
-			}
+		
 		});
 
-		btnAtras.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnAtras.addActionListener(e -> {
+			
 				VentanaVentasInformacion v4 = new VentanaVentasInformacion();
 				v4.setVisible(true);
 				dispose();
-
-			}
 
 		});
 

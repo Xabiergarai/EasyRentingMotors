@@ -20,7 +20,7 @@ public class VentanaContacto extends JFrame {
 	/**
 	 * Creamos la ventana
 	 */
-	
+
 	public VentanaContacto() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
@@ -64,24 +64,20 @@ public class VentanaContacto extends JFrame {
 		btnGmail.setFocusPainted(false);
 		btnGmail.setBorderPainted(false);
 		btnGmail.setContentAreaFilled(false);
-		
-		btnGmail.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (java.awt.Desktop.isDesktopSupported()) {
-					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
-					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-						try {
-							java.net.URI uri = new java.net.URI(
-									"https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&osid=1&service=mail&ss=1&ltmpl=default&rm=false&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
-							desktop.browse(uri);
-						} catch (URISyntaxException | IOException ex) {
-						}
+		btnGmail.addActionListener(e -> {
+			if (java.awt.Desktop.isDesktopSupported()) {
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+				if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+					try {
+						java.net.URI uri = new java.net.URI(
+								"https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&osid=1&service=mail&ss=1&ltmpl=default&rm=false&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+						desktop.browse(uri);
+					} catch (URISyntaxException | IOException ex) {
 					}
 				}
-
 			}
-
 		});
 
 		btnGmail.setBounds(72, 89, 42, 29);
@@ -94,20 +90,17 @@ public class VentanaContacto extends JFrame {
 		btnInstagram.setBorderPainted(false);
 		btnInstagram.setContentAreaFilled(false);
 
-		btnInstagram.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (java.awt.Desktop.isDesktopSupported()) {
-					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+		btnInstagram.addActionListener(e -> {
+			if (java.awt.Desktop.isDesktopSupported()) {
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
-					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-						try {
-							java.net.URI uri = new java.net.URI("https://www.instagram.com/_ermotors_/?hl=es");
-							desktop.browse(uri);
-						} catch (URISyntaxException | IOException ex) {
-						}
+				if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+					try {
+						java.net.URI uri = new java.net.URI("https://www.instagram.com/_ermotors_/?hl=es");
+						desktop.browse(uri);
+					} catch (URISyntaxException | IOException ex) {
 					}
 				}
-
 			}
 		});
 
@@ -117,33 +110,25 @@ public class VentanaContacto extends JFrame {
 		JButton btnCafe = new JButton("\u00BFUn caf\u00E9?");
 		btnCafe.setBounds(285, 371, 121, 29);
 		getContentPane().add(btnCafe);
-		btnCafe.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (java.awt.Desktop.isDesktopSupported()) {
-					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+		btnCafe.addActionListener(e -> {
+			if (java.awt.Desktop.isDesktopSupported()) {
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
-					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-						try {
-							java.net.URI uri = new java.net.URI("https://paypal.me/gutiaitor");
-							desktop.browse(uri);
-						} catch (URISyntaxException | IOException ex) {
-						}
+				if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+					try {
+						java.net.URI uri = new java.net.URI("https://paypal.me/gutiaitor");
+						desktop.browse(uri);
+					} catch (URISyntaxException | IOException ex) {
 					}
 				}
-
 			}
 		});
 
-		btnVolver.addActionListener(new ActionListener() {
+		btnVolver.addActionListener(e -> {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VentanaAjustes v1 = new VentanaAjustes();
-				v1.setVisible(true);
-				dispose();
-
-			}
-
+			VentanaAjustes v1 = new VentanaAjustes();
+			v1.setVisible(true);
+			dispose();
 		});
 	}
 }

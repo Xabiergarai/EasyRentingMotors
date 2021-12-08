@@ -95,107 +95,77 @@ public class VentanaAjustes extends JFrame {
 		getContentPane().add(btnVentasEInformacion);
 
 		JButton btnAlquiler = new JButton("Alquileres");
-		btnAlquiler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnAlquiler.addActionListener(e -> {
 
 				VentanaAlquiler v1;
 				try {
 					v1 = new VentanaAlquiler();
 					v1.setVisible(true);
 					dispose();
-				} catch (FileNotFoundException | DBException | SQLException e) {
+				} catch (FileNotFoundException | DBException | SQLException e1) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					e1.printStackTrace();
 				}
-
-			}
 		});
 		btnAlquiler.setBackground(UIManager.getColor("CheckBox.background"));
 		btnAlquiler.setBounds(57, 125, 297, 20);
 		getContentPane().add(btnAlquiler);
 
-		btnVentasEInformacion.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnVentasEInformacion.addActionListener(e -> {
+				
 				VentanaVentasInformacion v1 = new VentanaVentasInformacion();
 				v1.setVisible(true);
 				dispose();
-			}
+			
 		});
 
-		botonPrivacidad.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonPrivacidad.addActionListener(e -> {
+			
 				// VentanaPrivacidad v2 = new VentanaPrivacidad();
 				// v2.setVisible(true);
 				dispose();
 
-			}
-
 		});
 
-		botonCerrarSesion.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonCerrarSesion.addActionListener(e -> {
+			
 				VentanaInicial vl = new VentanaInicial();
 				vl.setVisible(true);
 				dispose();
-
-			}
 		});
 
-		botonPago.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonPago.addActionListener(e -> {
+			
 				// VentanaPagoAjustes v3 = new VentanaPagoAjustes();
 				// v3.setVisible(true);
 				dispose();
 
-			}
-
 		});
 
-		botonSalir.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonSalir.addActionListener(e -> {
+			
 				System.exit(-1);
-
-			}
 		});
 
-		botonContacto.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonContacto.addActionListener(e -> {
 				VentanaContacto v4 = new VentanaContacto();
 				v4.setVisible(true);
 				dispose();
-
-			}
-
 		});
 
-		botonSeguridad.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		botonSeguridad.addActionListener(e -> {
+			
 				// VentanaSeguridad vs = new VentanaSeguridad();
 				// vs.setVisible(true);
 				setVisible(false);
-
-			}
 		});
 
-		btnvlvAtras.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		btnvlvAtras.addActionListener(e -> {
+			
 				VentanaPrincipal vs = new VentanaPrincipal();
 				vs.setVisible(true);
 				setVisible(false);
 
-			}
 		});
 	}
 }
