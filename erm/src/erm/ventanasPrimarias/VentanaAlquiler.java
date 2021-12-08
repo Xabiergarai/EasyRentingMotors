@@ -216,7 +216,7 @@ public class VentanaAlquiler extends JFrame {
 
 	private void escribirProductosEnFichero( SimpleDateFormat sdf) {
 		try {
-			File file = new File("Alquileres.TXT");
+			File file = new File("Alquileres.txt");
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
 
 			String nomcoche = (String) comboCoche.getSelectedItem();

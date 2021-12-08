@@ -173,9 +173,7 @@ import erm.categoriasCoche.*;
 			btnAnadirAlCarrito.setForeground(Color.WHITE);
 			btnAnadirAlCarrito.setBackground(new Color(255, 165, 0));
 			btnAnadirAlCarrito.addActionListener(e -> {
-					Coches.getCoches().put(
-							new Random().nextInt(), o
-							);
+					Coches.getCoches().put(new Random().nextInt(), o);
 					carrito.add(o);
 			});
 			
