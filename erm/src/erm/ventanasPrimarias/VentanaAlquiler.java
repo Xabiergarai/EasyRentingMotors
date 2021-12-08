@@ -45,7 +45,6 @@ public class VentanaAlquiler extends JFrame {
 	public static Connection con;
 	public static String nombreBD = "EasyRentingMotors.db";
 
-	private PrintWriter pw;
 
 	private JLabel lblNombre;
 	private JTextField textNombre;
@@ -156,7 +155,7 @@ public class VentanaAlquiler extends JFrame {
 					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
 				} else {
 
-					escribirProductosEnFichero(pw, sdf);
+					escribirProductosEnFichero( sdf);
 					JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
 							JOptionPane.INFORMATION_MESSAGE);
 
@@ -197,9 +196,9 @@ public class VentanaAlquiler extends JFrame {
 
 	}
 
-	private void escribirProductosEnFichero(PrintWriter pw, SimpleDateFormat sdf) {
+	private void escribirProductosEnFichero( SimpleDateFormat sdf) {
 		try {
-			pw = new PrintWriter("Alquileres.txt");
+			 PrintWriter pw = new PrintWriter("Alquileres.TXT");
 
 			String nomcoche = (String) comboCoche.getSelectedItem();
 			;
@@ -210,7 +209,7 @@ public class VentanaAlquiler extends JFrame {
 			String fi = sdf.format(fechainit);
 
 			pw.println(nomcoche + " " + nomcliente + " " + ff + " " + fi);
-
+			pw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
