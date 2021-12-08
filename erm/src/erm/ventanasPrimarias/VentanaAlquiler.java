@@ -138,6 +138,7 @@ public class VentanaAlquiler extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				
 				DBManager db = new DBManager();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -193,7 +194,6 @@ public class VentanaAlquiler extends JFrame {
 			pw = new PrintWriter("Alquileres.txt");
 
 			String nomcoche = (String) comboCoche.getSelectedItem();
-			;
 			String nomcliente = textNombre.getText();
 			Date fechaf = calendario.getDate();
 			String ff = sdf.format(fechaf);
