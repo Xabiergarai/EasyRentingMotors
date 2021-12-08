@@ -108,6 +108,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblPorFavorRellene);
 		btnRegistrarse.addActionListener(e -> {
 
+			
 			// compruebar ningun campo en banco
 			if (tfNombre.getText().equals("") || tfNombre.getText().equals("")
 					|| tfNombreUsuario.getText().equals("")) {

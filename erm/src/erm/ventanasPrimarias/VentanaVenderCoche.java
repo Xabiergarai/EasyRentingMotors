@@ -125,45 +125,6 @@ public class VentanaVenderCoche extends JFrame {
 		});
 
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				String nombre;
-				String categoria;
-				String marca;
-				double precio;
-				String descripcion;
-
-				// int a = VentanaLogin.getUsuarioId();
-
-				// idUsuario = a;
-				nombre = textoNombre.getText();
-				// temporada = textoTemporada.getText();
-				marca = textoMarca.getText();
-				// precio = textoPrecio.getText();
-				// descripcion = textoDescripcion.getText();
-
-				/*
-				 * Coche coche = new Coche(nombre, Double.parseDouble(precio), talla);
-				 * 
-				 * 
-				 * DBManager db = new DBManager();
-				 * 
-				 * try { db.connect();
-				 * 
-				 * db.insertarVenta(coche); db.disconnect(); }catch (Exception e3){
-				 * 
-				 * }
-				 */
-
-				VentanaPrincipal va = new VentanaPrincipal();
-				setVisible(false);
-				va.setVisible(true);
-
-			}
-		});
-
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnGuardar.setBounds(106, 467, 93, 29);
 		getContentPane().add(btnGuardar);

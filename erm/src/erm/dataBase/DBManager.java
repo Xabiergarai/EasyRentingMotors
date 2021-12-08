@@ -122,6 +122,12 @@ public class DBManager {
 		return resultado;
 	}
 
+	/**
+	 * Logging
+	 * @param level
+	 * @param msg
+	 * @param exception
+	 */
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;
