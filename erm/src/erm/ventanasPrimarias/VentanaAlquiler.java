@@ -5,7 +5,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -198,7 +202,8 @@ public class VentanaAlquiler extends JFrame {
 
 	private void escribirProductosEnFichero( SimpleDateFormat sdf) {
 		try {
-			 PrintWriter pw = new PrintWriter("Alquileres.TXT");
+			File file = new File("Alquileres.TXT");
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
 
 			String nomcoche = (String) comboCoche.getSelectedItem();
 			;
@@ -208,9 +213,15 @@ public class VentanaAlquiler extends JFrame {
 			Date fechainit = new Date(System.currentTimeMillis());
 			String fi = sdf.format(fechainit);
 
-			pw.println("/n"+nomcoche + " " + nomcliente + " " + ff + " " + fi);
-			pw.close();
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write("/n"+ nomcliente + "  " + nomcoche + " "
+					+ fi + " " + ff);
+			bw.close();
+			fw.close();
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
