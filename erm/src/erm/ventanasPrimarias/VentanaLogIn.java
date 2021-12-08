@@ -199,7 +199,7 @@ public class VentanaLogIn extends JFrame {
 		cont.add(tempPanel);
 	}
 
-	
+	//carga en el fichero properties el usuario y contrasenia que inicie sesion
 	public void cargarProperties() {
 		FileOutputStream fos = null;
 		File configFile = null;

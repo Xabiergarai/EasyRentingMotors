@@ -175,6 +175,7 @@ public class VentanaRegistro extends JFrame {
 		}
 	}
 
+	//metodo que se encarga de escribir en el fichero usuarioRegistrados los usuarios que se registren
 	public void aniadirUsuarioAFichero() {
 	    File file = new File("usuarioRegistrados.txt");
 		try{	
