@@ -37,12 +37,12 @@ class AlquilerTest {
 		
 	@Test
 	public void testGetFechaInicio() {
-		assertEquals("2021-12-21", a.getFechaInicio());
+		assertEquals("2021-12-20", a.getFechaInicio());
 	}
 	
 	@Test
 	public void testGetFechaFin() {	
-		assertEquals("2021-12-30", a.getFechaFin());
+		assertEquals("2021-12-31", a.getFechaFin());
 	}
 	
 	@Test
@@ -65,7 +65,8 @@ class AlquilerTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("Alquiler [nomUsuario= luis01, idCoche= Seat Ibiza, fechaInicio= 2021-12-23, fechaFin = 2021-12-30]", a.toString());
+		assertEquals("Alquiler [nomUsuario=pepe019, nomCoche=Fiat 500, fechaInicio=2021-12-20, fechaFin=2021-12-31]"
+, a.toString());
 	}
 	
 
