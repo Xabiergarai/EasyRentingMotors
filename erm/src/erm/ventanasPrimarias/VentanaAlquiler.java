@@ -44,6 +44,9 @@ import erm.ventanasSecundarias.VentanaAjustes;
 
 public class VentanaAlquiler extends JFrame {
 
+	/**
+	 * Atributos de la clase
+	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane, panelAbajo, panelCentral, panelNorte, panelBotonera;
 	public static Connection con;
@@ -100,7 +103,7 @@ public class VentanaAlquiler extends JFrame {
 		calendario = new JCalendar();
 		panelCentral.add(calendario);
 
-		/* CALENDARIO */
+		
 		calendario.setTodayButtonVisible(true);
 		calendario.setTodayButtonText("Volver a la fecha actual");
 
@@ -109,7 +112,9 @@ public class VentanaAlquiler extends JFrame {
 		calendario.setForeground(Color.BLACK);
 		calendario.setSundayForeground(Color.RED);
 		calendario.setWeekdayForeground(Color.GRAY);
-		// Establecer las fechas mínima y máxima seleccionable
+		/**
+		 * Establecemos fecha minima y maxima 
+		 */
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fechaM = new Date(System.currentTimeMillis());
 		String fechaMin = sdf.format(fechaM);
@@ -136,7 +141,7 @@ public class VentanaAlquiler extends JFrame {
 
 		btnAtras = new JButton("Atras");
 		panelBotonera.add(btnAtras);
-
+		
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -190,6 +195,11 @@ public class VentanaAlquiler extends JFrame {
 
 	}
 
+	/**
+	 * Carga el combobox con la lista de Coches de la base de datos
+	 * @throws DBException
+	 * @throws SQLException
+	 */
 	private void cargarComboVehiculos() throws DBException, SQLException {
 		con = DBManager.initBD(nombreBD);
 		TreeSet<String> ac = DBManager.obtenerNombresCoches();
@@ -199,6 +209,10 @@ public class VentanaAlquiler extends JFrame {
 		}
 
 	}
+	/**
+	 * El metodo que se llama desde el boton ALquilar para insertar en un fichero .txt un nuevo Alquiler de coche
+	 * @param sdf
+	 */
 
 	private void escribirProductosEnFichero( SimpleDateFormat sdf) {
 		try {
