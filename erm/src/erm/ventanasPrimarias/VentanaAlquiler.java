@@ -208,7 +208,7 @@ public class VentanaAlquiler extends JFrame {
 			Date fechainit = new Date(System.currentTimeMillis());
 			String fi = sdf.format(fechainit);
 
-			pw.println(nomcoche + " " + nomcliente + " " + ff + " " + fi);
+			pw.println("/n"+nomcoche + " " + nomcliente + " " + ff + " " + fi);
 			pw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
