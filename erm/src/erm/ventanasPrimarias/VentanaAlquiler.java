@@ -228,7 +228,7 @@ public class VentanaAlquiler extends JFrame {
 			String fi = sdf.format(fechainit);
 
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("/n"+ nomcliente + "  " + nomcoche + " "
+			bw.write("\n"+ nomcliente + "  " + nomcoche + " "
 					+ fi + " " + ff);
 			bw.close();
 			fw.close();

@@ -1,2 +1,3 @@
-/n FiAat 500 Gorka 2021-12-30 2021-12-08
-Pedro   FiAat 500 2021-12-08 2021-12-30Jose   Hyundai i10 2021-12-08 2022-05-13/nAndres   Hyundai i10 2021-12-08 2021-12-30/nMarina   Hyundai i10 2021-12-08 2022-01-13
+
+Gorka   FiAat 500 2021-12-08 2021-12-30
+Pedro   Hyundai i10 2021-12-08 2021-12-25
