@@ -151,11 +151,18 @@ public class VentanaAlquiler extends JFrame {
 				String fFin = sdf.format(d2);
 
 				Alquiler al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
+				
+				if (textNombre.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+				} else {
 
-				escribirProductosEnFichero(pw, sdf);
-				JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
-						JOptionPane.INFORMATION_MESSAGE);
+					escribirProductosEnFichero(pw, sdf);
+					JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
+							JOptionPane.INFORMATION_MESSAGE);
 
+					VentanaPrincipal vp = new VentanaPrincipal();
+					vp.setVisible(true);
+					dispose();
 				try {
 					DBManager.insertarAlquiler(al);
 				} catch (DBException e1) {
@@ -164,6 +171,8 @@ public class VentanaAlquiler extends JFrame {
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				}
+				
 				}
 			}
 
