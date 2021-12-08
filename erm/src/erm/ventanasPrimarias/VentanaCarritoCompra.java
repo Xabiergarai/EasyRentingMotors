@@ -164,6 +164,11 @@ public class VentanaCarritoCompra extends JFrame {
 		lblNewLabel.setBounds(63, 28, 261, 43);
 		frame.getContentPane().add(lblNewLabel);
 	}
+	
+	/** 
+	 * 	Atributos que contendra la tabla de los coches señeccionados
+	 * @param carrito
+	 */
 
 	private void initTableModel(ArrayList<Coche> carrito) {
 		carritoModeloTabla = new DefaultTableModel();
@@ -173,6 +178,11 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Precio");
 		setTableContent(carrito);
 	}
+	
+	/**
+	 *  Se añaden los atributos de coche/s a la tabla
+	 * @param carrito
+	 */
 	
 	public void setTableContent(ArrayList<Coche> carrito) {
 		clear();
@@ -189,11 +199,19 @@ public class VentanaCarritoCompra extends JFrame {
 		updatePrecioTotal();
 	}
 	
+	/**
+	 * Se vacia la tabla de la cesta de la compra donde estan los coches
+	 */
+	
 	public void clear() {
 	    this.precioTotal = 0;
 		this.carritoModeloTabla.setRowCount(0);
 		updatePrecioTotal();
 	}
+	
+	/** 
+	 * Se suman los precios de los coches que se encuentran en la tabla
+	 */
 
 	private void updatePrecioTotal() {
 		this.lblTotal.setText("TOTAL:   "+this.precioTotal+" Euros");
