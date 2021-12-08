@@ -142,7 +142,6 @@ public class VentanaRegistro extends JFrame {
 				try {
 					if (modSql.registrar(mod)) {
 						aniadirUsuarioAFichero();
-						System.out.println("fichero regis");
 						JOptionPane.showMessageDialog(null, "Registro realizado con exito");
 					} else {
 						JOptionPane.showMessageDialog(null, "No se ha podido registrar");
@@ -177,12 +176,13 @@ public class VentanaRegistro extends JFrame {
 	}
 
 	public void aniadirUsuarioAFichero() {
-
-		try {
-			FileWriter fw = new FileWriter("usuarioRegistrados.txt");
+	    File file = new File("usuarioRegistrados.txt");
+		try{	
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //opción append habilitada permite escribir sobre el fichero sin tener que borrarlo
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write("\n" + tfNombre.getText() + "  " + tfApellidos.getText() + " ha iniciado sesion con el usuario "
 					+ tfNombreUsuario.getText() + " con contrasenia " + pfContrasenia.getText());
+			
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -191,27 +191,5 @@ public class VentanaRegistro extends JFrame {
 		}
 
 	}
-	/*
-	 * public void aniadirUsuarioAFichero() { try { FileWriter fw = new
-	 * FileWriter(ficheroUsuarios, true); BufferedWriter bw = new BufferedWriter(new
-	 * FileWriter("usuariosRegistrados.txt", true)); bw.write("\n" +
-	 * tfNombre.getText() + ", " + pfContrasenia.getText() + ", " +
-	 * tfNombreUsuario.getText() + tfNombreUsuario.getText()); bw.close();
-	 * fw.close(); } catch (IOException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); }
-	 * 
-	 * }
-	 * 
-	 * public void aniadirUsuarioAFichero() throws IOException { try {
-	 * FileOutputStream fos = new FileOutputStream("usuariosRegistrados.txt");
-	 * DataOutputStream outStream = new DataOutputStream(new
-	 * BufferedOutputStream(fos)); outStream.write("\n"+ tfNombre.getText() + ", " +
-	 * pfContrasenia.getText() + ", " + tfNombreUsuario.getText()+"," +
-	 * tfNombreUsuario.getText()); outStream.write("\n".getBytes());
-	 * outStream.close(); } catch (Exception e) { // TODO: handle exception
-	 * e.printStackTrace(); }
-	 * 
-	 * 
-	 * }
-	 */
+	
 }
