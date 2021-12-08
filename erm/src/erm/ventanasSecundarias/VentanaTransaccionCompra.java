@@ -54,7 +54,6 @@ public class VentanaTransaccionCompra extends JFrame {
 					}
 				}
 				ventana.dispose();
-				VentanaPrincipal.main(null);
 				JOptionPane.showMessageDialog(null,"Gracias por su compra, la operación se ha realizado con exito");
 			}
 		};
