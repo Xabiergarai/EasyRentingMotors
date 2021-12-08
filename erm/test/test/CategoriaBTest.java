@@ -61,4 +61,11 @@ private CategoriaB b;
 		assertEquals(false,b.isDeportivo());
 	} 			
 
+	
+	@Test
+	public void testToString() {
+		assertEquals("CategoriaB [descapotable=false, deportivo=false]"
+, b.toString());
+	}
+	
 }

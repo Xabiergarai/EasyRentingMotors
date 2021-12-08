@@ -45,7 +45,13 @@ private CategoriaC c;
 		assertEquals(true, c.isDescapotable());
 	}
 	
-	
+	@Test
+	public void testToString() {
+		assertEquals("CategoriaC [tipoTodoTerreno=cuatroxcuatro, descapotable=true]"
+, c.toString());
+	}
 
+	
+	
 
 }

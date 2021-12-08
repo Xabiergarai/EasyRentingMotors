@@ -44,10 +44,23 @@ private CategoriaD d;
 	}
 	
 	@Test
-	public void setTipoFurgoneta() {
+	public void testsetTipoFurgoneta() {
 		d.setTipoFurgoneta("Vito");
 		assertEquals("Vito", d.getTipoFurgoneta());
 	}
-									
+		
+	
+	@Test
+	public void testsetDescapotable() {
+		d.setDescapotable(true); 
+		assertTrue(d.isDescapotable());
+	}
 
+	@Test
+	public void testToString() {
+		assertEquals("CategoriaD [tipoFurgoneta=Tipo transporter, descapotable=true]"
+, d.toString());
+	}
+	
+	
 }

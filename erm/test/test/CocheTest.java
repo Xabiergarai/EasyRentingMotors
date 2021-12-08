@@ -13,7 +13,7 @@ import erm.categoriasCoche.Coche;
  */
 
 
-class CocheTest extends GroupException {
+class CocheTest  {
 
 	private Coche c;
 	
@@ -112,5 +112,18 @@ class CocheTest extends GroupException {
 		c.setRutaFoto("imagen1");
 		assertEquals("imagen1", c.getRutaFoto());
 	}
-				
+		
+	@Test
+	void testGetCategoria() {
+		assertEquals("Audi A5", c.getCategoria());
+	}
+		
+	
+	@Test
+	void testToString() {
+		assertEquals("Coche [id=01, nombre=Audi A5, clase=A, marca=Audi, fecha_matriculacion=2008-01-12, combustible=Diesel, precio=50.0, rutaFoto=imagen]"
+, c.toString());
+	}
+	
+	
 }

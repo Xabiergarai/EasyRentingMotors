@@ -15,7 +15,7 @@ import erm.categoriasCoche.CategoriaA;
  */
 
 
-class CategoriaATest extends GroupException {
+class CategoriaATest{
 	
 	
 	private CategoriaA a;
@@ -56,4 +56,11 @@ class CategoriaATest extends GroupException {
 		assertEquals(true, a.isMaletero());
 	}		
 
+	@Test
+	public void testToString() {
+		assertEquals("CategoriaA [numPuertas=3, maletero=true]"
+, a.toString());
+	}
+	
+	
 }
