@@ -146,7 +146,7 @@ public class VentanaRegistro extends JFrame {
 					Usuario mod = new Usuario();
 					mod.setApellidos(tfApellidos.getText());
 					mod.setEmail(tfEmail.getText());
-					mod.setNombre(tfNombre.getName());
+					mod.setNombre(tfNombre.getText());
 					mod.setNomUsuario(tfNombreUsuario.getText());
 					mod.setContrasenya(pfContrasenia.getText());
 
