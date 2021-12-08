@@ -1,28 +1,16 @@
 package erm.ventanasPrimarias;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.regex.Pattern;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import erm.clasesBasicas.*;
@@ -35,7 +23,6 @@ public class VentanaRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField tfNombre, tfApellidos, tfNombreUsuario, tfEmail;
-	private JPanel panelContenidos;
 	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail, lbContrasenia;
 	private JPasswordField pfContrasenia;
 	private JButton btnRegistrarse, btnAtras;
@@ -147,7 +134,6 @@ public class VentanaRegistro extends JFrame {
 						JOptionPane.showMessageDialog(null, "No se ha podido registrar");
 					}
 				} catch (HeadlessException | DBException e2) {
-					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
 
@@ -187,7 +173,6 @@ public class VentanaRegistro extends JFrame {
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
