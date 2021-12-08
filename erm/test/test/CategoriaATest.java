@@ -58,8 +58,7 @@ class CategoriaATest{
 
 	@Test
 	public void testToString() {
-		assertEquals("CategoriaA [numPuertas=3, maletero=true]"
-, a.toString());
+		assertEquals("CategoriaA [numPuertas=3, maletero=true]", a.toString());
 	}
 	
 	
