@@ -97,9 +97,9 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnGuardarLista = new JButton("Guardar lista");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
 		btnGuardarLista.addActionListener(e -> {			
-			contenedora.guardarListaCochesEnFichero();
-			contenedora.cargarFicheroCoches();
-	//		contenedora.guardarCarritoEnFicheroDeTexto();
+			//contenedora.guardarListaCochesEnFichero();
+			//contenedora.cargarFicheroCoches();
+			//contenedora.guardarCarritoEnFicheroDeTexto();
 			
 		});
 		frame.getContentPane().add(btnGuardarLista);
@@ -159,10 +159,10 @@ public class VentanaCarritoCompra extends JFrame {
 
 		frame.getContentPane().add(tablePanel);
 
-		JLabel lblNewLabel = new JLabel("Resumen Compra");
-		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
-		lblNewLabel.setBounds(63, 28, 261, 43);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblResumenCompra = new JLabel("Resumen Compra");
+		lblResumenCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
+		lblResumenCompra.setBounds(63, 28, 261, 43);
+		frame.getContentPane().add(lblResumenCompra);
 	}
 	
 	/** 

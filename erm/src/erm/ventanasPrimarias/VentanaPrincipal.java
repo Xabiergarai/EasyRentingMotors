@@ -28,6 +28,7 @@ import javax.swing.JScrollPane;
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
 import erm.ventanasSecundarias.VentanaAjustes;
+import erm.ventanasSecundarias.VentanaPerfil;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -182,6 +183,13 @@ public class VentanaPrincipal extends JFrame {
 		btnPerfil.setFocusPainted(false);
 		btnPerfil.setContentAreaFilled(false);
 		menuBar.add(btnPerfil);
+		
+		btnPerfil.addActionListener(e -> {
+			
+			VentanaPerfil v2 = new VentanaPerfil();
+			v2.setVisible(true);
+			dispose();
+		});
 
 		JButton btnAjustes = new JButton("");
 		btnAjustes.setIcon(new ImageIcon("imagenes/iconoAjustes.png"));

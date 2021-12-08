@@ -33,9 +33,9 @@ public class VentanaAjustes extends JFrame {
 
 		JLabel lblConfiguracion = new JLabel("Configuracion");
 		lblConfiguracion.setForeground(new Color(255, 165, 0));
-		lblConfiguracion.setBackground(Color.PINK);
-		lblConfiguracion.setFont(new Font("Tahoma", Font.ITALIC, 22));
-		lblConfiguracion.setBounds(10, 11, 297, 29);
+		lblConfiguracion.setBackground(new Color(255, 255, 255));
+		lblConfiguracion.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblConfiguracion.setBounds(10, 22, 297, 29);
 		getContentPane().add(lblConfiguracion);
 
 		JLabel lblDatosCuenta = new JLabel("Datos de tu cuenta\r\n");
