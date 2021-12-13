@@ -58,7 +58,7 @@ public class VentanaAlquiler extends JFrame {
 	private JCalendar calendario;
 
 	private JComboBox<String> comboCoche;
-	private JButton btnALquilar, btnAtras;
+	private JButton btnALquilar, btnAtras, btnMetodoPago;
 
 	private VentanaAjustes va;
 
@@ -136,8 +136,12 @@ public class VentanaAlquiler extends JFrame {
 		panelBotonera = new JPanel();
 		panelAbajo.add(panelBotonera);
 
-		btnALquilar = new JButton("REALIZAR ALQUILER");
+		btnALquilar = new JButton("Alquilar");
 		panelBotonera.add(btnALquilar);
+		
+		btnMetodoPago= new JButton();
+		panelBotonera.add(btnMetodoPago);
+		
 
 		btnAtras = new JButton("Atras");
 		panelBotonera.add(btnAtras);
