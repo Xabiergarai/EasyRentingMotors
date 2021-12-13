@@ -197,7 +197,17 @@ public class VentanaAlquiler extends JFrame {
 
 		});
 
+		btnMetodoPago.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//MetodosPago mp= new MetodosPago();
+			}
+		});
 	}
+	
+	
 
 	/**
 	 * Carga el combobox con la lista de Coches de la base de datos
