@@ -32,6 +32,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
@@ -253,7 +254,16 @@ public class VentanaAlquiler extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		private void  elegirMetodo(PaymentEnum paymentType){
+			switch(paymentType) {
+			case Paypal:
+				return new PaypalGateway();
+			case CreditCard:
+				return new CreditCardGateway();
+			default:
+				return new PaypalGateway();
+			}
+		}
 	}
 
 }

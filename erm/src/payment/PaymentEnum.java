@@ -1,6 +1,4 @@
-package erm.clasesBasicas;
-
-//Basado en el trabajo de EassyBooking realizado el año pasado
+package payment;
 public enum PaymentEnum
 {
 	Paypal("Paypal"),
