@@ -24,11 +24,11 @@ public class VentanaCategoriaC {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(ArrayList<Coche> carrito) {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCategoriaC window = new VentanaCategoriaC(carrito);
+					VentanaCategoriaC window = new VentanaCategoriaC();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,20 +40,20 @@ public class VentanaCategoriaC {
 	/**
 	 * Create the application.
 	 */
-	public VentanaCategoriaC(ArrayList<Coche> carrito) {
+	public VentanaCategoriaC() {
 		Coches = new ListaCoche();
-		initialize(carrito);
+		initialize();
 	}
 
-	public VentanaCategoriaC(ListaCoche Coches, ArrayList<Coche> carrito) {
+	public VentanaCategoriaC(ListaCoche Coches) {
 		this.Coches = Coches;
-		initialize(carrito);
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(ArrayList<Coche> carrito) {
+	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
@@ -70,7 +70,7 @@ public class VentanaCategoriaC {
 
 		JPanel CategoriaCPanel = new JPanel(new FlowLayout());
 		for (CategoriaC o : CategoriaC) {
-			JPanel CategoriaCsPanel = CochePanel(o, carrito);
+			JPanel CategoriaCsPanel = CochePanel(o, VentanaPrincipal.carrito);
 			CategoriaCPanel.add(CategoriaCsPanel);
 		}
 		CategoriaCPanel.setBounds(50, 100, 500, 700);
@@ -88,21 +88,21 @@ public class VentanaCategoriaC {
 
 		JMenuItem mntmCatA = new JMenuItem("Categoria A");
 		mntmCatA.addActionListener(e -> {
-				VentanaCategoriaA.main(null);
+				VentanaCategoriaA.main();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatA);
 
 		JMenuItem mntmCatB = new JMenuItem("Categoria B");
 		mntmCatB.addActionListener(e -> {
-				VentanaCategoriaB.main(null);
+				VentanaCategoriaB.main();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatB);
 
 		JMenuItem mntmCatC = new JMenuItem("Categoria C");
 		mntmCatC.addActionListener(e -> {
-				VentanaCategoriaC.main(null);
+				VentanaCategoriaC.main();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatC);
@@ -130,7 +130,7 @@ public class VentanaCategoriaC {
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main(carrito);
+				VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}

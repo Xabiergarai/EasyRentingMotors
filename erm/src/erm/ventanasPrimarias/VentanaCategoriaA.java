@@ -107,7 +107,7 @@ import erm.categoriasCoche.*;
 
 			JMenuItem mntmCatC = new JMenuItem("Categoria C");
 			mntmCatC.addActionListener(e -> {
-					VentanaCategoriaC.main(null);
+					VentanaCategoriaC.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatC);
