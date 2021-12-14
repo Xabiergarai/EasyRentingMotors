@@ -26,11 +26,11 @@ import erm.categoriasCoche.*;
 		/**
 		 * Launch the application.
 		 */
-		public static void main(ArrayList<Coche> carrito) {
+		public static void main() {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						VentanaCategoriaA window = new VentanaCategoriaA(carrito);
+						VentanaCategoriaA window = new VentanaCategoriaA();
 						window.frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -42,20 +42,20 @@ import erm.categoriasCoche.*;
 		/**
 		 * Create the application.
 		 */
-		public VentanaCategoriaA(ArrayList<Coche> carrito) {
+		public VentanaCategoriaA() {
 			Coches = new ListaCoche();
-			initialize(carrito);
+			initialize();
 		}
 
 		public VentanaCategoriaA(ListaCoche Coches, ArrayList<Coche> carrito) {
 			this.Coches = Coches;
-			initialize(carrito);
+			initialize();
 		}
 
 		/**
 		 * Initialize the contents of the frame.
 		 */
-		private void initialize(ArrayList<Coche> carrito) {
+		private void initialize() {
 			frame = new JFrame();
 			frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 			frame.setBounds(100, 100, 600,650);
@@ -72,7 +72,7 @@ import erm.categoriasCoche.*;
 
 			JPanel CategoriaAPanel = new JPanel(new FlowLayout());
 			for (CategoriaA o : CategoriaA) {
-				JPanel CategoriaAsPanel = CochePanel(o, carrito);
+				JPanel CategoriaAsPanel = CochePanel(o, VentanaPrincipal.carrito);
 				CategoriaAPanel.add(CategoriaAsPanel);
 			}
 			CategoriaAPanel.setBounds(50,100,500,700);
@@ -93,7 +93,7 @@ import erm.categoriasCoche.*;
 
 			JMenuItem mntmCatA = new JMenuItem("Categoria A");
 			mntmCatA.addActionListener(e -> {
-					VentanaCategoriaA.main(null);
+					VentanaCategoriaA.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatA);
@@ -135,7 +135,7 @@ import erm.categoriasCoche.*;
 			JButton btnCarritoCompra = new JButton("Carrito");
 			btnCarritoCompra.setBounds(250, 550, 80, 30);
 			btnCarritoCompra.addActionListener(e -> {
-					VentanaCarritoCompra.main(carrito);
+					VentanaCarritoCompra.main();
 			});
 			frame.getContentPane().add(btnCarritoCompra);
 		}

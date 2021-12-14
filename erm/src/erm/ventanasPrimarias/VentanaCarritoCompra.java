@@ -32,11 +32,11 @@ public class VentanaCarritoCompra extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(ArrayList<Coche> carrito) {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCarritoCompra window = new VentanaCarritoCompra(null, carrito);
+					VentanaCarritoCompra window = new VentanaCarritoCompra(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,13 +51,13 @@ public class VentanaCarritoCompra extends JFrame {
 	
 	public VentanaCarritoCompra() {
 		contenedora = new Contenedora();
-		initialize(null);
+		initialize();
 	}
-	public VentanaCarritoCompra(ListaCoche Coches, ArrayList<Coche> carrito) {
+	public VentanaCarritoCompra(ListaCoche Coches) {
 		this.precioTotal = 0;
 		lblTotal = new JLabel();
-		initTablePanel(carrito);
-		initialize(carrito);
+		initTablePanel(VentanaPrincipal.carrito);
+		initialize();
 	}
 
 	private void initTablePanel(ArrayList<Coche> carrito) {
@@ -77,7 +77,7 @@ public class VentanaCarritoCompra extends JFrame {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(ArrayList<Coche> carrito) {
+	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 400, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,7 +90,11 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
 		btnVaciarCesta.addActionListener(e -> {
-				clear();
+				while(carritoModeloTabla.getRowCount() != 0)
+					carritoModeloTabla.removeRow(0);
+				while (!VentanaPrincipal.carrito.isEmpty()) {
+					VentanaPrincipal.carrito.remove(0);
+				}
 		});
 		frame.getContentPane().add(btnVaciarCesta);
 				

@@ -38,7 +38,7 @@ public class VentanaPrincipal extends JFrame {
 	JPanel pCentral, pSur;
 	private JButton btnSalir, btnFinalizarCompra;
 	private JFrame ventana, ventanaAnterior;
-	ArrayList<Coche> carrito = new ArrayList<Coche>();
+	public static ArrayList<Coche> carrito = new ArrayList<Coche>();
 	ListaCoche listaCoche = new ListaCoche();
 
 	
@@ -101,7 +101,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaA);
 
 		btncategoriaA.addActionListener(e -> {
-				VentanaCategoriaA.main(carrito);
+				VentanaCategoriaA.main();
 				dispose();
 		});
 
