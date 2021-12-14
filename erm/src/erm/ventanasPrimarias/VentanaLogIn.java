@@ -141,7 +141,7 @@ public class VentanaLogIn extends JFrame {
 				resultado = DBManager.existeUsuario(nick, contrasenia);
 				if (resultado == 2) {
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
-					cargarProperties();
+					//cargarProperties();
 					vp = new VentanaPrincipal();
 					dispose();
 					vp.setVisible(true);
