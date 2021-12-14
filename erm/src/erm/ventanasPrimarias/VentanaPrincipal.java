@@ -120,7 +120,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaB);
 
 		btncategoriaB.addActionListener(e -> {
-				VentanaCategoriaB.main(carrito);
+				VentanaCategoriaB.main();
 				dispose();
 		});
 

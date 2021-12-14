@@ -27,11 +27,11 @@ public class VentanaCategoriaB {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(ArrayList<Coche> carrito) {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCategoriaB window = new VentanaCategoriaB(carrito);
+					VentanaCategoriaB window = new VentanaCategoriaB();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,20 +43,20 @@ public class VentanaCategoriaB {
 	/**
 	 * Create the application.
 	 */
-	public VentanaCategoriaB(ArrayList<Coche> carrito) {
+	public VentanaCategoriaB() {
 		Coches = new ListaCoche();
-		initialize(carrito);
+		initialize();
 	}
 
-	public VentanaCategoriaB(ListaCoche Coches, ArrayList<Coche> carrito) {
+	public VentanaCategoriaB(ListaCoche Coches) {
 		this.Coches = Coches;
-		initialize(carrito);
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(ArrayList<Coche> carrito) {
+	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
@@ -73,7 +73,7 @@ public class VentanaCategoriaB {
 
 		JPanel CategoriaBPanel = new JPanel(new FlowLayout());
 		for (CategoriaB o : CategoriaB) {
-			JPanel CategoriaBsPanel = CochePanel(o, carrito);
+			JPanel CategoriaBsPanel = CochePanel(o, VentanaPrincipal.carrito);
 			CategoriaBPanel.add(CategoriaBsPanel);
 		}
 		CategoriaBPanel.setBounds(50, 100, 500, 700);
@@ -91,14 +91,14 @@ public class VentanaCategoriaB {
 
 		JMenuItem mntmCatA = new JMenuItem("Categoria A");
 		mntmCatA.addActionListener(e -> {
-			VentanaCategoriaA.main(null);
+			VentanaCategoriaA.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatA);
 
 		JMenuItem mntmCatB = new JMenuItem("Categoria B");
 		mntmCatB.addActionListener(e -> {
-			VentanaCategoriaB.main(null);
+			VentanaCategoriaB.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatB);
@@ -133,7 +133,7 @@ public class VentanaCategoriaB {
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-			VentanaCarritoCompra.main(carrito);
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}
