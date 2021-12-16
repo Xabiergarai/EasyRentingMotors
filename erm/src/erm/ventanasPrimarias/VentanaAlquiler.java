@@ -42,6 +42,7 @@ import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaAjustes;
+import payment.PaymentEnum;
 
 public class VentanaAlquiler extends JFrame {
 
@@ -265,5 +266,5 @@ public class VentanaAlquiler extends JFrame {
 			}
 		}
 	}
-
+s
 }
