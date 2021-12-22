@@ -255,7 +255,7 @@ public class VentanaAlquiler extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		private void  elegirMetodo(PaymentEnum paymentType){
+		/*private void elegirMetodo(PaymentEnum paymentType){
 			switch(paymentType) {
 			case Paypal:
 				return new PaypalGateway();
@@ -264,7 +264,7 @@ public class VentanaAlquiler extends JFrame {
 			default:
 				return new PaypalGateway();
 			}
-		}
+		}*/
 	}
-s
+
 }
