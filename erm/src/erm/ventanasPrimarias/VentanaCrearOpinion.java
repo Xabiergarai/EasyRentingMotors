@@ -122,8 +122,8 @@ public class VentanaCrearOpinion extends JFrame {
 					
 					con = DBManager.initBD(nombreBD);
 					Opinion opinion = new Opinion(idUsuario, titulo, descripcion);
-					dbm.insertarOpinion(opinion);
-					dbm.disconnect();
+					DBManager.insertarOpinion(opinion);
+					DBManager.disconnect();
 					
 					VentanaOpinion vo = new VentanaOpinion();
 					vo.setVisible(true);

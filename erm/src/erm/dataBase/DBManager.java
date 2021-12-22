@@ -441,6 +441,7 @@ public class DBManager {
 	 * @throws DBException
 	 */
 		public void cambiarContrasenya(Usuario user) throws DBException {
+			
 			try (PreparedStatement stmt = conn.prepareStatement(
 					"UPDATE usuario SET contrasenya= ? WHERE nomUsuario ='" + user.getNomUsuario() + "'")) {
 				stmt.setString(1, user.getContrasenya());
@@ -457,8 +458,10 @@ public class DBManager {
 		 * @throws DBException
 		 */
 		
-		public void insertarOpinion (Opinion opinion) throws DBException{
+		public static void insertarOpinion (Opinion opinion) throws DBException{
 			
+
+			Connection conn = initBD("EasyRentingMotors.db");
 			try (Statement stmt= conn.createStatement()) {
 				
 				int idUsuario = opinion.getIdUsuario();
