@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.PrintStream;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import erm.clasesBasicas.Opinion;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import java.awt.SystemColor;
@@ -25,14 +27,15 @@ public class VentanaCrearOpinion extends JFrame {
 	
 	private JTextField textTitulo;
 	private JTextField textDesc;
-	
+	public static Connection con;
+	public static String nombreBD = "EasyRentingMotors.db";
 	public static int idOpinion;
 	static PrintStream log;
 	Logger logger = Logger.getLogger("LOGGER");
 	
 	public VentanaCrearOpinion() {
 		
-    int idU = VentanaLogin.getUsuarioId();
+    int idU = VentanaLogIn.getUsuarioId();
 	logger.log(Level.INFO, "Ventana inicializada");
 		
 		
@@ -117,7 +120,7 @@ public class VentanaCrearOpinion extends JFrame {
 					String titulo = textTitulo.getText();
 					String descripcion = textDesc.getText();
 					
-					dbm.connect();
+					con = DBManager.initBD(nombreBD);
 					Opinion opinion = new Opinion(idUsuario, titulo, descripcion);
 					dbm.insertarOpinion(opinion);
 					dbm.disconnect();

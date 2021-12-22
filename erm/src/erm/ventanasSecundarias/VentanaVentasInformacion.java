@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
+import erm.ventanasPrimarias.VentanaOpinion;
 import erm.ventanasPrimarias.VentanaVenderCoche;
 
 public class VentanaVentasInformacion extends JFrame {
@@ -67,6 +68,11 @@ public class VentanaVentasInformacion extends JFrame {
 		btnOpiniones.setBounds(67, 157, 297, 29);
 		getContentPane().add(btnOpiniones);
 
+		btnOpiniones.addActionListener(e -> {
+			VentanaOpinion v3 = new VentanaOpinion();
+			v3.setVisible(true);
+			dispose();
+	});
 	
 
 	}

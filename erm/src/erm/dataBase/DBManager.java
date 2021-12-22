@@ -14,6 +14,8 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import erm.clasesBasicas.Opinion;
+import erm.dataBase.DBException;
 import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.CategoriaB;
 import erm.categoriasCoche.CategoriaC;
@@ -449,6 +451,26 @@ public class DBManager {
 			}
 		}
 
+		/**
+		 * Inserta una nueva opinion
+		 * @param opinion
+		 * @throws DBException
+		 */
+		
+		public void insertarOpinion (Opinion opinion) throws DBException{
+			
+			try (Statement stmt= conn.createStatement()) {
+				
+				int idUsuario = opinion.getIdUsuario();
+				String titulo = opinion.getTitulo();
+				String descripcion = opinion.getDescripcion();
+				
+				stmt.executeUpdate("INSERT INTO opinion (idUsuario, titulo, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '" + descripcion + "')");
+			
+			} catch (SQLException e) {
+				throw new DBException("No ha sido posible ejecutar la query");
+			}
+	}
 	/*
 	public void insertarVenta(Coche coche) throws DBException {
 		String nombre = coche.getNombre();

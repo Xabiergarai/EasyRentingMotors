@@ -11,13 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import erm.ventanasSecundarias.VentanaVentasInformacion;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -79,7 +78,7 @@ public class VentanaOpinion extends JFrame {
 		try {
 			Class.forName("org.sqlite.JDBC");
 					
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD2");
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/EasyRentingMotors.db");
 			Statement stmt = conn.createStatement();
 			
 				
@@ -122,7 +121,7 @@ public class VentanaOpinion extends JFrame {
 			conn.close();
 					
 				} catch (ClassNotFoundException e1) {
-					System.out.println("No se ja podido cargar el driver");
+					System.out.println("No se ha podido cargar el driver");
 					e1.printStackTrace();
 				}catch (SQLException e1) {
 					System.out.println("No se ha podido conectar a BD");
@@ -133,18 +132,18 @@ public class VentanaOpinion extends JFrame {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*VentanaVentasEInformacion vp = new VentanaVentasEInformacion();
+				VentanaVentasInformacion vp = new VentanaVentasInformacion();
 				vp.setVisible(true);
-				setVisible(false);*/
+				setVisible(false);
 				
 			}
 		});
 		btnNuevoComentario.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*VentanaCrearOpinion vco = new VentanaCrearOpinion();
+				VentanaCrearOpinion vco = new VentanaCrearOpinion();
 				vco.setVisible(true);
-				setVisible(false);*/
+				setVisible(false);
 				
 			}
 		});

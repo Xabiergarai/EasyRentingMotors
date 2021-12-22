@@ -47,7 +47,7 @@ import erm.dataBase.DBManager;
 import java.awt.EventQueue;
 
 public class VentanaLogIn extends JFrame {
-
+	public static int idUsuario;
 	private static final long serialVersionUID = 1L;
 
 	private JFrame frame;
@@ -219,5 +219,10 @@ public class VentanaLogIn extends JFrame {
 			e.printStackTrace();
 		}
 	}
+	
+	//METODO GET ID USUARIO
+		public static int getUsuarioId() {
+			return idUsuario;
+		}
 	
 }
