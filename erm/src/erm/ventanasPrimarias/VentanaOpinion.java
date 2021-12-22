@@ -22,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.SystemColor;
 
 public class VentanaOpinion extends JFrame {
 
@@ -51,13 +52,13 @@ public class VentanaOpinion extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 403, 559);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.PINK);
+		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panelOpiniones = new JPanel();
-		panelOpiniones.setBackground(Color.PINK);
+		panelOpiniones.setBackground(SystemColor.menu);
 		panelOpiniones.setBounds(15, 11, 366, 439);
 		contentPane.add(panelOpiniones);
 		panelOpiniones.setLayout(null);
@@ -65,11 +66,11 @@ public class VentanaOpinion extends JFrame {
 		
 		
 		JButton button = new JButton("Atras");
-		button.setBounds(15, 466, 115, 29);
+		button.setBounds(15, 466, 161, 29);
 		contentPane.add(button);
 		
 		JButton btnNuevoComentario = new JButton("Nuevo comentario");
-		btnNuevoComentario.setBounds(205, 466, 161, 29);
+		btnNuevoComentario.setBounds(205, 466, 176, 29);
 		contentPane.add(btnNuevoComentario);
 		
 		 Font fuente = new Font("Serief",Font.BOLD,14);		

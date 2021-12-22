@@ -1,5 +1,141 @@
 package erm.ventanasPrimarias;
 
-public class VentanaCrearOpinion {
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import erm.dataBase.DBException;
+import erm.dataBase.DBManager;
+import java.awt.SystemColor;
+
+public class VentanaCrearOpinion extends JFrame {
+	
+	private JTextField textTitulo;
+	private JTextField textDesc;
+	
+	public static int idOpinion;
+	static PrintStream log;
+	Logger logger = Logger.getLogger("LOGGER");
+	
+	public VentanaCrearOpinion() {
+		
+    int idU = VentanaLogin.getUsuarioId();
+	logger.log(Level.INFO, "Ventana inicializada");
+		
+		
+		
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 440, 522);
+		getContentPane().setBackground(SystemColor.menu);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Dejanos tu opinion acerca de tu\r\n compra ");
+		lblNewLabel.setForeground(new Color(255, 165, 0));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(10, 0, 424, 107);
+		getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Titulo");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(30, 97, 65, 20);
+		getContentPane().add(lblNewLabel_1);
+		
+		textTitulo = new JTextField();
+		textTitulo.setBounds(30, 130, 343, 26);
+		getContentPane().add(textTitulo);
+		textTitulo.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Descripcion");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(30, 185, 106, 26);
+		getContentPane().add(lblNewLabel_2);
+		
+		textDesc = new JTextField();
+		textDesc.setBounds(30, 222, 343, 83);
+		getContentPane().add(textDesc);
+		textDesc.setColumns(10);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Permites a ERMotors hacer publica tu opinion");
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxNewCheckBox.setBackground(SystemColor.menu);
+		chckbxNewCheckBox.setBounds(30, 340, 343, 23);
+		getContentPane().add(chckbxNewCheckBox);
+		
+		JButton btnNewButton = new JButton("Atras");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				VentanaPrincipal principal = new VentanaPrincipal();
+				principal.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnNewButton.setBounds(30, 416, 106, 23);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnGuardar = new JButton("Guardar\r\n");
+		btnGuardar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(null, "Gracias por tu opinión", "Correcto", 1);
+			}
+		});
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnGuardar.setBounds(261, 416, 112, 23);
+		getContentPane().add(btnGuardar);
+		
+		btnGuardar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DBManager dbm = new DBManager();
+				try {
+					int idUsuario = idU;
+					String titulo = textTitulo.getText();
+					String descripcion = textDesc.getText();
+					
+					dbm.connect();
+					Opinion opinion = new Opinion(idUsuario, titulo, descripcion);
+					dbm.insertarOpinion(opinion);
+					dbm.disconnect();
+					
+					VentanaOpinion vo = new VentanaOpinion();
+					vo.setVisible(true);
+					dispose();
+					
+				} catch (DBException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		
+	}
+	
+	
 }
