@@ -12,6 +12,13 @@ public class Opinion {
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 	}
+	
+	public Opinion() {
+		super();
+		this.idUsuario = 0;
+		this.titulo = "";
+		this.descripcion = "";
+	}
 
 	public int getIdUsuario() {
 		return idUsuario;

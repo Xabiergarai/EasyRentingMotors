@@ -1,29 +1,53 @@
 package test;
-
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*; 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import erm.clasesBasicas.Opinion;
+import erm.clasesBasicas.Venta;
 
 public class OpinionTest {
+	
+	private Opinion o;
+	private Opinion o1;
+	
+	@BeforeEach
+	void setup() {
+		 o = new Opinion(01, "Genial", "Sensacional experiencia");
+		 o1 = new Opinion();
+	}
 
 	@Test
-	public void testIdUsuario() {
-		Opinion opinion = new Opinion(0, "Buena app", "Aplicacion facil y sencilla");
-		assertEquals(opinion.getIdUsuario(), 0);
+	void testGetIdUsuario() {
+		assertEquals(01, o.getIdUsuario());
+	}
+
+	@Test
+	void testSetIdUsuario() {
+		o.setIdUsuario(01);
+		assertEquals(01, o.getIdUsuario());
 	}
 	
 	@Test
-	public void testTitulo() {
-		Opinion opinion = new Opinion(0, "Buena app", "Aplicacion facil y sencilla");
-		assertEquals(opinion.getTitulo(), "Buena app");
+	void testGetTitulo() {
+		assertEquals("Genial", o.getTitulo());
 	}
 	
 	@Test
-	public void testDescripcion() {
-		Opinion opinion = new Opinion(0, "Buena app", "Aplicacion facil y sencilla");
-		assertEquals(opinion.getDescripcion(), "Aplicacion facil y sencilla");
+	void testSetTitulo() {
+		o.setTitulo("Muy bien");
+		assertEquals("Muy bien", o.getTitulo());
+	}
+	
+	@Test
+	void testGetDescripcion() {
+		assertEquals("Sensacional experiencia", o.getDescripcion());
+	}
+	
+	@Test
+	public void testSetDescripcion() {
+		o.setDescripcion("Una maravillosa aplicacion web");
+		assertEquals("Una maravillosa aplicacion web", o.getDescripcion());
 	}
 
 }

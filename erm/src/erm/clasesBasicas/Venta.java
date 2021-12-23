@@ -6,8 +6,7 @@ public class Venta {
 	private int idUsuario;
 	private int idVenta;
 
-	public Venta(int idUsuario, int idVenta, String equipo, String temporada, String talla, String precio,
-			String descripcion) {
+	public Venta(int idUsuario, int idVenta, String nombre,String Categoria,  String clase, String marca, String fecha_matriculacion) {
 		super();
 		this.idUsuario = idUsuario;
 		this.idVenta = idVenta;
@@ -37,9 +36,6 @@ public class Venta {
 		this.idVenta = idVenta;
 	}
 
-	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
