@@ -121,8 +121,8 @@ public class VentanaAjustes extends JFrame {
 
 		botonPrivacidad.addActionListener(e -> {
 			
-				// VentanaPrivacidad v2 = new VentanaPrivacidad();
-				// v2.setVisible(true);
+				VentanaPrivacidad v2 = new VentanaPrivacidad();
+				v2.setVisible(true);
 				dispose();
 
 		});
@@ -155,8 +155,8 @@ public class VentanaAjustes extends JFrame {
 
 		botonSeguridad.addActionListener(e -> {
 			
-				// VentanaSeguridad vs = new VentanaSeguridad();
-				// vs.setVisible(true);
+				VentanaSeguridad vs = new VentanaSeguridad();
+				vs.setVisible(true);
 				setVisible(false);
 		});
 

@@ -37,7 +37,7 @@ public class VentanaCrearOpinion extends JFrame {
 	
 	public VentanaCrearOpinion() {
 		
-    int idU = VentanaLogIn.getUsuarioId();
+    //int idU = VentanaLogIn.getUsuarioId();
 	logger.log(Level.INFO, "Ventana inicializada");
 		
 		
@@ -105,7 +105,7 @@ public class VentanaCrearOpinion extends JFrame {
 		btnGuardar.setBounds(261, 416, 112, 23);
 		getContentPane().add(btnGuardar);
 		
-		btnGuardar.addActionListener(new ActionListener() {
+		/*btnGuardar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -132,7 +132,7 @@ public class VentanaCrearOpinion extends JFrame {
 			}
 		});
 		
-		
+		*/
 	}
 	
 	
