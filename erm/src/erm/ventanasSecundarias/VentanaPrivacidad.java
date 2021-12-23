@@ -59,7 +59,7 @@ public class VentanaPrivacidad extends JFrame  {
 		btnAtras.setBounds(52, 202, 297, 29);
 		getContentPane().add(btnAtras);
 		
-		/*btnPoliticaDePrivacidad.addActionListener(new ActionListener() {
+		btnPoliticaDePrivacidad.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,7 @@ public class VentanaPrivacidad extends JFrame  {
 			
 		});
 		
-
+		/*
 		btnEliminarCuenta.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
