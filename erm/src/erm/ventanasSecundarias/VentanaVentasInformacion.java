@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
-import erm.ventanasPrimarias.VentanaOpinion;
 import erm.ventanasPrimarias.VentanaVenderCoche;
 
 public class VentanaVentasInformacion extends JFrame {

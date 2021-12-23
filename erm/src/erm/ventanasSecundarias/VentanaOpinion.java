@@ -1,4 +1,4 @@
-package erm.ventanasPrimarias;
+package erm.ventanasSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import erm.ventanasSecundarias.VentanaVentasInformacion;
 
 import java.awt.Color;
 import javax.swing.JLabel;

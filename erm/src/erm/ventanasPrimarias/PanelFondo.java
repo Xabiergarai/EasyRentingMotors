@@ -1,4 +1,4 @@
-package erm.clasesBasicas;
+package erm.ventanasPrimarias;
 
 
 import java.awt.BorderLayout;

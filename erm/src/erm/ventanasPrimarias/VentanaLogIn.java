@@ -39,7 +39,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import erm.dataBase.*;
-import erm.clasesBasicas.PanelFondo;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;

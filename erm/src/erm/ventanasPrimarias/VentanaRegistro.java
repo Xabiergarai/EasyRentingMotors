@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import erm.clasesBasicas.*;
-import erm.clasesBasicas.TextPrompt;
-import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 

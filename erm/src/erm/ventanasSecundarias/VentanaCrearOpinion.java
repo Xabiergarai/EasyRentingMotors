@@ -1,4 +1,4 @@
-package erm.ventanasPrimarias;
+package erm.ventanasSecundarias;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -21,6 +21,8 @@ import javax.swing.JTextField;
 import erm.clasesBasicas.Opinion;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasPrimarias.VentanaPrincipal;
+
 import java.awt.SystemColor;
 
 public class VentanaCrearOpinion extends JFrame {
@@ -39,52 +41,45 @@ public class VentanaCrearOpinion extends JFrame {
 	logger.log(Level.INFO, "Ventana inicializada");
 		
 		
-		
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Dejanos tu opinion acerca de tu\r\n compra ");
-		lblNewLabel.setForeground(new Color(255, 165, 0));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(10, 0, 424, 107);
-		getContentPane().add(lblNewLabel);
+		JLabel lblOpinion = new JLabel("Dejanos tu opinion acerca de tu\r\n compra ");
+		lblOpinion.setForeground(new Color(255, 165, 0));
+		lblOpinion.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblOpinion.setBounds(10, 0, 424, 107);
+		getContentPane().add(lblOpinion);
 		
-		JLabel lblNewLabel_1 = new JLabel("Titulo");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(30, 97, 65, 20);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblTitulo = new JLabel("Titulo");
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTitulo.setBounds(30, 97, 65, 20);
+		getContentPane().add(lblTitulo);
 		
 		textTitulo = new JTextField();
 		textTitulo.setBounds(30, 130, 343, 26);
 		getContentPane().add(textTitulo);
 		textTitulo.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Descripcion");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(30, 185, 106, 26);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDescripcion.setBounds(30, 185, 106, 26);
+		getContentPane().add(lblDescripcion);
 		
 		textDesc = new JTextField();
 		textDesc.setBounds(30, 222, 343, 83);
 		getContentPane().add(textDesc);
 		textDesc.setColumns(10);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Permites a ERMotors hacer publica tu opinion");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		chckbxNewCheckBox.setBackground(SystemColor.menu);
-		chckbxNewCheckBox.setBounds(30, 340, 343, 23);
-		getContentPane().add(chckbxNewCheckBox);
+		JCheckBox cbxOpinion = new JCheckBox("Permites a ERMotors hacer publica tu opinion");
+		cbxOpinion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbxOpinion.setBackground(SystemColor.menu);
+		cbxOpinion.setBounds(30, 340, 343, 23);
+		getContentPane().add(cbxOpinion);
 		
-		JButton btnNewButton = new JButton("Atras");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				VentanaPrincipal principal = new VentanaPrincipal();
@@ -93,8 +88,8 @@ public class VentanaCrearOpinion extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(30, 416, 106, 23);
-		getContentPane().add(btnNewButton);
+		btnAtras.setBounds(30, 416, 106, 23);
+		getContentPane().add(btnAtras);
 		
 		JButton btnGuardar = new JButton("Guardar\r\n");
 		btnGuardar.addMouseListener(new MouseAdapter() {
@@ -116,7 +111,7 @@ public class VentanaCrearOpinion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				DBManager dbm = new DBManager();
 				try {
-					int idUsuario = idU;
+					//int idUsuario = idU;
 					String titulo = textTitulo.getText();
 					String descripcion = textDesc.getText();
 					

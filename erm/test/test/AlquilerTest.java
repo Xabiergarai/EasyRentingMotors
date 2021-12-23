@@ -17,10 +17,12 @@ import erm.clasesBasicas.Alquiler;
 class AlquilerTest {
 
 	private Alquiler a;
+	private Alquiler a1;
 	
 	@BeforeEach
 	public void setUp() {
 		 a= new Alquiler("pepe019", "Fiat 500", "2021-12-20", "2021-12-31");
+		 a1 = new Alquiler();
 	}
 	
 	@Test

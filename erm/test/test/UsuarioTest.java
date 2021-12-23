@@ -17,10 +17,12 @@ import erm.clasesBasicas.Usuario;
 public class UsuarioTest  {
 
 	private Usuario u;
-		
+	private Usuario u1;
+	
 	@BeforeEach
 	public void setup() {
 		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
+		 u1=new Usuario();
 	}				
 	
 	
