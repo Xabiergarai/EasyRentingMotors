@@ -337,7 +337,7 @@ public class DBManager {
 
 			// cambiar la conexion a la nueva bd
 			Connection con = initBD("EasyRentingMotors.db");
-			String sql = "INSERT INTO usuario (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
+			String sql = "INSERT INTO usuario (nombre,	apellidos, nickname, contrasenya, email, direccionIP) VALUES(?,?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
 
@@ -346,6 +346,8 @@ public class DBManager {
 			ps.setString(3, u.getNomUsuario());
 			ps.setString(4, u.getContrasenya());
 			ps.setString(5, u.getEmail());
+			ps.setString(6, u.getDireccionIP());
+			
 
 			ps.execute();
 			System.out.println("Usuario registrado");
