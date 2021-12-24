@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import erm.clasesBasicas.Opinion;
 import erm.dataBase.DBException;
 import erm.categoriasCoche.CategoriaA;
@@ -55,6 +54,185 @@ public class DBManager {
 			throw new DBException("Error cargando el driver de la BD", e);
 		} catch (SQLException e) {
 			throw new DBException("Error conectando a la BD", e);
+		}
+	}
+	
+	/** Crea las tablas de la base de datos. Si ya existen, las deja tal cual. Devuelve un statement
+	 *  para trabajar con esa base de datos.
+	 * @param con	Conexión ya creada y abierta a la base de datos
+	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
+	 * @throws DBException 
+	 */
+	public static Statement usarCrearTablasBD( Connection con ) throws DBException {
+		
+		//statement.executeUpdate : Cuando queramos hacer create, insert, delete, update, drop
+		//statement.executeQuery : Cuando queramos hacer select
+		
+		logger.log(Level.INFO, "Creando tablas...");
+		try {
+			Statement statement = con.createStatement();
+			try {
+				statement.executeUpdate("create table if not exists Coche "+
+						   "(id string, "+
+						   " nombre string, "+
+						   " categoria string, "+
+						   " marca string, "+
+						   " fecha_matriculacion string, "+
+						   " combustible string,"+
+						   " precio double,"+
+						   " rutaFoto string");
+				
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Coche ya existente");
+				throw new DBException("Error creando tabla de coche a la BD", ex);
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("create table if not exists alquileres "+
+						   "(nomUsuario string, "+
+						   " nomCoche string, "+
+						   " fInicio string, "+
+						   " fFin string");
+				
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Alquileres ya existente");
+				throw new DBException("Error creando tabla de alquileres a la BD", ex);
+
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("create table if not exists CategoriaA "+
+						   "(id String, "+
+						   " nombre string, "+
+						   " categoria string, "+
+						   " marca string, "+
+						   " fecha_matriculacion string, "+
+						   " combustible string,"+
+						   " precio double,"+
+						   " rutaFoto string,"+
+						   " numPuertas integer,"+
+						   " maletero integer)");
+
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla CategoriaA ya existente");
+				throw new DBException("Error creando tabla de CatgeoriaA a la BD", ex);
+
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("create table if not exists categoriab "+
+						"(id String, "+
+						   " nombre string, "+
+						   " categoria string, "+
+						   " marca string, "+
+						   " fecha_matriculacion string, "+
+						   " combustible string,"+
+						   " precio double,"+
+						   " rutaFoto string,"+
+						   " numPuertas integer,"+
+						   " descapotable integer, "+
+						   " deportivo integer)");
+
+
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla CategoriaB ya existente");
+				throw new DBException("Error creando tabla de CategoriaB a la BD", ex);
+
+			} //Si la tabla ya existe, no hacemos nada
+
+			try {
+				statement.executeUpdate("create table if not exists categoriac "+
+						 "(id String, "+
+						   " nombre string, "+
+						   " categoria string, "+
+						   " marca string, "+
+						   " fecha_matriculacion string, "+
+						   " combustible string,"+
+						   " precio integer,"+
+						   " rutaFoto string,"+
+						   " tipoTodoTerreno string,"+
+						   " descapotable integer)");
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla CaategoriaC ya existente");
+				throw new DBException("Error creando tabla de CategoriaC a la BD", ex);
+
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("create table if not exists categoriad "+
+						 "(id String, "+
+						   " nombre string, "+
+						   " categoria string, "+
+						   " marca string, "+
+						   " fecha_matriculacion string, "+
+						   " combustible string,"+
+						   " precio integer,"+
+						   " rutaFoto string,"+
+						   " tipoFurgoneta string,"+
+						   " descapotable integer)");
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla CategoriaD ya existente");
+				throw new DBException("Error creando tabla de CategoriaD a la BD", ex);
+
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("CREATE TABLE if not exists usuarios "
+						+ "(nombre String, apellidos string, nickname string, contrasenya string, email string");
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Usuarios ya existente");
+				throw new DBException("Error creando tabla de Usuarios a la BD", ex);
+			} //Si la tabla ya existe, no hacemos nada
+			
+			try {
+				statement.executeUpdate("CREATE TABLE if not exists opinion "
+						+ "(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, titulo string, descripcion string");
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Ventas ya existente");
+				throw new DBException("Error creando tabla de Ventas a la BD", ex);
+			} //Si la tabla ya existe, no hacemos nada
+			
+			
+			try {
+				statement.executeUpdate("CREATE TABLE if not exists Ventas "
+						+ "(coche String, precio double, categoria string");
+			}catch(SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Ventas ya existente");
+				throw new DBException("Error creando tabla de Ventas a la BD", ex);
+			} //Si la tabla ya existe, no hacemos nada
+			
+
+			return statement;
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	/** Reinicia en blanco las tablas de la base de datos. 
+	 * UTILIZAR ESTE MËTODO CON PRECAUCIÓN. Borra todos los datos que hubiera ya en las tablas
+	 * @param con	Conexión ya creada y abierta a la base de datos
+	 * @return	sentencia de trabajo si se borra correctamente, null si hay cualquier error
+	 * @throws BDException 
+	 */
+	public static Statement reiniciarBD( Connection con ) throws DBException {
+		logger.log(Level.INFO, "Reiniciando la base de datos...");
+
+		try {
+			Statement statement = con.createStatement();
+			statement.executeUpdate("drop table if exists Coche");
+			statement.executeUpdate("drop table if exists alquileres");
+			statement.executeUpdate("drop table if exists categoriaA");
+			statement.executeUpdate("drop table if exists categoriaB");
+			statement.executeUpdate("drop table if exists categoriaC");
+			statement.executeUpdate("drop table if exists categoriaD");
+			statement.executeUpdate("drop table if exists usuarios");
+			statement.executeUpdate("drop table if exists opinion");
+			statement.executeUpdate("drop table if exists Ventas");
+			return usarCrearTablasBD(con);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
+			throw new DBException("Error al reiniciar la BD", e);
+			
 		}
 	}
 
