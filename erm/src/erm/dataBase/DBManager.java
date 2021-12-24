@@ -177,10 +177,10 @@ public class DBManager {
 			} //Si la tabla ya existe, no hacemos nada
 			
 			try {
-				statement.executeUpdate("CREATE TABLE if not exists usuarios "
+				statement.executeUpdate("CREATE TABLE if not exists usuario "
 						+ "(nombre String, apellidos string, nickname string, contrasenya string, email string");
 			}catch(SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Usuarios ya existente");
+				logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				throw new DBException("Error creando tabla de Usuarios a la BD", ex);
 			} //Si la tabla ya existe, no hacemos nada
 			
@@ -246,7 +246,7 @@ public class DBManager {
 
 	public static int existeUsuario(String nick, String contrasenia) throws DBException {
 		conn = initBD("EasyRentingMotors.db");
-		String sql = "SELECT * FROM Usuarios WHERE nickname= ?";
+		String sql = "SELECT  id, nickname, contrasenya, email FROM usuario WHERE nickname = ?";
 		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
 		Statement st = null;
 		ResultSet rs = null;
@@ -262,7 +262,7 @@ public class DBManager {
 				logger.log(Level.WARNING, "Usuario no exixtente");
 
 			} else {
-				String c = rs.getString(4);
+				String c = rs.getString(3);
 				if (c.equals(contrasenia)) {
 					resultado = 2;
 					logger.log(Level.FINE, "Usuario existente");
@@ -337,7 +337,7 @@ public class DBManager {
 
 			// cambiar la conexion a la nueva bd
 			Connection con = initBD("EasyRentingMotors.db");
-			String sql = "INSERT INTO usuarios (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
+			String sql = "INSERT INTO usuario (nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
 

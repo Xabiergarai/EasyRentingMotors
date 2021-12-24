@@ -7,9 +7,9 @@ public class Administrador extends Usuario {
 	private String AdminVerificar;
 	private String AdminRecuperacion;
 
-	public Administrador(String nomUsuario, String contrasenya, String email, String nombre, String apellidos,
+	public Administrador(String nomUsuario, String contrasenya, String email, String nombre, String apellidos, String direccionIP,
 			String adminUsuario, String adminInterfaz, String adminVerificar, String adminRecuperacion) {
-		super(nomUsuario, contrasenya, email, nombre, apellidos);
+		super(nomUsuario, contrasenya, email, nombre, apellidos, direccionIP);
 		AdminUsuario = adminUsuario;
 		AdminInterfaz = adminInterfaz;
 		AdminVerificar = adminVerificar;

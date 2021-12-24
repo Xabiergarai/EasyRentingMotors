@@ -132,12 +132,13 @@ public class VentanaLogIn extends JFrame {
 			// TODO Auto-generated method stub
 
 			String nick = txtNombre.getText();
-
 			String contrasenia = txtContrasenia.getText();
+			
 			int resultado;
 			VentanaPrincipal vp;
 			try {
 				resultado = DBManager.existeUsuario(nick, contrasenia);
+				
 				if (resultado == 2) {
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
 					//cargarProperties();
@@ -161,13 +162,12 @@ public class VentanaLogIn extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-
-
-
+			
 		});
-
-	
+		
 	}
+		
+		
 
 	/**
 	 * Este metodo se encarga de vaciar los campos
@@ -219,7 +219,7 @@ public class VentanaLogIn extends JFrame {
 		}
 	}
 	
-	//METODO GET ID USUARIO
+		//METODO GET ID USUARIO
 		public static int getUsuarioId() {
 			return idUsuario;
 		}

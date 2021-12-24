@@ -4,3 +4,11 @@ Javier  Contreras ha iniciado sesion con el usuario javicoa con contrasenia 1234
 Iker  Gomez ha iniciado sesion con el usuario gomezIker con contrasenia 123
 Asier  Gomez ha iniciado sesion con el usuario gomezAsier con contrasenia 123
 Aitor  Gutierrez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
+Javier  Contreras ha iniciado sesion con el usuario javicoa con contrasenia 123
+Gorka  Zarate ha iniciado sesion con el usuario zarateGorka con contrasenia 123
+a  a ha iniciado sesion con el usuario a con contrasenia 123
+Aitor  Gutierrez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
+a  a ha iniciado sesion con el usuario a con contrasenia 1234
+s  s ha iniciado sesion con el usuario s con contrasenia 123
+Aitor  Gutierrez Gonzalez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
+Jaime  Gomez ha iniciado sesion con el usuario jaimito con contrasenia 123

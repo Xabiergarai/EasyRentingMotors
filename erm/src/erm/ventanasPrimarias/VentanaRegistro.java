@@ -6,6 +6,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -106,6 +108,15 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblPorFavorRellene);
 		btnRegistrarse.addActionListener(e -> {
 
+			//SACAR DIRECCION IP LOCAL
+			InetAddress address;
+			String direccionIP = null;
+			try {
+				address = InetAddress.getLocalHost();
+				direccionIP = address.getHostAddress().toString();
+			} catch (UnknownHostException e2) {
+				e2.printStackTrace();
+			}
 			
 			// compruebar ningun campo en banco
 			if (tfNombre.getText().equals("") || tfNombre.getText().equals("")
@@ -117,13 +128,18 @@ public class VentanaRegistro extends JFrame {
 				comprobarPatronEmail(tfEmail.getText(), true);
 			} else {
 				DBManager modSql = new DBManager();
-
+				
+				
+				
 				Usuario mod = new Usuario();
 				mod.setApellidos(tfApellidos.getText());
 				mod.setEmail(tfEmail.getText());
 				mod.setNombre(tfNombre.getText());
 				mod.setNomUsuario(tfNombreUsuario.getText());
 				mod.setContrasenya(pfContrasenia.getText());
+				mod.setDireccionIP(direccionIP);
+				
+				
 
 				try {
 					if (modSql.registrar(mod)) {

@@ -10,7 +10,7 @@ public class ListaUsuario {
 		ListaUsuario listaUsuario = new ListaUsuario();
 
 		ArrayList<Usuario> lista = listaUsuario.getUsuarios();
-		lista.add(new Usuario("Xabier", "Garai Pascual", "XabierG", "Cont123", "Xabier.garai@opendeusto.es"));
+		lista.add(new Usuario("Xabier", "Garai Pascual", "XabierG", "Cont123", "Xabier.garai@opendeusto.es", "192.72.20.16"));
 
 		lista.get(0);
 	}
