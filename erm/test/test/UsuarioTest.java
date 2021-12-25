@@ -21,7 +21,7 @@ public class UsuarioTest  {
 	
 	@BeforeEach
 	public void setup() {
-		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
+		 u=new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es","192.72.54.1");
 		 u1=new Usuario();
 	}				
 
@@ -81,10 +81,20 @@ public class UsuarioTest  {
 		assertEquals("xabigarai@opendeusto.es", u.getEmail());
 	}
 	
-
+	@Test
+	public void testGetDireccionIP() {
+		assertEquals("192.72.54.1", u.getDireccionIP());
+	}
+	
+	@Test
+	public void testSetDireccionIP() {
+		u.setDireccionIP("192.56.45.1");
+		assertEquals("192.56.45.1", u.getDireccionIP());
+	}
+	
 	@Test
 	public void testToString() {
-		assertEquals("Usuario [nombre=Javier, apellidos=Contreras, nickname=j.contre, contrasenya=123, email=javicoa@opendeusto.es]", u.toString());
+		assertEquals("Usuario [nombre=Javier, apellidos=Contreras, nomUsuario=j.contre, contrasenya=123, email=javicoa@opendeusto.es, direccionIP=192.72.54.1]", u.toString());
 	}
 		
 	
