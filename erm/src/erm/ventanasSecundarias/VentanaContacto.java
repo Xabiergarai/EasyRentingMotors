@@ -11,6 +11,10 @@ import java.net.URISyntaxException;
 
 import javax.swing.JTextArea;
 import javax.swing.event.AncestorListener;
+
+import erm.ventanasPrimarias.VentanaInicial;
+import erm.ventanasPrimarias.VentanaLogIn;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
@@ -55,7 +59,7 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(txtCoche);
 
 		JButton btnVolver = new JButton("Atras");
-		btnVolver.setBounds(10, 371, 104, 29);
+		btnVolver.setBounds(91, 371, 122, 29);
 		getContentPane().add(btnVolver);
 
 		JButton btnGmail = new JButton("");
@@ -106,23 +110,15 @@ public class VentanaContacto extends JFrame {
 
 		btnInstagram.setBounds(71, 155, 43, 38);
 		getContentPane().add(btnInstagram);
-
-		JButton btnCafe = new JButton("\u00BFUn caf\u00E9?");
-		btnCafe.setBounds(285, 371, 121, 29);
-		getContentPane().add(btnCafe);
-		btnCafe.addActionListener(e -> {
-			if (java.awt.Desktop.isDesktopSupported()) {
-				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-
-				if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-					try {
-						java.net.URI uri = new java.net.URI("https://paypal.me/gutiaitor");
-						desktop.browse(uri);
-					} catch (URISyntaxException | IOException ex) {
-					}
-				}
-			}
+		
+		JButton btnCerrarSesion = new JButton("Cerrar sesi\u00F3n");
+		btnCerrarSesion.addActionListener(e -> {
+			VentanaInicial v1 = new VentanaInicial();
+			v1.setVisible(true);
+			dispose();
 		});
+		btnCerrarSesion.setBounds(223, 371, 136, 29);
+		getContentPane().add(btnCerrarSesion);
 
 		btnVolver.addActionListener(e -> {
 
