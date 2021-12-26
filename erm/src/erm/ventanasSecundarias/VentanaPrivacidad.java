@@ -14,12 +14,18 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 import javax.swing.UIManager;
+
+import erm.dataBase.DBException;
+import erm.dataBase.DBManager;
+import erm.ventanasPrimarias.VentanaInicial;
+import erm.ventanasPrimarias.VentanaLogIn;
+
 import java.awt.SystemColor;
 
 public class VentanaPrivacidad extends JFrame  {
 	public VentanaPrivacidad() {
 		
-		//int idU = VentanaLogin.getUsuarioId();
+		int idU = VentanaLogIn.getUsuarioId();
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
 		getContentPane().setBackground(SystemColor.menu);
@@ -71,20 +77,19 @@ public class VentanaPrivacidad extends JFrame  {
 			
 		});
 		
-		/*
+		
 		btnEliminarCuenta.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DBManager dbm = new DBManager();
 					if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar permanentemente su cuenta?", "Eliminacion de cuenta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
 						try {
-							dbm.connect();
+							dbm.initBD("EasyRentingMotors.db");
 							
 							dbm.eliminarUsuario(idU);
-							dbm.eliminarCamiseta(idU);
 							dbm.disconnect();
-							System.exit(0);
-							VentanaLogin vl = new VentanaLogin();
+							dispose();
+							VentanaInicial vl = new VentanaInicial();
 							vl.setVisible(true);
 					
 							
@@ -95,7 +100,7 @@ public class VentanaPrivacidad extends JFrame  {
 					}
 			}
 		});
-		*/
+		
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

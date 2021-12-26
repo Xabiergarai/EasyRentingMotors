@@ -743,6 +743,22 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+
+	/**
+	 * Eliminar cuenta de usuario por id
+	 * @param idUsuario
+	 * @throws DBException
+	 */
+	
+	public void eliminarUsuario(int idUsuario) throws DBException {
+		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
+			stmt.setInt(1, idUsuario);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
 	/*
 	 * public void insertarVenta(Coche coche) throws DBException { String nombre =
 	 * coche.getNombre(); String categoria = coche.getCategoria(); String marca =

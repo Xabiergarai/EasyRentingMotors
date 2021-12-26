@@ -1,3 +1,5 @@
 
 Aitor  Gutierrez Gonzalez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
 Jaime  Gomez ha iniciado sesion con el usuario gomezJaime con contrasenia Año2021
+Iker  Casillas ha iniciado sesion con el usuario casillasIker con contrasenia 123
+j  k ha iniciado sesion con el usuario j con contrasenia 1
