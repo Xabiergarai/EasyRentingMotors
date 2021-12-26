@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import erm.clasesBasicas.Opinion;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
 
 import java.awt.SystemColor;
@@ -37,7 +38,7 @@ public class VentanaCrearOpinion extends JFrame {
 	
 	public VentanaCrearOpinion() {
 		
-    //int idU = VentanaLogIn.getUsuarioId();
+    int idU = VentanaLogIn.getUsuarioId();
 	logger.log(Level.INFO, "Ventana inicializada");
 		
 		
@@ -105,13 +106,13 @@ public class VentanaCrearOpinion extends JFrame {
 		btnGuardar.setBounds(261, 416, 112, 23);
 		getContentPane().add(btnGuardar);
 		
-		/*btnGuardar.addActionListener(new ActionListener() {
+		btnGuardar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DBManager dbm = new DBManager();
 				try {
-					//int idUsuario = idU;
+					int idUsuario = idU;
 					String titulo = textTitulo.getText();
 					String descripcion = textDesc.getText();
 					
@@ -132,7 +133,7 @@ public class VentanaCrearOpinion extends JFrame {
 			}
 		});
 		
-		*/
+		
 	}
 	
 	
