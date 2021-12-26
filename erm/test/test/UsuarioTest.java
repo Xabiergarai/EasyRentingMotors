@@ -28,13 +28,13 @@ public class UsuarioTest  {
 		
 	@Test
 	public void testGetNomUsuario() {
-		assertEquals("j.contre", u.getNomUsuario());
+		assertEquals("j.contre", u.getNickname());
 	}
 	
 	@Test
 	public void testSetNomUsuario() {
-		u.setNomUsuario("Xabi00");
-		assertEquals("Xabi00", u.getNomUsuario());
+		u.setNickname("Xabi00");
+		assertEquals("Xabi00", u.getNickname());
 	}
 	
 	@Test

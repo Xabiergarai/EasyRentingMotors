@@ -35,7 +35,6 @@ public class DBManager {
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
 
-	
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
@@ -44,7 +43,7 @@ public class DBManager {
 	 *         devuelve null
 	 * @throws BDException
 	 */
-	
+
 	public static Connection initBD(String nombre) throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -56,165 +55,131 @@ public class DBManager {
 			throw new DBException("Error conectando a la BD", e);
 		}
 	}
-	
-	/** Crea las tablas de la base de datos. Si ya existen, las deja tal cual. Devuelve un statement
-	 *  para trabajar con esa base de datos.
-	 * @param con	Conexi贸n ya creada y abierta a la base de datos
-	 * @return	sentencia de trabajo si se crea correctamente, null si hay cualquier error
-	 * @throws DBException 
+
+	/**
+	 * Crea las tablas de la base de datos. Si ya existen, las deja tal cual.
+	 * Devuelve un statement para trabajar con esa base de datos.
+	 * 
+	 * @param con Conexi贸n ya creada y abierta a la base de datos
+	 * @return sentencia de trabajo si se crea correctamente, null si hay cualquier
+	 *         error
+	 * @throws DBException
 	 */
-	public static Statement usarCrearTablasBD( Connection con ) throws DBException {
-		
-		//statement.executeUpdate : Cuando queramos hacer create, insert, delete, update, drop
-		//statement.executeQuery : Cuando queramos hacer select
-		
+	public static Statement usarCrearTablasBD(Connection con) throws DBException {
+
+		// statement.executeUpdate : Cuando queramos hacer create, insert, delete,
+		// update, drop
+		// statement.executeQuery : Cuando queramos hacer select
+
 		logger.log(Level.INFO, "Creando tablas...");
 		try {
 			Statement statement = con.createStatement();
 			try {
-				statement.executeUpdate("create table if not exists Coche "+
-						   "(id string, "+
-						   " nombre string, "+
-						   " categoria string, "+
-						   " marca string, "+
-						   " fecha_matriculacion string, "+
-						   " combustible string,"+
-						   " precio double,"+
-						   " rutaFoto string");
-				
-			}catch(SQLException ex) {
+				statement.executeUpdate("create table if not exists Coche " + "(id string, " + " nombre string, "
+						+ " categoria string, " + " marca string, " + " fecha_matriculacion string, "
+						+ " combustible string," + " precio double," + " rutaFoto string");
+
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Coche ya existente");
 				throw new DBException("Error creando tabla de coche a la BD", ex);
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
-				statement.executeUpdate("create table if not exists alquileres "+
-						   "(nomUsuario string, "+
-						   " nomCoche string, "+
-						   " fInicio string, "+
-						   " fFin string");
-				
-			}catch(SQLException ex) {
+				statement.executeUpdate("create table if not exists alquileres " + "(nomUsuario string, "
+						+ " nomCoche string, " + " fInicio string, " + " fFin string");
+
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Alquileres ya existente");
 				throw new DBException("Error creando tabla de alquileres a la BD", ex);
 
-			} //Si la tabla ya existe, no hacemos nada
-			
-			try {
-				statement.executeUpdate("create table if not exists CategoriaA "+
-						   "(id String, "+
-						   " nombre string, "+
-						   " categoria string, "+
-						   " marca string, "+
-						   " fecha_matriculacion string, "+
-						   " combustible string,"+
-						   " precio double,"+
-						   " rutaFoto string,"+
-						   " numPuertas integer,"+
-						   " maletero integer)");
+			} // Si la tabla ya existe, no hacemos nada
 
-			}catch(SQLException ex) {
+			try {
+				statement.executeUpdate("create table if not exists CategoriaA " + "(id String, " + " nombre string, "
+						+ " categoria string, " + " marca string, " + " fecha_matriculacion string, "
+						+ " combustible string," + " precio double," + " rutaFoto string," + " numPuertas integer,"
+						+ " maletero integer)");
+
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla CategoriaA ya existente");
 				throw new DBException("Error creando tabla de CatgeoriaA a la BD", ex);
 
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
-				statement.executeUpdate("create table if not exists categoriab "+
-						"(id String, "+
-						   " nombre string, "+
-						   " categoria string, "+
-						   " marca string, "+
-						   " fecha_matriculacion string, "+
-						   " combustible string,"+
-						   " precio double,"+
-						   " rutaFoto string,"+
-						   " numPuertas integer,"+
-						   " descapotable integer, "+
-						   " deportivo integer)");
+				statement.executeUpdate("create table if not exists categoriab " + "(id String, " + " nombre string, "
+						+ " categoria string, " + " marca string, " + " fecha_matriculacion string, "
+						+ " combustible string," + " precio double," + " rutaFoto string," + " numPuertas integer,"
+						+ " descapotable integer, " + " deportivo integer)");
 
-
-			}catch(SQLException ex) {
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla CategoriaB ya existente");
 				throw new DBException("Error creando tabla de CategoriaB a la BD", ex);
 
-			} //Si la tabla ya existe, no hacemos nada
+			} // Si la tabla ya existe, no hacemos nada
 
 			try {
-				statement.executeUpdate("create table if not exists categoriac "+
-						 "(id String, "+
-						   " nombre string, "+
-						   " categoria string, "+
-						   " marca string, "+
-						   " fecha_matriculacion string, "+
-						   " combustible string,"+
-						   " precio integer,"+
-						   " rutaFoto string,"+
-						   " tipoTodoTerreno string,"+
-						   " descapotable integer)");
-			}catch(SQLException ex) {
+				statement.executeUpdate("create table if not exists categoriac " + "(id String, " + " nombre string, "
+						+ " categoria string, " + " marca string, " + " fecha_matriculacion string, "
+						+ " combustible string," + " precio integer," + " rutaFoto string," + " tipoTodoTerreno string,"
+						+ " descapotable integer)");
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla CaategoriaC ya existente");
 				throw new DBException("Error creando tabla de CategoriaC a la BD", ex);
 
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
-				statement.executeUpdate("create table if not exists categoriad "+
-						 "(id String, "+
-						   " nombre string, "+
-						   " categoria string, "+
-						   " marca string, "+
-						   " fecha_matriculacion string, "+
-						   " combustible string,"+
-						   " precio integer,"+
-						   " rutaFoto string,"+
-						   " tipoFurgoneta string,"+
-						   " descapotable integer)");
-			}catch(SQLException ex) {
+				statement.executeUpdate("create table if not exists categoriad " + "(id String, " + " nombre string, "
+						+ " categoria string, " + " marca string, " + " fecha_matriculacion string, "
+						+ " combustible string," + " precio integer," + " rutaFoto string," + " tipoFurgoneta string,"
+						+ " descapotable integer)");
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla CategoriaD ya existente");
 				throw new DBException("Error creando tabla de CategoriaD a la BD", ex);
 
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
 				statement.executeUpdate("CREATE TABLE if not exists usuario "
 						+ "(nombre String, apellidos string, nickname string, contrasenya string, email string");
-			}catch(SQLException ex) {
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				throw new DBException("Error creando tabla de Usuarios a la BD", ex);
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
 				statement.executeUpdate("CREATE TABLE if not exists opinion "
 						+ "(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, titulo string, descripcion string");
-			}catch(SQLException ex) {
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Ventas ya existente");
 				throw new DBException("Error creando tabla de Ventas a la BD", ex);
-			} //Si la tabla ya existe, no hacemos nada
-			
-			
+			} // Si la tabla ya existe, no hacemos nada
+
 			try {
-				statement.executeUpdate("CREATE TABLE if not exists Ventas "
-						+ "(coche String, precio double, categoria string");
-			}catch(SQLException ex) {
+				statement.executeUpdate(
+						"CREATE TABLE if not exists Ventas " + "(coche String, precio double, categoria string");
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Ventas ya existente");
 				throw new DBException("Error creando tabla de Ventas a la BD", ex);
-			} //Si la tabla ya existe, no hacemos nada
-			
+			} // Si la tabla ya existe, no hacemos nada
 
 			return statement;
 		} catch (SQLException e) {
 			return null;
 		}
 	}
-	
-	/** Reinicia en blanco las tablas de la base de datos. 
-	 * UTILIZAR ESTE M脣TODO CON PRECAUCI脫N. Borra todos los datos que hubiera ya en las tablas
-	 * @param con	Conexi贸n ya creada y abierta a la base de datos
-	 * @return	sentencia de trabajo si se borra correctamente, null si hay cualquier error
-	 * @throws BDException 
+
+	/**
+	 * Reinicia en blanco las tablas de la base de datos. UTILIZAR ESTE M脣TODO CON
+	 * PRECAUCI脫N. Borra todos los datos que hubiera ya en las tablas
+	 * 
+	 * @param con Conexi贸n ya creada y abierta a la base de datos
+	 * @return sentencia de trabajo si se borra correctamente, null si hay cualquier
+	 *         error
+	 * @throws BDException
 	 */
-	public static Statement reiniciarBD( Connection con ) throws DBException {
+	public static Statement reiniciarBD(Connection con) throws DBException {
 		logger.log(Level.INFO, "Reiniciando la base de datos...");
 
 		try {
@@ -232,13 +197,14 @@ public class DBManager {
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
 			throw new DBException("Error al reiniciar la BD", e);
-			
+
 		}
 	}
 
 	/**
-	 * Este metodo comprueba si existe un usuario en concreto 
-	 * @param nick - Nick del usuario
+	 * Este metodo comprueba si existe un usuario en concreto
+	 * 
+	 * @param nick        - Nick del usuario
 	 * @param contrasenia - Contrase馻 del usuario
 	 * @return
 	 * @throws DBException
@@ -251,15 +217,15 @@ public class DBManager {
 		Statement st = null;
 		ResultSet rs = null;
 		int resultado = 0;
-		
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
 			stmt.setString(1, nick);
 			rs = stmt.executeQuery();
-			
+
 			if (!rs.next()) {
 				resultado = 0;
-				logger.log(Level.WARNING, "Usuario no exixtente");
+				logger.log(Level.WARNING, "Usuario no existente");
 
 			} else {
 				String c = rs.getString(3);
@@ -304,6 +270,7 @@ public class DBManager {
 
 	/**
 	 * Logging
+	 * 
 	 * @param level
 	 * @param msg
 	 * @param exception
@@ -330,7 +297,7 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public boolean registrar(Usuario u) throws DBException {
 
 		try {
@@ -343,11 +310,10 @@ public class DBManager {
 
 			ps.setString(1, u.getNombre());
 			ps.setString(2, u.getApellidos());
-			ps.setString(3, u.getNomUsuario());
+			ps.setString(3, u.getNickname());
 			ps.setString(4, u.getContrasenya());
 			ps.setString(5, u.getEmail());
 			ps.setString(6, u.getDireccionIP());
-			
 
 			ps.execute();
 			System.out.println("Usuario registrado");
@@ -370,16 +336,16 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public static ArrayList<CategoriaA> listarCategoriaA() throws DBException {
 
 		ArrayList<CategoriaA> CategoriaA = new ArrayList<>();
 		Connection conn = initBD("EasyRentingMotors.db");
 		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, numPuertas, maletero FROM CategoriaA";
-		
+
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				CategoriaA CategoriAs = new CategoriaA();
 				CategoriAs.setId(rs.getString("id"));
@@ -411,7 +377,7 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public static ArrayList<CategoriaB> listarCategoriaB() throws DBException {
 
 		ArrayList<CategoriaB> CategoriaB = new ArrayList<>();
@@ -420,7 +386,6 @@ public class DBManager {
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-					
 
 			while (rs.next()) {
 				CategoriaB CategoriBs = new CategoriaB();
@@ -459,7 +424,7 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public static ArrayList<CategoriaC> listarCategoriaC() throws DBException {
 
 		ArrayList<CategoriaC> CategoriaC = new ArrayList<>();
@@ -468,7 +433,7 @@ public class DBManager {
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-					
+
 			while (rs.next()) {
 				CategoriaC CategoriCs = new CategoriaC();
 				CategoriCs.setId(rs.getString("id"));
@@ -499,7 +464,7 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public static ArrayList<CategoriaD> listarCategoriaD() throws DBException {
 
 		ArrayList<CategoriaD> CategoriaD = new ArrayList<>();
@@ -507,7 +472,7 @@ public class DBManager {
 		String sql = "Select id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto, tipoFurgoneta, descapotable FROM CategoriaD";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
-					
+
 			while (rs.next()) {
 				CategoriaD CategoriDs = new CategoriaD();
 				CategoriDs.setId(rs.getString("id"));
@@ -546,7 +511,7 @@ public class DBManager {
 
 		try (PreparedStatement stmt = conn.prepareStatement(sent)) {
 			ResultSet rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				String id = rs.getString("id");
 				String nombre = rs.getString("nombre");
@@ -567,7 +532,7 @@ public class DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return av;
 	}
 
@@ -577,7 +542,7 @@ public class DBManager {
 	 * @return
 	 * @throws SQLException
 	 */
-	
+
 	public static TreeSet<String> obtenerNombresCoches() throws SQLException {
 		String sent = "SELECT nombre from Coche";
 		PreparedStatement stmt = conn.prepareStatement(sent);
@@ -593,16 +558,18 @@ public class DBManager {
 	}
 
 	/**
-	 * Nos permite meter el alquiler de coche que queremos hacer. En las fechas deseadas.
+	 * Nos permite meter el alquiler de coche que queremos hacer. En las fechas
+	 * deseadas.
+	 * 
 	 * @param alquiler
 	 * @throws DBException
 	 * @throws SQLException
 	 */
-	
-	public static void insertarAlquiler(Alquiler alquiler)throws DBException, SQLException  {
-		
+
+	public static void insertarAlquiler(Alquiler alquiler) throws DBException, SQLException {
+
 		Connection con = initBD("EasyRentingMotors.db");
-		String sql = "INSERT INTO Alquileres (nomUsuario,	nomCoche, fInicio, fFin) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO Alquileres (nomUsuario, nomCoche, fInicio, fFin) VALUES(?,?,?,?)";
 
 		ps = con.prepareStatement(sql);
 
@@ -610,101 +577,205 @@ public class DBManager {
 		ps.setString(2, alquiler.getnomCoche());
 		ps.setString(3, alquiler.getFechaInicio());
 		ps.setString(4, alquiler.getFechaFin());
-		
 
 		ps.execute();
 	}
-	
+
 	/**
-	 * Cambiar contrase馻 para usuario
-	 * @param user
+	 * Nos permite iniciar sesion en ERM
+	 * 
+	 * @param nomUsuario
+	 * @param contrasenya
+	 * @return
 	 * @throws DBException
 	 */
-		public void cambiarContrasenya(Usuario user) throws DBException {
-			
+	public boolean loginUsuario(String nomUsuario, String contrasenya) throws DBException {
+
+		boolean acceso = false;
+
+		if (nomUsuario.contains("@")) {
 			try (PreparedStatement stmt = conn.prepareStatement(
-					"UPDATE usuario SET contrasenya= ? WHERE nomUsuario ='" + user.getNomUsuario() + "'")) {
-				stmt.setString(1, user.getContrasenya());
-				stmt.executeUpdate();
+					"SELECT id, nickname, contrasenya, email FROM usuario WHERE email = ? AND contrasenya = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenya);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
 
 			} catch (SQLException e) {
-				throw new DBException("No ha sido posible ejecutar la query");
+				throw new DBException("Error obteniendo datos de la query", e);
+			}
+
+		} else {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nickname, contrasenya, email FROM usuario WHERE nickname = ? AND contrasenya = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenya);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo datos de la query", e);
 			}
 		}
 
-		/**
-		 * Inserta una nueva opinion
-		 * @param opinion
-		 * @throws DBException
-		 */
-		
-		public static void insertarOpinion (Opinion opinion) throws DBException{
-			
-
-			Connection conn = initBD("EasyRentingMotors.db");
-			try (Statement stmt= conn.createStatement()) {
-				
-				int idUsuario = opinion.getIdUsuario();
-				String titulo = opinion.getTitulo();
-				String descripcion = opinion.getDescripcion();
-				
-				stmt.executeUpdate("INSERT INTO opinion (idUsuario, titulo, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '" + descripcion + "')");
-			
-			} catch (SQLException e) {
-				throw new DBException("No ha sido posible ejecutar la query");
-			}
+		return acceso;
 	}
-	/*
-	public void insertarVenta(Coche coche) throws DBException {
-		String nombre = coche.getNombre();
-		String categoria = coche.getCategoria();
-		String marca = coche.getMarca();
-		String combustible = coche.getCombustible();
-		double precio = coche.getPrecio();
 
-		try (Statement stmt = conn.createStatement()) {
+	/**
+	 * Obtiene el id del usuario que ha iniciado sesi髇
+	 * 
+	 * @param nick
+	 * @return
+	 * @throws DBException
+	 */
+	public int obtenerId(String nick) throws DBException {
+		int idUsuario = 0;
+		if (!nick.contains("@")) {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nombre, apellidos, nickname, contrasenya, email, direccionIP FROM usuario WHERE nickname = ?")) {
+				stmt.setString(1, nick);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
 
-			stmt.executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' " + nombre
-					+ " ',  ' " + categoria + "', ' " + marca + "' ," + combustible + "' ," + precio + ")");
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}
+		} else {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nombre, apellidos, nickname, contrasenya, email, direccionIP FROM usuario WHERE email = ?")) {
+				stmt.setString(1, nick);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}
+		}
+
+		return idUsuario;
+	}
+
+	/**
+	 * Busca el usuario por su id
+	 * 
+	 * @param id
+	 * @return
+	 * @throws DBException
+	 */
+	public Usuario buscarUsuarioId(int id) throws DBException {
+		try (PreparedStatement stmt = conn.prepareStatement(
+				"SELECT id, nombre, apellidos, nickname, contrasenya, email, direccionIP FROM usuario WHERE id = ?")) {
+			stmt.setInt(1, id);
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("id"));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setApellidos(rs.getString("apellidos"));
+				usuario.setNickname(rs.getString("nickname"));
+				usuario.setContrasenya(rs.getString("contrasenya"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setDireccionIP(rs.getString("direccionIP"));
+				return usuario;
+
+			} else {
+				return new Usuario();
+			}
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo el usuario con id " + id, e);
+		}
+	}
+
+	/**
+	 * Cambiar contrase馻 para usuario
+	 * 
+	 * @param user
+	 * @throws DBException
+	 */
+	public void cambiarContrasenya(Usuario user) throws DBException {
+
+		try (PreparedStatement stmt = conn
+				.prepareStatement("UPDATE usuario SET contrasenya= ? WHERE nickname ='" + user.getNickname() + "'")) {
+			stmt.setString(1, user.getContrasenya());
+			stmt.executeUpdate();
 
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
-	
-	
-	public ArrayList<Carrito> obtenerCarrito() {
-	        String sentSQL = "SELECT * FROM carrito";
-	        ArrayList<Carrito> al = new ArrayList<>();
-	        try {
-	            Statement st = conn.createStatement();
-	            ResultSet rs = st.executeQuery(sentSQL);
-	            while (rs.next()) {
-	                String id = rs.getString("id");
-	                String nombre = rs.getString("nombre");
-	                double precio = rs.getDouble("precio");
-	                String fecha = rs.getString("fecha");
-	                
-	                
 
-	                Carrito p = new Carrito(id, nombre, precio, fecha);
-	                al.add(p);
-	            }
-	            rs.close();
-	            st.close();
-	        } catch (SQLException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	            try {
-	                throw new DBException("No se han obtenido Coches", e);
-	            } catch (DBException e1) {
-	                // TODO Auto-generated catch block
-	                e1.printStackTrace();
-	            }
-	        }
-	        return al;
-	    } */
-	
+	/**
+	 * Inserta una nueva opinion
+	 * 
+	 * @param opinion
+	 * @throws DBException
+	 */
+
+	public static void insertarOpinion(Opinion opinion) throws DBException {
+
+		Connection conn = initBD("EasyRentingMotors.db");
+		try (Statement stmt = conn.createStatement()) {
+
+			int idUsuario = opinion.getIdUsuario();
+			String titulo = opinion.getTitulo();
+			String descripcion = opinion.getDescripcion();
+
+			stmt.executeUpdate("INSERT INTO opinion (idUsuario, titulo, descripcion) VALUES ('" + idUsuario + "', '"
+					+ titulo + "', '" + descripcion + "')");
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	/*
+	 * public void insertarVenta(Coche coche) throws DBException { String nombre =
+	 * coche.getNombre(); String categoria = coche.getCategoria(); String marca =
+	 * coche.getMarca(); String combustible = coche.getCombustible(); double precio
+	 * = coche.getPrecio();
+	 * 
+	 * try (Statement stmt = conn.createStatement()) {
+	 * 
+	 * stmt.
+	 * executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' "
+	 * + nombre + " ',  ' " + categoria + "', ' " + marca + "' ," + combustible +
+	 * "' ," + precio + ")");
+	 * 
+	 * } catch (SQLException e) { throw new
+	 * DBException("No ha sido posible ejecutar la query"); } }
+	 * 
+	 * 
+	 * public ArrayList<Carrito> obtenerCarrito() { String sentSQL =
+	 * "SELECT * FROM carrito"; ArrayList<Carrito> al = new ArrayList<>(); try {
+	 * Statement st = conn.createStatement(); ResultSet rs =
+	 * st.executeQuery(sentSQL); while (rs.next()) { String id = rs.getString("id");
+	 * String nombre = rs.getString("nombre"); double precio =
+	 * rs.getDouble("precio"); String fecha = rs.getString("fecha");
+	 * 
+	 * 
+	 * 
+	 * Carrito p = new Carrito(id, nombre, precio, fecha); al.add(p); } rs.close();
+	 * st.close(); } catch (SQLException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); try { throw new DBException("No se han obtenido Coches",
+	 * e); } catch (DBException e1) { // TODO Auto-generated catch block
+	 * e1.printStackTrace(); } } return al; }
+	 */
+
 	/**
 	 * Cerramos conexi髇 con la BD
 	 * 
@@ -720,5 +791,4 @@ public class DBManager {
 		}
 	}
 
-	
 }

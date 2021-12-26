@@ -7,8 +7,33 @@ public class Usuario {
 	private int id;
 	private String nombre, apellidos, nickname, contrasenya, email, direccionIP;
 
-	public Usuario() {
+	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.nickname = nickname;
+		this.contrasenya = contrasenya;
+		this.email = email;
+		this.direccionIP = direccionIP;
+	}
+	
+	public Usuario(String nickname, String contrasenya, String email) {
+		super();
+		this.nickname = nickname;
+		this.contrasenya = contrasenya;
+		this.email = email;
 
+	}
+	
+	public Usuario() {
+		
+		super();
+		this.nombre = "";
+		this.apellidos = "";
+		this.nickname = "";
+		this.contrasenya = "";
+		this.email = "";
+		this.direccionIP = "";
 	}
 	public int getId() {
 		return id;
@@ -50,12 +75,12 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getNomUsuario() {
+	public String getNickname() {
 		return nickname;
 	}
 
-	public void setNomUsuario(String nomUsuario) {
-		this.nickname = nomUsuario;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	public String getDireccionIP() {
@@ -66,21 +91,15 @@ public class Usuario {
 		this.direccionIP = direccionIP;
 	}
 
-
-	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.nickname = nickname;
-		this.contrasenya = contrasenya;
-		this.email = email;
-		this.direccionIP = direccionIP;
-	}
-
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname + ", contrasenya="
-				+ contrasenya + ", email=" + email + ", direccionIP =" + direccionIP + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname
+				+ ", contrasenya=" + contrasenya + ", email=" + email + ", direccionIP=" + direccionIP + "]";
 	}
+
+
+	
+
+	
 
 }

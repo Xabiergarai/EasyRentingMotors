@@ -11,11 +11,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPasswordField;
 
+import erm.clasesBasicas.Usuario;
+import erm.dataBase.DBException;
+import erm.dataBase.DBManager;
+import erm.ventanasPrimarias.VentanaLogIn;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
 
 public class VentanaSeguridad extends JFrame {
-	//int a = VentanaLogin.getUsuarioId();
+	int a = VentanaLogIn.getUsuarioId();
 	
 	private JPasswordField pfActual;
 	private JPasswordField pfNueva;
@@ -76,20 +81,21 @@ public class VentanaSeguridad extends JFrame {
 			}
 		});
 		
-		/*btnCambiar.addActionListener(new ActionListener() {
+		btnCambiar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				DBManager dbm = new DBManager();
 				try {
-					dbm.connect();
+					
+					dbm.initBD("EasyRentingMotors.db");
 					Usuario user = dbm.buscarUsuarioId(a);
-					if (user.getContrasenya().equals(passwordField.getText()) && passwordField_1.getText().equals(passwordField_2.getText())) {
-						user.setContrasenya(passwordField_1.getText());
-						dbm.cambiarContrsenya(user);
+					if (user.getContrasenya().equals(pfActual.getText()) && pfNueva.getText().equals(pfConfirmarNueva.getText())) {
+						user.setContrasenya(pfNueva.getText());
+						dbm.cambiarContrasenya(user);
 						JOptionPane.showMessageDialog(null, "Contraseña cambiada correctamente", "Confirmacion", 1);
-						passwordField.setText("");
-						passwordField_1.setText("");
-						passwordField_2.setText("");
+						pfActual.setText("");
+						pfNueva.setText("");
+						pfConfirmarNueva.setText("");
 					}else {
 						JOptionPane.showMessageDialog(null, "Los campos no coinciden o contraseña incorrecta", "Error", 0);
 					}
@@ -103,6 +109,5 @@ public class VentanaSeguridad extends JFrame {
 			}
 		});
 		
-		*/
 	}
 }

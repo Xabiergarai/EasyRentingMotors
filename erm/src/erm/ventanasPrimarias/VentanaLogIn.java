@@ -130,34 +130,30 @@ public class VentanaLogIn extends JFrame {
 
 		btnEntrar.addActionListener(e -> {
 			// TODO Auto-generated method stub
-
+			DBManager conexion = new DBManager();
+			
 			String nick = txtNombre.getText();
 			String contrasenia = txtContrasenia.getText();
 			
-			int resultado;
-			VentanaPrincipal vp;
 			try {
-				resultado = DBManager.existeUsuario(nick, contrasenia);
-				
-				if (resultado == 2) {
-					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS");
-					//cargarProperties();
-					vp = new VentanaPrincipal();
-					dispose();
-					vp.setVisible(true);
 
-				} else if (resultado == 1) {
-					JOptionPane.showMessageDialog(null, "La contrase�a no es correcta", "ERROR!",
-							JOptionPane.ERROR_MESSAGE);
+				conexion.initBD("EasyRentingMotors.db");
+				if (conexion.loginUsuario(nick, contrasenia) == true) {
+					idUsuario = conexion.obtenerId(nick);
+					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS", "BIENVENIDO", JOptionPane.INFORMATION_MESSAGE);
+					VentanaPrincipal vi = new VentanaPrincipal();
+					setVisible(false);
+					vi.setVisible(true);
+					
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Para poder acceder, primero tienes que registrarte");
-
-					new VentanaRegistro();
-					dispose();
-
+					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
+					txtNombre.setText("");
+					txtContrasenia.setText("");
 				}
-				// Servira para poder meter nuevos usuarios sin tener que borrarlos a mano
-				vaciarCampos();
+
+				conexion.disconnect();
+
 			} catch (DBException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
