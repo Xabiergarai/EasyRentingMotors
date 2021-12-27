@@ -69,7 +69,7 @@ public class VentanaGestionUsuarios extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//VentanaAgregarUsuario.main(null);
+				VentanaAgregarUsuario.main(null);
 				dispose();
 			}
 		});
@@ -94,7 +94,7 @@ public class VentanaGestionUsuarios extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Stock");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//VentanaGestionStock.main(null);
+				VentanaGestionStock.main(null);
 				dispose();
 			}
 		});

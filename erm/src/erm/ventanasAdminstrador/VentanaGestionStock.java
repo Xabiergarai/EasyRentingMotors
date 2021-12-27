@@ -72,7 +72,7 @@ public class VentanaGestionStock extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//VentanaAgregarCoche.main(null);
+				VentanaAgregarCoche.main(null);
 				dispose();
 			}
 		});

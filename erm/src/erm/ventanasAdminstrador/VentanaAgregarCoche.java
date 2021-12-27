@@ -24,8 +24,12 @@ import java.awt.Color;
 public class VentanaAgregarCoche extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textNom;
+	private JTextField textId;
+	private JTextField textNombre;
+	private JTextField textCategoria;
 	private JTextField textMarca;
+	private JTextField textFecha_Matriculacion;
+	private JTextField textCombustible;
 	private JTextField textPrecio;
 	
 
@@ -61,15 +65,15 @@ public class VentanaAgregarCoche extends JFrame {
 		lblNewLabel.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNewLabel);
 		
-		textNom = new JTextField();
-		textNom.setBounds(197, 137, 170, 32);
-		contentPane.add(textNom);
-		textNom.setColumns(10);
-		
 		JLabel lblNewLabel_1 = new JLabel("Nombre");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(32, 137, 88, 32);
 		contentPane.add(lblNewLabel_1);
+		
+		textNombre = new JTextField();
+		textNombre.setBounds(197, 137, 170, 32);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Marca");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -91,16 +95,46 @@ public class VentanaAgregarCoche extends JFrame {
 		textPrecio.setBounds(197, 260, 170, 32);
 		contentPane.add(textPrecio);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Descripcion");
+		JLabel lblNewLabel_1_3 = new JLabel("Id");
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1_3.setBounds(170, 332, 88, 32);
 		contentPane.add(lblNewLabel_1_3);
 		
+		textId = new JTextField();
+		textId.setColumns(10);
+		textId.setBounds(197, 260, 170, 32);
+		contentPane.add(textId);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Categoria");
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_4.setBounds(51, 494, 88, 32);
+		lblNewLabel_1_4.setBounds(170, 332, 88, 32);
 		contentPane.add(lblNewLabel_1_4);
+		
+		textCategoria = new JTextField();
+		textCategoria.setColumns(10);
+		textCategoria.setBounds(197, 260, 170, 32);
+		contentPane.add(textCategoria);
+		
+		
+		JLabel lblNewLabel_1_5 = new JLabel("Fecha de matriculacion");
+		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_5.setBounds(170, 332, 88, 32);
+		contentPane.add(lblNewLabel_1_5);
+		
+		textFecha_Matriculacion = new JTextField();
+		textFecha_Matriculacion.setColumns(10);
+		textFecha_Matriculacion.setBounds(197, 260, 170, 32);
+		contentPane.add(textFecha_Matriculacion);
+		
+		JLabel lblNewLabel_1_6 = new JLabel("Combustible");
+		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_6.setBounds(170, 332, 88, 32);
+		contentPane.add(lblNewLabel_1_6);
+		
+		textCombustible = new JTextField();
+		textCombustible.setColumns(10);
+		textCombustible.setBounds(197, 260, 170, 32);
+		contentPane.add(textCombustible);
 		
 		String[] opciones = {"Categoria A","Categoria B","Categoria C","Categoria D"};
 		JComboBox comboBox = new JComboBox(opciones);
@@ -123,34 +157,39 @@ public class VentanaAgregarCoche extends JFrame {
 		btnAgregarCoche.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nom = textNom.getText();
-                String marca = textMarca.getText();
-                String precio =textPrecio.getText();
+            	String id = textId.getText();
+                String nom = textNombre.getText();
                 String categoria = comboBox.getSelectedItem().toString();
+                String marca = textMarca.getText();
+                String precio = textPrecio.getText();
+                String fecha_matriculacion = textFecha_Matriculacion.getText();
+                String combustible = textCombustible.getText();
+                
+                
 
                 /*if (categoria.equals("Categoria A")) {
-                    DBManager.insertarCategoriaA(nom, marca, precio, desc);
+                    DBManager.insertarCategoriaA(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
                 } */
 
                /* if (categoria.equals("Categoria B")) {
-                    DBManager.insertarCategoriaB(nom, marca, precio, desc);
+                    DBManager.insertarCategoriaB(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
                 } */
 
                /* if (categoria.equals("Categoria C")) {
-                    DManager.insertarCategoriaC(nom, marca, precio, desc);
+                    DManager.insertarCategoriaC(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
                 } */
 
                /* if (categoria.equals("Categoria D")) {
-                    DBManager.insertarCategoriaD(nom, marca, precio, desc);
+                    DBManager.insertarCategoriaD(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
