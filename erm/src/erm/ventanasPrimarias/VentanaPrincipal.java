@@ -180,9 +180,9 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mntmCerrarSesion);
 		
 		JButton btnAdmin = new JButton("");
-		btnAdmin.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
+		btnAdmin.setIcon(new ImageIcon("imagenes/iconoadministrador.png"));
 		btnAdmin.setFocusPainted(false);
-		btnAdmin.setContentAreaFilled(false);
+		btnAdmin.setContentAreaFilled(false);  
 		menuBar.add(btnAdmin);
 		
 		btnAdmin.addActionListener(e -> {
