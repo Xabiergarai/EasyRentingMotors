@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 import org.sqlite.core.DB;
 
 import erm.clasesBasicas.Usuario;
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasPrimarias.VentanaInicial;
 
@@ -122,12 +123,12 @@ public class VentanaGestionUsuarios extends JFrame {
 		
 		
 		
-		/* try {
+		 try {
 			usuarios = DBManager.listarUsuarios();
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} */
+		} 
 		
 		
 		DefaultListModel<Usuario> modelo = new DefaultListModel<>();

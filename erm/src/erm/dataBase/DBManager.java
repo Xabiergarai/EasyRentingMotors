@@ -775,19 +775,19 @@ public class DBManager {
 			
 		} 
 	
-	/* public static ArrayList <Usuario> listarUsuarios() throws DBException{
+	 public static ArrayList <Usuario> listarUsuarios() throws DBException{
 			ArrayList <Usuario> usuarios = new ArrayList<>();
-			Connection con = initBD("proyecto.db");
+			Connection con = initBD("EasyRentingMotors.db");
 			
 	
 			try (Statement stmt = con.createStatement()) {
-				ResultSet rs = stmt.executeQuery("SELECT nombre,email,con FROM usuario");
+				ResultSet rs = stmt.executeQuery("SELECT nombre,email,contrasenya FROM usuario");
 	
 				while(rs.next()) {
 					Usuario usuario = new Usuario();
 					usuario.setNombre(rs.getString("nombre"));
 					usuario.setEmail(rs.getString("email"));
-					usuario.setContrasenya(rs.getString("con"));
+					usuario.setContrasenya(rs.getString("contrasenya"));
 					usuarios.add(usuario);
 				}
 				
@@ -800,7 +800,7 @@ public class DBManager {
 		}
 		
 	
-	public static ArrayList <String> listarProductos() throws DBException{
+	/* public static ArrayList <String> listarProductos() throws DBException{
 			ArrayList <String> productos = new ArrayList<>();
 			Connection con = initBD("proyecto.db");
 				
