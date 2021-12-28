@@ -867,89 +867,87 @@ public class DBManager {
 			}
 	
 	
-	/* public static void borrarcocheo(String p) throws SQLException {
-			Connection con = initBD("proyecto.db");
+	 public static void borrarCoche(String p) throws SQLException, DBException {
+			Connection con = initBD("EasyRentingMotors.db");
 			
-				PreparedStatement ps = con.prepareStatement("DELETE FROM ordenador WHERE nombre = ?");
+				PreparedStatement ps = con.prepareStatement("DELETE FROM CategoriaA WHERE nombre = ?");
 				ps.setString(1, p);
 				ps.execute();
 	
-				ps = con.prepareStatement("DELETE FROM television WHERE nombre = ?");
+				ps = con.prepareStatement("DELETE FROM CategoriaB WHERE nombre = ?");
 				ps.setString(1, p);
 				ps.execute();
 				
-				ps = con.prepareStatement("DELETE FROM audio WHERE nombre = ?");
+				ps = con.prepareStatement("DELETE FROM CategoriaC WHERE nombre = ?");
 				ps.setString(1, p);
 				ps.execute();
 	
-				ps = con.prepareStatement("DELETE FROM smartphone WHERE nombre = ?");
+				ps = con.prepareStatement("DELETE FROM CategoriaD WHERE nombre = ?");
 				ps.setString(1, p);
 				ps.execute();
 	
 		}
 		
-	public static void insertarOrdenador(String nombre, String marca, String precio, String desc) {
+	 public static void insertarCategoriaA(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
 	
-	        String s = "INSERT INTO Ordenador (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
-	        Connection c = BD.initBD("proyecto.db");
+	        String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+	        Connection c = DBManager.initBD("EasyRentingMotors.db");
 	        try {
 	            Statement st = c.createStatement();
 	            st.executeUpdate(s);
 	            cerrarBD(c, st);
-	            LOG.log(Level.INFO,"Statement correctamente");
+	            logger.log(Level.INFO,"Statement correctamente");
 	        } catch (SQLException e) {
-	            LOG.log(Level.WARNING,e.getMessage());
+	            logger.log(Level.WARNING,e.getMessage());
 	        }
 	
 	    }
-		public static void insertarSmartphone(String nombre, String marca, String precio, String desc) {
-		
-		    String s = "INSERT INTO Smartphone (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
-		    Connection c = BD.initBD("proyecto.db");
-		    try {
-		        Statement st = c.createStatement();
-		        st.executeUpdate(s);
-		        cerrarBD(c, st);
-		        LOG.log(Level.INFO,"Statement correctamente");
-		    } catch (SQLException e) {
-		        LOG.log(Level.WARNING,e.getMessage());
-		    }
-		
-		}
+	 
+	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
 	
-		public static void insertarAudio(String nombre, String marca, String precio, String desc) {
-		
-		    String s = "INSERT INTO Audio (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
-		    Connection c = BD.initBD("proyecto.db");
-		    try {
-		        Statement st = c.createStatement();
-		        st.executeUpdate(s);
-		        cerrarBD(c, st);
-		        LOG.log(Level.INFO,"Statement correctamente");
-		    } catch (SQLException e) {
-		        LOG.log(Level.WARNING,e.getMessage());
-		    }
-		
-		}
+	        String s = "INSERT INTO Ordenador (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+	        Connection c = DBManager.initBD("EasyRentingMotors.db");
+	        try {
+	            Statement st = c.createStatement();
+	            st.executeUpdate(s);
+	            cerrarBD(c, st);
+	            logger.log(Level.INFO,"Statement correctamente");
+	        } catch (SQLException e) {
+	            logger.log(Level.WARNING,e.getMessage());
+	        }
 	
-		public static void insertarTelevisor(String nombre, String marca, String precio, String desc) {
+	    }
+	
+	public static void insertarCategoriaC(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
 		
-		    String s = "INSERT INTO Television (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
-		    Connection c = BD.initBD("proyecto.db");
-		    try {
-		        Statement st = c.createStatement();
-		        st.executeUpdate(s);
-		        cerrarBD(c, st);
-		        LOG.log(Level.INFO,"Statement correctamente");
-		    } catch (SQLException e) {
-		        LOG.log(Level.WARNING,e.getMessage());
-		    }
+        String s = "INSERT INTO CategoriaC (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+        Connection c = DBManager.initBD("EasyRentingMotors.db");
+        try {
+            Statement st = c.createStatement();
+            st.executeUpdate(s);
+            cerrarBD(c, st);
+            logger.log(Level.INFO,"Statement correctamente");
+        } catch (SQLException e) {
+            logger.log(Level.WARNING,e.getMessage());
+        }
+
+    }
+	
+	public static void insertarCategoriaD(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
 		
-		}
-	
-	} */
-	
-	
+        String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+        Connection c = DBManager.initBD("EasyRentingMotors.db");
+        try {
+            Statement st = c.createStatement();
+            st.executeUpdate(s);
+            cerrarBD(c, st);
+            logger.log(Level.INFO,"Statement correctamente");
+        } catch (SQLException e) {
+            logger.log(Level.WARNING,e.getMessage());
+        }
+
+    }
+		
 	
 		/*
 		 * public void insertarVenta(Coche coche) throws DBException { String nombre =

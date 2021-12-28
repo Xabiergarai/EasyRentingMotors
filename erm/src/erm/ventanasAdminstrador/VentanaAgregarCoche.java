@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
 import javax.swing.JLabel;
@@ -158,7 +159,7 @@ public class VentanaAgregarCoche extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             	String id = textId.getText();
-                String nom = textNombre.getText();
+                String nombre = textNombre.getText();
                 String categoria = comboBox.getSelectedItem().toString();
                 String marca = textMarca.getText();
                 String precio = textPrecio.getText();
@@ -167,33 +168,53 @@ public class VentanaAgregarCoche extends JFrame {
                 
                 
 
-                /*if (categoria.equals("Categoria A")) {
-                    DBManager.insertarCategoriaA(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+                if (categoria.equals("Categoria A")) {
+                    try {
+						DBManager.insertarCategoriaA(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
-                } */
+                } 
 
-               /* if (categoria.equals("Categoria B")) {
-                    DBManager.insertarCategoriaB(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+                if (categoria.equals("Categoria B")) {
+                    try {
+						DBManager.insertarCategoriaB(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
-                } */
+                } 
 
-               /* if (categoria.equals("Categoria C")) {
-                    DManager.insertarCategoriaC(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+                if (categoria.equals("Categoria C")) {
+                    try {
+						DBManager.insertarCategoriaC(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
-                } */
+                } 
 
-               /* if (categoria.equals("Categoria D")) {
-                    DBManager.insertarCategoriaD(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+                if (categoria.equals("Categoria D")) {
+                    try {
+						DBManager.insertarCategoriaD(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                     VentanaGestionStock vs = new VentanaGestionStock();
                     vs.setVisible(true);
                     setVisible(false);
-                }  */
+                }  
 
 
             } 

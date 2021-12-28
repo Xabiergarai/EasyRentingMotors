@@ -159,12 +159,17 @@ public class VentanaGestionStock extends JFrame {
 				String p = modelo.get(listaArticulos.getSelectedIndex());
 				coches.remove(listaArticulos.getSelectedIndex());
 				modelo.remove(listaArticulos.getSelectedIndex());
-				/* try {
-					DBManager.borrarCoche(p);
+				 try {
+					try {
+						DBManager.borrarCoche(p);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				} */
+				} 
 				validate();
 				repaint();
 			}
