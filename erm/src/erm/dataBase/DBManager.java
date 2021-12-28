@@ -809,65 +809,65 @@ public class DBManager {
 		}
 		
 	
-	/* public static ArrayList <String> listarProductos() throws DBException{
-			ArrayList <String> productos = new ArrayList<>();
-			Connection con = initBD("proyecto.db");
+	 public static ArrayList <String> listarcoches() throws DBException{
+			ArrayList <String> coches = new ArrayList<>();
+			Connection con = initBD("EasyRentingMotors.db");
 				
 			
 				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM television");
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaA");
 	
 					while(rs.next()) {
-						String product = rs.getString("nombre");
-						productos.add(product);
+						String coche = rs.getString("nombre");
+						coches.add(coche);
 					}
 					
 				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los televisiones", e);
+					throw new DBException("Error obteniendo todos los coches de Categoria A", e);
 				}
 				
 				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM ordenador");
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaB");
 	
 					while(rs.next()) {
-						String product = rs.getString("nombre");
-						productos.add(product);
+						String coche = rs.getString("nombre");
+						coches.add(coche);
 					}
 					
 				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los televisiones", e);
+					throw new DBException("Error obteniendo todos los coches de Categoria B", e);
 				}
 				
 				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM smartphone");
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaC");
 	
 					while(rs.next()) {
-						String product = rs.getString("nombre");
-						productos.add(product);
+						String coche = rs.getString("nombre");
+						coches.add(coche);
 					}
 					
 				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los televisiones", e);
+					throw new DBException("Error obteniendo todos los coches de Categoria C", e);
 				}
 				
 				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM audio");
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaD");
 	
 					while(rs.next()) {
-						String product = rs.getString("nombre");
-						productos.add(product);
+						String coche = rs.getString("nombre");
+						coches.add(coche);
 					}
 					
 				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los televisiones", e);
+					throw new DBException("Error obteniendo todos los coches de Categoria D", e);
 				}
 			
-			return productos;
+			return coches;
 				
 			}
 	
 	
-	public static void borrarProducto(String p) throws SQLException {
+	/* public static void borrarcocheo(String p) throws SQLException {
 			Connection con = initBD("proyecto.db");
 			
 				PreparedStatement ps = con.prepareStatement("DELETE FROM ordenador WHERE nombre = ?");
