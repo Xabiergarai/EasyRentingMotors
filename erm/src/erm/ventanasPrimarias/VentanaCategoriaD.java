@@ -164,7 +164,7 @@ import erm.clasesBasicas.*;
 			lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(lblNombre);
 
-			JLabel lblPrecio = new JLabel(String.valueOf(o.getPrecio()));
+			JLabel lblPrecio = new JLabel(String.valueOf(o.getPrecio()+"€"));
 			lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 			lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(lblPrecio);

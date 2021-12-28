@@ -32,7 +32,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
@@ -53,7 +52,6 @@ public class VentanaAlquiler extends JFrame {
 	private JPanel contentPane, panelAbajo, panelCentral, panelNorte, panelBotonera;
 	public static Connection con;
 	public static String nombreBD = "EasyRentingMotors.db";
-
 
 	private JLabel lblNombre;
 	private JTextField textNombre;
@@ -105,7 +103,6 @@ public class VentanaAlquiler extends JFrame {
 		calendario = new JCalendar();
 		panelCentral.add(calendario);
 
-		
 		calendario.setTodayButtonVisible(true);
 		calendario.setTodayButtonText("Volver a la fecha actual");
 
@@ -115,7 +112,7 @@ public class VentanaAlquiler extends JFrame {
 		calendario.setSundayForeground(Color.RED);
 		calendario.setWeekdayForeground(Color.GRAY);
 		/**
-		 * Establecemos fecha minima y maxima 
+		 * Establecemos fecha minima y maxima
 		 */
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fechaM = new Date(System.currentTimeMillis());
@@ -140,14 +137,13 @@ public class VentanaAlquiler extends JFrame {
 
 		btnALquilar = new JButton("Alquilar");
 		panelBotonera.add(btnALquilar);
-		
-		btnMetodoPago= new JButton();
+
+		btnMetodoPago = new JButton();
 		panelBotonera.add(btnMetodoPago);
-		
 
 		btnAtras = new JButton("Atras");
 		panelBotonera.add(btnAtras);
-		
+
 		btnALquilar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -165,28 +161,28 @@ public class VentanaAlquiler extends JFrame {
 				String fFin = sdf.format(d2);
 
 				Alquiler al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
-				
+
 				if (textNombre.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
 				} else {
 
-					escribirProductosEnFichero( sdf);
+					escribirProductosEnFichero(sdf);
 					JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
 							JOptionPane.INFORMATION_MESSAGE);
 
 					VentanaPrincipal vp = new VentanaPrincipal();
 					vp.setVisible(true);
 					dispose();
-				try {
-					DBManager.insertarAlquiler(al);
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
+					try {
+						DBManager.insertarAlquiler(al);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				}
 			}
 
@@ -200,19 +196,18 @@ public class VentanaAlquiler extends JFrame {
 		});
 
 		btnMetodoPago.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				//MetodosPago mp= new MetodosPago();
+				// MetodosPago mp= new MetodosPago();
 			}
 		});
 	}
-	
-	
 
 	/**
 	 * Carga el combobox con la lista de Coches de la base de datos
+	 * 
 	 * @throws DBException
 	 * @throws SQLException
 	 */
@@ -225,12 +220,15 @@ public class VentanaAlquiler extends JFrame {
 		}
 
 	}
+
 	/**
-	 * El metodo que se llama desde el boton ALquilar para insertar en un fichero .txt un nuevo Alquiler de coche
+	 * El metodo que se llama desde el boton ALquilar para insertar en un fichero
+	 * .txt un nuevo Alquiler de coche
+	 * 
 	 * @param sdf
 	 */
 
-	private void escribirProductosEnFichero( SimpleDateFormat sdf) {
+	private void escribirProductosEnFichero(SimpleDateFormat sdf) {
 		try {
 			File file = new File("Alquileres.txt");
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
@@ -244,8 +242,7 @@ public class VentanaAlquiler extends JFrame {
 			String fi = sdf.format(fechainit);
 
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("\n"+ nomcliente + "  " + nomcoche + " "
-					+ fi + " " + ff);
+			bw.write("\n" + nomcliente + "  " + nomcoche + " " + fi + " " + ff);
 			bw.close();
 			fw.close();
 		} catch (FileNotFoundException e) {
@@ -255,16 +252,11 @@ public class VentanaAlquiler extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*private void elegirMetodo(PaymentEnum paymentType){
-			switch(paymentType) {
-			case Paypal:
-				return new PaypalGateway();
-			case CreditCard:
-				return new CreditCardGateway();
-			default:
-				return new PaypalGateway();
-			}
-		}*/
+		/*
+		 * private void elegirMetodo(PaymentEnum paymentType){ switch(paymentType) {
+		 * case Paypal: return new PaypalGateway(); case CreditCard: return new
+		 * CreditCardGateway(); default: return new PaypalGateway(); } }
+		 */
 	}
 
 }

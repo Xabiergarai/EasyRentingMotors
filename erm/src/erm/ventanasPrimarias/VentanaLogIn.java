@@ -27,6 +27,7 @@ import java.util.Properties;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -42,6 +43,8 @@ import erm.dataBase.*;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasAdminstrador.VentanaAdmin;
+import erm.ventanasAdminstrador.VentanaInicioAdmin;
 
 import java.awt.EventQueue;
 
@@ -94,6 +97,16 @@ public class VentanaLogIn extends JFrame {
 		btnEntrar.setToolTipText("A�ade los parametros pedidos y pulsa el boton");
 		btnEntrar.setText("Iniciar sesi\u00F3n");
 		panelBotonera.add(btnEntrar);
+		
+		JButton btnAdmin = new JButton("Admin");
+		panelBotonera.add(btnAdmin);
+		
+		btnAdmin.addActionListener(e -> {
+			
+			VentanaInicioAdmin v2 = new VentanaInicioAdmin();
+			v2.setVisible(true);
+			dispose();
+		});
 
 		btnRegistrar = new JButton();
 		btnRegistrar.setToolTipText("Pulsa para registrarte");
@@ -111,11 +124,8 @@ public class VentanaLogIn extends JFrame {
 			vr.setVisible(true);
 			dispose();
 		});
-
-		/*
-		 * btnAdmin = new JButton(); btnAdmin.setToolTipText("Administracion");
-		 * btnAdmin.setText("Admin"); panelBotonera.add(btnAdmin);
-		 */
+		
+		
 		btnSalir = new JButton();
 		btnSalir.setToolTipText("Pulsa para salir");
 		btnSalir.setText("Salir");

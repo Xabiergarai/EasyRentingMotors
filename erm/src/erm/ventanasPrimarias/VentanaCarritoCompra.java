@@ -179,7 +179,7 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Id");
 		carritoModeloTabla.addColumn("Nombre");
 		carritoModeloTabla.addColumn("Fecha de matriculacion");
-		carritoModeloTabla.addColumn("Precio");
+		carritoModeloTabla.addColumn("Precio (€)");
 		setTableContent(carrito);
 	}
 	

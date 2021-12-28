@@ -179,19 +179,6 @@ public class VentanaPrincipal extends JFrame {
 		});
 		menuBar.add(mntmCerrarSesion);
 		
-		JButton btnAdmin = new JButton("");
-		btnAdmin.setIcon(new ImageIcon("imagenes/iconoadministrador.png"));
-		btnAdmin.setFocusPainted(false);
-		btnAdmin.setContentAreaFilled(false);  
-		menuBar.add(btnAdmin);
-		
-		btnAdmin.addActionListener(e -> {
-			
-			VentanaAdmin v2 = new VentanaAdmin();
-			v2.setVisible(true);
-			dispose();
-		});
-		
 		
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
