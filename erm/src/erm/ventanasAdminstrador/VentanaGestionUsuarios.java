@@ -120,17 +120,13 @@ public class VentanaGestionUsuarios extends JFrame {
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		
-		
-		
 		 try {
 			usuarios = DBManager.listarUsuarios();
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
-		
+				
 		DefaultListModel<Usuario> modelo = new DefaultListModel<>();
 		JList listaUsuarios = new JList(modelo);
 		listaUsuarios.setForeground(Color.BLACK);
@@ -153,12 +149,17 @@ public class VentanaGestionUsuarios extends JFrame {
 				Usuario u = modelo.get(listaUsuarios.getSelectedIndex());
 				usuarios.remove(listaUsuarios.getSelectedIndex());
 				modelo.remove(listaUsuarios.getSelectedIndex());
-				/* try {
-					DBManager.eliminarUsuario();
+				 try {
+					try {
+						DBManager.borrarUsuarioGestion(u);
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				} */
+				}  
 				validate();
 				repaint();
 			}

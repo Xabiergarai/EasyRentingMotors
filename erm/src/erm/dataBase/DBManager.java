@@ -759,6 +759,15 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+	
+	public static void borrarUsuarioGestion(Usuario u) throws SQLException, DBException {
+		Connection con = initBD("EasyRentingMotors.db");
+		
+			PreparedStatement ps = con.prepareStatement("DELETE FROM usuario WHERE email = ?");
+			ps.setString(1, u.getEmail());
+			ps.execute();
+
+	}
 		
 	 public static void insertarUsuario(String nombre, String email, String contrasenya) throws DBException {
 			

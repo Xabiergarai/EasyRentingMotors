@@ -152,13 +152,12 @@ public class VentanaAgregarUsuario extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+					try {
+						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				setVisible(false);
 				VentanaGestionUsuarios vu = new VentanaGestionUsuarios();
 				vu.setVisible(true);
