@@ -89,36 +89,36 @@ public class VentanaGestionUsuarios extends JFrame {
 		menuBar.setBounds(0, 0, 584, 22);
 		getContentPane().add(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Gestion");
-		menuBar.add(mnNewMenu);
+		JMenu mnGestion = new JMenu("Gestion");
+		menuBar.add(mnGestion);
 
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Stock");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+		JMenuItem mnStock = new JMenuItem("Stock");
+		mnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionStock.main(null);
 				dispose();
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem_2);
+		mnGestion.add(mnStock);
 
-		JMenuItem mntmNewMenuItem = new JMenuItem("Usuarios");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenuItem mnUsuarios = new JMenuItem("Usuarios");
+		mnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionUsuarios.main(null);
 				dispose();
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem);
+		mnGestion.add(mnUsuarios);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesion");
-		mntmNewMenuItem_1.setForeground(Color.RED);
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+		JMenuItem mnCerrarSesion = new JMenuItem("Cerrar sesion");
+		mnCerrarSesion.setForeground(Color.RED);
+		mnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaInicial.main(null);
 				dispose();
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem_1);
+		mnGestion.add(mnCerrarSesion);
 		
 		 try {
 			usuarios = DBManager.listarUsuarios();

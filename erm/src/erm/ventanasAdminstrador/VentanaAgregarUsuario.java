@@ -60,67 +60,67 @@ public class VentanaAgregarUsuario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Nuevo usuario");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
-		lblNewLabel.setBounds(106, 45, 230, 39);
-		contentPane.add(lblNewLabel);
+		JLabel lblNuevoUsuario = new JLabel("Nuevo usuario");
+		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblNuevoUsuario.setBounds(106, 45, 230, 39);
+		contentPane.add(lblNuevoUsuario);
 		
 		
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(32, 137, 88, 32);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNombre.setBounds(32, 137, 88, 32);
+		contentPane.add(lblNombre);
 		
 		textNombre = new JTextField();
 		textNombre.setBounds(197, 137, 170, 32);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Apellidos");
-		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_5.setBounds(32, 260, 88, 32);
-		contentPane.add(lblNewLabel_1_5);
+		JLabel lblApellidos = new JLabel("Apellidos");
+		lblApellidos.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblApellidos.setBounds(32, 260, 88, 32);
+		contentPane.add(lblApellidos);
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
 		textApellidos.setBounds(197, 199, 170, 32);
 		contentPane.add(textApellidos);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Email");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(32, 199, 88, 32);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEmail.setBounds(32, 199, 88, 32);
+		contentPane.add(lblEmail);
 		
 		textEmail = new JTextField();
 		textEmail.setColumns(10);
 		textEmail.setBounds(197, 199, 170, 32);
 		contentPane.add(textEmail);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Contraseña");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(32, 260, 88, 32);
-		contentPane.add(lblNewLabel_1_2);
+		JLabel lblContraseña = new JLabel("Contraseña");
+		lblContraseña.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblContraseña.setBounds(32, 260, 88, 32);
+		contentPane.add(lblContraseña);
 		
 		textPass = new JTextField();
 		textPass.setColumns(10);
 		textPass.setBounds(197, 260, 170, 32);
 		contentPane.add(textPass);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Nickname");
-		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(32, 260, 88, 32);
-		contentPane.add(lblNewLabel_1_3);
+		JLabel lblNickname = new JLabel("Nickname");
+		lblNickname.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNickname.setBounds(32, 260, 88, 32);
+		contentPane.add(lblNickname);
 		
 		textNickname = new JTextField();
 		textNickname.setColumns(10);
 		textNickname.setBounds(197, 199, 170, 32);
 		contentPane.add(textNickname);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("Direccion IP");
-		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_4.setBounds(32, 260, 88, 32);
-		contentPane.add(lblNewLabel_1_4);
+		JLabel lblDireccionIP = new JLabel("Direccion IP");
+		lblDireccionIP.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDireccionIP.setBounds(32, 260, 88, 32);
+		contentPane.add(lblDireccionIP);
 		
 		textDireccionIP = new JTextField();
 		textDireccionIP.setColumns(10);
