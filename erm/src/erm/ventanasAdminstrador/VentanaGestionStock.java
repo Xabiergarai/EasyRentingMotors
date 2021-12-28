@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasPrimarias.VentanaInicial;
 
@@ -38,7 +39,7 @@ public class VentanaGestionStock extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private ArrayList<String> productos = new ArrayList<>();
+	private ArrayList<String> coches = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -122,12 +123,12 @@ public class VentanaGestionStock extends JFrame {
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		/* try {
-			productos = DBManager.listarCoches();
+		 try {
+			coches = DBManager.listarcoches();
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} */ 
+		} 
 		
 		
 		DefaultListModel<String> modelo = new DefaultListModel<>();
@@ -156,7 +157,7 @@ public class VentanaGestionStock extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String p = modelo.get(listaArticulos.getSelectedIndex());
-				productos.remove(listaArticulos.getSelectedIndex());
+				coches.remove(listaArticulos.getSelectedIndex());
 				modelo.remove(listaArticulos.getSelectedIndex());
 				/* try {
 					DBManager.borrarCoche(p);
@@ -169,7 +170,7 @@ public class VentanaGestionStock extends JFrame {
 			}
 		});
 		
-		for (String producto : productos) {
+		for (String producto : coches) {
 			modelo.addElement(producto);
 		}
 		//metodo para pasar el arraylist a un fichero .csv
@@ -187,7 +188,7 @@ public class VentanaGestionStock extends JFrame {
 					
 				try {
 					pw = new PrintWriter(archivo);
-					for(String p: productos) {
+					for(String p: coches) {
 						pw.println(p);
 						
 						
