@@ -759,52 +759,235 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
-	/*
-	 * public void insertarVenta(Coche coche) throws DBException { String nombre =
-	 * coche.getNombre(); String categoria = coche.getCategoria(); String marca =
-	 * coche.getMarca(); String combustible = coche.getCombustible(); double precio
-	 * = coche.getPrecio();
-	 * 
-	 * try (Statement stmt = conn.createStatement()) {
-	 * 
-	 * stmt.
-	 * executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' "
-	 * + nombre + " ',  ' " + categoria + "', ' " + marca + "' ," + combustible +
-	 * "' ," + precio + ")");
-	 * 
-	 * } catch (SQLException e) { throw new
-	 * DBException("No ha sido posible ejecutar la query"); } }
-	 * 
-	 * 
-	 * public ArrayList<Carrito> obtenerCarrito() { String sentSQL =
-	 * "SELECT * FROM carrito"; ArrayList<Carrito> al = new ArrayList<>(); try {
-	 * Statement st = conn.createStatement(); ResultSet rs =
-	 * st.executeQuery(sentSQL); while (rs.next()) { String id = rs.getString("id");
-	 * String nombre = rs.getString("nombre"); double precio =
-	 * rs.getDouble("precio"); String fecha = rs.getString("fecha");
-	 * 
-	 * 
-	 * 
-	 * Carrito p = new Carrito(id, nombre, precio, fecha); al.add(p); } rs.close();
-	 * st.close(); } catch (SQLException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); try { throw new DBException("No se han obtenido Coches",
-	 * e); } catch (DBException e1) { // TODO Auto-generated catch block
-	 * e1.printStackTrace(); } } return al; }
-	 */
-
-	/**
-	 * Cerramos conexi�n con la BD
-	 * 
-	 * @throws DBException
-	 */
-
-	public static void disconnect() throws DBException {
-		try {
-			conn = initBD("EasyRentingMotors.db");
-			conn.close();
-		} catch (SQLException e) {
-			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
+		
+	/* public static void insertarUsuario(String nombre, String email, String con) {
+			
+			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+con+"')";
+			Connection c = BD.initBD("proyecto.db");
+			try {
+				Statement st = c.createStatement();
+				st.executeUpdate(s);
+				cerrarBD(c, st);
+				LOG.log(Level.INFO,"Statement correctamente");
+			} catch (SQLException e) {
+				LOG.log(Level.WARNING,e.getMessage());
+			}
+			
 		}
+	
+	public static ArrayList <Usuario> listarUsuarios() throws DBException{
+			ArrayList <Usuario> usuarios = new ArrayList<>();
+			Connection con = initBD("proyecto.db");
+			
+	
+			try (Statement stmt = con.createStatement()) {
+				ResultSet rs = stmt.executeQuery("SELECT nombre,email,con FROM usuario");
+	
+				while(rs.next()) {
+					Usuario usuario = new Usuario();
+					usuario.setNombre(rs.getString("nombre"));
+					usuario.setEmail(rs.getString("email"));
+					usuario.setContrasenya(rs.getString("con"));
+					usuarios.add(usuario);
+				}
+				
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo los usuarios", e);
+			}
+		
+		return usuarios;
+			
+		}
+		
+	
+	public static ArrayList <String> listarProductos() throws DBException{
+			ArrayList <String> productos = new ArrayList<>();
+			Connection con = initBD("proyecto.db");
+				
+			
+				try (Statement stmt = con.createStatement()) {
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM television");
+	
+					while(rs.next()) {
+						String product = rs.getString("nombre");
+						productos.add(product);
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo todos los televisiones", e);
+				}
+				
+				try (Statement stmt = con.createStatement()) {
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM ordenador");
+	
+					while(rs.next()) {
+						String product = rs.getString("nombre");
+						productos.add(product);
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo todos los televisiones", e);
+				}
+				
+				try (Statement stmt = con.createStatement()) {
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM smartphone");
+	
+					while(rs.next()) {
+						String product = rs.getString("nombre");
+						productos.add(product);
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo todos los televisiones", e);
+				}
+				
+				try (Statement stmt = con.createStatement()) {
+					ResultSet rs = stmt.executeQuery("SELECT nombre FROM audio");
+	
+					while(rs.next()) {
+						String product = rs.getString("nombre");
+						productos.add(product);
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo todos los televisiones", e);
+				}
+			
+			return productos;
+				
+			}
+	
+	
+	public static void borrarProducto(String p) throws SQLException {
+			Connection con = initBD("proyecto.db");
+			
+				PreparedStatement ps = con.prepareStatement("DELETE FROM ordenador WHERE nombre = ?");
+				ps.setString(1, p);
+				ps.execute();
+	
+				ps = con.prepareStatement("DELETE FROM television WHERE nombre = ?");
+				ps.setString(1, p);
+				ps.execute();
+				
+				ps = con.prepareStatement("DELETE FROM audio WHERE nombre = ?");
+				ps.setString(1, p);
+				ps.execute();
+	
+				ps = con.prepareStatement("DELETE FROM smartphone WHERE nombre = ?");
+				ps.setString(1, p);
+				ps.execute();
+	
+		}
+		
+	public static void insertarOrdenador(String nombre, String marca, String precio, String desc) {
+	
+	        String s = "INSERT INTO Ordenador (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
+	        Connection c = BD.initBD("proyecto.db");
+	        try {
+	            Statement st = c.createStatement();
+	            st.executeUpdate(s);
+	            cerrarBD(c, st);
+	            LOG.log(Level.INFO,"Statement correctamente");
+	        } catch (SQLException e) {
+	            LOG.log(Level.WARNING,e.getMessage());
+	        }
+	
+	    }
+		public static void insertarSmartphone(String nombre, String marca, String precio, String desc) {
+		
+		    String s = "INSERT INTO Smartphone (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
+		    Connection c = BD.initBD("proyecto.db");
+		    try {
+		        Statement st = c.createStatement();
+		        st.executeUpdate(s);
+		        cerrarBD(c, st);
+		        LOG.log(Level.INFO,"Statement correctamente");
+		    } catch (SQLException e) {
+		        LOG.log(Level.WARNING,e.getMessage());
+		    }
+		
+		}
+	
+		public static void insertarAudio(String nombre, String marca, String precio, String desc) {
+		
+		    String s = "INSERT INTO Audio (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
+		    Connection c = BD.initBD("proyecto.db");
+		    try {
+		        Statement st = c.createStatement();
+		        st.executeUpdate(s);
+		        cerrarBD(c, st);
+		        LOG.log(Level.INFO,"Statement correctamente");
+		    } catch (SQLException e) {
+		        LOG.log(Level.WARNING,e.getMessage());
+		    }
+		
+		}
+	
+		public static void insertarTelevisor(String nombre, String marca, String precio, String desc) {
+		
+		    String s = "INSERT INTO Television (nombre, marca, precio) VALUES('"+nombre+"','"+marca+"','"+precio+"')";
+		    Connection c = BD.initBD("proyecto.db");
+		    try {
+		        Statement st = c.createStatement();
+		        st.executeUpdate(s);
+		        cerrarBD(c, st);
+		        LOG.log(Level.INFO,"Statement correctamente");
+		    } catch (SQLException e) {
+		        LOG.log(Level.WARNING,e.getMessage());
+		    }
+		
+		}
+	
+	} */
+	
+	
+	
+		/*
+		 * public void insertarVenta(Coche coche) throws DBException { String nombre =
+		 * coche.getNombre(); String categoria = coche.getCategoria(); String marca =
+		 * coche.getMarca(); String combustible = coche.getCombustible(); double precio
+		 * = coche.getPrecio();
+		 * 
+		 * try (Statement stmt = conn.createStatement()) {
+		 * 
+		 * stmt.
+		 * executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' "
+		 * + nombre + " ',  ' " + categoria + "', ' " + marca + "' ," + combustible +
+		 * "' ," + precio + ")");
+		 * 
+		 * } catch (SQLException e) { throw new
+		 * DBException("No ha sido posible ejecutar la query"); } }
+		 * 
+		 * 
+		 * public ArrayList<Carrito> obtenerCarrito() { String sentSQL =
+		 * "SELECT * FROM carrito"; ArrayList<Carrito> al = new ArrayList<>(); try {
+		 * Statement st = conn.createStatement(); ResultSet rs =
+		 * st.executeQuery(sentSQL); while (rs.next()) { String id = rs.getString("id");
+		 * String nombre = rs.getString("nombre"); double precio =
+		 * rs.getDouble("precio"); String fecha = rs.getString("fecha");
+		 * 
+		 * 
+		 * 
+		 * Carrito p = new Carrito(id, nombre, precio, fecha); al.add(p); } rs.close();
+		 * st.close(); } catch (SQLException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); try { throw new DBException("No se han obtenido Coches",
+		 * e); } catch (DBException e1) { // TODO Auto-generated catch block
+		 * e1.printStackTrace(); } } return al; }
+		 */
+	
+		/**
+		 * Cerramos conexi�n con la BD
+		 * 
+		 * @throws DBException
+		 */
+	
+		public static void disconnect() throws DBException {
+			try {
+				conn = initBD("EasyRentingMotors.db");
+				conn.close();
+			} catch (SQLException e) {
+				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
+			}
+		}
+	
 	}
-
-}
