@@ -71,15 +71,15 @@ public class VentanaAdmin extends JFrame {
 		btnUsuarios.setBounds(129, 187, 348, 66);
 		contentPane.add(btnUsuarios);
 		
-		JButton btnNewButton = new JButton("Cerrar Sesion");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCerrarSesion = new JButton("Cerrar Sesion");
+		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaInicial.main(null);
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(10, 305, 138, 23);
-		contentPane.add(btnNewButton);
+		btnCerrarSesion.setBounds(10, 305, 138, 23);
+		contentPane.add(btnCerrarSesion);
 		
 		
 	}

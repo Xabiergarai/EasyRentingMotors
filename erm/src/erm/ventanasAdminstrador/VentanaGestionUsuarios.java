@@ -140,9 +140,9 @@ public class VentanaGestionUsuarios extends JFrame {
         scrollpane.setBounds(50, 54, 487, 234);
 		contentPane.add(scrollpane);
 		
-		JLabel lblNewLabel = new JLabel("                Gestion de usuarios");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		scrollpane.setColumnHeaderView(lblNewLabel);
+		JLabel lblGestionUsuarios = new JLabel("                Gestion de usuarios");
+		lblGestionUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		scrollpane.setColumnHeaderView(lblGestionUsuarios);
 		
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
