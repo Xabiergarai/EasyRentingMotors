@@ -16,6 +16,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 import erm.clasesBasicas.Usuario;
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
 
@@ -152,7 +153,12 @@ public class VentanaAgregarUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
+				try {
+					DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				setVisible(false);
 				VentanaGestionUsuarios vu = new VentanaGestionUsuarios();
 				vu.setVisible(true);

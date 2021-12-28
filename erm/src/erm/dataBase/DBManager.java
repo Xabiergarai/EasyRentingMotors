@@ -760,20 +760,20 @@ public class DBManager {
 		}
 	}
 		
-	 public static void insertarUsuario(String nombre, String email, String con) {
+	 public static void insertarUsuario(String nombre, String email, String contrasenya) throws DBException {
 			
-			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+con+"')";
+			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+contrasenya+"')";
 			Connection c = DBManager.initBD("EasyRentingMotors.db");
 			try {
 				Statement st = c.createStatement();
 				st.executeUpdate(s);
-				cerrarDBManager(c, st);
-				LOG.log(Level.INFO,"Statement correctamente");
+				cerrarBD(c, st);
+				logger.log(Level.INFO,"Statement correctamente");
 			} catch (SQLException e) {
-				LOG.log(Level.WARNING,e.getMessage());
+				logger.log(Level.WARNING,e.getMessage());
 			}
 			
-		}
+		} 
 	
 	/* public static ArrayList <Usuario> listarUsuarios() throws DBException{
 			ArrayList <Usuario> usuarios = new ArrayList<>();
@@ -980,7 +980,15 @@ public class DBManager {
 		 * 
 		 * @throws DBException
 		 */
-	
+	public static void cerrarBD( Connection con, Statement st ) {
+		try {
+			if (st!=null) st.close();
+			if (con!=null) con.close();
+		logger.log(Level.INFO,"Se ha cerrado correctamente");
+		} catch (SQLException e) {
+		logger.log(Level.WARNING,e.getMessage());
+		}
+	}
 		public static void disconnect() throws DBException {
 			try {
 				conn = initBD("EasyRentingMotors.db");
