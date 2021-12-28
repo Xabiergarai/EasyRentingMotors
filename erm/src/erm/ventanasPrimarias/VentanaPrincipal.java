@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
+import erm.ventanasAdminstrador.VentanaAdmin;
 import erm.ventanasSecundarias.VentanaAjustes;
 import erm.ventanasSecundarias.VentanaPerfil;
 
@@ -177,6 +178,20 @@ public class VentanaPrincipal extends JFrame {
 				dispose();
 		});
 		menuBar.add(mntmCerrarSesion);
+		
+		JButton btnAdmin = new JButton("");
+		btnAdmin.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
+		btnAdmin.setFocusPainted(false);
+		btnAdmin.setContentAreaFilled(false);
+		menuBar.add(btnAdmin);
+		
+		btnAdmin.addActionListener(e -> {
+			
+			VentanaAdmin v2 = new VentanaAdmin();
+			v2.setVisible(true);
+			dispose();
+		});
+		
 		
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
