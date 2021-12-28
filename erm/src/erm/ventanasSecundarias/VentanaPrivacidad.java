@@ -120,7 +120,7 @@ public class VentanaPrivacidad extends JFrame  {
 
                     if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
                         try {
-                            java.net.URI uri = new java.net.URI("https://www.tuvisitaguiada.com/blog/2016/07/05/curiosidades-sobre-empresas-adidas/");
+                            java.net.URI uri = new java.net.URI("https://www.autonocion.com/datos-curiosos-de-la-industria-del-automovil/");
                             desktop.browse(uri);
                         }catch (URISyntaxException | IOException ex) {}
                         }
