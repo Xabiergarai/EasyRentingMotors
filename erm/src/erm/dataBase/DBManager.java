@@ -760,14 +760,14 @@ public class DBManager {
 		}
 	}
 		
-	/* public static void insertarUsuario(String nombre, String email, String con) {
+	 public static void insertarUsuario(String nombre, String email, String con) {
 			
 			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+con+"')";
-			Connection c = BD.initBD("proyecto.db");
+			Connection c = DBManager.initBD("EasyRentingMotors.db");
 			try {
 				Statement st = c.createStatement();
 				st.executeUpdate(s);
-				cerrarBD(c, st);
+				cerrarDBManager(c, st);
 				LOG.log(Level.INFO,"Statement correctamente");
 			} catch (SQLException e) {
 				LOG.log(Level.WARNING,e.getMessage());
@@ -775,7 +775,7 @@ public class DBManager {
 			
 		}
 	
-	public static ArrayList <Usuario> listarUsuarios() throws DBException{
+	/* public static ArrayList <Usuario> listarUsuarios() throws DBException{
 			ArrayList <Usuario> usuarios = new ArrayList<>();
 			Connection con = initBD("proyecto.db");
 			
