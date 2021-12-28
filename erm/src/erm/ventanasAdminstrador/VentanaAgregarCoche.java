@@ -61,55 +61,55 @@ public class VentanaAgregarCoche extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Nuevo coche");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
-		lblNewLabel.setBounds(106, 45, 230, 39);
-		contentPane.add(lblNewLabel);
+		JLabel lblNuevoCoche = new JLabel("Nuevo coche");
+		lblNuevoCoche.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblNuevoCoche.setBounds(106, 45, 230, 39);
+		contentPane.add(lblNuevoCoche);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(32, 137, 88, 32);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNombre.setBounds(32, 137, 88, 32);
+		contentPane.add(lblNombre);
 		
 		textNombre = new JTextField();
 		textNombre.setBounds(197, 137, 170, 32);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Marca");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(32, 199, 88, 32);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblMarca = new JLabel("Marca");
+		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMarca.setBounds(32, 199, 88, 32);
+		contentPane.add(lblMarca);
 		
 		textMarca = new JTextField();
 		textMarca.setColumns(10);
 		textMarca.setBounds(197, 199, 170, 32);
 		contentPane.add(textMarca);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Precio");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(32, 260, 88, 32);
-		contentPane.add(lblNewLabel_1_2);
+		JLabel lblPrecio = new JLabel("Precio");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPrecio.setBounds(32, 260, 88, 32);
+		contentPane.add(lblPrecio);
 		
 		textPrecio = new JTextField();
 		textPrecio.setColumns(10);
 		textPrecio.setBounds(197, 260, 170, 32);
 		contentPane.add(textPrecio);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Id");
-		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(170, 332, 88, 32);
-		contentPane.add(lblNewLabel_1_3);
+		JLabel lblId = new JLabel("Id");
+		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblId.setBounds(170, 332, 88, 32);
+		contentPane.add(lblId);
 		
 		textId = new JTextField();
 		textId.setColumns(10);
 		textId.setBounds(197, 260, 170, 32);
 		contentPane.add(textId);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("Categoria");
-		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_4.setBounds(170, 332, 88, 32);
-		contentPane.add(lblNewLabel_1_4);
+		JLabel lblCategoria = new JLabel("Categoria");
+		lblCategoria.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategoria.setBounds(170, 332, 88, 32);
+		contentPane.add(lblCategoria);
 		
 		textCategoria = new JTextField();
 		textCategoria.setColumns(10);
@@ -117,20 +117,20 @@ public class VentanaAgregarCoche extends JFrame {
 		contentPane.add(textCategoria);
 		
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Fecha de matriculacion");
-		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_5.setBounds(170, 332, 88, 32);
-		contentPane.add(lblNewLabel_1_5);
+		JLabel lblFchaMatriculacion = new JLabel("Fecha de matriculacion");
+		lblFchaMatriculacion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblFchaMatriculacion.setBounds(170, 332, 88, 32);
+		contentPane.add(lblFchaMatriculacion);
 		
 		textFecha_Matriculacion = new JTextField();
 		textFecha_Matriculacion.setColumns(10);
 		textFecha_Matriculacion.setBounds(197, 260, 170, 32);
 		contentPane.add(textFecha_Matriculacion);
 		
-		JLabel lblNewLabel_1_6 = new JLabel("Combustible");
-		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_6.setBounds(170, 332, 88, 32);
-		contentPane.add(lblNewLabel_1_6);
+		JLabel lblCombustible = new JLabel("Combustible");
+		lblCombustible.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCombustible.setBounds(170, 332, 88, 32);
+		contentPane.add(lblCombustible);
 		
 		textCombustible = new JTextField();
 		textCombustible.setColumns(10);
@@ -149,10 +149,10 @@ public class VentanaAgregarCoche extends JFrame {
 		btnAgregarCoche.setBounds(149, 580, 132, 50);
 		contentPane.add(btnAgregarCoche);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("EUR");
-		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_2_1.setBounds(368, 260, 41, 32);
-		contentPane.add(lblNewLabel_1_2_1);
+		JLabel lblEur = new JLabel("EUR");
+		lblEur.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEur.setBounds(368, 260, 41, 32);
+		contentPane.add(lblEur);
 		
 		
 		btnAgregarCoche.addActionListener(new ActionListener() {

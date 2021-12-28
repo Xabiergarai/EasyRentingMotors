@@ -65,8 +65,7 @@ public class VentanaGestionUsuarios extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
+
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,17 +77,17 @@ public class VentanaGestionUsuarios extends JFrame {
 		btnAgregar.setBackground(new Color(255, 165, 0));
 		btnAgregar.setBounds(50, 299, 100, 39);
 		contentPane.add(btnAgregar);
-		
+
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setBackground(new Color(255, 165, 0));
 		btnEliminar.setBounds(437, 299, 100, 39);
 		contentPane.add(btnEliminar);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 584, 22);
 		getContentPane().add(menuBar);
-		
+
 		JMenu mnGestion = new JMenu("Gestion");
 		menuBar.add(mnGestion);
 
@@ -109,7 +108,7 @@ public class VentanaGestionUsuarios extends JFrame {
 			}
 		});
 		mnGestion.add(mnUsuarios);
-		
+
 		JMenuItem mnCerrarSesion = new JMenuItem("Cerrar sesion");
 		mnCerrarSesion.setForeground(Color.RED);
 		mnCerrarSesion.addActionListener(new ActionListener() {
@@ -119,14 +118,14 @@ public class VentanaGestionUsuarios extends JFrame {
 			}
 		});
 		mnGestion.add(mnCerrarSesion);
-		
-		 try {
+
+		try {
 			usuarios = DBManager.listarUsuarios();
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-				
+		}
+
 		DefaultListModel<Usuario> modelo = new DefaultListModel<>();
 		JList listaUsuarios = new JList(modelo);
 		listaUsuarios.setForeground(Color.BLACK);
@@ -134,22 +133,22 @@ public class VentanaGestionUsuarios extends JFrame {
 		listaUsuarios.setBackground(new Color(255, 255, 255));
 		listaUsuarios.setBounds(50, 54, 487, 234);
 		contentPane.add(listaUsuarios);
-		
+
 		JScrollPane scrollpane = new JScrollPane(listaUsuarios);
-        getContentPane().add(scrollpane, BorderLayout.CENTER);
-        scrollpane.setBounds(50, 54, 487, 234);
+		getContentPane().add(scrollpane, BorderLayout.CENTER);
+		scrollpane.setBounds(50, 54, 487, 234);
 		contentPane.add(scrollpane);
-		
-		JLabel lblNewLabel = new JLabel("                Gestion de usuarios");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		scrollpane.setColumnHeaderView(lblNewLabel);
-		
+
+		JLabel lblGestionUsuarios = new JLabel("                Gestion de usuarios");
+		lblGestionUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		scrollpane.setColumnHeaderView(lblGestionUsuarios);
+
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Usuario u = modelo.get(listaUsuarios.getSelectedIndex());
 				usuarios.remove(listaUsuarios.getSelectedIndex());
 				modelo.remove(listaUsuarios.getSelectedIndex());
-				 try {
+				try {
 					try {
 						DBManager.borrarUsuarioGestion(u);
 					} catch (DBException e1) {
@@ -159,17 +158,15 @@ public class VentanaGestionUsuarios extends JFrame {
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}  
+				}
 				validate();
 				repaint();
 			}
 		});
-		
+
 		for (Usuario usuario : usuarios) {
 			modelo.addElement(usuario);
 		}
 
-		
 	}
 }
-

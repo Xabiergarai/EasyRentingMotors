@@ -64,9 +64,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);
-		
-		
-		
+	
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNombre.setBounds(32, 137, 88, 32);
@@ -126,9 +124,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		textDireccionIP.setColumns(10);
 		textDireccionIP.setBounds(197, 199, 170, 32);
 		contentPane.add(textDireccionIP);
-		
-		
-		
+	
 		JButton btnAgregarProducto = new JButton("AGREGAR");
 		btnAgregarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
