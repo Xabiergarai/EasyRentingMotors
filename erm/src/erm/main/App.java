@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import erm.ventanasPrimarias.VentanaInicial;
 import erm.ventanasPrimarias.VentanaLogIn;
+import erm.clasesBasicas.Usuario;
 import erm.ventanasPrimarias.*;
 
 public class App {
@@ -32,7 +33,7 @@ public class App {
 
 			}
 		});
-
+		
 	}
 
 }
