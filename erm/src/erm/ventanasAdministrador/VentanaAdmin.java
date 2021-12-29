@@ -1,4 +1,4 @@
-package erm.ventanasAdminstrador;
+package erm.ventanasAdministrador;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

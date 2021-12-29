@@ -27,7 +27,7 @@ import javax.swing.JScrollPane;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
-import erm.ventanasAdminstrador.VentanaAdmin;
+import erm.ventanasAdministrador.VentanaAdmin;
 import erm.ventanasSecundarias.VentanaAjustes;
 import erm.ventanasSecundarias.VentanaPerfil;
 

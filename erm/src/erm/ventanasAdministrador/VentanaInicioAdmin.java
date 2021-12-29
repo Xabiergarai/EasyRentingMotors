@@ -1,4 +1,4 @@
-package erm.ventanasAdminstrador;
+package erm.ventanasAdministrador;
 
 import javax.swing.JFrame;
 import javax.swing.JTree;

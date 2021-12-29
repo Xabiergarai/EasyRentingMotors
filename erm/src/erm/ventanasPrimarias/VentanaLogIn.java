@@ -43,8 +43,8 @@ import erm.dataBase.*;
 import erm.clasesBasicas.Usuario;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
-import erm.ventanasAdminstrador.VentanaAdmin;
-import erm.ventanasAdminstrador.VentanaInicioAdmin;
+import erm.ventanasAdministrador.VentanaAdmin;
+import erm.ventanasAdministrador.VentanaInicioAdmin;
 
 import java.awt.EventQueue;
 
