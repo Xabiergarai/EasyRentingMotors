@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import erm.clasesBasicas.*;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import java.awt.Color;
 
 public class VentanaRegistro extends JFrame {
 
@@ -103,6 +104,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(btnRegistrarse);
 
 		JLabel lblPorFavorRellene = new JLabel("Por favor, rellene todos los campos.");
+		lblPorFavorRellene.setForeground(new Color(255, 165, 0));
 		lblPorFavorRellene.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblPorFavorRellene.setBounds(104, 40, 307, 16);
 		getContentPane().add(lblPorFavorRellene);

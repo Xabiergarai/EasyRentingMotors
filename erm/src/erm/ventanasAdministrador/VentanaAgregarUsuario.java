@@ -54,13 +54,14 @@ public class VentanaAgregarUsuario extends JFrame {
 	 */
 	public VentanaAgregarUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 450, 644);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNuevoUsuario = new JLabel("Nuevo usuario");
+		lblNuevoUsuario.setForeground(new Color(255, 165, 0));
 		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);
@@ -77,7 +78,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		JLabel lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblApellidos.setBounds(32, 260, 88, 32);
+		lblApellidos.setBounds(32, 197, 88, 32);
 		contentPane.add(lblApellidos);
 		
 		textApellidos = new JTextField();
@@ -87,42 +88,42 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblEmail.setBounds(32, 199, 88, 32);
+		lblEmail.setBounds(32, 258, 88, 32);
 		contentPane.add(lblEmail);
 		
 		textEmail = new JTextField();
 		textEmail.setColumns(10);
-		textEmail.setBounds(197, 199, 170, 32);
+		textEmail.setBounds(197, 260, 170, 32);
 		contentPane.add(textEmail);
 		
 		JLabel lblContraseña = new JLabel("Contraseña");
 		lblContraseña.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblContraseña.setBounds(32, 260, 88, 32);
+		lblContraseña.setBounds(32, 369, 88, 32);
 		contentPane.add(lblContraseña);
 		
 		textPass = new JTextField();
 		textPass.setColumns(10);
-		textPass.setBounds(197, 260, 170, 32);
+		textPass.setBounds(197, 371, 170, 32);
 		contentPane.add(textPass);
 		
 		JLabel lblNickname = new JLabel("Nickname");
 		lblNickname.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNickname.setBounds(32, 260, 88, 32);
+		lblNickname.setBounds(32, 313, 88, 32);
 		contentPane.add(lblNickname);
 		
 		textNickname = new JTextField();
 		textNickname.setColumns(10);
-		textNickname.setBounds(197, 199, 170, 32);
+		textNickname.setBounds(197, 315, 170, 32);
 		contentPane.add(textNickname);
 		
 		JLabel lblDireccionIP = new JLabel("Direccion IP");
 		lblDireccionIP.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblDireccionIP.setBounds(32, 260, 88, 32);
+		lblDireccionIP.setBounds(32, 424, 88, 32);
 		contentPane.add(lblDireccionIP);
 		
 		textDireccionIP = new JTextField();
 		textDireccionIP.setColumns(10);
-		textDireccionIP.setBounds(197, 199, 170, 32);
+		textDireccionIP.setBounds(197, 426, 170, 32);
 		contentPane.add(textDireccionIP);
 	
 		JButton btnAgregarProducto = new JButton("AGREGAR");
@@ -141,7 +142,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		});
 		btnAgregarProducto.setForeground(Color.WHITE);
 		btnAgregarProducto.setBackground(new Color(255, 165, 0));
-		btnAgregarProducto.setBounds(149, 390, 132, 50);
+		btnAgregarProducto.setBounds(152, 535, 132, 50);
 		contentPane.add(btnAgregarProducto);
 		
 		btnAgregarProducto.addActionListener(new ActionListener() {
