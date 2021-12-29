@@ -8,6 +8,7 @@ import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasSecundarias.VentanaAjustes;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
@@ -17,6 +18,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaInicioAdmin extends JFrame {
 	private JTextField textoUsuario;
@@ -65,10 +68,28 @@ public class VentanaInicioAdmin extends JFrame {
 
 		});
 		
-
 		getContentPane().add(btnAtras);
 		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String usuario = textoUsuario.getText();
+				String contrasenya = textoContrasenya.getText();
+				
+				if(usuario.equals("admin")&& contrasenya.equals("admin123")) {
+
+					JOptionPane.showMessageDialog(null, "Bienvenido al modo administrador", "Aceptado", JOptionPane.INFORMATION_MESSAGE);
+					VentanaAdmin vl = new VentanaAdmin();
+					vl.setVisible(true);
+					dispose();
+					
+				}else{
+					JOptionPane.showMessageDialog(null, "No has introducido los datos correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
 		btnEntrar.setBounds(293, 414, 107, 38);
 		getContentPane().add(btnEntrar);
 		

@@ -78,8 +78,19 @@ public class VentanaAdmin extends JFrame {
 				dispose();
 			}
 		});
-		btnCerrarSesion.setBounds(10, 305, 138, 23);
+		btnCerrarSesion.setBounds(469, 303, 138, 23);
 		contentPane.add(btnCerrarSesion);
+		
+		JButton btnVlvAtras = new JButton("Volver atras");
+		btnVlvAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaInicioAdmin v1 = new VentanaInicioAdmin();
+				v1.setVisible(true);
+				dispose();
+			}
+		});
+		btnVlvAtras.setBounds(10, 303, 138, 23);
+		contentPane.add(btnVlvAtras);
 		
 		
 	}
