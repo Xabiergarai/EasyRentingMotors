@@ -36,7 +36,7 @@ public class VentanaInicioAdmin extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("ADMINISTRADOR");
-		lblTitulo.setForeground(new Color(255, 140, 0));
+		lblTitulo.setForeground(new Color(255, 165, 0));
 		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 40));
 		lblTitulo.setBounds(124, 27, 327, 85);
 		getContentPane().add(lblTitulo);

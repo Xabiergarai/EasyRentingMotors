@@ -70,11 +70,13 @@ public class VentanaInicial extends JFrame {
 
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(e -> {
+			
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
+					JOptionPane.INFORMATION_MESSAGE);
 			VentanaLogIn vi = null;
 			vi = new VentanaLogIn();
 			vi.setVisible(true);
-			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
-					JOptionPane.INFORMATION_MESSAGE);
+			
 
 			dispose();
 

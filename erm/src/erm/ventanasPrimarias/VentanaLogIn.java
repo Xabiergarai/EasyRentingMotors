@@ -47,6 +47,7 @@ import erm.ventanasAdministrador.VentanaAdmin;
 import erm.ventanasAdministrador.VentanaInicioAdmin;
 
 import java.awt.EventQueue;
+import javax.swing.SwingConstants;
 
 public class VentanaLogIn extends JFrame {
 	public static int idUsuario;
@@ -54,11 +55,12 @@ public class VentanaLogIn extends JFrame {
 
 	private JFrame frame;
 	private JPanel panelCentro, panelBase, panelBotonera;
-	private JTextField txtNombre;
-	private JPasswordField txtContrasenia;
 	private JLabel usuario, contrasenia;
 	private JButton btnEntrar, btnSalir, btnRegistrar, btnAdmin, btnFavoritos;
 	public static String nick;
+	private JLabel lblTitulo;
+	private JTextField txtNombre;
+	private JPasswordField txtContrasenia;
 
 	/**
 	 * Create the frame
@@ -66,43 +68,47 @@ public class VentanaLogIn extends JFrame {
 	public VentanaLogIn() {
 		super();
 
-		setSize(500, 250);
+		setBounds(100, 100, 571, 384);
 		setTitle("Inicio de sesion");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// setExtendedState(MAXIMIZED_BOTH);
 
-		panelCentro = new PanelFondo("imagenes/loggo.jpg");
-		panelCentro.setLayout(new BoxLayout(panelCentro, BoxLayout.Y_AXIS));
-		panelCentro.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, true));
+		panelCentro = new JPanel();
+		panelCentro.setBounds(0, 58, 557, 244);
+		
+		// panelCentro.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, true));
 
 		panelBase = new JPanel();
-		panelBase.setBackground(Color.DARK_GRAY);
+		panelBase.setBounds(0, 0, 557, 59);
+		// panelBase.setBackground(Color.DARK_GRAY);
 
 		panelBotonera = new JPanel();
-		panelBotonera.setBackground(Color.DARK_GRAY);
+		panelBotonera.setBounds(0, 303, 557, 33);
+		// panelBotonera.setBackground(Color.DARK_GRAY);
 
 		getContentPane().add(panelCentro, BorderLayout.CENTER);
-		getContentPane().add(panelBase, BorderLayout.NORTH);
-		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
+		getContentPane().setLayout(null);
+		getContentPane().add(panelBase);
+		
+		lblTitulo = new JLabel("INICIO DE SESI\u00D3N");
+		lblTitulo.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setForeground(new Color(255, 165, 0));
+		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 40));
+		panelBase.add(lblTitulo);
+		getContentPane().add(panelBotonera);
 
-		txtNombre = new JTextField();
-		txtNombre.setPreferredSize(new Dimension(200, 50));
-		posicionaLinea(panelCentro, "Introduzca el usuario", txtNombre);
-
-		txtContrasenia = new JPasswordField();
-		txtContrasenia.setPreferredSize(new Dimension(200, 50));
-		posicionaLinea(panelCentro, "Introduzca la contraseña", txtContrasenia);
 
 		btnEntrar = new JButton();
 		btnEntrar.setToolTipText("Aï¿½ade los parametros pedidos y pulsa el boton");
 		btnEntrar.setText("Iniciar sesi\u00F3n");
 		panelBotonera.add(btnEntrar);
-		
+
 		JButton btnAdmin = new JButton("Admin");
 		panelBotonera.add(btnAdmin);
-		
+
 		btnAdmin.addActionListener(e -> {
-			
+
 			VentanaInicioAdmin v2 = new VentanaInicioAdmin();
 			v2.setVisible(true);
 			dispose();
@@ -124,12 +130,33 @@ public class VentanaLogIn extends JFrame {
 			vr.setVisible(true);
 			dispose();
 		});
-		
-		
+
 		btnSalir = new JButton();
 		btnSalir.setToolTipText("Pulsa para salir");
 		btnSalir.setText("Salir");
 		panelBotonera.add(btnSalir);
+		panelCentro.setLayout(null);
+		
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblUsuario.setBounds(119, 59, 67, 25);
+		panelCentro.add(lblUsuario);
+		
+		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
+		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblContrasenya.setEnabled(true);
+		lblContrasenya.setBounds(119, 138, 100, 25);
+		panelCentro.add(lblContrasenya);
+		
+		txtNombre = new JTextField();
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(284, 49, 163, 35);
+		panelCentro.add(txtNombre);
+		
+		txtContrasenia = new JPasswordField();
+		txtContrasenia.setBounds(284, 128, 159, 35);
+		panelCentro.add(txtContrasenia);
+		
 		btnSalir.addActionListener(e -> {
 			VentanaInicial vi = null;
 			vi = new VentanaInicial();
@@ -141,22 +168,25 @@ public class VentanaLogIn extends JFrame {
 		btnEntrar.addActionListener(e -> {
 			// TODO Auto-generated method stub
 			DBManager conexion = new DBManager();
-			
+
 			String nick = txtNombre.getText();
 			String contrasenia = txtContrasenia.getText();
-			
+
 			try {
 
 				conexion.initBD("EasyRentingMotors.db");
+
 				if (conexion.loginUsuario(nick, contrasenia) == true) {
+
 					idUsuario = conexion.obtenerId(nick);
-					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS", "BIENVENIDO", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS", "BIENVENIDO",
+							JOptionPane.INFORMATION_MESSAGE);
 					VentanaPrincipal vi = new VentanaPrincipal();
 					setVisible(false);
 					vi.setVisible(true);
-					
 
 				} else {
+
 					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
 					txtNombre.setText("");
 					txtContrasenia.setText("");
@@ -168,12 +198,10 @@ public class VentanaLogIn extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 		});
-		
+
 	}
-		
-		
 
 	/**
 	 * Este metodo se encarga de vaciar los campos
@@ -204,30 +232,28 @@ public class VentanaLogIn extends JFrame {
 		cont.add(tempPanel);
 	}
 
-	//carga en el fichero properties el usuario y contrasenia que inicie sesion
+	// carga en el fichero properties el usuario y contrasenia que inicie sesion
 	public void cargarProperties() {
 		FileOutputStream fos = null;
 		File configFile = null;
-		
+
 		try {
 			configFile = new File("config.properties");
 			fos = new FileOutputStream(configFile);
-		
+
 			Properties propConfig = new Properties();
-			propConfig.setProperty("username", txtNombre.getText());		
-			propConfig.setProperty("password", txtContrasenia.getText());			
+			propConfig.setProperty("username", txtNombre.getText());
+			propConfig.setProperty("password", txtContrasenia.getText());
 			propConfig.store(fos, "Configuracion del programa");
 			fos.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-		//METODO GET ID USUARIO
-		public static int getUsuarioId() {
-			return idUsuario;
-		}
-	
+
+	// METODO GET ID USUARIO
+	public static int getUsuarioId() {
+		return idUsuario;
+	}
 }
