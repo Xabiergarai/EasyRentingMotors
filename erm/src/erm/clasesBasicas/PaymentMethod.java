@@ -1,13 +1,13 @@
 package erm.clasesBasicas;
 
 import erm.pay.Payment;
+import erm.pay.PaymentEnum;
 
 public class PaymentMethod {
-	protected Payment paymentType = null;
+	protected PaymentEnum paymentType = null;
 	
-	private Usuario user;
 	
-	public Payment getPaymentType() {
+	public PaymentEnum getPaymentType() {
 		return this.paymentType;
 	}
 }
