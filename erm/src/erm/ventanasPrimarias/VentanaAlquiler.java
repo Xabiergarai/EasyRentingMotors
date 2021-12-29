@@ -10,16 +10,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.TreeSet;
 
 import javax.swing.JButton;
@@ -30,18 +25,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
-import com.toedter.calendar.demo.DateChooserPanel;
 
-import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaAjustes;
-import payment.PaymentEnum;
 
 public class VentanaAlquiler extends JFrame {
 
@@ -73,7 +63,7 @@ public class VentanaAlquiler extends JFrame {
 	public VentanaAlquiler() throws DBException, SQLException, FileNotFoundException {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -138,7 +128,7 @@ public class VentanaAlquiler extends JFrame {
 		btnALquilar = new JButton("Alquilar");
 		panelBotonera.add(btnALquilar);
 
-		btnMetodoPago = new JButton();
+		btnMetodoPago = new JButton("Metodo Pago");
 		panelBotonera.add(btnMetodoPago);
 
 		btnAtras = new JButton("Atras");
