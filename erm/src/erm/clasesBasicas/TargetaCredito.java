@@ -5,11 +5,11 @@ import java.util.Date;
 import erm.pay.PaymentEnum;
 class TargetaCredito extends PaymentMethod{
 	
-	private String name;
-	private String bankAccount;
-	private String cardCode;
+	private String nombre;
+	private String cunetaBanco;
+	private String codigoTargeta;
 	
-	private Date expirationDate;
+	private Date fExpriracion;
 	
 
 	public TargetaCredito() {
@@ -17,35 +17,35 @@ class TargetaCredito extends PaymentMethod{
 	}
 	
 	public String getName() {
-		return name;
+		return nombre;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.nombre = name;
 	}
 
 	public String getBankAccount() {
-		return bankAccount;
+		return cunetaBanco;
 	}
 
 	public void setBankAccount(String bankAccount) {
-		this.bankAccount = bankAccount;
+		this.cunetaBanco = bankAccount;
 	}
 
 	public String getCardCode() {
-		return cardCode;
+		return codigoTargeta;
 	}
 
 	public void setCardCode(String cardCode) {
-		this.cardCode = cardCode;
+		this.codigoTargeta = cardCode;
 	}
 
 	public Date getExpirationDate() {
-		return expirationDate;
+		return fExpriracion;
 	}
 
 	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
+		this.fExpriracion = expirationDate;
 	}
 	
 }
