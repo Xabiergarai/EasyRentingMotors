@@ -1,4 +1,5 @@
-package payment;
+package erm.pay;
+
 public enum PaymentEnum
 {
 	Paypal("Paypal"),
