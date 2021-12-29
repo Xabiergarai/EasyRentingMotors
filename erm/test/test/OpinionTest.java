@@ -45,6 +45,11 @@ public class OpinionTest {
 	}
 	
 	@Test
+	void testToString() {
+		assertEquals("Opinion [idUsuario=1, titulo=Genial, descripcion=Sensacional experiencia]", o.toString());
+	}
+	
+	@Test
 	public void testSetDescripcion() {
 		o.setDescripcion("Una maravillosa aplicacion web");
 		assertEquals("Una maravillosa aplicacion web", o.getDescripcion());
