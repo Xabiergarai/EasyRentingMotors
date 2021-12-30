@@ -100,15 +100,17 @@ public class VentanaLogIn extends JFrame {
 
 
 		btnEntrar = new JButton();
-		btnEntrar.setToolTipText("Aï¿½ade los parametros pedidos y pulsa el boton");
+		btnEntrar.setToolTipText("Pulsa para iniciar sesion");
 		btnEntrar.setText("Iniciar sesi\u00F3n");
 		panelBotonera.add(btnEntrar);
 
 		JButton btnAdmin = new JButton("Admin");
+		btnAdmin.setToolTipText("Modo administrador");
 		panelBotonera.add(btnAdmin);
 
 		btnAdmin.addActionListener(e -> {
-
+			
+			JOptionPane.showMessageDialog(null, "¡Acceso restringido para el equipo de administración!", "Acceso restringido", JOptionPane.WARNING_MESSAGE);
 			VentanaInicioAdmin v2 = new VentanaInicioAdmin();
 			v2.setVisible(true);
 			dispose();

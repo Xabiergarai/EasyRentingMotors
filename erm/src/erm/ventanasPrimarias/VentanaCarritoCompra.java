@@ -137,6 +137,8 @@ public class VentanaCarritoCompra extends JFrame {
 			contenedora.cargarFicheroCoches();
 			//contenedora.guardarCarritoEnFicheroDeTexto();
 			
+			
+			
 		});
 		frame.getContentPane().add(btnGuardarLista);
 		

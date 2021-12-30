@@ -973,9 +973,27 @@ public class DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	
 	}
-		
+		 	//INSERTAR COCHE (Categoria A) EN CARRITO
+			public void insertarCategoriaACarrito (CategoriaA catA) throws DBException{
+				String id = catA.getId();
+				String nombre = catA.getNombre();
+				String fecha = catA.getfecha_matriculacion();
+				double precio = catA.getPrecio();
+				
+				
+				try (Statement stmt = conn.createStatement()){
+					
+					
+					
+					stmt.executeUpdate("INSERT INTO carrito (id, nombre, fecha, precio) VALUES (' " + id + " ',  ' "+ nombre + "', ' "+ fecha + ", '"+ precio +"')");
+					
+					
+				}catch (SQLException e) {
+					throw new DBException("No ha sido posible ejecutar la query");
+				}
+			}
 	
 		/*
 		 * public void insertarVenta(Coche coche) throws DBException { String nombre =
