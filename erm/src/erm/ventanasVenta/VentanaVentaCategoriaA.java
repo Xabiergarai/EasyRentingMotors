@@ -1,4 +1,4 @@
-package erm.ventanasPrimarias;
+package erm.ventanasVenta;
 
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -22,31 +22,31 @@ import java.sql.Statement;
 import javax.swing.JTextPane;
 import erm.webcam.WebcamViewerExample;
 import erm.categoriasCoche.Coche;
-import erm.ventanasSecundarias.VentanaVentasInformacion;
+
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 
-public class VentanaVenderCoche extends JFrame {
+public class VentanaVentaCategoriaA extends JFrame {
 
 	private JButton btnAtras;
 	public static int idVenta;
 
-	public VentanaVenderCoche() {
+	public VentanaVentaCategoriaA() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 546);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 
-		JLabel lblERM = new JLabel("Easy Renting Motors");
+		JLabel lblERM = new JLabel("Ventas: Categoria A");
 		lblERM.setForeground(new Color(255, 165, 0));
-		lblERM.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblERM.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 28));
 		lblERM.setBounds(99, 11, 223, 60);
 		getContentPane().add(lblERM);
 
 		JLabel lblTitulo = new JLabel("Introduce los datos del coche que deseas vender");
-		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTitulo.setBounds(35, 82, 373, 28);
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 16));
+		lblTitulo.setBounds(21, 70, 373, 28);
 		getContentPane().add(lblTitulo);
 
 		JLabel lblNombre = new JLabel("Nombre");
@@ -57,13 +57,8 @@ public class VentanaVenderCoche extends JFrame {
 		JTextArea textoNombre = new JTextArea();
 		textoNombre.setTabSize(18);
 		textoNombre.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textoNombre.setBounds(106, 120, 99, 28);
+		textoNombre.setBounds(106, 120, 216, 28);
 		getContentPane().add(textoNombre);
-
-		JLabel lblCategoria = new JLabel("Categoria");
-		lblCategoria.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCategoria.setBounds(215, 121, 81, 28);
-		getContentPane().add(lblCategoria);
 
 		JLabel lblMarca = new JLabel("Marca");
 		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -150,15 +145,6 @@ public class VentanaVenderCoche extends JFrame {
 		ButtonGroup grupo = new ButtonGroup();
 		grupo.add(rdGasolina);
 		grupo.add(rdDiesel);
-
-		JComboBox cbCategoria = new JComboBox();
-		cbCategoria.setBounds(298, 121, 99, 22);
-		getContentPane().add(cbCategoria);
-
-		cbCategoria.addItem("Categoria A");
-		cbCategoria.addItem("Categoria B");
-		cbCategoria.addItem("Categoria C");
-		cbCategoria.addItem("Categoria D");
 		
 
 		JButton btnCamara = new JButton("Camara");

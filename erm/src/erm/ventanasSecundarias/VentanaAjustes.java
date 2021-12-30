@@ -17,6 +17,8 @@ import erm.ventanasPrimarias.VentanaAlquiler;
 import erm.ventanasPrimarias.VentanaInicial;
 import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
+import erm.ventanasVenta.VentanaVentasInformacion;
+
 import java.awt.SystemColor;
 
 public class VentanaAjustes extends JFrame {

@@ -1,4 +1,4 @@
-package erm.ventanasSecundarias;
+package erm.ventanasVenta;
 
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
-import erm.ventanasPrimarias.VentanaVenderCoche;
+import erm.ventanasSecundarias.VentanaAjustes;
+import erm.ventanasSecundarias.VentanaOpinion;
 
 public class VentanaVentasInformacion extends JFrame {
 
@@ -44,7 +45,7 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().add(btnVenderCoche);
 		
 		btnVenderCoche.addActionListener(e -> {
-				 VentanaVenderCoche v2 = new VentanaVenderCoche();
+				 VentanaCategoriaVenta v2 = new VentanaCategoriaVenta();
 				 v2.setVisible(true);
 					dispose();
 		});

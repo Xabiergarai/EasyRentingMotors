@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import erm.ventanasVenta.VentanaVentasInformacion;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
