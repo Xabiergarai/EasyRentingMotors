@@ -30,5 +30,43 @@ class AdministradorTest {
 		assertEquals("12", a.getAdminUsuario());
 	}
 	
+	@Test
+	public void testSetAdminInterfaz() {
+		a.setAdminInterfaz("23");
+		assertEquals("23", a.getAdminInterfaz());
+	}
+	@Test
+	public void testGetAdminInterfaz() {
+		assertEquals("1", a.getAdminInterfaz());
+	}
+	
+	@Test
+	public void testSetAdminVerificar() {
+		a.setAdminVerificar("30");
+		assertEquals("30", a.getAdminVerificar());
+	}
+	
+	@Test
+	public void testGetAdminVerificar() {
+		assertEquals("2", a.getAdminVerificar());
+	}
+	
+	@Test
+	public void testSetAdminRecuperacion() {
+		a.setAdminRecuperacion("5");
+		assertEquals("5", a.getAdminRecuperacion());
+	}
+	
+	@Test
+	public void testGetAdminRecuperacion() {
+		assertEquals("2", a.getAdminRecuperacion());
+	}
+	
+	@Test
+	public void testToString() {
+		assertEquals("Administrador [AdminUsuario=12, AdminInterfaz=1, AdminVerificar=2, AdminRecuperacion=2]"
+, a.toString());
+	}
+	
 	
 }
