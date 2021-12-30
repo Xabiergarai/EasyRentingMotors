@@ -947,6 +947,34 @@ public class DBManager {
         }
 
     }
+	
+	public static void ponerCategoriaAEnOferta() throws SQLException {
+		Connection c;
+		try {
+			c = DBManager.initBD("EasyRentingMotors.db");
+			Statement statement = c.createStatement();
+			String sent = "update categoriaa set precio = precio - 1000";
+			statement.executeUpdate(sent);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void seAcabaLaOferta() throws SQLException {
+		Connection c;
+		try {
+			c = DBManager.initBD("EasyRentingMotors.db");
+			Statement statement = c.createStatement();
+			String sent = "update categoriaa set precio = precio + 1000";
+			statement.executeUpdate(sent);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 		
 	
 		/*

@@ -6,11 +6,13 @@ import erm.clasesBasicas.Contenedora;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -99,6 +101,10 @@ public class VentanaCarritoCompra extends JFrame {
 		JScrollPane js = new JScrollPane(carritoTabla);
 		tablePanel.add(js);
 	}
+	
+	
+	
+		
 
 	/**
 	 * Initialize the contents of the frame.
@@ -230,8 +236,74 @@ public class VentanaCarritoCompra extends JFrame {
 		}
 		updatePrecioTotal();
 		
+		/*Hilo que hace que los productos se pongan en oferta a las 18:04:00
+		 * y que dejen de estar en oferta a las 18:05:00*/
+		Runnable r1 = new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy hh:mm:ss");
+				
+				boolean fin = false;
+				while(fin == false) {
+					long milis = System.currentTimeMillis();
+					Date d = new Date(milis);
+					String f = sdf.format(d);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					//if(f.equals("30-11-21 15:55:00")) {
+					//if(d.getMinutes() == 53) && d.getSeconds()==0) {
+					if(d.getHours() == 19 && d.getMinutes() ==30 && d.getSeconds()==0) {
+						try {
+							DBManager.ponerCategoriaAEnOferta();
+							setTableContent(carrito);
+							
+							fin = true;
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				
+				fin = false;
+				while(fin == false) {
+					long milis = System.currentTimeMillis();
+					Date d = new Date(milis);
+					String f = sdf.format(d);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					//if(f.equals("30-11-21 15:55:00")) {
+					//if(d.getMinutes() == 53) && d.getSeconds()==0) {
+					if(d.getHours() == 20 && d.getMinutes() == 30 && d.getSeconds()==0) {
+						try {
+							DBManager.seAcabaLaOferta();
+							setTableContent(carrito);
+							
+							fin = true;
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		};
+		
+		Thread t1 = new Thread(r1);
+		t1.start();
 	}
 	
+
 	
 	
 	
@@ -251,7 +323,7 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 
 	private void updatePrecioTotal() {
-		this.lblTotal.setText("TOTAL:   "+this.precioTotal+" Euros");
+		this.lblTotal.setText("TOTAL:   "+this.precioTotal+" €");
 	}
 }
 
