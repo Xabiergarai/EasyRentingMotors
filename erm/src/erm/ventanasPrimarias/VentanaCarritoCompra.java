@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaCarritoCompra extends JFrame {
@@ -69,6 +70,31 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoTabla = new JTable();
 		carritoTabla.setModel(carritoModeloTabla);
 		tablePanel.add(carritoTabla);
+		
+		//Añadimos el Renderer a la tabla
+		carritoTabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if(column == 0) {
+					c.setBackground(Color.LIGHT_GRAY);
+				}else {
+					c.setBackground(Color.WHITE);
+				}
+
+				// Cuando tengo que aplicar el cambio a toda la fila, compruebo
+				// si se cumple la condición en el DefaultTableModel (carritoModeloTabla)
+				double precio = (double)carritoModeloTabla.getValueAt(row, 3);
+				if(precio<18000) {
+					c.setForeground(Color.BLUE);
+				}else {
+					c.setForeground(Color.BLACK);
+				}
+				return c;
+			}
+		});
 
 		JScrollPane js = new JScrollPane(carritoTabla);
 		tablePanel.add(js);
@@ -169,6 +195,8 @@ public class VentanaCarritoCompra extends JFrame {
 		frame.getContentPane().add(lblResumenCompra);
 	}
 	
+	
+	
 	/** 
 	 * 	Atributos que contendra la tabla de los coches se�eccionados
 	 * @param carrito
@@ -193,7 +221,7 @@ public class VentanaCarritoCompra extends JFrame {
 		System.out.println(carrito);
 		for (Coche Coche: carrito) {
 			this.carritoModeloTabla.addRow(new Object[] {
-					Coche.getNombre(),
+					Coche.getId(),
 					Coche.getNombre(),
 					Coche.getfecha_matriculacion(),
 					Coche.getPrecio()
@@ -201,7 +229,12 @@ public class VentanaCarritoCompra extends JFrame {
 			precioTotal += Coche.getPrecio();
 		}
 		updatePrecioTotal();
+		
 	}
+	
+	
+	
+	
 	
 	/**
 	 * Se vacia la tabla de la cesta de la compra donde estan los coches
