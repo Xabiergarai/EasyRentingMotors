@@ -64,6 +64,9 @@ public class VentanaCategoriaVenta extends JFrame {
 		JButton btnCategoriaB = new JButton("Categoria B");
 		btnCategoriaB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VentanaVentaCategoriaB vb = new VentanaVentaCategoriaB();
+				vb.setVisible(true);
+				dispose();
 				dispose();
 				
 			}
@@ -76,6 +79,9 @@ public class VentanaCategoriaVenta extends JFrame {
 		JButton btnCategoriaC = new JButton("Categoria C");
 		btnCategoriaC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VentanaVentaCategoriaC vc = new VentanaVentaCategoriaC();
+				vc.setVisible(true);
+				dispose();
 				dispose();
 				
 			}
@@ -88,6 +94,8 @@ public class VentanaCategoriaVenta extends JFrame {
 		JButton btnCategoriaD = new JButton("Categoria D");
 		btnCategoriaD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VentanaVentaCategoriaD vd = new VentanaVentaCategoriaD();
+				vd.setVisible(true);
 				dispose();
 				
 			}

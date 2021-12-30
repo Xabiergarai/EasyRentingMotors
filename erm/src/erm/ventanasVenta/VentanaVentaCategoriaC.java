@@ -1,15 +1,14 @@
 package erm.ventanasVenta;
 
-import javax.swing.JFrame;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import java.awt.Font;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -26,19 +25,19 @@ import erm.categoriasCoche.Coche;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 
-public class VentanaVentaCategoriaA extends JFrame {
+public class VentanaVentaCategoriaC extends JFrame {
 
 	private JButton btnAtras;
 	public static int idVenta;
 
-	public VentanaVentaCategoriaA() {
+	public VentanaVentaCategoriaC() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 546);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 
-		JLabel lblERM = new JLabel("Ventas: Categoria A");
+		JLabel lblERM = new JLabel("Ventas: Categoria C");
 		lblERM.setForeground(new Color(255, 165, 0));
 		lblERM.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 28));
 		lblERM.setBounds(99, 11, 223, 60);
