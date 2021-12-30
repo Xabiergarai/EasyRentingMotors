@@ -18,11 +18,16 @@ class CategoriaDTest {
 	
 	
 private CategoriaD d;
+private CategoriaD d1;
+private static final long serialVersionUID = 1L;
+
+
 	
 	@BeforeEach
 	public void setUp() {
 		 d= new CategoriaD("CD01", "Volkswagen Transporter", "D", "Volkswagen",
 					"2021/08-27", "Diesel", 7499.99," ", "Tipo transporter", true);
+		 d1= new CategoriaD();
 	}
 	
 	
@@ -60,6 +65,11 @@ private CategoriaD d;
 	public void testToString() {
 		assertEquals("CategoriaD [tipoFurgoneta=Tipo transporter, descapotable=true]"
 , d.toString());
+	}
+	
+	@Test
+	public void testGetSerialversionuid() {				
+		assertEquals(serialVersionUID, d.getSerialversionuid());
 	}
 	
 	

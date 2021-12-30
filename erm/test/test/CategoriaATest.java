@@ -19,11 +19,15 @@ class CategoriaATest{
 	
 	
 	private CategoriaA a;
+	private CategoriaA a1;
+	private static final long serialVersionUID = 1L;
+
 	
 	@BeforeEach
 	public void setUp() {
 		 a= new CategoriaA("CA01", "Citroen C1", "A", "Citroen",
 				"2019/06-05", "Diesel", 4999.99, " ", 3, true);
+		 a1= new CategoriaA();
 	}
 		
 	@Test
@@ -60,6 +64,18 @@ class CategoriaATest{
 	public void testToString() {
 		assertEquals("CategoriaA [numPuertas=3, maletero=true]", a.toString());
 	}
+	
+	@Test
+	public void testGetSerialversionuid() {				
+		assertEquals(serialVersionUID, a.getSerialversionuid());
+	}
+	
+	@Test
+	public void testSetDescapotable() {	
+		a.setMaletero(false);
+		assertFalse(a.isMaletero());
+	}
+	
 	
 	
 }

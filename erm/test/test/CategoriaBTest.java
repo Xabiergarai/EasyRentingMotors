@@ -23,11 +23,14 @@ class CategoriaBTest {
 	
 	
 private CategoriaB b;
+private CategoriaB b1;
+
 	
 	@BeforeEach
 	public void setUp() {
 		 b= new CategoriaB("CB01", "Audi A3", "B", "Audi",
 					"2020/01-05", "Gasolina", 19999.99, " ",5, false, false );
+		 b1 = new CategoriaB();
 	}
 		
 	@Test
@@ -67,5 +70,21 @@ private CategoriaB b;
 		assertEquals("CategoriaB [descapotable=false, deportivo=false]"
 , b.toString());
 	}
+	
+	@Test
+	public void testSetDescapotable() {	
+		b.setDescapotable(false);
+		assertFalse(b.isDescapotable());
+	}
+	
+	
+	@Test
+	public void testSetDeportivo() {	
+		b.setDeportivo(false);
+		assertFalse(b.isDeportivo());
+	}
+	
+	
+	
 	
 }

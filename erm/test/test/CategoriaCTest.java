@@ -22,11 +22,16 @@ class CategoriaCTest {
 	
 	
 private CategoriaC c;
+private CategoriaC c1;
+private static final long serialVersionUID = 1L;
+
+
 	
 	@BeforeEach
 	public void setUp() {
 		 c= new CategoriaC("CC01", "Suzuki Vitara", "C", "Suzuki",
 					"2018/10-15", "Gasolina", 9999.99, " ", "cuatroxcuatro", true );
+		 c1 = new CategoriaC();
 	}
 	
 	@Test
@@ -51,7 +56,15 @@ private CategoriaC c;
 , c.toString());
 	}
 
+	@Test
+	public void testGetSerialversionuid() {				
+		assertEquals(serialVersionUID, c.getSerialversionuid());
+	}
 	
-	
+	@Test
+	public void testSetDescapotable() {	
+		c.setDescapotable(false);
+		assertFalse(c.isDescapotable());
+	}
 
 }

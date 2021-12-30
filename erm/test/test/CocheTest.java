@@ -16,10 +16,13 @@ import erm.categoriasCoche.Coche;
 class CocheTest  {
 
 	private Coche c;
+	private Coche c1;
+
 	
 	@BeforeEach
 	void setUpCoche() {
 		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "imagen");	
+		 c1= new Coche();
 	}
 			
 	@Test
@@ -111,6 +114,12 @@ class CocheTest  {
 	void testSetRutaFoto() {
 		c.setRutaFoto("imagen1");
 		assertEquals("imagen1", c.getRutaFoto());
+	}
+	
+	@Test
+	void testSetCategoria() {
+		c.setCategoria("Audi A5");
+		assertEquals("Audi A5", c.getCategoria());
 	}
 		
 	@Test
