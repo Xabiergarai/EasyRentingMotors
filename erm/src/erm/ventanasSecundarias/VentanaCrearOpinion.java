@@ -49,7 +49,7 @@ public class VentanaCrearOpinion extends JFrame {
 		
 		JLabel lblOpinion = new JLabel("Dejanos tu opinion acerca de tu\r\n compra ");
 		lblOpinion.setForeground(new Color(255, 165, 0));
-		lblOpinion.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblOpinion.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 22));
 		lblOpinion.setBounds(10, 0, 424, 107);
 		getContentPane().add(lblOpinion);
 		

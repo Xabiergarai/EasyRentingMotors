@@ -3,7 +3,7 @@ package erm.clasesBasicas;
 import java.util.Date;
 
 import erm.pay.PaymentEnum;
-class TargetaCredito extends PaymentMethod{
+class TarjetaCredito extends PaymentMethod{
 	
 	private String nombre;
 	private String cunetaBanco;
@@ -12,7 +12,7 @@ class TargetaCredito extends PaymentMethod{
 	private Date fExpriracion;
 	
 
-	public TargetaCredito() {
+	public TarjetaCredito() {
 		this.paymentType = PaymentEnum.CreditCard;
 	}
 	

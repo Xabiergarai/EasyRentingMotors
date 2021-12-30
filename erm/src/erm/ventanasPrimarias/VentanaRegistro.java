@@ -105,7 +105,7 @@ public class VentanaRegistro extends JFrame {
 
 		JLabel lblPorFavorRellene = new JLabel("Por favor, rellene todos los campos.");
 		lblPorFavorRellene.setForeground(new Color(255, 165, 0));
-		lblPorFavorRellene.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblPorFavorRellene.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
 		lblPorFavorRellene.setBounds(104, 40, 307, 16);
 		getContentPane().add(lblPorFavorRellene);
 		btnRegistrarse.addActionListener(e -> {

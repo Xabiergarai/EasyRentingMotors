@@ -94,7 +94,7 @@ public class VentanaLogIn extends JFrame {
 		lblTitulo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setForeground(new Color(255, 165, 0));
-		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 40));
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
 		panelBase.add(lblTitulo);
 		getContentPane().add(panelBotonera);
 

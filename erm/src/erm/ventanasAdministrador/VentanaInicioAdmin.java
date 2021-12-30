@@ -37,8 +37,8 @@ public class VentanaInicioAdmin extends JFrame {
 		
 		JLabel lblTitulo = new JLabel("ADMINISTRADOR");
 		lblTitulo.setForeground(new Color(255, 165, 0));
-		lblTitulo.setFont(new Font("Calibri", Font.BOLD, 40));
-		lblTitulo.setBounds(124, 27, 327, 85);
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
+		lblTitulo.setBounds(142, 22, 289, 85);
 		getContentPane().add(lblTitulo);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
@@ -70,7 +70,7 @@ public class VentanaInicioAdmin extends JFrame {
 		
 		getContentPane().add(btnAtras);
 		
-		JButton btnEntrar = new JButton("Entrar");
+		JButton btnEntrar = new JButton("Acceder");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

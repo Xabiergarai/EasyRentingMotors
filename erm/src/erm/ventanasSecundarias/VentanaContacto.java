@@ -33,7 +33,7 @@ public class VentanaContacto extends JFrame {
 
 		JLabel lblproblemasdudasContactanos = new JLabel("\u00BFProblemas? \u00BFDudas? Contactanos !!!");
 		lblproblemasdudasContactanos.setForeground(new Color(255, 165, 0));
-		lblproblemasdudasContactanos.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblproblemasdudasContactanos.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
 		lblproblemasdudasContactanos.setBounds(27, 11, 379, 38);
 		getContentPane().add(lblproblemasdudasContactanos);
 

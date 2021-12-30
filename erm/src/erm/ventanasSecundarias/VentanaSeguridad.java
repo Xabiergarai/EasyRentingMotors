@@ -34,8 +34,8 @@ public class VentanaSeguridad extends JFrame {
 		
 		JLabel lblCambiarContrasenya = new JLabel("Cambiar contrase\u00F1a");
 		lblCambiarContrasenya.setForeground(new Color(255, 165, 0));
-		lblCambiarContrasenya.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblCambiarContrasenya.setBounds(121, 21, 223, 20);
+		lblCambiarContrasenya.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
+		lblCambiarContrasenya.setBounds(128, 23, 223, 20);
 		getContentPane().add(lblCambiarContrasenya);
 		
 		JLabel lblContrasenyaAntigua = new JLabel("Contrase\u00F1a actual");

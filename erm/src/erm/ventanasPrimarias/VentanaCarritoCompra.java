@@ -73,6 +73,12 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoTabla.setModel(carritoModeloTabla);
 		tablePanel.add(carritoTabla);
 		
+		carritoTabla.getColumnModel().getColumn(0).setMaxWidth(40);
+		carritoTabla.getColumnModel().getColumn(1).setMaxWidth(100);
+		carritoTabla.getColumnModel().getColumn(2).setMaxWidth(140);
+		carritoTabla.getColumnModel().getColumn(3).setMaxWidth(80);	
+		
+		
 		//AÃ±adimos el Renderer a la tabla
 		carritoTabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 			
@@ -164,7 +170,7 @@ public class VentanaCarritoCompra extends JFrame {
 		
 		
 		JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
-		btnRealizarPedido.setBackground(Color.YELLOW);
+		btnRealizarPedido.setBackground(Color.ORANGE);
 		btnRealizarPedido.setBounds(98, 555, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
 		 btnRealizarPedido.addActionListener(e -> {
@@ -217,6 +223,8 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Fecha de matriculacion");
 		carritoModeloTabla.addColumn("Precio (€)");
 		setTableContent(carrito);
+		
+		
 	}
 	
 	/**

@@ -83,8 +83,8 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel lblSeccionesCoches = new JLabel("Categorias de los coches");
-		lblSeccionesCoches.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblSeccionesCoches.setBounds(128, 11, 242, 26);
+		lblSeccionesCoches.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
+		lblSeccionesCoches.setBounds(83, 11, 242, 26);
 		getContentPane().add(lblSeccionesCoches);
 
 		JLabel lblCategoriaA = new JLabel("Categoria A");

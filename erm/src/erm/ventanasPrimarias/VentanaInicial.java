@@ -63,12 +63,14 @@ public class VentanaInicial extends JFrame {
 		getContentPane().add(btnRegistro);
 
 		JLabel lblTitulo = new JLabel("EASY RENTING MOTORS");
+		lblTitulo.setForeground(new Color(0, 0, 0));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Algerian", Font.BOLD, 40));
 		lblTitulo.setBounds(23, 28, 564, 71);
 		getContentPane().add(lblTitulo);
 
 		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.setBorderPainted(true);
 		btnLogin.addActionListener(e -> {
 			
 			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
