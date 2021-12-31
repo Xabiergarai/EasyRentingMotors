@@ -21,6 +21,7 @@ import erm.categoriasCoche.CategoriaC;
 import erm.categoriasCoche.CategoriaD;
 import erm.clasesBasicas.Alquiler;
 import erm.clasesBasicas.Usuario;
+import erm.clasesBasicas.Venta;
 import erm.categoriasCoche.*;
 import erm.ventanasPrimarias.*;
 
@@ -995,38 +996,52 @@ public class DBManager {
 				}
 			}
 	
-		/*
-		 * public void insertarVenta(Coche coche) throws DBException { String nombre =
-		 * coche.getNombre(); String categoria = coche.getCategoria(); String marca =
-		 * coche.getMarca(); String combustible = coche.getCombustible(); double precio
-		 * = coche.getPrecio();
-		 * 
-		 * try (Statement stmt = conn.createStatement()) {
-		 * 
-		 * stmt.
-		 * executeUpdate("INSERT INTO coche (nombre, categoria,marca, combustible, precio) VALUES (' "
-		 * + nombre + " ',  ' " + categoria + "', ' " + marca + "' ," + combustible +
-		 * "' ," + precio + ")");
-		 * 
-		 * } catch (SQLException e) { throw new
-		 * DBException("No ha sido posible ejecutar la query"); } }
-		 * 
-		 * 
-		 * public ArrayList<Carrito> obtenerCarrito() { String sentSQL =
-		 * "SELECT * FROM carrito"; ArrayList<Carrito> al = new ArrayList<>(); try {
-		 * Statement st = conn.createStatement(); ResultSet rs =
-		 * st.executeQuery(sentSQL); while (rs.next()) { String id = rs.getString("id");
-		 * String nombre = rs.getString("nombre"); double precio =
-		 * rs.getDouble("precio"); String fecha = rs.getString("fecha");
-		 * 
-		 * 
-		 * 
-		 * Carrito p = new Carrito(id, nombre, precio, fecha); al.add(p); } rs.close();
-		 * st.close(); } catch (SQLException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); try { throw new DBException("No se han obtenido Coches",
-		 * e); } catch (DBException e1) { // TODO Auto-generated catch block
-		 * e1.printStackTrace(); } } return al; }
-		 */
+		
+			public void insertarVenta(Venta venta) throws DBException {
+
+				String nombre = venta.getNombre();
+				String categoria = venta.getCategoria();
+				double precio = venta.getPrecio();
+
+				try (Statement stmt = conn.createStatement()) {
+
+					stmt.executeUpdate("INSERT INTO ventas (nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ ")");
+
+				} catch (SQLException e) {
+
+					throw new DBException("No ha sido posible ejecutar la query");
+				}
+
+			}
+
+			/*public ArrayList<Carrito> obtenerCarrito() {
+				String sentSQL = "SELECT * FROM carrito";
+				ArrayList<Carrito> al = new ArrayList<>();
+				try {
+					Statement st = conn.createStatement();
+					ResultSet rs = st.executeQuery(sentSQL);
+					while (rs.next()) {
+						String id = rs.getString("id");
+						String nombre = rs.getString("nombre");
+						double precio = rs.getDouble("precio");
+						String fecha = rs.getString("fecha");
+
+						Carrito p = new Carrito(id, nombre, precio, fecha);
+						al.add(p);
+					}
+					rs.close();
+					st.close();
+				} catch (SQLException e) { // TODO Auto-generated catch block
+					e.printStackTrace();
+					try {
+						throw new DBException("No se han obtenido Coches", e);
+					} catch (DBException e1) { // TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				return al;
+			}*/
+		 
 	
 		/**
 		 * Cerramos conexión con la BD

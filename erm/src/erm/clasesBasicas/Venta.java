@@ -5,19 +5,24 @@ public class Venta {
 	public static int cont;
 	private int idUsuario;
 	private int idVenta;
-
-	public Venta(int idUsuario, int idVenta, String nombre,String Categoria,  String clase, String marca, String fecha_matriculacion) {
+	private String nombre;
+	private String categoria;
+	private double precio;
+	
+	public Venta(String nombre, String categoria, double precio) {
 		super();
 		this.idUsuario = idUsuario;
-		this.idVenta = idVenta;
-
+		this.nombre = nombre;
+		this.categoria = categoria;
+		this.precio = precio;
 	}
 
 	public Venta() {
 		super();
 		this.idUsuario = 0;
-		this.idVenta = cont++;
-
+		this.nombre = "";
+		this.categoria = "";
+		this.precio = 0.0;
 	}
 
 	public int getIdUsuario() {
@@ -28,13 +33,37 @@ public class Venta {
 		this.idUsuario = idUsuario;
 	}
 
-	public int getidVenta() {
-		return idVenta;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setidVenta(int idVenta) {
-		this.idVenta = idVenta;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "Venta [idUsuario=" + idUsuario + ", nombre=" + nombre + ", categoria="
+				+ categoria + ", precio=" + precio + "]";
+	}
+	
+	
 
 	
 
