@@ -28,6 +28,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JCalendar;
 
+import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
@@ -140,7 +141,9 @@ public class VentanaAlquiler extends JFrame {
 
 				DBManager db = new DBManager();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
+				Coche c= new Coche();
+				
+				
 				Date d = new Date(System.currentTimeMillis());
 				Date d2 = new Date();
 				d2 = calendario.getDate();
@@ -149,7 +152,8 @@ public class VentanaAlquiler extends JFrame {
 				String nomCoche = (String) comboCoche.getSelectedItem();
 				String fInicio = sdf.format(d);
 				String fFin = sdf.format(d2);
-
+				
+				
 				Alquiler al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
 
 				if (textNombre.getText().equals("")) {
@@ -191,6 +195,8 @@ public class VentanaAlquiler extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				// MetodosPago mp= new MetodosPago();
+				
+				
 			}
 		});
 	}
@@ -242,11 +248,9 @@ public class VentanaAlquiler extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*
-		 * private void elegirMetodo(PaymentEnum paymentType){ switch(paymentType) {
-		 * case Paypal: return new PaypalGateway(); case CreditCard: return new
-		 * CreditCardGateway(); default: return new PaypalGateway(); } }
-		 */
+		
+		 
 	}
-
+ 
+	
 }

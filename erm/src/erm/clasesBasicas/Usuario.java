@@ -15,7 +15,7 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.email = email;
 		this.direccionIP = direccionIP;
-		this.saldo=saldo;
+		
 		
 	}
 	
@@ -44,7 +44,7 @@ public class Usuario {
 		this.contrasenya = "";
 		this.email = "";
 		this.direccionIP = "";
-		this.saldo="";
+		
 	}
 	public int getId() {
 		return id;
@@ -101,12 +101,7 @@ public class Usuario {
 	public void setDireccionIP(String direccionIP) {
 		this.direccionIP = direccionIP;
 	}
-	public void setSaldo(String saldo) {
-		this.saldo=saldo;
-	}
-	public String getSaldo() {
-		return saldo;
-	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname
