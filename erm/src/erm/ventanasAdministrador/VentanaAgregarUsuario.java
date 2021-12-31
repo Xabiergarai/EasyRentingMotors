@@ -69,11 +69,11 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		JLabel lblId = new JLabel("Id");
 		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblId.setBounds(32, 137, 88, 32);
+		lblId.setBounds(270, 137, 48, 32);
 		contentPane.add(lblId);
 		
 		textId = new JTextField();
-		textId.setBounds(197, 137, 170, 32);
+		textId.setBounds(325, 139, 48, 32);
 		contentPane.add(textId);
 		textId.setColumns(10); 
 	
@@ -83,7 +83,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		contentPane.add(lblNombre);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(197, 137, 170, 32);
+		textNombre.setBounds(152, 139, 96, 32);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
@@ -94,7 +94,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(197, 199, 170, 32);
+		textApellidos.setBounds(152, 199, 96, 32);
 		contentPane.add(textApellidos);
 		
 		JLabel lblEmail = new JLabel("Email");
@@ -104,7 +104,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textEmail = new JTextField();
 		textEmail.setColumns(10);
-		textEmail.setBounds(197, 260, 170, 32);
+		textEmail.setBounds(152, 260, 96, 32);
 		contentPane.add(textEmail);
 		
 		JLabel lblContraseña = new JLabel("Contraseña");
@@ -114,7 +114,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textPass = new JTextField();
 		textPass.setColumns(10);
-		textPass.setBounds(197, 371, 170, 32);
+		textPass.setBounds(152, 371, 96, 32);
 		contentPane.add(textPass);
 		
 		JLabel lblNickname = new JLabel("Nickname");
@@ -124,7 +124,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textNickname = new JTextField();
 		textNickname.setColumns(10);
-		textNickname.setBounds(197, 315, 170, 32);
+		textNickname.setBounds(152, 315, 96, 32);
 		contentPane.add(textNickname);
 		
 		JLabel lblDireccionIP = new JLabel("Direccion IP");
@@ -134,7 +134,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textDireccionIP = new JTextField();
 		textDireccionIP.setColumns(10);
-		textDireccionIP.setBounds(197, 426, 170, 32);
+		textDireccionIP.setBounds(152, 426, 96, 32);
 		contentPane.add(textDireccionIP);
 	
 		JButton btnAgregarProducto = new JButton("AGREGAR");
