@@ -137,10 +137,10 @@ public class VentanaAgregarUsuario extends JFrame {
 		textDireccionIP.setBounds(152, 426, 96, 32);
 		contentPane.add(textDireccionIP);
 	
-		JButton btnAgregarProducto = new JButton("AGREGAR");
+		/* JButton btnAgregarProducto = new JButton("AGREGAR");
 		btnAgregarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id = textId.getText();
+				//int id = textId
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
 				String nickname = textNickname.getText();
@@ -148,10 +148,10 @@ public class VentanaAgregarUsuario extends JFrame {
 				String email = textEmail.getText();
 				String direccionIP = textDireccionIP.getText();
 				
-				Usuario u = new Usuario(nombre,apellidos,nickname,contrasenya, email, direccionIP);
+				 Usuario u = new Usuario(id,nombre,apellidos,nickname,contrasenya, email, direccionIP);
 				System.out.println(u);
-			}
-		});
+			} 
+		}); 
 		btnAgregarProducto.setForeground(Color.WHITE);
 		btnAgregarProducto.setBackground(new Color(255, 165, 0));
 		btnAgregarProducto.setBounds(152, 535, 132, 50);
@@ -172,7 +172,7 @@ public class VentanaAgregarUsuario extends JFrame {
 				vu.setVisible(true);
 				
 			}
-		});
+		}); */
 		
 	}
 }
