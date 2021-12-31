@@ -134,9 +134,10 @@ public class VentanaVentaCategoriaA extends JFrame {
 				String categoria = textoCategoria.getText();
 				String precio = textoPrecio.getText();
 				
-				int a = VentanaLogIn.getUsuarioId();
+			//	int a = VentanaLogIn.getUsuarioId();
 				
-				Venta venta = new Venta(a, nombre, categoria, Double.parseDouble(precio));
+				
+				Venta venta = new Venta( nombre, categoria, Double.parseDouble(precio));
 				
 				DBManager dbm = new DBManager();
 				

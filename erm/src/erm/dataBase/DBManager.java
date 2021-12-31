@@ -999,22 +999,26 @@ public class DBManager {
 		
 			public void insertarVenta(Venta venta) throws DBException {
 
-				int idUsuario = venta.getIdUsuario();
+			//	int idUsuario = venta.getIdUsuario();
 				String nombre = venta.getNombre();
 				String categoria = venta.getCategoria();
 				double precio = venta.getPrecio();
 
 				try (Statement stmt = conn.createStatement()) {
 
-					stmt.executeUpdate("INSERT INTO ventas (idUsuario, nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ ")");
+					stmt.executeUpdate("INSERT INTO ventas ( nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ "')");
 
 				} catch (SQLException e) {
-
+					e.printStackTrace();
 					throw new DBException("No ha sido posible ejecutar la query");
 				}
 
 			}
 
+			
+			
+			
+			
 			/*public ArrayList<Carrito> obtenerCarrito() {
 				String sentSQL = "SELECT * FROM carrito";
 				ArrayList<Carrito> al = new ArrayList<>();
