@@ -181,7 +181,7 @@ public class VentanaGestionStock extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String desktopPath = System.getProperty("user.home") + "/git/EasyRentingMotors/EasyRentingMotors" + "/coches.csv";
+				String desktopPath = System.getProperty("user.home") + "/github/EasyRentingMotors" + "/coches.csv";
 				String ruta = desktopPath.replace("\\", "/");
 				
 		 

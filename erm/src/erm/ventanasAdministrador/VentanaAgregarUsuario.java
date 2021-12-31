@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 public class VentanaAgregarUsuario extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textId;
 	private JTextField textNombre;
 	private JTextField textApellidos;
 	private JTextField textNickname;
@@ -65,6 +66,16 @@ public class VentanaAgregarUsuario extends JFrame {
 		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);
+		
+		JLabel lblId = new JLabel("Id");
+		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblId.setBounds(270, 137, 48, 32);
+		contentPane.add(lblId);
+		
+		textId = new JTextField();
+		textId.setBounds(325, 139, 48, 32);
+		contentPane.add(textId);
+		textId.setColumns(10); 
 	
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -72,7 +83,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		contentPane.add(lblNombre);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(197, 137, 170, 32);
+		textNombre.setBounds(152, 139, 96, 32);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
@@ -83,7 +94,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(197, 199, 170, 32);
+		textApellidos.setBounds(152, 199, 96, 32);
 		contentPane.add(textApellidos);
 		
 		JLabel lblEmail = new JLabel("Email");
@@ -93,7 +104,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textEmail = new JTextField();
 		textEmail.setColumns(10);
-		textEmail.setBounds(197, 260, 170, 32);
+		textEmail.setBounds(152, 260, 96, 32);
 		contentPane.add(textEmail);
 		
 		JLabel lblContraseña = new JLabel("Contraseña");
@@ -103,7 +114,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textPass = new JTextField();
 		textPass.setColumns(10);
-		textPass.setBounds(197, 371, 170, 32);
+		textPass.setBounds(152, 371, 96, 32);
 		contentPane.add(textPass);
 		
 		JLabel lblNickname = new JLabel("Nickname");
@@ -113,7 +124,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textNickname = new JTextField();
 		textNickname.setColumns(10);
-		textNickname.setBounds(197, 315, 170, 32);
+		textNickname.setBounds(152, 315, 96, 32);
 		contentPane.add(textNickname);
 		
 		JLabel lblDireccionIP = new JLabel("Direccion IP");
@@ -123,12 +134,13 @@ public class VentanaAgregarUsuario extends JFrame {
 		
 		textDireccionIP = new JTextField();
 		textDireccionIP.setColumns(10);
-		textDireccionIP.setBounds(197, 426, 170, 32);
+		textDireccionIP.setBounds(152, 426, 96, 32);
 		contentPane.add(textDireccionIP);
 	
-		JButton btnAgregarProducto = new JButton("AGREGAR");
+		/* JButton btnAgregarProducto = new JButton("AGREGAR");
 		btnAgregarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//int id = textId
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
 				String nickname = textNickname.getText();
@@ -136,10 +148,10 @@ public class VentanaAgregarUsuario extends JFrame {
 				String email = textEmail.getText();
 				String direccionIP = textDireccionIP.getText();
 				
-				Usuario u = new Usuario(nombre,apellidos,nickname,contrasenya, email, direccionIP);
+				 Usuario u = new Usuario(id,nombre,apellidos,nickname,contrasenya, email, direccionIP);
 				System.out.println(u);
-			}
-		});
+			} 
+		}); 
 		btnAgregarProducto.setForeground(Color.WHITE);
 		btnAgregarProducto.setBackground(new Color(255, 165, 0));
 		btnAgregarProducto.setBounds(152, 535, 132, 50);
@@ -150,7 +162,7 @@ public class VentanaAgregarUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					try {
-						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
+						DBManager.insertarUsuario(textId.getText(), textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText(), textNickname.getText(), textDireccionIP.getText());
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -160,7 +172,7 @@ public class VentanaAgregarUsuario extends JFrame {
 				vu.setVisible(true);
 				
 			}
-		});
+		}); */
 		
 	}
 }
