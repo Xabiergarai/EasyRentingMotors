@@ -1014,14 +1014,35 @@ public class DBManager {
 				}
 
 			}
+			public void insetarCarrito(ArrayList<Coche> carrito) throws SQLException, DBException {
 
+				Connection con = initBD("EasyRentingMotors.db");
+				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES(?,?,?,?)";
+
+				ps = con.prepareStatement(sql);
+
+				
+				for (Coche coche : carrito) {
+
+					ps.setString(1, coche.getId());
+					ps.setString(2, coche.getNombre());
+					ps.setString(3, coche.getfecha_matriculacion());
+					ps.setDouble(4, coche.getPrecio());
+
+					
+							
+				}
+				ps.execute();
+				}
+				
 			
 			
 			
 			
-			/*public ArrayList<Carrito> obtenerCarrito() {
+			
+		/*	public ArrayList<Coche> obtenerCarrito() {
 				String sentSQL = "SELECT * FROM carrito";
-				ArrayList<Carrito> al = new ArrayList<>();
+				ArrayList<Coche> al = new ArrayList<>();
 				try {
 					Statement st = conn.createStatement();
 					ResultSet rs = st.executeQuery(sentSQL);
@@ -1045,9 +1066,9 @@ public class DBManager {
 					}
 				}
 				return al;
-			}*/
+			}
 		 
-	
+	*/
 		/**
 		 * Cerramos conexión con la BD
 		 * 

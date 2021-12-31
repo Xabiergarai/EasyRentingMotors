@@ -141,8 +141,9 @@ public class VentanaCarritoCompra extends JFrame {
 		btnGuardarLista.addActionListener(e -> {			
 			contenedora.guardarListaCochesEnFichero();
 			contenedora.cargarFicheroCoches();
-			//contenedora.guardarCarritoEnFicheroDeTexto();
+		//contenedora.guardarCarritoEnFicheroDeTexto();
 			
+			DBManager.insertar
 			
 			
 		});
@@ -152,7 +153,8 @@ public class VentanaCarritoCompra extends JFrame {
 		btnSeguirComprando.setBounds(90, 407, 212, 29);
 		frame.getContentPane().add(btnSeguirComprando);
 		btnSeguirComprando.addActionListener(e -> {
-				frame.dispose();
+			frame.dispose();
+		
 		});
 		
 		JLabel lblPremium = new JLabel("* Con Easy Renting Motors puedes benificiarte de gastos");
@@ -176,6 +178,7 @@ public class VentanaCarritoCompra extends JFrame {
 		 btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
 				new VentanaTransaccionCompra();
+				
 				frame.dispose();
 		}); 
 		
