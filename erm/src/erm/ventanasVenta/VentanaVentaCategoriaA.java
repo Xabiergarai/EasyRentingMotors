@@ -136,7 +136,7 @@ public class VentanaVentaCategoriaA extends JFrame {
 				
 				int a = VentanaLogIn.getUsuarioId();
 				
-				Venta venta = new Venta(nombre, categoria, Double.parseDouble(precio));
+				Venta venta = new Venta(a, nombre, categoria, Double.parseDouble(precio));
 				
 				DBManager dbm = new DBManager();
 				

@@ -121,7 +121,7 @@ public class VentanaRegistro extends JFrame {
 			}
 			
 			// compruebar ningun campo en banco
-			if (tfNombre.getText().equals("") || tfNombre.getText().equals("")
+			if (tfNombre.getText().equals("") || tfApellidos.getText().equals("")
 					|| tfNombreUsuario.getText().equals("")) {
 				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
 			}
@@ -132,7 +132,6 @@ public class VentanaRegistro extends JFrame {
 				DBManager modSql = new DBManager();
 				
 				
-				
 				Usuario mod = new Usuario();
 				mod.setApellidos(tfApellidos.getText());
 				mod.setEmail(tfEmail.getText());
@@ -140,7 +139,6 @@ public class VentanaRegistro extends JFrame {
 				mod.setNickname(tfNombreUsuario.getText());
 				mod.setContrasenya(pfContrasenia.getText());
 				mod.setDireccionIP(direccionIP);
-				
 				
 
 				try {

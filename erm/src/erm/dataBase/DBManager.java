@@ -906,7 +906,7 @@ public class DBManager {
 	 
 	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
 	
-	        String s = "INSERT INTO Ordenador (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+	        String s = "INSERT INTO CategoriaB (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
 	        Connection c = DBManager.initBD("EasyRentingMotors.db");
 	        try {
 	            Statement st = c.createStatement();
@@ -999,13 +999,14 @@ public class DBManager {
 		
 			public void insertarVenta(Venta venta) throws DBException {
 
+				int idUsuario = venta.getIdUsuario();
 				String nombre = venta.getNombre();
 				String categoria = venta.getCategoria();
 				double precio = venta.getPrecio();
 
 				try (Statement stmt = conn.createStatement()) {
 
-					stmt.executeUpdate("INSERT INTO ventas (nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ ")");
+					stmt.executeUpdate("INSERT INTO ventas (idUsuario, nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ ")");
 
 				} catch (SQLException e) {
 
