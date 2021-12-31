@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 public class VentanaAgregarUsuario extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textId;
 	private JTextField textNombre;
 	private JTextField textApellidos;
 	private JTextField textNickname;
@@ -65,6 +66,16 @@ public class VentanaAgregarUsuario extends JFrame {
 		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);
+		
+		JLabel lblId = new JLabel("Id");
+		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblId.setBounds(32, 137, 88, 32);
+		contentPane.add(lblId);
+		
+		textId = new JTextField();
+		textId.setBounds(197, 137, 170, 32);
+		contentPane.add(textId);
+		textId.setColumns(10); 
 	
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -129,6 +140,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		JButton btnAgregarProducto = new JButton("AGREGAR");
 		btnAgregarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String id = textId.getText();
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
 				String nickname = textNickname.getText();
@@ -150,7 +162,7 @@ public class VentanaAgregarUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					try {
-						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText(), textNickname.getText(), textDireccionIP.getText());
+						DBManager.insertarUsuario(textId.getText(), textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText(), textNickname.getText(), textDireccionIP.getText());
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
