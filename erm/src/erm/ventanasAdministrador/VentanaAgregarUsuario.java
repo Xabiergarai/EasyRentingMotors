@@ -150,7 +150,7 @@ public class VentanaAgregarUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					try {
-						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText());
+						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText(), textNickname.getText(), textDireccionIP.getText());
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

@@ -770,9 +770,9 @@ public class DBManager {
 
 	}
 		
-	 public static void insertarUsuario(String nombre, String email, String contrasenya) throws DBException {
+	 public static void insertarUsuario(String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
 			
-			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+contrasenya+"')";
+			String s = "INSERT INTO Usuario VALUES('"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
 			Connection c = DBManager.initBD("EasyRentingMotors.db");
 			try {
 				Statement st = c.createStatement();
