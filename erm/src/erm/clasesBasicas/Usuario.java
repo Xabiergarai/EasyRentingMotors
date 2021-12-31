@@ -5,9 +5,9 @@ public class Usuario {
 
 	public static int cont = 0;
 	private int id;
-	private String nombre, apellidos, nickname, contrasenya, email, direccionIP,saldo;
+	private String nombre, apellidos, nickname, contrasenya, email, direccionIP;
 
-	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP,String saldo) {
+	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
