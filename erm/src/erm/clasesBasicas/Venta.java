@@ -8,10 +8,6 @@ public class Venta {
 	private double precio;
 	
 	
-	
-
-
-
 	public String getNombre() {
 		return nombre;
 	}

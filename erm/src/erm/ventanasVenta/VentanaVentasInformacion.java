@@ -45,7 +45,7 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().add(btnVenderCoche);
 		
 		btnVenderCoche.addActionListener(e -> {
-				 VentanaCategoriaVenta v2 = new VentanaCategoriaVenta();
+				 VentanaVenta v2 = new VentanaVenta();
 				 v2.setVisible(true);
 					dispose();
 		});
