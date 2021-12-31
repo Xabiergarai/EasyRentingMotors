@@ -5,9 +5,9 @@ public class Usuario {
 
 	public static int cont = 0;
 	private int id;
-	private String nombre, apellidos, nickname, contrasenya, email, direccionIP;
+	private String nombre, apellidos, nickname, contrasenya, email, direccionIP,saldo;
 
-	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
+	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP,String saldo) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -15,6 +15,8 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 		this.email = email;
 		this.direccionIP = direccionIP;
+		this.saldo=saldo;
+		
 	}
 	
 	public Usuario(String nickname, String contrasenya, String email) {
@@ -42,6 +44,7 @@ public class Usuario {
 		this.contrasenya = "";
 		this.email = "";
 		this.direccionIP = "";
+		this.saldo="";
 	}
 	public int getId() {
 		return id;
@@ -98,7 +101,12 @@ public class Usuario {
 	public void setDireccionIP(String direccionIP) {
 		this.direccionIP = direccionIP;
 	}
-
+	public void setSaldo(String saldo) {
+		this.saldo=saldo;
+	}
+	public String getSaldo() {
+		return saldo;
+	}
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname
