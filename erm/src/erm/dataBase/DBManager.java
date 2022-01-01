@@ -1017,7 +1017,7 @@ public class DBManager {
 				}
 
 			}
-			public void insetarCarrito(ArrayList<Coche> carrito) throws SQLException, DBException {
+			public static void insetarCarrito(ArrayList<Coche> carrito) throws SQLException, DBException {
 
 				Connection con = initBD("EasyRentingMotors.db");
 				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES(?,?,?,?)";
