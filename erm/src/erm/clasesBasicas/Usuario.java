@@ -7,7 +7,7 @@ public class Usuario {
 	private int id;
 	private String nombre, apellidos, nickname, contrasenya, email, direccionIP;
 
-	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
+	public Usuario(int id,String nombre, String apellidos, String nickname, String contrasenya, String email, String direccionIP) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;

@@ -770,9 +770,9 @@ public class DBManager {
 
 	}
 		
-	 /* public static void insertarUsuario(String id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
+	 public static void insertarUsuario(int id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
 			
-			String s = "INSERT INTO Usuario VALUES('"+id+"','"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
+			String s = "INSERT INTO usuario VALUES("+id+",'"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
 			Connection c = DBManager.initBD("EasyRentingMotors.db");
 			try {
 				Statement st = c.createStatement();
@@ -783,23 +783,9 @@ public class DBManager {
 				logger.log(Level.WARNING,e.getMessage());
 			}
 			
-		} */
+		} 
 	
-	public static void insertarUsuario(String nombre,String apellidos,String email, String contrasenya) throws DBException {
-		
-		String s = "INSERT INTO usuario VALUES('"+nombre+"','"+apellidos+"','"+email+"','"+contrasenya+"')";
-		Connection c = DBManager.initBD("EasyRentingMotors.db");
-		try {
-			Statement st = c.createStatement();
-			st.executeUpdate(s);
-			cerrarBD(c, st);
-			logger.log(Level.INFO,"Statement correctamente");
-		} catch (SQLException e) {
-			logger.log(Level.WARNING,e.getMessage());
-		}
-		
-	} 
-	 
+
 	 
 	
 	 public static ArrayList <Usuario> listarUsuarios() throws DBException{
