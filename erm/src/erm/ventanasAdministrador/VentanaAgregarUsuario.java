@@ -26,11 +26,11 @@ import java.awt.event.ActionEvent;
 public class VentanaAgregarUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textId;
+	//private JTextField textId;
 	private JTextField textNombre;
 	private JTextField textApellidos;
-	private JTextField textNickname;
-	private JTextField textDireccionIP;
+	//private JTextField textNickname;
+	//private JTextField textDireccionIP;
 	private JTextField textEmail;
 	private JTextField textPass;
 
@@ -67,7 +67,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);
 		
-		JLabel lblId = new JLabel("Id");
+		/*JLabel lblId = new JLabel("Id");
 		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblId.setBounds(270, 137, 48, 32);
 		contentPane.add(lblId);
@@ -75,7 +75,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		textId = new JTextField();
 		textId.setBounds(325, 139, 48, 32);
 		contentPane.add(textId);
-		textId.setColumns(10); 
+		textId.setColumns(10); */ 
 	
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -117,7 +117,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		textPass.setBounds(152, 371, 96, 32);
 		contentPane.add(textPass);
 		
-		JLabel lblNickname = new JLabel("Nickname");
+		/* JLabel lblNickname = new JLabel("Nickname");
 		lblNickname.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNickname.setBounds(32, 313, 88, 32);
 		contentPane.add(lblNickname);
@@ -135,34 +135,34 @@ public class VentanaAgregarUsuario extends JFrame {
 		textDireccionIP = new JTextField();
 		textDireccionIP.setColumns(10);
 		textDireccionIP.setBounds(152, 426, 96, 32);
-		contentPane.add(textDireccionIP);
+		contentPane.add(textDireccionIP); */
 	
-		/* JButton btnAgregarProducto = new JButton("AGREGAR");
-		btnAgregarProducto.addActionListener(new ActionListener() {
+		 JButton btnAgregarCoche = new JButton("AGREGAR");
+		btnAgregarCoche.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//int id = textId
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
-				String nickname = textNickname.getText();
+				//String nickname = textNickname.getText();
 				String contrasenya = textPass.getText();
 				String email = textEmail.getText();
-				String direccionIP = textDireccionIP.getText();
+				//String direccionIP = textDireccionIP.getText();
 				
-				 Usuario u = new Usuario(id,nombre,apellidos,nickname,contrasenya, email, direccionIP);
+				 Usuario u = new Usuario(nombre,apellidos,contrasenya, email, null, null);
 				System.out.println(u);
 			} 
 		}); 
-		btnAgregarProducto.setForeground(Color.WHITE);
-		btnAgregarProducto.setBackground(new Color(255, 165, 0));
-		btnAgregarProducto.setBounds(152, 535, 132, 50);
-		contentPane.add(btnAgregarProducto);
+		btnAgregarCoche.setForeground(Color.WHITE);
+		btnAgregarCoche.setBackground(new Color(255, 165, 0));
+		btnAgregarCoche.setBounds(152, 535, 132, 50);
+		contentPane.add(btnAgregarCoche);
 		
-		btnAgregarProducto.addActionListener(new ActionListener() {
+		btnAgregarCoche.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					try {
-						DBManager.insertarUsuario(textId.getText(), textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText(), textNickname.getText(), textDireccionIP.getText());
+						DBManager.insertarUsuario(textNombre.getText(), textEmail.getText(), textPass.getText(),textApellidos.getText());
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -172,7 +172,7 @@ public class VentanaAgregarUsuario extends JFrame {
 				vu.setVisible(true);
 				
 			}
-		}); */
+		}); 
 		
 	}
 }
