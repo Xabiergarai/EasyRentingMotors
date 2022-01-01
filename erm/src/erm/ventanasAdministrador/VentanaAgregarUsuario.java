@@ -140,7 +140,8 @@ public class VentanaAgregarUsuario extends JFrame {
 		 JButton btnAgregarCoche = new JButton("AGREGAR");
 		btnAgregarCoche.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			    int id = textId.getX();
+			    String Id = textId.getText();
+				int id = Integer.parseInt(Id);
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
 				String nickname = textNickname.getText();
@@ -162,7 +163,7 @@ public class VentanaAgregarUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					try {
-						DBManager.insertarUsuario(textId.getX(),textNombre.getText(),textApellidos.getText(), textNickname.getText(), textEmail.getText(), textPass.getText(),textDireccionIP.getText());
+						DBManager.insertarUsuario(textId.getText(),textNombre.getText(),textApellidos.getText(), textNickname.getText(), textEmail.getText(), textPass.getText(),textDireccionIP.getText());
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

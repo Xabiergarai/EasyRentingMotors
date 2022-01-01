@@ -770,7 +770,7 @@ public class DBManager {
 
 	}
 		
-	 public static void insertarUsuario(int id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
+	 public static void insertarUsuario(String id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
 			
 			String s = "INSERT INTO usuario VALUES("+id+",'"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
 			Connection c = DBManager.initBD("EasyRentingMotors.db");
@@ -1094,5 +1094,5 @@ public class DBManager {
 				throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 			}
 		}
-	
+
 	}
