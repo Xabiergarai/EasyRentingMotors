@@ -142,7 +142,7 @@ public class VentanaAgregarCoche extends JFrame {
 				dispose();
 			}
 		});
-		btnAtras.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAtras.png"));
+		btnAtras.setIcon(new ImageIcon("imagenes/iconoAtras.png"));
 		btnAtras.setFocusPainted(false);
 		btnAtras.setContentAreaFilled(false);
 		btnAtras.setBorderPainted(false);

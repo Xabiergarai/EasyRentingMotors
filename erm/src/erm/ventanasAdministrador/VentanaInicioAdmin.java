@@ -20,6 +20,7 @@ import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class VentanaInicioAdmin extends JFrame {
 	private JTextField textoUsuario;
@@ -28,7 +29,7 @@ public class VentanaInicioAdmin extends JFrame {
 	
 	public VentanaInicioAdmin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 571, 525);
+		setBounds(100, 100, 571, 384);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -43,23 +44,23 @@ public class VentanaInicioAdmin extends JFrame {
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsuario.setBounds(83, 187, 119, 25);
+		lblUsuario.setBounds(134, 145, 119, 25);
 		getContentPane().add(lblUsuario);
 		
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(83, 281, 119, 25);
+		lblContrasenya.setBounds(134, 208, 119, 25);
 		getContentPane().add(lblContrasenya);
 		
 		textoUsuario = new JTextField();
-		textoUsuario.setBounds(276, 172, 190, 38);
+		textoUsuario.setBounds(276, 132, 190, 38);
 		getContentPane().add(textoUsuario);
 		textoUsuario.setColumns(10);
 		
 		
 		JButton btnAtras = new JButton("Atr\u00E1s");
-		btnAtras.setBounds(162, 414, 107, 38);
+		btnAtras.setBounds(156, 307, 107, 25);
 		btnAtras.addActionListener(e -> {
 			// TODO Auto-generated method stub
 			VentanaLogIn vl = new VentanaLogIn();
@@ -90,11 +91,21 @@ public class VentanaInicioAdmin extends JFrame {
 				
 			}
 		});
-		btnEntrar.setBounds(293, 414, 107, 38);
+		btnEntrar.setBounds(276, 307, 107, 25);
 		getContentPane().add(btnEntrar);
 		
 		textoContrasenya = new JPasswordField();
-		textoContrasenya.setBounds(276, 269, 190, 38);
+		textoContrasenya.setBounds(276, 205, 190, 38);
 		getContentPane().add(textoContrasenya);
+		
+		JLabel lblIconoUsuario = new JLabel("");
+		lblIconoUsuario.setIcon(new ImageIcon("imagenes/iconoAdmin.png"));
+		lblIconoUsuario.setBounds(59, 121, 40, 49);
+		contentPane.add(lblIconoUsuario);
+		
+		JLabel lblIconoContraseña = new JLabel("");
+		lblIconoContraseña.setIcon(new ImageIcon("imagenes/iconoContrasenya.png"));
+		lblIconoContraseña.setBounds(71, 208, 40, 25);
+		contentPane.add(lblIconoContraseña);
 	}
 }

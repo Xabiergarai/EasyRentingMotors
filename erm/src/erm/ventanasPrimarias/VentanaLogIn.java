@@ -141,23 +141,33 @@ public class VentanaLogIn extends JFrame {
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsuario.setBounds(119, 59, 67, 25);
+		lblUsuario.setBounds(148, 76, 67, 25);
 		panelCentro.add(lblUsuario);
 		
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(119, 138, 100, 25);
+		lblContrasenya.setBounds(148, 158, 100, 25);
 		panelCentro.add(lblContrasenya);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(284, 49, 163, 35);
+		txtNombre.setBounds(272, 66, 163, 35);
 		panelCentro.add(txtNombre);
 		
 		txtContrasenia = new JPasswordField();
-		txtContrasenia.setBounds(284, 128, 159, 35);
+		txtContrasenia.setBounds(272, 157, 163, 35);
 		panelCentro.add(txtContrasenia);
+		
+		JLabel lblIconoUsuario = new JLabel("");
+		lblIconoUsuario.setIcon(new ImageIcon("imagenes/iconoUsuario.png"));
+		lblIconoUsuario.setBounds(65, 52, 40, 49);
+		panelCentro.add(lblIconoUsuario);
+		
+		JLabel lblIconoContraseña = new JLabel("");
+		lblIconoContraseña.setIcon(new ImageIcon("imagenes/iconoContrasenya.png"));
+		lblIconoContraseña.setBounds(76, 158, 40, 25);
+		panelCentro.add(lblIconoContraseña);
 		
 		btnSalir.addActionListener(e -> {
 			VentanaInicial vi = null;

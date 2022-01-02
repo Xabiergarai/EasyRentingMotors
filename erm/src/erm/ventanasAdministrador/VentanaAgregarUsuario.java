@@ -178,7 +178,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		btnAtras.setFocusPainted(false);
 		btnAtras.setBorderPainted(false);
 		btnAtras.setContentAreaFilled(false);
-		btnAtras.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAtras.png"));
+		btnAtras.setIcon(new ImageIcon("imagenes/iconoAtras.png"));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaAdmin va = new VentanaAdmin();
