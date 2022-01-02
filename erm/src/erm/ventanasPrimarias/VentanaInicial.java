@@ -46,7 +46,11 @@ public class VentanaInicial extends JFrame {
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 638, 639);
 
-		JButton btnRegistro = new JButton("REGISTRO");
+		JButton btnRegistro = new JButton("");
+		btnRegistro.setIcon(new ImageIcon("imagenes/iconoRegistro.png"));
+		btnRegistro.setFocusPainted(false);
+		btnRegistro.setBorderPainted(false);
+		btnRegistro.setContentAreaFilled(false);
 		btnRegistro.addActionListener(e -> {
 			VentanaRegistro vr = null;
 			try {
@@ -59,7 +63,7 @@ public class VentanaInicial extends JFrame {
 			dispose();
 		});
 
-		btnRegistro.setBounds(317, 518, 284, 48);
+		btnRegistro.setBounds(182, 507, 66, 59);
 		getContentPane().add(btnRegistro);
 
 		JLabel lblTitulo = new JLabel("EASY RENTING MOTORS");
@@ -69,8 +73,12 @@ public class VentanaInicial extends JFrame {
 		lblTitulo.setBounds(23, 28, 564, 71);
 		getContentPane().add(lblTitulo);
 
-		JButton btnLogin = new JButton("LOGIN");
-		btnLogin.setBorderPainted(true);
+		JButton btnLogin = new JButton("");
+		btnLogin.setBackground(SystemColor.control);
+		btnLogin.setIcon(new ImageIcon("imagenes/iconoLogin.png"));
+		btnLogin.setFocusPainted(false);
+		btnLogin.setBorderPainted(false);
+		btnLogin.setContentAreaFilled(false);
 		btnLogin.addActionListener(e -> {
 			
 			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales", "login",
@@ -84,7 +92,7 @@ public class VentanaInicial extends JFrame {
 
 		});
 
-		btnLogin.setBounds(23, 518, 284, 48);
+		btnLogin.setBounds(382, 507, 78, 59);
 		getContentPane().add(btnLogin);
 
 		JLabel lblBienvenido = new JLabel("\u00A1BIENVENID@ AL MEJOR CONCESIONARIO DEL MUNDO!");
@@ -94,12 +102,26 @@ public class VentanaInicial extends JFrame {
 		getContentPane().add(lblBienvenido);
 
 		JLabel lblLogo1 = new JLabel("Logo");
-		lblLogo1.setBounds(160, 210, 313, 246);
-		ImageIcon ico = new ImageIcon("imagenes/logo.png");
+		lblLogo1.setBounds(160, 188, 313, 246);
+		ImageIcon ico = new ImageIcon("imagenes/logotipo.jpeg");
 		ImageIcon img = new ImageIcon(
 		ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo1.setIcon(img);
 		getContentPane().add(lblLogo1);
+		
+		JLabel lblLogin = new JLabel("Iniciar sesi\u00F3n");
+		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblLogin.setForeground(new Color(255, 165, 0));
+		lblLogin.setBackground(new Color(255, 165, 0));
+		lblLogin.setBounds(382, 467, 91, 25);
+		getContentPane().add(lblLogin);
+		
+		JLabel lblRegistro = new JLabel("Registrar usuario");
+		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblRegistro.setForeground(new Color(255, 165, 0));
+		lblRegistro.setBackground(new Color(255, 165, 0));
+		lblRegistro.setBounds(171, 467, 120, 25);
+		getContentPane().add(lblRegistro);
 
 	}
 }
