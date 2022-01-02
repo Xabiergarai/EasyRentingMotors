@@ -20,22 +20,6 @@ public class VentanaAdmin extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaAdmin frame = new VentanaAdmin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public VentanaAdmin() {
@@ -49,7 +33,8 @@ public class VentanaAdmin extends JFrame {
 		JButton btnStock = new JButton("STOCK DISPONIBLE");
 		btnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGestionStock.main(null);
+				VentanaGestionStock vgs = new VentanaGestionStock();
+				vgs.setVisible(true);
 				dispose();
 		}
 		});
@@ -61,7 +46,8 @@ public class VentanaAdmin extends JFrame {
 		JButton btnUsuarios = new JButton("GESTION DE USUARIOS");
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGestionUsuarios.main(null);
+				VentanaGestionUsuarios vgu = new VentanaGestionUsuarios();
+				vgu.setVisible(true);
 				dispose();
 				
 			}

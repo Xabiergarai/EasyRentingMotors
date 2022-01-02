@@ -41,21 +41,7 @@ public class VentanaGestionStock extends JFrame {
 	private JTable table;
 	private ArrayList<String> coches = new ArrayList<>();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaGestionStock frame = new VentanaGestionStock();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -71,7 +57,8 @@ public class VentanaGestionStock extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaAgregarCoche.main(null);
+				VentanaAgregarCoche vac = new VentanaAgregarCoche();
+				vac.setVisible(true);
 				dispose();
 			}
 		});
@@ -96,7 +83,8 @@ public class VentanaGestionStock extends JFrame {
 		JMenuItem mnStock = new JMenuItem("Stock");
 		mnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGestionStock.main(null);
+				VentanaGestionStock vgs = new VentanaGestionStock();
+				vgs.setVisible(true);
 				dispose();
 			}
 		});
@@ -105,7 +93,8 @@ public class VentanaGestionStock extends JFrame {
 		JMenuItem mnUsuarios = new JMenuItem("Usuarios");
 		mnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGestionUsuarios.main(null);
+				VentanaGestionUsuarios vgu = new VentanaGestionUsuarios();
+				vgu.setVisible(true);
 				dispose();
 			}
 		});
