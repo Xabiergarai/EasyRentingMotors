@@ -5,7 +5,7 @@ private String id;
 private String nombre;
 private double precio;
 private String fecha;
-public Carrito(String id, String nombre, double precio, String fecha) {
+public Carrito(String id, String nombre, String fecha,double precio) {
 	super();
 	this.id = id;
 	this.nombre = nombre;

@@ -1020,10 +1020,8 @@ public class DBManager {
 			}
 			public static void insetarCarrito(ArrayList<Coche> carrito) throws SQLException, DBException {
 
-				Connection con = initBD("EasyRentingMotors.db");
+				
 				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES(?,?,?,?)";
-
-				ps = con.prepareStatement(sql);
 
 				
 				for (Coche coche : carrito) {
@@ -1056,7 +1054,7 @@ public class DBManager {
 						double precio = rs.getDouble("precio");
 						String fecha = rs.getString("fecha");
 
-						Carrito p = new Carrito(id, nombre, precio, fecha);
+						Carrito p = new Carrito(id, nombre, fecha, precio);
 						al.add(p);
 					}
 					rs.close();
