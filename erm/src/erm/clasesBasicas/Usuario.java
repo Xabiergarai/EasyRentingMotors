@@ -17,6 +17,16 @@ public class Usuario {
 		
 		
 	}
+	public Usuario(String nombre, String apellidos, String nickname, String contrasenya, String email) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.nickname = nickname;
+		this.contrasenya = contrasenya;
+		this.email = email;
+		
+		
+	}
 	
 	public Usuario(String nickname, String contrasenya, String email) {
 		super();
@@ -25,8 +35,6 @@ public class Usuario {
 		this.email = email;
 
 	}
-	
-	
 	
 	public Usuario(int id, String nombre) {
 		super();
