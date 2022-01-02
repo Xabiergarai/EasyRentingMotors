@@ -10,6 +10,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -61,6 +63,7 @@ public class VentanaLogIn extends JFrame {
 	private JLabel lblTitulo;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenia;
+	private JButton btnMostrarContraseña;
 
 	/**
 	 * Create the frame
@@ -159,6 +162,7 @@ public class VentanaLogIn extends JFrame {
 		txtContrasenia.setBounds(272, 157, 163, 35);
 		panelCentro.add(txtContrasenia);
 		
+		
 		JLabel lblIconoUsuario = new JLabel("");
 		lblIconoUsuario.setIcon(new ImageIcon("imagenes/iconoUsuario.png"));
 		lblIconoUsuario.setBounds(65, 52, 40, 49);
@@ -168,6 +172,24 @@ public class VentanaLogIn extends JFrame {
 		lblIconoContraseña.setIcon(new ImageIcon("imagenes/iconoContrasenya.png"));
 		lblIconoContraseña.setBounds(76, 158, 40, 25);
 		panelCentro.add(lblIconoContraseña);
+		
+		JCheckBox cbMostrarContraseña = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContraseña.setBounds(272, 199, 163, 23);
+		panelCentro.add(cbMostrarContraseña);
+		
+		cbMostrarContraseña.addItemListener(new ItemListener() {
+		    @Override
+		    public void itemStateChanged(ItemEvent e) {
+		        if(e.getStateChange() == ItemEvent.SELECTED) {
+		        	txtContrasenia.setEchoChar((char)0); 
+		        	//checkbox has been selected
+		            //do something...
+		        } else {//checkbox has been deselected
+		        	txtContrasenia.setEchoChar('*'); 
+		        };
+		    }
+
+		});
 		
 		btnSalir.addActionListener(e -> {
 			VentanaInicial vi = null;
@@ -213,6 +235,11 @@ public class VentanaLogIn extends JFrame {
 
 		});
 
+	}
+
+	private void setEchoChar(char c) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**

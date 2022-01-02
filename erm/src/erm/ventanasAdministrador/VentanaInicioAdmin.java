@@ -27,40 +27,49 @@ public class VentanaInicioAdmin extends JFrame {
 	private JPasswordField textoContrasenya;
 	private JPanel contentPane;
 	
+	
 	public VentanaInicioAdmin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 571, 384);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		JPanel panelCentro = new JPanel();
+		panelCentro.setBounds(5, 60, 547, 248);
+		getContentPane().add(panelCentro, BorderLayout.CENTER);
 		getContentPane().setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("ADMINISTRADOR");
 		lblTitulo.setForeground(new Color(255, 165, 0));
 		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
-		lblTitulo.setBounds(142, 22, 289, 85);
-		getContentPane().add(lblTitulo);
+
+		JPanel panelNorte = new JPanel();
+		panelNorte.setBounds(5, 5, 547, 54);
+		panelNorte.add(lblTitulo);
+		contentPane.add(panelNorte);
+		panelCentro.setLayout(null);
+		
 		
 		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setBounds(139, 73, 67, 25);
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsuario.setBounds(134, 145, 119, 25);
-		getContentPane().add(lblUsuario);
+		panelCentro.add(lblUsuario);
 		
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
+		lblContrasenya.setBounds(139, 142, 100, 25);
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(134, 208, 119, 25);
-		getContentPane().add(lblContrasenya);
+		panelCentro.add(lblContrasenya);
 		
 		textoUsuario = new JTextField();
-		textoUsuario.setBounds(276, 132, 190, 38);
-		getContentPane().add(textoUsuario);
-		textoUsuario.setColumns(10);
+		textoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textoUsuario.setBounds(278, 61, 172, 37);
+		panelCentro.add(textoUsuario);
+		
 		
 		
 		JButton btnAtras = new JButton("Atr\u00E1s");
-		btnAtras.setBounds(156, 307, 107, 25);
 		btnAtras.addActionListener(e -> {
 			// TODO Auto-generated method stub
 			VentanaLogIn vl = new VentanaLogIn();
@@ -68,8 +77,6 @@ public class VentanaInicioAdmin extends JFrame {
 			dispose();
 
 		});
-		
-		getContentPane().add(btnAtras);
 		
 		JButton btnEntrar = new JButton("Acceder");
 		btnEntrar.addActionListener(new ActionListener() {
@@ -91,21 +98,25 @@ public class VentanaInicioAdmin extends JFrame {
 				
 			}
 		});
-		btnEntrar.setBounds(276, 307, 107, 25);
-		getContentPane().add(btnEntrar);
 		
 		textoContrasenya = new JPasswordField();
-		textoContrasenya.setBounds(276, 205, 190, 38);
-		getContentPane().add(textoContrasenya);
+		textoContrasenya.setBounds(278, 130, 172, 37);
+		panelCentro.add(textoContrasenya);
 		
 		JLabel lblIconoUsuario = new JLabel("");
+		lblIconoUsuario.setBounds(72, 61, 39, 37);
 		lblIconoUsuario.setIcon(new ImageIcon("imagenes/iconoAdmin.png"));
-		lblIconoUsuario.setBounds(59, 121, 40, 49);
-		contentPane.add(lblIconoUsuario);
+		panelCentro.add(lblIconoUsuario);
 		
 		JLabel lblIconoContraseña = new JLabel("");
+		lblIconoContraseña.setBounds(82, 142, 39, 25);
 		lblIconoContraseña.setIcon(new ImageIcon("imagenes/iconoContrasenya.png"));
-		lblIconoContraseña.setBounds(71, 208, 40, 25);
-		contentPane.add(lblIconoContraseña);
+		panelCentro.add(lblIconoContraseña);
+		
+		JPanel panelBotonera = new JPanel();
+		panelBotonera.setBounds(5, 309, 547, 33);
+		panelBotonera.add(btnAtras);
+		panelBotonera.add(btnEntrar);
+		contentPane.add(panelBotonera);
 	}
 }
