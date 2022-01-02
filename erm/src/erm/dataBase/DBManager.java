@@ -1018,12 +1018,12 @@ public class DBManager {
 				}
 
 			}
-			public static void insetarCarrito(ArrayList<Coche> carrito) throws SQLException, DBException {
+			public static void insetarCarrito(ArrayList<Carrito> carrito) throws SQLException, DBException {
 
 				Statement st = conn.createStatement();
 				
 						
-				for (Coche coche : carrito) {
+				for (Carrito coche : carrito) {
 					String id=coche.getId();
 					String nombre=coche.getNombre();
 					String fecha=coche.getfecha_matriculacion();

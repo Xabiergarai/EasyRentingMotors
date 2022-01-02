@@ -142,10 +142,12 @@ public class VentanaCarritoCompra extends JFrame {
 			contenedora.guardarListaCochesEnFichero();
 			contenedora.cargarFicheroCoches();
 		//contenedora.guardarCarritoEnFicheroDeTexto();
-			
-			DBManager.insertar
-			
-			
+			ArrayList<Carrito> car;
+			if(carritoModeloTabla.getRowCount()!=0){
+			for (Carrito coche : car) {
+				
+			}
+			}
 		});
 		frame.getContentPane().add(btnGuardarLista);
 		
