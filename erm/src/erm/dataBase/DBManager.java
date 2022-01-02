@@ -20,6 +20,7 @@ import erm.categoriasCoche.CategoriaB;
 import erm.categoriasCoche.CategoriaC;
 import erm.categoriasCoche.CategoriaD;
 import erm.clasesBasicas.Alquiler;
+import erm.clasesBasicas.Carrito;
 import erm.clasesBasicas.Usuario;
 import erm.clasesBasicas.Venta;
 import erm.categoriasCoche.*;
@@ -1043,9 +1044,9 @@ public class DBManager {
 			
 			
 			
-		/*	public ArrayList<Coche> obtenerCarrito() {
+			public ArrayList<Carrito> obtenerCarrito() {
 				String sentSQL = "SELECT * FROM carrito";
-				ArrayList<Coche> al = new ArrayList<>();
+				ArrayList<Carrito> al = new ArrayList<>();
 				try {
 					Statement st = conn.createStatement();
 					ResultSet rs = st.executeQuery(sentSQL);
@@ -1071,7 +1072,7 @@ public class DBManager {
 				return al;
 			}
 		 
-	*/
+	
 		/**
 		 * Cerramos conexión con la BD
 		 * 
