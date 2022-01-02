@@ -54,8 +54,8 @@ public class VentanaSeguridad extends JFrame {
 		pfNueva.setBounds(10, 189, 398, 26);
 		getContentPane().add(pfNueva);
 		
-		JLabel label = new JLabel("Nueva contrase\u00F1a");
-		label.setBounds(10, 243, 160, 20);
+		JLabel label = new JLabel("Confirmar nueva contrase\u00F1a");
+		label.setBounds(10, 243, 208, 20);
 		getContentPane().add(label);
 		
 		pfConfirmarNueva = new JPasswordField();

@@ -27,7 +27,7 @@ public class VentanaContacto extends JFrame {
 
 	public VentanaContacto() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 454, 555);
+		setBounds(100, 100, 454, 472);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 
