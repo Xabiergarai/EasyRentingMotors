@@ -3,7 +3,6 @@ package erm.clasesBasicas;
 public class Usuario {
 
 
-	public static int cont = 0;
 	private int id;
 	private String nombre, apellidos, nickname, contrasenya, email, direccionIP;
 

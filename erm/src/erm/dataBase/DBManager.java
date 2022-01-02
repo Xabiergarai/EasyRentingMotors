@@ -1018,7 +1018,7 @@ public class DBManager {
 				}
 
 			}
-			public static void insetarCarrito(ArrayList<Carrito> carrito) throws SQLException, DBException {
+			/*public static void insetarCarrito(ArrayList<Carrito> carrito) throws SQLException, DBException {
 
 				Statement st = conn.createStatement();
 				
@@ -1026,7 +1026,7 @@ public class DBManager {
 				for (Carrito coche : carrito) {
 					String id=coche.getId();
 					String nombre=coche.getNombre();
-					String fecha=coche.getfecha_matriculacion();
+					String fecha=coche.getFecha_matriculacion();
 					Double precio=coche.getPrecio();
 				
 					String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
@@ -1039,10 +1039,7 @@ public class DBManager {
 				
 				}
 				
-			
-			
-			
-			
+				*/
 			
 			public ArrayList<Carrito> obtenerCarrito() {
 				String sentSQL = "SELECT * FROM carrito";
