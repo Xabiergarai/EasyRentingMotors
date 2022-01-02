@@ -149,7 +149,7 @@ public class VentanaAgregarUsuario extends JFrame {
 				String email = textEmail.getText();
 				String direccionIP = textDireccionIP.getText();
 				
-				 Usuario u = new Usuario(id,nombre,apellidos,nickname,email,contrasenya,direccionIP);
+				 Usuario u = new Usuario(nombre,apellidos,nickname,email,contrasenya,direccionIP);
 				System.out.println(u);
 			} 
 		}); 
