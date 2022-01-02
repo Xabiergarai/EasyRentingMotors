@@ -96,6 +96,17 @@ public class VentanaGestionUsuarios extends JFrame {
 			}
 		});
 		mnGestion.add(mnUsuarios);
+		
+		JMenuItem mnInicioAdmin = new JMenuItem("Volver a inicio");
+		mnInicioAdmin.setForeground(Color.BLACK);
+		mnInicioAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAdmin va = new VentanaAdmin();
+				va.setVisible(true);
+				dispose();
+			}
+		});
+		mnGestion.add(mnInicioAdmin);
 
 		JMenuItem mnCerrarSesion = new JMenuItem("Cerrar sesion");
 		mnCerrarSesion.setForeground(Color.RED);

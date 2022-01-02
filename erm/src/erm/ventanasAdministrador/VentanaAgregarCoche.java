@@ -21,6 +21,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class VentanaAgregarCoche extends JFrame {
 
@@ -132,6 +133,21 @@ public class VentanaAgregarCoche extends JFrame {
 		lblEur.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblEur.setBounds(243, 258, 41, 32);
 		contentPane.add(lblEur);
+		
+		JButton btnAtras = new JButton("");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaGestionStock vgs = new VentanaGestionStock();
+				vgs.setVisible(true);
+				dispose();
+			}
+		});
+		btnAtras.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAtras.png"));
+		btnAtras.setFocusPainted(false);
+		btnAtras.setContentAreaFilled(false);
+		btnAtras.setBorderPainted(false);
+		btnAtras.setBounds(10, 11, 53, 32);
+		contentPane.add(btnAtras);
 		
 		
 		btnAgregarCoche.addActionListener(new ActionListener() {

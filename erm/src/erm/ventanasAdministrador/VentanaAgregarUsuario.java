@@ -31,6 +31,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class VentanaAgregarUsuario extends JFrame {
 
@@ -173,7 +174,11 @@ public class VentanaAgregarUsuario extends JFrame {
 		btnAgregarUsuario.setBounds(152, 466, 132, 50);
 		contentPane.add(btnAgregarUsuario);
 		
-		JButton btnAtras = new JButton("Atr\u00E1s");
+		JButton btnAtras = new JButton("");
+		btnAtras.setFocusPainted(false);
+		btnAtras.setBorderPainted(false);
+		btnAtras.setContentAreaFilled(false);
+		btnAtras.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoAtras.png"));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaAdmin va = new VentanaAdmin();
@@ -181,7 +186,7 @@ public class VentanaAgregarUsuario extends JFrame {
 				dispose();
 			}
 		});
-		btnAtras.setBounds(10, 11, 89, 23);
+		btnAtras.setBounds(10, 11, 53, 32);
 		contentPane.add(btnAtras);
 		
 	
