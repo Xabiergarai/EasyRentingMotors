@@ -15,10 +15,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -149,7 +151,25 @@ public class VentanaAgregarCoche extends JFrame {
 		btnAtras.setBounds(10, 11, 53, 32);
 		contentPane.add(btnAtras);
 		
-		
+		// Boton imagen
+				JButton btnImagen = new JButton("Imagen");
+				btnImagen.setBounds(168, 510, 93, 29);
+				getContentPane().add(btnImagen);
+
+				btnImagen.addActionListener(e -> {
+					
+						JFileChooser fileChooser = new JFileChooser();
+						JFileChooser fc = new JFileChooser();
+						fc.setCurrentDirectory(new File(".")); // Abre el directorio raiz de mi proyecto
+						// fc.setCurrentDirectory(new File("src")); //Abre la carpeta src de mi proyecto
+						int seleccionado = fc.showOpenDialog(null);
+						if (seleccionado == JFileChooser.APPROVE_OPTION) {
+							File ficheroSeleccionado = fc.getSelectedFile();
+							ficheroSeleccionado.getAbsolutePath();
+
+						}
+				});
+
 		btnAgregarCoche.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,6 +180,7 @@ public class VentanaAgregarCoche extends JFrame {
                 String precio = textPrecio.getText();
                 String fecha_matriculacion = textFecha_Matriculacion.getText();
                 String combustible = textCombustible.getText();
+                String imagen = btnImagen.getText();
                 
                 
 

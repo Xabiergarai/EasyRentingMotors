@@ -174,6 +174,7 @@ public class VentanaLogIn extends JFrame {
 		panelCentro.add(lblIconoContraseña);
 		
 		JCheckBox cbMostrarContraseña = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContraseña.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		cbMostrarContraseña.setBounds(272, 199, 163, 23);
 		panelCentro.add(cbMostrarContraseña);
 		
