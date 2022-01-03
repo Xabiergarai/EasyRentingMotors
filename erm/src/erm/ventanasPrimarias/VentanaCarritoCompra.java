@@ -10,6 +10,7 @@ import erm.ventanasSecundarias.VentanaTransaccionCompra;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -216,6 +217,22 @@ public class VentanaCarritoCompra extends JFrame {
 		lblResumenCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
 		lblResumenCompra.setBounds(63, 28, 261, 43);
 		frame.getContentPane().add(lblResumenCompra);
+		
+		JButton btnGuardarFichero = new JButton("Guardar fichero");
+		btnGuardarFichero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PrintWriter pw;
+				try {
+					pw = new PrintWriter("Carrito.TXT");
+					escribirProductosEnFichero(0, carritoModeloTabla, pw);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} //Crea un documento en blanco
+			}
+		});
+		btnGuardarFichero.setBounds(141, 306, 145, 25);
+		frame.getContentPane().add(btnGuardarFichero);
 	}
 	
 	
@@ -323,14 +340,14 @@ public class VentanaCarritoCompra extends JFrame {
 	}
 	
 
-	private void escribirProductosEnFichero(int fila, DefaultTableModel mDatos, PrintWriter pw) {
+	private void escribirProductosEnFichero(int fila, DefaultTableModel carritoModeloTabla, PrintWriter pw) {
 		if(fila<carritoModeloTabla.getRowCount()) {
 			String id = (String)carritoModeloTabla.getValueAt(fila, 0);
 			String nom = (String)carritoModeloTabla.getValueAt(fila, 1);
-			double precio = (double)carritoModeloTabla.getValueAt(fila, 2);
-			String fecha = (String)carritoModeloTabla.getValueAt(fila, 3);
+			String precio = String.valueOf(carritoModeloTabla.getValueAt(fila, 3));
+			String fecha = (String)carritoModeloTabla.getValueAt(fila, 2);
 			pw.println(id+" "+nom+" "+precio+" "+fecha);
-			escribirProductosEnFichero(fila+1, mDatos, pw);
+			escribirProductosEnFichero(fila+1, carritoModeloTabla, pw);
 		}
 	}
 	
