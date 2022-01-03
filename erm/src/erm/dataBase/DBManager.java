@@ -158,14 +158,6 @@ public class DBManager {
 				throw new DBException("Error creando tabla de Ventas a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada
 
-			try {
-				statement.executeUpdate(
-						"CREATE TABLE if not exists Ventas " + "(coche String, precio double, categoria string");
-			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Ventas ya existente");
-				throw new DBException("Error creando tabla de Ventas a la BD", ex);
-			} // Si la tabla ya existe, no hacemos nada
-
 			return statement;
 		} catch (SQLException e) {
 			return null;
@@ -194,7 +186,6 @@ public class DBManager {
 			statement.executeUpdate("drop table if exists categoriaD");
 			statement.executeUpdate("drop table if exists usuarios");
 			statement.executeUpdate("drop table if exists opinion");
-			statement.executeUpdate("drop table if exists Ventas");
 			return usarCrearTablasBD(con);
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
