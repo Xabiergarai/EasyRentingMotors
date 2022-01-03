@@ -23,7 +23,6 @@ import erm.categoriasCoche.CategoriaD;
 import erm.clasesBasicas.Alquiler;
 import erm.clasesBasicas.Carrito;
 import erm.clasesBasicas.Usuario;
-import erm.clasesBasicas.Venta;
 import erm.categoriasCoche.*;
 import erm.ventanasPrimarias.*;
 
