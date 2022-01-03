@@ -170,7 +170,7 @@ public class VentanaCarritoCompra extends JFrame {
 		frame.getContentPane().add(lblPremium);
 		
 		JLabel lblEnvioGratis = new JLabel("de envio GRATIS!");
-		lblEnvioGratis.setBounds(12, 504, 130, 16);
+		lblEnvioGratis.setBounds(12, 498, 130, 16);
 		frame.getContentPane().add(lblEnvioGratis);
 		
 		JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
