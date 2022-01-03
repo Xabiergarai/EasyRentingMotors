@@ -10,6 +10,7 @@ import erm.ventanasSecundarias.VentanaTransaccionCompra;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -322,7 +323,16 @@ public class VentanaCarritoCompra extends JFrame {
 	}
 	
 
-	
+	private void escribirProductosEnFichero(int fila, DefaultTableModel mDatos, PrintWriter pw) {
+		if(fila<carritoModeloTabla.getRowCount()) {
+			String id = (String)carritoModeloTabla.getValueAt(fila, 0);
+			String nom = (String)carritoModeloTabla.getValueAt(fila, 1);
+			double precio = (double)carritoModeloTabla.getValueAt(fila, 2);
+			String fecha = (String)carritoModeloTabla.getValueAt(fila, 3);
+			pw.println(id+" "+nom+" "+precio+" "+fecha);
+			escribirProductosEnFichero(fila+1, mDatos, pw);
+		}
+	}
 	
 	
 	
