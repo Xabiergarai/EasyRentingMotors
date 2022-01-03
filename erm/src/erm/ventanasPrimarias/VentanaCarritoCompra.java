@@ -166,22 +166,22 @@ public class VentanaCarritoCompra extends JFrame {
 		});
 		
 		JLabel lblPremium = new JLabel("* Con Easy Renting Motors puedes benificiarte de gastos");
-		lblPremium.setBounds(14, 448, 352, 29);
+		lblPremium.setBounds(12, 475, 352, 29);
 		frame.getContentPane().add(lblPremium);
 		
 		JLabel lblEnvioGratis = new JLabel("de envio GRATIS!");
-		lblEnvioGratis.setBounds(14, 475, 130, 16);
+		lblEnvioGratis.setBounds(12, 504, 130, 16);
 		frame.getContentPane().add(lblEnvioGratis);
 		
 		JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
-		chckbxContratoTarifa.setBounds(14, 498, 188, 23);
+		chckbxContratoTarifa.setBounds(8, 523, 188, 23);
 		frame.getContentPane().add(chckbxContratoTarifa);
 		
 		
 		
 		JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
 		btnRealizarPedido.setBackground(Color.ORANGE);
-		btnRealizarPedido.setBounds(98, 555, 188, 29);
+		btnRealizarPedido.setBounds(90, 569, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
 		 btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
@@ -233,7 +233,7 @@ public class VentanaCarritoCompra extends JFrame {
 				} //Crea un documento en blanco
 			}
 		});
-		btnGuardarFichero.setBounds(141, 306, 145, 25);
+		btnGuardarFichero.setBounds(90, 437, 212, 25);
 		frame.getContentPane().add(btnGuardarFichero);
 	}
 	
