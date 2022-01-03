@@ -1033,7 +1033,7 @@ public class DBManager {
 				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
 				st.executeUpdate(sql);
 					
-			
+			System.out.println("llega");
 			}
 					
 				
@@ -1047,8 +1047,8 @@ public class DBManager {
 			
 			
 			
-			public ArrayList<Carrito> obtenerCarrito() {
-				String sentSQL = "SELECT * FROM carrito";
+			public ArrayList<Carrito> obtenerCarrito(String nom) {
+				String sentSQL = "SELECT * FROM carrito WHERE "+nom+"";
 				ArrayList<Carrito> al = new ArrayList<>();
 				try {
 					Statement st = conn.createStatement();
