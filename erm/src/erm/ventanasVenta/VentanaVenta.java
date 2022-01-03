@@ -23,7 +23,6 @@ import javax.swing.JTextPane;
 
 import erm.webcam.WebcamViewerExample;
 import erm.categoriasCoche.Coche;
-import erm.clasesBasicas.Venta;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasAdministrador.VentanaGestionStock;
