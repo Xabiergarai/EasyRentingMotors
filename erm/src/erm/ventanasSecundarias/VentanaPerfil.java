@@ -25,7 +25,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
+import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
 
 import javax.swing.JTextPane;
@@ -36,11 +36,6 @@ import java.awt.event.MouseAdapter;
 public class VentanaPerfil extends JFrame{
 	
 	private JPanel contentPane;
-	private int contC1 = 0;
-	private int contC2 = 0;
-	private int contC3 = 0;
-	private int contC4 = 0;
-
 	
 	private JTextField textField;
 	private JTextField textNombre;
@@ -53,7 +48,7 @@ public class VentanaPerfil extends JFrame{
 	public VentanaPerfil() {
 		
 		int contBarra = 0;
-		
+		int idUsuario = VentanaLogIn.getUsuarioId();
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);

@@ -45,6 +45,8 @@ public class VentanaAgregarUsuario extends JFrame {
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
 
+	int id = VentanaLogIn.getUsuarioId();
+	
 	/**
 	 * Create the frame.
 	 */
@@ -102,7 +104,7 @@ public class VentanaAgregarUsuario extends JFrame {
 		textPass.setBounds(192, 371, 190, 32);
 		contentPane.add(textPass);
 		
-		 JLabel lblNickname = new JLabel("Nickname");
+		JLabel lblNickname = new JLabel("Nickname");
 		lblNickname.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNickname.setBounds(69, 313, 88, 32);
 		contentPane.add(lblNickname);

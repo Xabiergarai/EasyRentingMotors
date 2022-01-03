@@ -15,10 +15,14 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -102,6 +106,25 @@ public class VentanaInicioAdmin extends JFrame {
 		textoContrasenya = new JPasswordField();
 		textoContrasenya.setBounds(278, 130, 172, 37);
 		panelCentro.add(textoContrasenya);
+		
+		JCheckBox cbMostrarContraseña = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContraseña.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		cbMostrarContraseña.setBounds(278, 174, 163, 23);
+		panelCentro.add(cbMostrarContraseña);
+		
+		cbMostrarContraseña.addItemListener(new ItemListener() {
+		    @Override
+		    public void itemStateChanged(ItemEvent e) {
+		        if(e.getStateChange() == ItemEvent.SELECTED) {
+		        	textoContrasenya.setEchoChar((char)0); 
+		        	//checkbox has been selected
+		            //do something...
+		        } else {//checkbox has been deselected
+		        	textoContrasenya.setEchoChar('*'); 
+		        };
+		    }
+
+		});
 		
 		JLabel lblIconoUsuario = new JLabel("");
 		lblIconoUsuario.setBounds(72, 61, 39, 37);

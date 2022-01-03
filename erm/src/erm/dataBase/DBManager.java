@@ -786,13 +786,17 @@ public class DBManager {
 			
 	
 			try (Statement stmt = con.createStatement()) {
-				ResultSet rs = stmt.executeQuery("SELECT nombre,email,contrasenya FROM usuario");
+				ResultSet rs = stmt.executeQuery("SELECT id, nombre, apellidos, nickname, email,contrasenya, direccionIP FROM usuario");
 	
 				while(rs.next()) {
 					Usuario usuario = new Usuario();
+					usuario.setId(Integer.parseInt(rs.getString("id")));
 					usuario.setNombre(rs.getString("nombre"));
+					usuario.setApellidos(rs.getString("apellidos"));
+					usuario.setNickname(rs.getString("nickname"));
 					usuario.setEmail(rs.getString("email"));
 					usuario.setContrasenya(rs.getString("contrasenya"));
+					usuario.setDireccionIP(rs.getString("direccionIP"));
 					usuarios.add(usuario);
 				}
 				

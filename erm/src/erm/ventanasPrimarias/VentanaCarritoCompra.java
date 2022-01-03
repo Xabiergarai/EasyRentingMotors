@@ -154,6 +154,8 @@ public class VentanaCarritoCompra extends JFrame {
 				e1.printStackTrace();
 			}
 			}
+			
+			JOptionPane.showMessageDialog(null, "Lista guardada correctamente");
 		});
 		frame.getContentPane().add(btnGuardarLista);
 		
@@ -174,7 +176,7 @@ public class VentanaCarritoCompra extends JFrame {
 		frame.getContentPane().add(lblEnvioGratis);
 		
 		JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
-		chckbxContratoTarifa.setBounds(8, 523, 188, 23);
+		chckbxContratoTarifa.setBounds(176, 526, 188, 23);
 		frame.getContentPane().add(chckbxContratoTarifa);
 		
 		
@@ -224,14 +226,17 @@ public class VentanaCarritoCompra extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					
-					PrintWriter pw = new PrintWriter("Carrito.TXT");
+					PrintWriter pw = new PrintWriter("Carrito.txt");
 					escribirProductosEnFichero(0, carritoModeloTabla, pw);
 					pw.close();
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} //Crea un documento en blanco
+				
+				JOptionPane.showMessageDialog(null, "Fichero guardado correctamente");
 			}
+			
 		});
 		btnGuardarFichero.setBounds(90, 437, 212, 25);
 		frame.getContentPane().add(btnGuardarFichero);
