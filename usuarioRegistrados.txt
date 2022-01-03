@@ -14,3 +14,4 @@ Gorka  Zarate ha iniciado sesion con el usuario zarateGorka con contrasenia 123
 Aitor  Gutierrez ha iniciado sesion con el usuario guti con contrasenia 123
 Aitor  Gutierrez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
 Aitor  Gutierrez Gonzalez ha iniciado sesion con el usuario gutiaitor con contrasenia 12345
+gorka  zarate ha iniciado sesion con el usuario zarate con contrasenia 23
