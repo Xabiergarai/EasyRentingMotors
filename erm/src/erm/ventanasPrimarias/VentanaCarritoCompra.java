@@ -140,8 +140,8 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnGuardarLista = new JButton("Guardar lista");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
 		btnGuardarLista.addActionListener(e -> {			
-			contenedora.guardarListaCochesEnFichero();
-			contenedora.cargarFicheroCoches();
+		//	contenedora.guardarListaCochesEnFichero();
+		//	contenedora.cargarFicheroCoches();
 		//contenedora.guardarCarritoEnFicheroDeTexto();
 			if(carritoModeloTabla.getRowCount()!=0){
 			try {

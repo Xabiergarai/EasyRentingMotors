@@ -1025,11 +1025,11 @@ public class DBManager {
 						
 				int max= carrito.size();
 			for (int i = 0; i < max; i++) {
-				String id=(String) carrito.elementAt(i).elementAt(1);
-				String nombre=(String) carrito.elementAt(i).elementAt(2);
-				String fecha=(String) carrito.elementAt(i).elementAt(5);
-				Double precio=(Double) carrito.elementAt(i).elementAt(7);
-			
+				 String id=(String) carrito.elementAt(i).elementAt(0);
+				String nombre=(String) carrito.elementAt(i).elementAt(1);		
+				String fecha=(String) (carrito.elementAt(i).elementAt(2));
+				String precio=String.valueOf (carrito.elementAt(i).elementAt(3));
+				
 				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
 				st.executeUpdate(sql);
 					
