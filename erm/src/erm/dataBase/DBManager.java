@@ -1001,23 +1001,7 @@ public class DBManager {
 			}
 	
 		
-			public void insertarVenta(Venta venta) throws DBException {
-
-			//	int idUsuario = venta.getIdUsuario();
-				String nombre = venta.getNombre();
-				String categoria = venta.getCategoria();
-				double precio = venta.getPrecio();
-
-				try (Statement stmt = conn.createStatement()) {
-
-					stmt.executeUpdate("INSERT INTO ventas ( nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ "')");
-
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new DBException("No ha sido posible ejecutar la query");
-				}
-
-			}
+			
 			public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
 
 				Statement st = conn.createStatement();
