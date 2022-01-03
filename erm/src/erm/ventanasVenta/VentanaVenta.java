@@ -194,6 +194,9 @@ public class VentanaVenta extends JFrame {
 		btnGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	if (textoId.getText().equals("") || textoNombre.getText().equals("")||textoMarca.getText().equals("")||textoPrecio.getText().equals("")||textoFecha.getText().equals("")||textoCombustible.getText().equals("")) {
+    				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+				} else {				
             	String id = textoId.getText();
                 String nombre = textoNombre.getText();
                 String categoria = comboBox.getSelectedItem().toString();
@@ -252,7 +255,7 @@ public class VentanaVenta extends JFrame {
                 }  
 
                 JOptionPane.showMessageDialog(null, "Se ha registrado tu venta correctamente");
-
+				}
             } 
         });
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
