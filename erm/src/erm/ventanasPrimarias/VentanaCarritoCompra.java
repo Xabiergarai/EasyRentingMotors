@@ -32,6 +32,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private DefaultTableModel carritoModeloTabla;
 	private JLabel lblTotal;
 	private double precioTotal;
+	
 	public static Contenedora contenedora;
 	
 
@@ -221,10 +222,11 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnGuardarFichero = new JButton("Guardar fichero");
 		btnGuardarFichero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PrintWriter pw;
 				try {
-					pw = new PrintWriter("Carrito.TXT");
+					
+					PrintWriter pw = new PrintWriter("Carrito.TXT");
 					escribirProductosEnFichero(0, carritoModeloTabla, pw);
+					pw.close();
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -344,7 +346,7 @@ public class VentanaCarritoCompra extends JFrame {
 		if(fila<carritoModeloTabla.getRowCount()) {
 			String id = (String)carritoModeloTabla.getValueAt(fila, 0);
 			String nom = (String)carritoModeloTabla.getValueAt(fila, 1);
-			String precio = String.valueOf(carritoModeloTabla.getValueAt(fila, 3));
+			Double precio = (Double)carritoModeloTabla.getValueAt(fila, 3);
 			String fecha = (String)carritoModeloTabla.getValueAt(fila, 2);
 			pw.println(id+" "+nom+" "+precio+" "+fecha);
 			escribirProductosEnFichero(fila+1, carritoModeloTabla, pw);
