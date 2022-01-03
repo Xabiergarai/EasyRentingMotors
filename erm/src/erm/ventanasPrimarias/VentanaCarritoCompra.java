@@ -3,6 +3,7 @@ package erm.ventanasPrimarias;
 import erm.categoriasCoche.*; 
 import erm.clasesBasicas.*;
 import erm.clasesBasicas.Contenedora;
+import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
@@ -142,10 +143,13 @@ public class VentanaCarritoCompra extends JFrame {
 			contenedora.guardarListaCochesEnFichero();
 			contenedora.cargarFicheroCoches();
 		//contenedora.guardarCarritoEnFicheroDeTexto();
-			ArrayList<Carrito> car = null;
+			ArrayList<Carrito> car ;
 			if(carritoModeloTabla.getRowCount()!=0){
-			for (Carrito coche : car) {
-				
+			try {
+				DBManager.insetarCarrito(carritoModeloTabla.getDataVector());
+			} catch (SQLException | DBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 			}
 		});

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import erm.clasesBasicas.Opinion;
@@ -770,6 +771,24 @@ public class DBManager {
 			ps.execute();
 
 	}
+		
+	 public static void insertarUsuario(String id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
+			
+			String s = "INSERT INTO usuario VALUES("+id+",'"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
+			Connection c = DBManager.initBD("EasyRentingMotors.db");
+			try {
+				Statement st = c.createStatement();
+				st.executeUpdate(s);
+				cerrarBD(c, st);
+				logger.log(Level.INFO,"Statement correctamente");
+			} catch (SQLException e) {
+				logger.log(Level.WARNING,e.getMessage());
+			}
+			
+		} 
+	
+
+	 
 	
 	 public static ArrayList <Usuario> listarUsuarios() throws DBException{
 			ArrayList <Usuario> usuarios = new ArrayList<>();
@@ -777,17 +796,13 @@ public class DBManager {
 			
 	
 			try (Statement stmt = con.createStatement()) {
-				ResultSet rs = stmt.executeQuery("SELECT id, nombre,apellidos, nickname, contrasenya, email, direccionIP FROM usuario");
+				ResultSet rs = stmt.executeQuery("SELECT nombre,email,contrasenya FROM usuario");
 	
 				while(rs.next()) {
 					Usuario usuario = new Usuario();
-					usuario.setId(rs.getInt("Id"));
 					usuario.setNombre(rs.getString("nombre"));
-					usuario.setApellidos(rs.getString("apellidos"));
-					usuario.setNickname(rs.getString("nickname"));					
-					usuario.setContrasenya(rs.getString("contrasenya"));
 					usuario.setEmail(rs.getString("email"));
-					usuario.setDireccionIP(rs.getString("direccionIP"));
+					usuario.setContrasenya(rs.getString("contrasenya"));
 					usuarios.add(usuario);
 				}
 				
@@ -889,7 +904,6 @@ public class DBManager {
 	            cerrarBD(c, st);
 	            logger.log(Level.INFO,"Statement correctamente");
 	        } catch (SQLException e) {
-	        	e.printStackTrace();
 	            logger.log(Level.WARNING,e.getMessage());
 	        }
 	
@@ -988,29 +1002,51 @@ public class DBManager {
 			}
 	
 		
-			
-			/*public static void insetarCarrito(ArrayList<Carrito> carrito) throws SQLException, DBException {
+			public void insertarVenta(Venta venta) throws DBException {
+
+			//	int idUsuario = venta.getIdUsuario();
+				String nombre = venta.getNombre();
+				String categoria = venta.getCategoria();
+				double precio = venta.getPrecio();
+
+				try (Statement stmt = conn.createStatement()) {
+
+					stmt.executeUpdate("INSERT INTO ventas ( nombre, categoria, precio) VALUES (' "+ nombre + " ', ' " + categoria + "', '" + precio+ "')");
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+					throw new DBException("No ha sido posible ejecutar la query");
+				}
+
+			}
+			public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
 
 				Statement st = conn.createStatement();
 				
 						
-				for (Carrito coche : carrito) {
-					String id=coche.getId();
-					String nombre=coche.getNombre();
-					String fecha=coche.getFecha_matriculacion();
-					Double precio=coche.getPrecio();
+				int max= carrito.size();
+			for (int i = 0; i < max; i++) {
+				String id=(String) carrito.elementAt(i).elementAt(1);
+				String nombre=(String) carrito.elementAt(i).elementAt(2);
+				String fecha=(String) carrito.elementAt(i).elementAt(5);
+				Double precio=(Double) carrito.elementAt(i).elementAt(7);
+			
+				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
+				st.executeUpdate(sql);
+					
+			
+			}
+					
 				
-					String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
-					st.executeUpdate(sql);
-						
+				
+				
+				
 				}
 				
-				
-				
-				
-				}
-				
-				*/
+			
+			
+			
+			
 			
 			public ArrayList<Carrito> obtenerCarrito() {
 				String sentSQL = "SELECT * FROM carrito";
