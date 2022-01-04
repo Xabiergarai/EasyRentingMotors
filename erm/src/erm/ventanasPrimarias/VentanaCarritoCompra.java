@@ -181,7 +181,7 @@ public class VentanaCarritoCompra extends JFrame {
 		
 		
 		
-		JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
+		/* JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
 		btnRealizarPedido.setBackground(Color.ORANGE);
 		btnRealizarPedido.setBounds(90, 569, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
@@ -190,10 +190,10 @@ public class VentanaCarritoCompra extends JFrame {
 				new VentanaTransaccionCompra();
 				
 				frame.dispose();
-		}); 
+		}); */
 		
 		
-		JLabel lblFormasDePago = new JLabel("Formas de pago");
+		/* JLabel lblFormasDePago = new JLabel("Formas de pago");
 		lblFormasDePago.setBounds(22, 625, 108, 16);
 		frame.getContentPane().add(lblFormasDePago);
 		
@@ -212,7 +212,7 @@ public class VentanaCarritoCompra extends JFrame {
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(radiobtVisa);
 		grupo1.add(radiobtMaterCard);
-		grupo1.add(radiobtPayPal);
+		grupo1.add(radiobtPayPal); */
 
 		frame.getContentPane().add(tablePanel);
 
