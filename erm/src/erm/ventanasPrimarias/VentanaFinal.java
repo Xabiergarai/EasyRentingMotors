@@ -98,14 +98,16 @@ public class VentanaFinal extends JFrame{
 		lblNewLabel_7.setBounds(44, 368, 387, 14);
 		getContentPane().add(lblNewLabel_7);
 		
-		JButton btnNewButton_2 = new JButton("Solicitar factura");
-		btnNewButton_2.setBounds(234, 488, 145, 23);
-		getContentPane().add(btnNewButton_2);
-		
-		JLabel lblNewLabel_8 = new JLabel("A continuaci\u00F3n podr\u00E1 solicitar la factura de su compra");
-		lblNewLabel_8.setFont(new Font("Tw Cen MT Condensed", Font.BOLD, 20));
-		lblNewLabel_8.setBounds(44, 445, 425, 26);
-		getContentPane().add(lblNewLabel_8);
+		JButton btnNewButton_1 = new JButton("Volver a ERM");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaPrincipal vp = new VentanaPrincipal();
+				setVisible(false);
+				vp.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(279, 511, 116, 58);
+		getContentPane().add(btnNewButton_1);
 		setBounds(100, 100, 638, 639);
 		
 		
