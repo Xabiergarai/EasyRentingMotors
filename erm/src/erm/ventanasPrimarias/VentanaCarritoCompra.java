@@ -185,16 +185,16 @@ public class VentanaCarritoCompra extends JFrame {
 		
 		
 		
-		/* JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
+		 JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
 		btnRealizarPedido.setBackground(Color.ORANGE);
 		btnRealizarPedido.setBounds(90, 569, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
 		 btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
-				new VentanaTransaccionCompra();
+				new VentanaPago();
 				
 				frame.dispose();
-		}); */
+		}); 
 		
 		
 		/* JLabel lblFormasDePago = new JLabel("Formas de pago");
