@@ -20,7 +20,7 @@ public class UsuarioTest  {
 	private Usuario u1;
 	private Usuario u2;	
 	private Usuario u3;
-
+	private Usuario u4;
 
 	
 	@BeforeEach
@@ -29,6 +29,7 @@ public class UsuarioTest  {
 		 u1=new Usuario();
 		 u2 = new Usuario("jc", "12", "jc@gmail.com");
 		 u3 =new Usuario(01,"javier");
+		 u4 = new Usuario("Javier", "Contreras", "j.contre", "123", "javicoa@opendeusto.es");
 	}				
 
 		

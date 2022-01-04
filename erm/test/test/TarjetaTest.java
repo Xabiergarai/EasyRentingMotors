@@ -25,13 +25,32 @@ class TarjetaTest {
 		t.setFecha("1-1-2010");
 		assertEquals("1-1-2010", t.getFecha());
 	}
-	
-	
-			
+					
 	@Test
 	public void testGetFecha() {	
 		assertEquals("12-12-12", t.getFecha());		
 	}
 	
+	@Test
+	public void testGetTipo() {	
+		assertEquals("credit", t.getTipo());		
+	}
+	
+	@Test
+	public void testSetTipo() {
+		t.setTipo("debit");
+		assertEquals("debit", t.getTipo());
+	}
+	
+	@Test
+	public void testGetNumeroTarjeta() {	
+		assertEquals(1, t.getNumeroTarjeta());		
+	}
+	
+	@Test
+	public void testSetNumeroTarjeta() {
+		t.setNumeroTarjeta("3");
+		assertEquals("3", t.getNumeroTarjeta());
+	}
 	
 }

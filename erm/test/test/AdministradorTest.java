@@ -1,12 +1,11 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*; 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import erm.clasesBasicas.Administrador;
-import erm.clasesBasicas.Alquiler;
 
 class AdministradorTest {
 
