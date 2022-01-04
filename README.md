@@ -57,6 +57,20 @@ Ideas de interfaz
         ○ Comprar en un pago
         ○ Pagar a plazos
         ○ Alquiler
+        
+    ● Ventana VenderCoche: Otra opción que ofrecera la tienda a los usuarios será la de vender coches.
+      Un usuario tendra la posibilidad de meter los datos de su coche en la web y podra venderselo a la tienda.
+      
+    ● Ventana AlquilarCoche: ERM también ofrecerá a sus usuarios de realizar el alquiler sus propios coches. El proceso
+      de alquiler será sencillo, primero se elegirá el coche deseado y posteriormente se elegiran las fechas deseadas
+      para la utilidad del coche.
+      
+    ● Ventanas Administrador: ERM tendra un modo usuario dentro de la web. Este administrador tendrá el uso exclusivo de 
+      gestionar la stock de coches y los usuarios de la web. El admin podrá agregar y eliminar coches y usuarios de la BBDD.
+     
+    ● Ventana Opciones: La web tendra un apartado de opciones donde habra diferentes sub-ventanas donde habra información como
+      la privacidad de la pagina web, protección de datos, redes sociales, etc.
 
-    ● Ventana Final: Esta será la última ventana en la cual aparecerán el recibo final con
-      los datos del coche y la factura.
+    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el recibo final con
+      los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
+      vender y alquilar un coche.
