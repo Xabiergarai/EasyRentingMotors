@@ -480,10 +480,16 @@ public class VentanaPago extends javax.swing.JFrame {
 		});
 
 		int idUsuario = idU;
+		
+	
 
 		BotonGuardar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				VentanaTransaccionCompra vt = new VentanaTransaccionCompra();
+				setVisible(false);
+				vt.setVisible(true);
 
 				String tipo = TipoTarjeta.getSelectedItem().toString();
 				String numeroTarjeta = TextoNTarjeta.getText();

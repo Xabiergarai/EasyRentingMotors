@@ -191,32 +191,13 @@ public class VentanaCarritoCompra extends JFrame {
 		frame.getContentPane().add(btnRealizarPedido);
 		 btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
-				new VentanaPago();
-				
-				frame.dispose();
+			 VentanaPago vp = new VentanaPago();
+				setVisible(false);
+				vp.setVisible(true);
 		}); 
 		
 		
-		/* JLabel lblFormasDePago = new JLabel("Formas de pago");
-		lblFormasDePago.setBounds(22, 625, 108, 16);
-		frame.getContentPane().add(lblFormasDePago);
 		
-		JRadioButton radiobtVisa = new JRadioButton("VISA");
-		radiobtVisa.setBounds(14, 665, 83, 23);
-		frame.getContentPane().add(radiobtVisa);
-		
-		JRadioButton radiobtMaterCard = new JRadioButton("MasterCard");
-		radiobtMaterCard.setBounds(107, 665, 119, 23);
-		frame.getContentPane().add(radiobtMaterCard);
-		
-		JRadioButton radiobtPayPal= new JRadioButton("PayPal");
-		radiobtPayPal.setBounds(238, 665, 97, 23);
-		frame.getContentPane().add(radiobtPayPal);
-		
-		ButtonGroup grupo1 = new ButtonGroup();
-		grupo1.add(radiobtVisa);
-		grupo1.add(radiobtMaterCard);
-		grupo1.add(radiobtPayPal); */
 
 		frame.getContentPane().add(tablePanel);
 
