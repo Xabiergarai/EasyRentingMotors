@@ -15,6 +15,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import erm.clasesBasicas.Opinion;
+import erm.clasesBasicas.Tarjeta;
 import erm.dataBase.DBException;
 import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.CategoriaB;
@@ -807,7 +808,8 @@ public class DBManager {
 		return usuarios;
 			
 		}
-		
+	 
+	
 	
 	 public static ArrayList <String> listarcoches() throws DBException{
 			ArrayList <String> coches = new ArrayList<>();
@@ -1053,7 +1055,32 @@ public class DBManager {
 				}
 				return al;
 			}
-		 
+			
+			//INSERTAR DATOS A TARJETA
+			public void insertarDatosTarjeta (Tarjeta tarjeta) throws DBException{
+				
+				try (Statement stmt= conn.createStatement()) {
+					
+					int idUsuario = tarjeta.getidUsuario();
+					String tipo =  tarjeta.getTipo();
+					String numeroTarjeta = tarjeta.getNumeroTarjeta();
+					String fecha =	tarjeta.getFecha();
+					String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
+					String codigoPostal2 =	tarjeta.getCodigoPostal2();
+					String nombreCompleto =	tarjeta.getNombreCompleto();
+					String direccion =	tarjeta.getDireccion();
+					String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
+					String ciudad =	tarjeta.getCiudad();
+					String estadoProvincia	= tarjeta.getEstadoProvincia();
+					String codigoPostal	= tarjeta.getCodigoPostal();
+					
+					stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
+					
+					
+				} catch (SQLException e) {
+					throw new DBException("No ha sido posible ejecutar la query");
+				}
+			}
 	
 		/**
 		 * Cerramos conexión con la BD

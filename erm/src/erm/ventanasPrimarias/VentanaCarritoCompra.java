@@ -5,6 +5,7 @@ import erm.clasesBasicas.*;
 import erm.clasesBasicas.Contenedora;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasSecundarias.VentanaPago;
 import erm.ventanasSecundarias.VentanaTransaccionCompra;
 
 import java.awt.*;
@@ -140,12 +141,10 @@ public class VentanaCarritoCompra extends JFrame {
 		});
 		frame.getContentPane().add(btnVaciarCesta);
 				
-		JButton btnGuardarLista = new JButton("Guardar lista");
+		JButton btnGuardarLista = new JButton("Comprar");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
 		btnGuardarLista.addActionListener(e -> {			
-		//	contenedora.guardarListaCochesEnFichero();
-		//	contenedora.cargarFicheroCoches();
-		//contenedora.guardarCarritoEnFicheroDeTexto();
+	
 			if(carritoModeloTabla.getRowCount()!=0){
 			try {
 				DBManager.insetarCarrito(carritoModeloTabla.getDataVector());
@@ -155,7 +154,12 @@ public class VentanaCarritoCompra extends JFrame {
 			}
 			}
 			
-			JOptionPane.showMessageDialog(null, "Lista guardada correctamente");
+			JOptionPane.showMessageDialog(null, "Compra guardada correctamente");
+			dispose();
+			VentanaPago vp = new VentanaPago();
+			setVisible(false);
+			vp.setVisible(true);
+			
 		});
 		frame.getContentPane().add(btnGuardarLista);
 		
