@@ -1,5 +1,5 @@
 package erm.ventanasPrimarias;
-import java.awt.Dimension;
+import java.awt.Dimension; 
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.io.BufferedWriter;
@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,8 +32,7 @@ public class VentanaRegistro extends JFrame {
 	private TextPrompt tP;
 	public static Pattern patronEmail = Pattern
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-	public final static String ficheroUsuarios = "usuariosRegistrados.txt";
-
+	
 	/**
 	 * Ventana en la cual el usuario se registra.
 	 */
@@ -177,13 +178,17 @@ public class VentanaRegistro extends JFrame {
 	}
 
 	//metodo que se encarga de escribir en el fichero usuarioRegistrados los usuarios que se registren
+	@SuppressWarnings("deprecation")
 	public void aniadirUsuarioAFichero() {
 	    File file = new File("usuarioRegistrados.txt");
 		try{	
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //opción append habilitada permite escribir sobre el fichero sin tener que borrarlo
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("\n" + tfNombre.getText() + "  " + tfApellidos.getText() + " ha iniciado sesion con el usuario "
-					+ tfNombreUsuario.getText() + " con contrasenia " + pfContrasenia.getText());
+		    DateTimeFormatter dtFecha = DateTimeFormatter.ofPattern("yy/MM/dd");
+		    DateTimeFormatter dtHora= DateTimeFormatter.ofPattern("HH:mm:ss");
+	    
+			bw.write("\n" + tfNombre.getText() + "  " + tfApellidos.getText() + " ha creado un usario con el nombre de "
+					+ tfNombreUsuario.getText() + " y con contrasenia " + pfContrasenia.getText()+ " el " + dtFecha.format(LocalDateTime.now()) +" a las " +dtHora.format(LocalDateTime.now()));
 			
 			bw.close();
 			fw.close();
