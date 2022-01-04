@@ -2,20 +2,8 @@ package erm.clasesBasicas;
 
 public class Tarjeta {
 
-	private String tipo;
-	private String numeroTarjeta;
-	private String fecha;
-	private String codigoDeSeguridad;
-	private String codigoPostal2;
-	private String nombreCompleto;
-	private String direccion;
-	private String lineaSegundaDireccion;
-	private String ciudad;
-	private String estadoProvincia;
-	private String codigoPostal;
-
-	private int idUsuario;
-	private int idTarjeta;
+	private String tipo,numeroTarjeta,fecha,codigoDeSeguridad,codigoPostal2,nombreCompleto,direccion,lineaSegundaDireccion,ciudad,estadoProvincia,codigoPostal;	
+	private int idUsuario,idTarjeta;
 
 	public Tarjeta(String tipo, String numeroTarjeta, String fecha, String codigoDeSeguridad, String codigoPostal2,
 			String nombreCompleto, String direccion, String lineaSegundaDireccion, String ciudad,
