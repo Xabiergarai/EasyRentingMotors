@@ -1,6 +1,6 @@
 package erm.ventanasPrimarias;
 
-import erm.categoriasCoche.*; 
+import erm.categoriasCoche.*;
 import erm.clasesBasicas.*;
 import erm.clasesBasicas.Contenedora;
 import erm.dataBase.DBException;
@@ -25,7 +25,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaCarritoCompra extends JFrame {
-	
 
 	private JFrame frame;
 	private JPanel tablePanel;
@@ -33,9 +32,8 @@ public class VentanaCarritoCompra extends JFrame {
 	private DefaultTableModel carritoModeloTabla;
 	private JLabel lblTotal;
 	private double precioTotal;
-	
+
 	public static Contenedora contenedora;
-	
 
 	/**
 	 * Launch the application.
@@ -56,11 +54,12 @@ public class VentanaCarritoCompra extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	
+
 	public VentanaCarritoCompra() {
 		contenedora = new Contenedora();
 		initialize();
 	}
+
 	public VentanaCarritoCompra(ListaCoche Coches) {
 		this.precioTotal = 0;
 		lblTotal = new JLabel();
@@ -70,39 +69,38 @@ public class VentanaCarritoCompra extends JFrame {
 
 	private void initTablePanel(ArrayList<Coche> carrito) {
 		tablePanel = new JPanel(new GridLayout());
-	    tablePanel.setBounds(10, 81, 360, 241);
+		tablePanel.setBounds(10, 81, 360, 241);
 
 		initTableModel(carrito);
 
 		carritoTabla = new JTable();
 		carritoTabla.setModel(carritoModeloTabla);
 		tablePanel.add(carritoTabla);
-		
+
 		carritoTabla.getColumnModel().getColumn(0).setMaxWidth(40);
 		carritoTabla.getColumnModel().getColumn(1).setMaxWidth(100);
 		carritoTabla.getColumnModel().getColumn(2).setMaxWidth(140);
-		carritoTabla.getColumnModel().getColumn(3).setMaxWidth(80);	
-		
-		
-		//AÃ±adimos el Renderer a la tabla
+		carritoTabla.getColumnModel().getColumn(3).setMaxWidth(80);
+
+		// AÃ±adimos el Renderer a la tabla
 		carritoTabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-			
+
 			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-					int row, int column) {
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
 				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-				if(column == 0) {
+				if (column == 0) {
 					c.setBackground(Color.LIGHT_GRAY);
-				}else {
+				} else {
 					c.setBackground(Color.WHITE);
 				}
 
 				// Cuando tengo que aplicar el cambio a toda la fila, compruebo
 				// si se cumple la condiciÃ³n en el DefaultTableModel (carritoModeloTabla)
-				double precio = (double)carritoModeloTabla.getValueAt(row, 3);
-				if(precio<18000) {
+				double precio = (double) carritoModeloTabla.getValueAt(row, 3);
+				if (precio < 18000) {
 					c.setForeground(Color.BLUE);
-				}else {
+				} else {
 					c.setForeground(Color.BLACK);
 				}
 				return c;
@@ -112,10 +110,6 @@ public class VentanaCarritoCompra extends JFrame {
 		JScrollPane js = new JScrollPane(carritoTabla);
 		tablePanel.add(js);
 	}
-	
-	
-	
-		
 
 	/**
 	 * Initialize the contents of the frame.
@@ -129,75 +123,67 @@ public class VentanaCarritoCompra extends JFrame {
 		updatePrecioTotal();
 		lblTotal.setBounds(14, 527, 360, 16);
 		frame.getContentPane().add(lblTotal);
-		
+
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
 		btnVaciarCesta.addActionListener(e -> {
-				while(carritoModeloTabla.getRowCount() != 0)
-					carritoModeloTabla.removeRow(0);
-				while (!VentanaPrincipal.carrito.isEmpty()) {
-					VentanaPrincipal.carrito.remove(0);
-				}
+			while (carritoModeloTabla.getRowCount() != 0)
+				carritoModeloTabla.removeRow(0);
+			while (!VentanaPrincipal.carrito.isEmpty()) {
+				VentanaPrincipal.carrito.remove(0);
+			}
 		});
 		frame.getContentPane().add(btnVaciarCesta);
-				
+
 		JButton btnGuardarLista = new JButton("Comprar");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
-		btnGuardarLista.addActionListener(e -> {			
-	
-			if(carritoModeloTabla.getRowCount()!=0){
-			try {
-				DBManager.insetarCarrito(carritoModeloTabla.getDataVector());
-			} catch (SQLException | DBException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+		btnGuardarLista.addActionListener(e -> {
+
+			if (carritoModeloTabla.getRowCount() != 0) {
+				try {
+					DBManager.insetarCarrito(carritoModeloTabla.getDataVector());
+				} catch (SQLException | DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
-			}
-			
+
 			JOptionPane.showMessageDialog(null, "Compra guardada correctamente");
 			dispose();
-			VentanaPago vp = new VentanaPago();
-			setVisible(false);
-			vp.setVisible(true);
-			
+
 		});
 		frame.getContentPane().add(btnGuardarLista);
-		
+
 		JButton btnSeguirComprando = new JButton("Seguir comprando");
 		btnSeguirComprando.setBounds(90, 407, 212, 29);
 		frame.getContentPane().add(btnSeguirComprando);
 		btnSeguirComprando.addActionListener(e -> {
 			frame.dispose();
-		
+
 		});
-		
+
 		JLabel lblPremium = new JLabel("* Con Easy Renting Motors puedes benificiarte de gastos");
 		lblPremium.setBounds(12, 475, 352, 29);
 		frame.getContentPane().add(lblPremium);
-		
+
 		JLabel lblEnvioGratis = new JLabel("de envio GRATIS!");
 		lblEnvioGratis.setBounds(12, 498, 130, 16);
 		frame.getContentPane().add(lblEnvioGratis);
-		
+
 		JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
 		chckbxContratoTarifa.setBounds(176, 526, 188, 23);
 		frame.getContentPane().add(chckbxContratoTarifa);
-		
-		
-		
-		 JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
+
+		JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
 		btnRealizarPedido.setBackground(Color.ORANGE);
 		btnRealizarPedido.setBounds(90, 569, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
-		 btnRealizarPedido.addActionListener(e -> {
-				// TODO Auto-generated method stub
-			 VentanaPago vp = new VentanaPago();
-				setVisible(false);
-				vp.setVisible(true);
-		}); 
-		
-		
-		
+		btnRealizarPedido.addActionListener(e -> {
+			// TODO Auto-generated method stub
+			VentanaPago vp = new VentanaPago();
+			setVisible(false);
+			vp.setVisible(true);
+		});
 
 		frame.getContentPane().add(tablePanel);
 
@@ -205,32 +191,31 @@ public class VentanaCarritoCompra extends JFrame {
 		lblResumenCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
 		lblResumenCompra.setBounds(63, 28, 261, 43);
 		frame.getContentPane().add(lblResumenCompra);
-		
+
 		JButton btnGuardarFichero = new JButton("Guardar fichero");
 		btnGuardarFichero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					
+
 					PrintWriter pw = new PrintWriter("Carrito.txt");
 					escribirProductosEnFichero(0, carritoModeloTabla, pw);
 					pw.close();
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				} //Crea un documento en blanco
-				
+				} // Crea un documento en blanco
+
 				JOptionPane.showMessageDialog(null, "Fichero guardado correctamente");
 			}
-			
+
 		});
 		btnGuardarFichero.setBounds(90, 437, 212, 25);
 		frame.getContentPane().add(btnGuardarFichero);
 	}
-	
-	
-	
-	/** 
-	 * 	Atributos que contendra la tabla de los coches señeccionados
+
+	/**
+	 * Atributos que contendra la tabla de los coches señeccionados
+	 * 
 	 * @param carrito
 	 */
 
@@ -241,40 +226,38 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Fecha de matriculacion");
 		carritoModeloTabla.addColumn("Precio (€)");
 		setTableContent(carrito);
-		
-		
+
 	}
-	
+
 	/**
-	 *  Se añaden los atributos de coche/s a la tabla
+	 * Se añaden los atributos de coche/s a la tabla
+	 * 
 	 * @param carrito
 	 */
-	
+
 	public void setTableContent(ArrayList<Coche> carrito) {
 		clear();
 		System.out.println(carrito);
-		for (Coche Coche: carrito) {
-			this.carritoModeloTabla.addRow(new Object[] {
-					Coche.getId(),
-					Coche.getNombre(),
-					Coche.getfecha_matriculacion(),
-					Coche.getPrecio()
-			});
+		for (Coche Coche : carrito) {
+			this.carritoModeloTabla.addRow(new Object[] { Coche.getId(), Coche.getNombre(),
+					Coche.getfecha_matriculacion(), Coche.getPrecio() });
 			precioTotal += Coche.getPrecio();
 		}
 		updatePrecioTotal();
-		
-		/*Hilo que hace que los productos se pongan en oferta a las 18:04:00
-		 * y que dejen de estar en oferta a las 18:05:00*/
+
+		/*
+		 * Hilo que hace que los productos se pongan en oferta a las 18:04:00 y que
+		 * dejen de estar en oferta a las 18:05:00
+		 */
 		Runnable r1 = new Runnable() {
-			
+
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy hh:mm:ss");
-				
+
 				boolean fin = false;
-				while(fin == false) {
+				while (fin == false) {
 					long milis = System.currentTimeMillis();
 					Date d = new Date(milis);
 					String f = sdf.format(d);
@@ -284,13 +267,13 @@ public class VentanaCarritoCompra extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					//if(f.equals("30-11-21 15:55:00")) {
-					//if(d.getMinutes() == 53) && d.getSeconds()==0) {
-					if(d.getHours() == 19 && d.getMinutes() ==30 && d.getSeconds()==0) {
+					// if(f.equals("30-11-21 15:55:00")) {
+					// if(d.getMinutes() == 53) && d.getSeconds()==0) {
+					if (d.getHours() == 19 && d.getMinutes() == 30 && d.getSeconds() == 0) {
 						try {
 							DBManager.ponerCategoriaAEnOferta();
 							setTableContent(carrito);
-							
+
 							fin = true;
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
@@ -298,9 +281,9 @@ public class VentanaCarritoCompra extends JFrame {
 						}
 					}
 				}
-				
+
 				fin = false;
-				while(fin == false) {
+				while (fin == false) {
 					long milis = System.currentTimeMillis();
 					Date d = new Date(milis);
 					String f = sdf.format(d);
@@ -310,13 +293,13 @@ public class VentanaCarritoCompra extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					//if(f.equals("30-11-21 15:55:00")) {
-					//if(d.getMinutes() == 53) && d.getSeconds()==0) {
-					if(d.getHours() == 20 && d.getMinutes() == 30 && d.getSeconds()==0) {
+					// if(f.equals("30-11-21 15:55:00")) {
+					// if(d.getMinutes() == 53) && d.getSeconds()==0) {
+					if (d.getHours() == 20 && d.getMinutes() == 30 && d.getSeconds() == 0) {
 						try {
 							DBManager.seAcabaLaOferta();
 							setTableContent(carrito);
-							
+
 							fin = true;
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
@@ -326,42 +309,37 @@ public class VentanaCarritoCompra extends JFrame {
 				}
 			}
 		};
-		
+
 		Thread t1 = new Thread(r1);
 		t1.start();
 	}
-	
 
 	private void escribirProductosEnFichero(int fila, DefaultTableModel carritoModeloTabla, PrintWriter pw) {
-		if(fila<carritoModeloTabla.getRowCount()) {
-			String id = (String)carritoModeloTabla.getValueAt(fila, 0);
-			String nom = (String)carritoModeloTabla.getValueAt(fila, 1);
-			Double precio = (Double)carritoModeloTabla.getValueAt(fila, 3);
-			String fecha = (String)carritoModeloTabla.getValueAt(fila, 2);
-			pw.println(id+" "+nom+" "+precio+" "+fecha);
-			escribirProductosEnFichero(fila+1, carritoModeloTabla, pw);
+		if (fila < carritoModeloTabla.getRowCount()) {
+			String id = (String) carritoModeloTabla.getValueAt(fila, 0);
+			String nom = (String) carritoModeloTabla.getValueAt(fila, 1);
+			Double precio = (Double) carritoModeloTabla.getValueAt(fila, 3);
+			String fecha = (String) carritoModeloTabla.getValueAt(fila, 2);
+			pw.println(id + " " + nom + " " + precio + " " + fecha);
+			escribirProductosEnFichero(fila + 1, carritoModeloTabla, pw);
 		}
 	}
-	
-	
-	
+
 	/**
 	 * Se vacia la tabla de la cesta de la compra donde estan los coches
 	 */
-	
+
 	public void clear() {
-	    this.precioTotal = 0;
+		this.precioTotal = 0;
 		this.carritoModeloTabla.setRowCount(0);
 		updatePrecioTotal();
 	}
-	
-	/** 
+
+	/**
 	 * Se suman los precios de los coches que se encuentran en la tabla
 	 */
 
 	private void updatePrecioTotal() {
-		this.lblTotal.setText("TOTAL:   "+this.precioTotal+" €");
+		this.lblTotal.setText("TOTAL:   " + this.precioTotal + " €");
 	}
 }
-
-

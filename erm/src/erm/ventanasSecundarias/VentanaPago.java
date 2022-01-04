@@ -20,6 +20,7 @@ import erm.clasesBasicas.Tarjeta;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasPrimarias.VentanaCarritoCompra;
+import erm.ventanasPrimarias.VentanaFinal;
 import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
 
@@ -487,7 +488,7 @@ public class VentanaPago extends javax.swing.JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaTransaccionCompra vt = new VentanaTransaccionCompra();
+				VentanaFinal vt = new VentanaFinal();
 				setVisible(false);
 				vt.setVisible(true);
 
