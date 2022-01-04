@@ -33,6 +33,7 @@ import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaAjustes;
+import erm.ventanasSecundarias.VentanaPago;
 
 public class VentanaAlquiler extends JFrame {
 
@@ -49,7 +50,7 @@ public class VentanaAlquiler extends JFrame {
 	private JCalendar calendario;
 
 	private JComboBox<String> comboCoche;
-	private JButton btnALquilar, btnAtras, btnMetodoPago;
+	private JButton btnALquilar, btnAtras;
 
 	private VentanaAjustes va;
 
@@ -129,9 +130,6 @@ public class VentanaAlquiler extends JFrame {
 		btnALquilar = new JButton("Alquilar");
 		panelBotonera.add(btnALquilar);
 
-		btnMetodoPago = new JButton("Metodo Pago");
-		panelBotonera.add(btnMetodoPago);
-
 		btnAtras = new JButton("Atras");
 		panelBotonera.add(btnAtras);
 
@@ -141,9 +139,8 @@ public class VentanaAlquiler extends JFrame {
 
 				DBManager db = new DBManager();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				Coche c= new Coche();
-				
-				
+				Coche c = new Coche();
+
 				Date d = new Date(System.currentTimeMillis());
 				Date d2 = new Date();
 				d2 = calendario.getDate();
@@ -152,8 +149,7 @@ public class VentanaAlquiler extends JFrame {
 				String nomCoche = (String) comboCoche.getSelectedItem();
 				String fInicio = sdf.format(d);
 				String fFin = sdf.format(d2);
-				
-				
+
 				Alquiler al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
 
 				if (textNombre.getText().equals("")) {
@@ -161,12 +157,13 @@ public class VentanaAlquiler extends JFrame {
 				} else {
 
 					escribirProductosEnFichero(sdf);
-					JOptionPane.showMessageDialog(null, "El alquiler se ha realizado correctamente", "Perfecto!",
+					JOptionPane.showMessageDialog(null, "Procede al pago del alquiler", "Aceptado",
 							JOptionPane.INFORMATION_MESSAGE);
 
-					VentanaPrincipal vp = new VentanaPrincipal();
+					VentanaPago vp = new VentanaPago();
+					setVisible(false);
 					vp.setVisible(true);
-					dispose();
+
 					try {
 						DBManager.insertarAlquiler(al);
 					} catch (DBException e1) {
@@ -178,6 +175,7 @@ public class VentanaAlquiler extends JFrame {
 					}
 
 				}
+
 			}
 
 		});
@@ -189,16 +187,6 @@ public class VentanaAlquiler extends JFrame {
 
 		});
 
-		btnMetodoPago.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				// MetodosPago mp= new MetodosPago();
-				
-				
-			}
-		});
 	}
 
 	/**
@@ -248,9 +236,7 @@ public class VentanaAlquiler extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		 
+
 	}
- 
-	
+
 }
