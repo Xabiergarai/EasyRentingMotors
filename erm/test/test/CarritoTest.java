@@ -13,10 +13,11 @@ class CarritoTest {
 	private Carrito c;
 	private Carrito c1;
 
+	@Test
 	public void testCarrito() {
-		/**
-		 * Comprobamos si el constructor de la clase carrito propaga correctamente la excepcion ExcepcionExplicita
-		 */
+		
+		 //Comprobamos si el constructor de la clase carrito propaga correctamente la excepcion ExcepcionExplicita
+		 
 		assertThrows(ExcepcionExplicita.class, () -> {
 			
 							Carrito c = new Carrito("01","opel corsa", "13-12-2021", 0);
