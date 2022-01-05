@@ -28,6 +28,7 @@ class Contenedora {
 		listaCoches = new ArrayList<Coche>();
 		listaCoches.add(c);
 		favorito = new ArrayList<Coche>();
+		favorito.add(c);
 		carrito = new ArrayList<Coche>();
 		carrito.add(c);
 		co = new Contenedora();
