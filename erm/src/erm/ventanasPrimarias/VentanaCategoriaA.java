@@ -11,7 +11,10 @@ import erm.clasesBasicas.*;
 import erm.categoriasCoche.*;
 
 	import javax.swing.*;
-	import java.awt.event.ActionEvent;
+
+import com.sun.javafx.geom.AreaOp.AddOp;
+
+import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import java.util.ArrayList;
 
@@ -22,6 +25,7 @@ import erm.categoriasCoche.*;
 		private JFrame frame;
 		private ListaCoche Coches;
 		DBManager con = new DBManager();
+		JScrollPane scrollPane;
 
 		/**
 		 * Launch the application.
@@ -62,6 +66,10 @@ import erm.categoriasCoche.*;
 			frame.setTitle("ERMotors");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(null);
+			scrollPane = new JScrollPane();
+			scrollPane.setBounds(5, 10, 700, 750);
+			
+		
 
 			 ArrayList<CategoriaA> CategoriaA = new ArrayList<CategoriaA>();
 			 try {
@@ -138,6 +146,10 @@ import erm.categoriasCoche.*;
 					VentanaCarritoCompra.main();
 			});
 			frame.getContentPane().add(btnCarritoCompra);
+
+			//frame.setPreferredSize(new Dimension(600, 650));
+			//scrollPane.setViewportView(frame);
+			//frame.getContentPane().add(scrollPane);
 		}
 			
 		
@@ -180,8 +192,8 @@ import erm.categoriasCoche.*;
 			btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(btnAnadirAlCarrito);
 			
-
-			JScrollPane scroll = new JScrollPane(panel);
+			
+		
 
 			return panel;
 		}	
