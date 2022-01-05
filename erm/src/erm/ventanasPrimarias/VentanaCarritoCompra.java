@@ -30,6 +30,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private JTable carritoTabla;
 	private DefaultTableModel carritoModeloTabla;
 	private JLabel lblTotal;
+	public static JLabel lblPremium;
 	private double precioTotal;
 
 
@@ -78,7 +79,8 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoTabla.getColumnModel().getColumn(1).setMaxWidth(100);
 		carritoTabla.getColumnModel().getColumn(2).setMaxWidth(140);
 		carritoTabla.getColumnModel().getColumn(3).setMaxWidth(80);
-
+		
+		
 		// Añadimos el Renderer a la tabla
 		carritoTabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 
@@ -159,13 +161,12 @@ public class VentanaCarritoCompra extends JFrame {
 
 		});
 
-		JLabel lblPremium = new JLabel("* Con Easy Renting Motors puedes benificiarte de gastos");
-		lblPremium.setBounds(12, 475, 352, 29);
+		lblPremium = new JLabel("*Gastos de envio gratis");
+		lblPremium.setBounds(199, 475, 145, 29);
 		frame.getContentPane().add(lblPremium);
-
-		JLabel lblEnvioGratis = new JLabel("de envio GRATIS!");
-		lblEnvioGratis.setBounds(12, 498, 130, 16);
-		frame.getContentPane().add(lblEnvioGratis);
+		
+		Hilo h = new Hilo();
+        h.start();
 
 		JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
 		chckbxContratoTarifa.setBounds(176, 526, 188, 23);
@@ -208,6 +209,11 @@ public class VentanaCarritoCompra extends JFrame {
 		});
 		btnGuardarFichero.setBounds(90, 437, 212, 25);
 		frame.getContentPane().add(btnGuardarFichero);
+		
+		JLabel lblCostesGratis = new JLabel("Sin costes adicionales:");
+		lblCostesGratis.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCostesGratis.setBounds(10, 482, 179, 14);
+		frame.getContentPane().add(lblCostesGratis);
 	}
 
 	/**
