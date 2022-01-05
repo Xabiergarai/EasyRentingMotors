@@ -63,7 +63,7 @@ public class VentanaVenta extends JFrame {
 	public VentanaVenta() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 643, 546);
+		setBounds(100, 100, 643, 452);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 
@@ -80,18 +80,18 @@ public class VentanaVenta extends JFrame {
 
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNombre.setBounds(76, 217, 65, 28);
+		lblNombre.setBounds(76, 167, 65, 28);
 		getContentPane().add(lblNombre);
 
 		JTextArea textoNombre = new JTextArea();
 		textoNombre.setTabSize(18);
 		textoNombre.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		textoNombre.setBounds(166, 221, 107, 20);
+		textoNombre.setBounds(166, 171, 107, 20);
 		getContentPane().add(textoNombre);
 		
 
 		JTextArea textoId = new JTextArea();
-		textoId.setBounds(437, 221, 115, 20);
+		textoId.setBounds(437, 171, 115, 20);
 		getContentPane().add(textoId);
 		textoId.setColumns(10);
 
@@ -102,30 +102,30 @@ public class VentanaVenta extends JFrame {
 
 		JLabel lblPrecio = new JLabel("Precio");
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPrecio.setBounds(74, 258, 46, 14);
+		lblPrecio.setBounds(74, 208, 46, 14);
 		getContentPane().add(lblPrecio);
 
 		JTextPane textoPrecio = new JTextPane();
-		textoPrecio.setBounds(166, 258, 107, 20);
+		textoPrecio.setBounds(166, 208, 107, 20);
 		getContentPane().add(textoPrecio);
 
 		JLabel labelEuro = new JLabel("\u20AC");
 		labelEuro.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		labelEuro.setBounds(283, 258, 33, 20);
+		labelEuro.setBounds(283, 208, 33, 20);
 		getContentPane().add(labelEuro);
 
 		JLabel lblMarca = new JLabel("Marca");
 		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMarca.setBounds(74, 285, 99, 28);
+		lblMarca.setBounds(74, 235, 99, 28);
 		getContentPane().add(lblMarca);
 
 		JTextArea textoMarca = new JTextArea();
-		textoMarca.setBounds(166, 289, 107, 20);
+		textoMarca.setBounds(166, 239, 107, 20);
 		getContentPane().add(textoMarca);
 
 		JLabel lblImagen = new JLabel("Imagen");
 		lblImagen.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblImagen.setBounds(150, 348, 81, 20);
+		lblImagen.setBounds(139, 299, 81, 20);
 		
 		getContentPane().add(lblImagen);
 
@@ -136,7 +136,7 @@ public class VentanaVenta extends JFrame {
 
 		// Boton imagen
 		JButton btnImagen = new JButton("Imagen");
-		btnImagen.setBounds(352, 346, 93, 29);
+		btnImagen.setBounds(341, 297, 93, 29);
 		getContentPane().add(btnImagen);
 
 		btnImagen.addActionListener(e -> {
@@ -159,34 +159,34 @@ public class VentanaVenta extends JFrame {
 
 		btnAtras = new JButton("Atras");
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnAtras.setBounds(253, 441, 89, 28);
+		btnAtras.setBounds(242, 361, 89, 28);
 		getContentPane().add(btnAtras);
 
 		JLabel lblCombustible = new JLabel("Combustible");
 		lblCombustible.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCombustible.setBounds(316, 300, 134, 14);
+		lblCombustible.setBounds(316, 250, 134, 14);
 		getContentPane().add(lblCombustible);
 
 		
 		JLabel lblId = new JLabel("Id");
 		lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblId.setBounds(396, 224, 33, 14);
+		lblId.setBounds(396, 174, 33, 14);
 		getContentPane().add(lblId);
 		
 		
 		JLabel lblFecha = new JLabel("F.Matriculacion");
 		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFecha.setBounds(316, 258, 107, 14);
+		lblFecha.setBounds(316, 208, 107, 14);
 		getContentPane().add(lblFecha);
 		
 		JTextArea textoFecha = new JTextArea();
 		textoFecha.setText("");
-		textoFecha.setBounds(437, 255, 115, 20);
+		textoFecha.setBounds(437, 205, 115, 20);
 		getContentPane().add(textoFecha);
 		textoFecha.setColumns(10);
 		
 		JTextArea textoCombustible = new JTextArea();
-		textoCombustible.setBounds(437, 290, 115, 20);
+		textoCombustible.setBounds(437, 240, 115, 20);
 		getContentPane().add(textoCombustible);
 		textoCombustible.setColumns(10);
 
@@ -198,7 +198,7 @@ public class VentanaVenta extends JFrame {
 		
 
 		JButton btnCamara = new JButton("Camara");
-		btnCamara.setBounds(249, 346, 93, 29);
+		btnCamara.setBounds(238, 297, 93, 29);
 		getContentPane().add(btnCamara);
 
 		btnCamara.addActionListener(e -> {
@@ -289,7 +289,7 @@ public class VentanaVenta extends JFrame {
             } 
         });
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnGuardar.setBounds(352, 441, 93, 29);
+		btnGuardar.setBounds(341, 361, 93, 29);
 		getContentPane().add(btnGuardar);
 		
 	
