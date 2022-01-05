@@ -753,6 +753,12 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+	/**
+	 * Borra de la base de datos un usuario dependiendo del email
+	 * @param u
+	 * @throws SQLException
+	 * @throws DBException
+	 */
 	
 	public static void borrarUsuarioGestion(Usuario u) throws SQLException, DBException {
 		Connection con = initBD("EasyRentingMotors.db");
@@ -762,6 +768,17 @@ public class DBManager {
 			ps.execute();
 
 	}
+	/**
+	 * Insertar un usuario en la base de datos
+	 * @param id
+	 * @param nombre
+	 * @param apellidos
+	 * @param nickname
+	 * @param email
+	 * @param contrasenya
+	 * @param direccionIP
+	 * @throws DBException
+	 */
 		
 	 public static void insertarUsuario(String id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
 			
@@ -779,7 +796,11 @@ public class DBManager {
 		} 
 	
 
-	 
+	 /**
+	  * Metodo para obtener un ArrayList de los usuarios guardados en la base de datos
+	  * @return
+	  * @throws DBException
+	  */
 	
 	 public static ArrayList <Usuario> listarUsuarios() throws DBException{
 			ArrayList <Usuario> usuarios = new ArrayList<>();
@@ -809,7 +830,11 @@ public class DBManager {
 			
 		}
 	 
-	
+	/**
+	 * Metodo que devuelvelve un ArrayList de coches independientmente a que categoria pertenezca
+	 * @return
+	 * @throws DBException
+	 */
 	
 	 public static ArrayList <String> listarcoches() throws DBException{
 			ArrayList <String> coches = new ArrayList<>();
@@ -867,7 +892,12 @@ public class DBManager {
 			return coches;
 				
 			}
-	
+	/**
+	 * Metodo que borra un coche de la base de datos 
+	 * @param p
+	 * @throws SQLException
+	 * @throws DBException
+	 */
 	
 	 public static void borrarCoche(String p) throws SQLException, DBException {
 			Connection con = initBD("EasyRentingMotors.db");
@@ -889,7 +919,18 @@ public class DBManager {
 				ps.execute();
 	
 		}
-		
+		/**
+		 * Metodo para insertar un coche en categoriaA
+		 * @param id
+		 * @param nombre
+		 * @param categoria
+		 * @param marca
+		 * @param fecha_matriculacion
+		 * @param combustible
+		 * @param precio
+		 * @param rutaFoto
+		 * @throws DBException
+		 */
 	 public static void insertarCategoriaA(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 	
 	        String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";
@@ -904,6 +945,18 @@ public class DBManager {
 	        }
 	
 	    }
+	 /**
+	  *Metodo para insertar un coche en categoriaB
+	  * @param id
+	  * @param nombre
+	  * @param categoria
+	  * @param marca
+	  * @param fecha_matriculacion
+	  * @param combustible
+	  * @param precio
+	  * @param rutaFoto
+	  * @throws DBException
+	  */
 	 
 	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 	
@@ -919,6 +972,18 @@ public class DBManager {
 	        }
 	
 	    }
+	/**
+	 * Metodo para insertar un coche en categoriaC
+	 * @param id
+	 * @param nombre
+	 * @param categoria
+	 * @param marca
+	 * @param fecha_matriculacion
+	 * @param combustible
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
 	
 	public static void insertarCategoriaC(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 		
@@ -933,7 +998,18 @@ public class DBManager {
         }
 
     }
-	
+	/**
+	 * Metodo para insertar un coche en categoriaD
+	 * @param id
+	 * @param nombre
+	 * @param categoria
+	 * @param marca
+	 * @param fecha_matriculacion
+	 * @param combustible
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
 	public static void insertarCategoriaD(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 		
         String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')"; Connection c = DBManager.initBD("EasyRentingMotors.db");
@@ -947,6 +1023,10 @@ public class DBManager {
         }
 
     }
+	/**
+	 * Se encarga de poner una categoriaA en oferta
+	 * @throws SQLException
+	 */
 	
 	public static void ponerCategoriaAEnOferta() throws SQLException {
 		Connection c;
@@ -961,7 +1041,10 @@ public class DBManager {
 		}
 		
 	}
-	
+	/**
+	 * Se encarga de quitar la oferta que hay en la categoriaA
+	 * @throws SQLException
+	 */
 	public static void seAcabaLaOferta() throws SQLException {
 		Connection c;
 		try {
@@ -975,7 +1058,12 @@ public class DBManager {
 		}
 	
 	}
-		 	//INSERTAR COCHE (Categoria A) EN CARRITO
+	
+	/**
+	 * Metodo que inseta un coche de la categoriaA en el carrtio
+	 * @param catA
+	 * @throws DBException
+	 */
 			public void insertarCategoriaACarrito (CategoriaA catA) throws DBException{
 				String id = catA.getId();
 				String nombre = catA.getNombre();
@@ -995,7 +1083,12 @@ public class DBManager {
 				}
 			}
 	
-		
+		/**
+		 * Metodo que recoje un Vector de Vectores y guarda en la base de datos la lista de los coches que habia en el carrito
+		 * @param carrito
+		 * @throws SQLException
+		 * @throws DBException
+		 */
 			
 			public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
 
@@ -1014,18 +1107,13 @@ public class DBManager {
 					
 			System.out.println("llega");
 			}
-					
-				
-				
-				
-				
 				}
-				
-			
-			
-			
-			
-			
+
+			/**
+			 * Metodo encargado de devolver el ArrayList que hay en ese momento de coches en el carrito
+			 * @param nom
+			 * @return
+			 */
 			public ArrayList<Carrito> obtenerCarrito(String nom) {
 				String sentSQL = "SELECT * FROM carrito WHERE "+nom+"";
 				ArrayList<Carrito> al = new ArrayList<>();
@@ -1054,7 +1142,11 @@ public class DBManager {
 				return al;
 			}
 			
-			//INSERTAR DATOS A TARJETA
+			/**
+			 * Metodo encargado de insertar los datos necesarios de una targeta de credito
+			 * @param tarjeta
+			 * @throws DBException
+			 */
 			public void insertarDatosTarjeta (Tarjeta tarjeta) throws DBException{
 				
 				try (Statement stmt= conn.createStatement()) {
