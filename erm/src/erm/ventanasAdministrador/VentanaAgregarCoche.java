@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.ventanasPrimarias.VentanaPrincipal;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -155,6 +156,10 @@ public class VentanaAgregarCoche extends JFrame {
 				JButton btnImagen = new JButton("Imagen");
 				btnImagen.setBounds(168, 510, 93, 29);
 				getContentPane().add(btnImagen);
+				
+				JLabel lblFoto = new JLabel("");
+				lblFoto.setBounds(297, 517, 0, 0);
+				contentPane.add(lblFoto);
 
 				btnImagen.addActionListener(e -> {
 					
@@ -165,8 +170,9 @@ public class VentanaAgregarCoche extends JFrame {
 						int seleccionado = fc.showOpenDialog(null);
 						if (seleccionado == JFileChooser.APPROVE_OPTION) {
 							File ficheroSeleccionado = fc.getSelectedFile();
-							ficheroSeleccionado.getAbsolutePath();
-
+							ImageIcon im = new ImageIcon(ficheroSeleccionado.getAbsolutePath());
+							im.setDescription(ficheroSeleccionado.getAbsolutePath());
+							lblFoto.setIcon(im);
 						}
 				});
 
@@ -180,25 +186,26 @@ public class VentanaAgregarCoche extends JFrame {
                 String precio = textPrecio.getText();
                 String fecha_matriculacion = textFecha_Matriculacion.getText();
                 String combustible = textCombustible.getText();
-                String imagen = btnImagen.getText();
-                
+                ImageIcon im =(ImageIcon) lblFoto.getIcon();
+                String rutaFoto = im.getDescription();
                 
 
                 if (categoria.equals("Categoria A")) {
                     try {
-						DBManager.insertarCategoriaA(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+						DBManager.insertarCategoriaA(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-                    VentanaGestionStock vs = new VentanaGestionStock();
-                    vs.setVisible(true);
+                    VentanaPrincipal vp = new VentanaPrincipal();
+                    vp.setVisible(true);
                     setVisible(false);
                 } 
 
+
                 if (categoria.equals("Categoria B")) {
                     try {
-						DBManager.insertarCategoriaB(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+						DBManager.insertarCategoriaB(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -210,7 +217,7 @@ public class VentanaAgregarCoche extends JFrame {
 
                 if (categoria.equals("Categoria C")) {
                     try {
-						DBManager.insertarCategoriaC(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+						DBManager.insertarCategoriaC(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -222,7 +229,7 @@ public class VentanaAgregarCoche extends JFrame {
 
                 if (categoria.equals("Categoria D")) {
                     try {
-						DBManager.insertarCategoriaD(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio);
+						DBManager.insertarCategoriaD(id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto);
 					} catch (DBException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

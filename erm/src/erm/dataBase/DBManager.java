@@ -890,9 +890,9 @@ public class DBManager {
 	
 		}
 		
-	 public static void insertarCategoriaA(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
+	 public static void insertarCategoriaA(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 	
-	        String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+	        String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";
 	        Connection c = DBManager.initBD("EasyRentingMotors.db");
 	        try {
 	            Statement st = c.createStatement();
@@ -905,9 +905,9 @@ public class DBManager {
 	
 	    }
 	 
-	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
+	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 	
-	        String s = "INSERT INTO CategoriaB (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
+	        String s = "INSERT INTO CategoriaB (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";
 	        Connection c = DBManager.initBD("EasyRentingMotors.db");
 	        try {
 	            Statement st = c.createStatement();
@@ -920,10 +920,9 @@ public class DBManager {
 	
 	    }
 	
-	public static void insertarCategoriaC(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
+	public static void insertarCategoriaC(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 		
-        String s = "INSERT INTO CategoriaC (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
-        Connection c = DBManager.initBD("EasyRentingMotors.db");
+        String s = "INSERT INTO CategoriaC (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";Connection c = DBManager.initBD("EasyRentingMotors.db");
         try {
             Statement st = c.createStatement();
             st.executeUpdate(s);
@@ -935,10 +934,9 @@ public class DBManager {
 
     }
 	
-	public static void insertarCategoriaD(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio) throws DBException {
+	public static void insertarCategoriaD(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
 		
-        String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"')";
-        Connection c = DBManager.initBD("EasyRentingMotors.db");
+        String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')"; Connection c = DBManager.initBD("EasyRentingMotors.db");
         try {
             Statement st = c.createStatement();
             st.executeUpdate(s);

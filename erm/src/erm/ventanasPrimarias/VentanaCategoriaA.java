@@ -147,7 +147,6 @@ import erm.categoriasCoche.*;
 			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 			panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 			panel.setBackground(Color.WHITE);
-
 			JLabel lblImagen = new JLabel();
 			lblImagen.setBounds(72, 90, 124, 141);
 			ImageIcon ico1= new ImageIcon(o.getRutaFoto());//meter las rutas en la bd
@@ -180,6 +179,9 @@ import erm.categoriasCoche.*;
 			
 			btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(btnAnadirAlCarrito);
+			
+
+			JScrollPane scroll = new JScrollPane(panel);
 
 			return panel;
 		}	
