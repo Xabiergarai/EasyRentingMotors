@@ -1,4 +1,5 @@
 package erm.ventanasPrimarias;
+
 import erm.dataBase.*;
 import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.Coche;
@@ -10,15 +11,13 @@ import java.awt.*;
 import erm.clasesBasicas.*;
 import erm.categoriasCoche.*;
 
-	import javax.swing.*;
-
-import com.sun.javafx.geom.AreaOp.AddOp;
+import javax.swing.*;
 
 import java.awt.event.ActionEvent;
-	import java.awt.event.ActionListener;
-	import java.util.ArrayList;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-	import java.util.Random;
+import java.util.Random;
 
 	public class VentanaCategoriaA {
 
