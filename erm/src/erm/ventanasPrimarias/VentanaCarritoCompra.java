@@ -2,6 +2,7 @@ package erm.ventanasPrimarias;
 
 import erm.categoriasCoche.*;
 import erm.clasesBasicas.*;
+import erm.clasesBasicas.Contenedora;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaPago;
@@ -32,6 +33,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private JLabel lblTotal;
 	private double precioTotal;
 
+	public static Contenedora contenedora;
 
 	/**
 	 * Launch the application.
@@ -54,6 +56,7 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 
 	public VentanaCarritoCompra() {
+		contenedora = new Contenedora();
 		initialize();
 	}
 
@@ -310,6 +313,13 @@ public class VentanaCarritoCompra extends JFrame {
 		Thread t1 = new Thread(r1);
 		t1.start();
 	}
+	
+	/**
+	 * Metodo recursivo, encargado de recojer la informacion de la DefaultTableModel y escribirla en el fichero
+	 * @param fila
+	 * @param carritoModeloTabla
+	 * @param pw
+	 */
 
 	private void escribirProductosEnFichero(int fila, DefaultTableModel carritoModeloTabla, PrintWriter pw) {
 		if (fila < carritoModeloTabla.getRowCount()) {
