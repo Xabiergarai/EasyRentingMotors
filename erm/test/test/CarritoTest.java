@@ -23,8 +23,19 @@ class CarritoTest {
 							Carrito c = new Carrito("01","opel corsa", "13-12-2021", 0);
 							
 		});
+			
+		//Comprobamos si el constructor de la clase carrito puede NO propagar la excepcion ExcepcionExplicita
+		
+		assertThrows(AssertionError.class, ()-> {
+			assertThrows(ExcepcionExplicita.class, () -> {
+				
+				Carrito c = new Carrito("01","opel corsa", "13-12-2021", 500.12);
+			});
+							
+		});
 		
 	}
+	
 
 	@BeforeEach
 	public void setUp() throws ExcepcionExplicita {
