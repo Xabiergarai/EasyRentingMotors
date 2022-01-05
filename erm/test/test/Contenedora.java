@@ -20,6 +20,7 @@ class Contenedora {
 	public Coche c;
 	
 	
+	
 	private Contenedora co;
 	
 	@BeforeEach
@@ -41,6 +42,11 @@ class Contenedora {
 		
 	}
 	
+	
+	@Test
+	void setListaCoches() {
+		
+	}
 	
 	
 }
