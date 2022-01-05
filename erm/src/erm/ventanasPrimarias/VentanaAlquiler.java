@@ -30,9 +30,9 @@ import com.toedter.calendar.JCalendar;
 
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
-import erm.clasesBasicas.MiExcepcion;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.excepciones.ExcepcionImplicita;
 import erm.ventanasSecundarias.VentanaAjustes;
 import erm.ventanasSecundarias.VentanaPago;
 
@@ -155,7 +155,7 @@ public class VentanaAlquiler extends JFrame {
 
 				if (textNombre.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
-					 throw new MiExcepcion("No se pueden dejar campos vacios");
+					 throw new ExcepcionImplicita("No se pueden dejar campos vacios");
 
 				} else {
 

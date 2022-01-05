@@ -157,6 +157,7 @@ public class VentanaPerfil extends JFrame{
 		btnGuardarCambios.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				VentanaPrincipal principal = new VentanaPrincipal();
 				principal.setVisible(true);
 				JOptionPane.showMessageDialog(null, "¡Enhorabuena! Ya estas registrado", "Cuenta creada", JOptionPane.INFORMATION_MESSAGE);

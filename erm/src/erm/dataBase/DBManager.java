@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import erm.clasesBasicas.Opinion;
 import erm.clasesBasicas.Tarjeta;
 import erm.dataBase.DBException;
+import erm.excepciones.ExcepcionExplicita;
 import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.CategoriaB;
 import erm.categoriasCoche.CategoriaC;
@@ -830,6 +831,30 @@ public class DBManager {
 			
 		}
 	 
+	 public static ArrayList <String> mostrarUsuario() throws DBException{
+			ArrayList <String> usuarios = new ArrayList<>();
+			Connection con = initBD("EasyRentingMotors.db");
+			
+	
+			try (Statement stmt = con.createStatement()) {
+				ResultSet rs = stmt.executeQuery("SELECT id, nombre, apellidos, email FROM usuario");
+	
+				while(rs.next()) {
+					
+					int i = Integer.parseInt(rs.getString("id"));
+					String n = rs.getString("nombre");
+					String a = rs.getString("apellidos");
+					String e =rs.getString("email");
+				}
+				
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo los usuarios", e);
+			}
+		
+		return usuarios;
+			
+		}
+	 
 	/**
 	 * Metodo que devuelvelve un ArrayList de coches independientmente a que categoria pertenezca
 	 * @return
@@ -1113,8 +1138,9 @@ public class DBManager {
 			 * Metodo encargado de devolver el ArrayList que hay en ese momento de coches en el carrito
 			 * @param nom
 			 * @return
+			 * @throws ExcepcionExplicita 
 			 */
-			public ArrayList<Carrito> obtenerCarrito(String nom) {
+			public ArrayList<Carrito> obtenerCarrito(String nom) throws ExcepcionExplicita {
 				String sentSQL = "SELECT * FROM carrito WHERE "+nom+"";
 				ArrayList<Carrito> al = new ArrayList<>();
 				try {

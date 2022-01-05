@@ -2,7 +2,6 @@ package erm.ventanasPrimarias;
 
 import erm.categoriasCoche.*;
 import erm.clasesBasicas.*;
-import erm.clasesBasicas.Contenedora;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 import erm.ventanasSecundarias.VentanaPago;
@@ -33,7 +32,6 @@ public class VentanaCarritoCompra extends JFrame {
 	private JLabel lblTotal;
 	private double precioTotal;
 
-	public static Contenedora contenedora;
 
 	/**
 	 * Launch the application.
@@ -56,7 +54,6 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 
 	public VentanaCarritoCompra() {
-		contenedora = new Contenedora();
 		initialize();
 	}
 

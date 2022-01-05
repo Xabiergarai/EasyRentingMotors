@@ -6,15 +6,27 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import erm.clasesBasicas.Carrito;
+import erm.excepciones.ExcepcionExplicita;
 
 class CarritoTest {
 
 	private Carrito c;
 	private Carrito c1;
 
+	public void testCarrito() {
+		/**
+		 * Comprobamos si el constructor de la clase carrito propaga correctamente la excepcion ExcepcionExplicita
+		 */
+		assertThrows(ExcepcionExplicita.class, () -> {
+			
+							Carrito c = new Carrito("01","opel corsa", "13-12-2021", 0);
+							
+		});
+		
+	}
 
 	@BeforeEach
-	public void setUp() {
+	public void setUp() throws ExcepcionExplicita {
 		c = new Carrito("01", "1", "12-12-2012", 54);
 		c1= new Carrito();
 	}

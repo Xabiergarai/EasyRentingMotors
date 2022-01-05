@@ -1,16 +1,22 @@
 package erm.clasesBasicas;
 
+import erm.excepciones.ExcepcionExplicita;
+
 public class Carrito {
 	private String id;
 	private String nombre;
 	private double precio;
 	private String fecha;
 
-	public Carrito(String id, String nombre, String fecha, double precio) {
+	public Carrito(String id, String nombre, String fecha, double precio) throws ExcepcionExplicita {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.precio = precio;
+		if(precio > 0)
+			this.precio = precio;
+		else
+			throw new ExcepcionExplicita("El precio tiene que ser > 0");
+			
 		this.fecha = fecha;
 	}
 
