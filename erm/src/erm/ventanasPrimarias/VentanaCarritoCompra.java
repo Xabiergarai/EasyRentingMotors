@@ -135,7 +135,7 @@ public class VentanaCarritoCompra extends JFrame {
 		});
 		frame.getContentPane().add(btnVaciarCesta);
 
-		JButton btnGuardarLista = new JButton("Comprar");
+		JButton btnGuardarLista = new JButton("Guardar lista");
 		btnGuardarLista.setBounds(90, 378, 212, 29);
 		btnGuardarLista.addActionListener(e -> {
 
