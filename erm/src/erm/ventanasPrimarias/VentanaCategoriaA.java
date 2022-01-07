@@ -1,6 +1,5 @@
 package erm.ventanasPrimarias;
 
-import erm.dataBase.*;
 import erm.categoriasCoche.CategoriaA;
 import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
@@ -8,13 +7,11 @@ import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
 
 import java.awt.*;
-import erm.clasesBasicas.*;
-import erm.categoriasCoche.*;
+
 
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import java.util.Random;

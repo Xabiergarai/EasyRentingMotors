@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 
 //Fondo para la VentanaLogin
 public class PanelFondo extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String fondo;
 	public PanelFondo(String fondo){
 		

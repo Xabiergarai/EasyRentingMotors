@@ -1115,6 +1115,7 @@ public class DBManager {
 		 * @throws DBException
 		 */
 			
+			@SuppressWarnings("rawtypes")
 			public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
 
 				Statement st = conn.createStatement();
