@@ -58,18 +58,13 @@ public class VentanaAjustes extends JFrame {
 
 		JButton botonPrivacidad = new JButton("Privacidad");
 		botonPrivacidad.setBackground(UIManager.getColor("CheckBox.background"));
-		botonPrivacidad.setBounds(57, 144, 297, 20);
+		botonPrivacidad.setBounds(57, 158, 297, 20);
 		getContentPane().add(botonPrivacidad);
 
 		JButton botonSeguridad = new JButton("Seguridad");
 		botonSeguridad.setBackground(UIManager.getColor("CheckBox.background"));
-		botonSeguridad.setBounds(57, 163, 297, 23);
+		botonSeguridad.setBounds(57, 177, 297, 23);
 		getContentPane().add(botonSeguridad);
-
-		JButton botonPago = new JButton("Metodos de pago");
-		botonPago.setBackground(UIManager.getColor("CheckBox.background"));
-		botonPago.setBounds(57, 182, 297, 23);
-		getContentPane().add(botonPago);
 
 		JButton botonCerrarSesion = new JButton("Cerrar Sesion");
 		botonCerrarSesion.setBackground(UIManager.getColor("CheckBox.background"));
@@ -93,7 +88,7 @@ public class VentanaAjustes extends JFrame {
 
 		JButton btnVentasEInformacion = new JButton("Ventas e informacion");
 		btnVentasEInformacion.setBackground(UIManager.getColor("CheckBox.background"));
-		btnVentasEInformacion.setBounds(57, 106, 297, 20);
+		btnVentasEInformacion.setBounds(57, 120, 297, 20);
 		getContentPane().add(btnVentasEInformacion);
 
 		JButton btnAlquiler = new JButton("Alquileres");
@@ -110,7 +105,7 @@ public class VentanaAjustes extends JFrame {
 				}
 		});
 		btnAlquiler.setBackground(UIManager.getColor("CheckBox.background"));
-		btnAlquiler.setBounds(57, 125, 297, 20);
+		btnAlquiler.setBounds(57, 139, 297, 20);
 		getContentPane().add(btnAlquiler);
 
 		btnVentasEInformacion.addActionListener(e -> {
@@ -134,14 +129,6 @@ public class VentanaAjustes extends JFrame {
 				VentanaInicial vl = new VentanaInicial();
 				vl.setVisible(true);
 				dispose();
-		});
-
-		botonPago.addActionListener(e -> {
-			
-				// VentanaPagoAjustes v3 = new VentanaPagoAjustes();
-				// v3.setVisible(true);
-				dispose();
-
 		});
 
 		botonSalir.addActionListener(e -> {

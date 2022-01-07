@@ -42,10 +42,6 @@ public class VentanaPrincipal extends JFrame {
 	public static ArrayList<Coche> carrito = new ArrayList<Coche>();
 	ListaCoche listaCoche = new ListaCoche();
 
-	
-	
-	
-
 	VentanaLogIn vp = new VentanaLogIn();
 	private JLabel lblCategoriaA;
 
@@ -87,7 +83,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaA);
 
 		btncategoriaA.addActionListener(e -> {
-				VentanaCategoriaA a=new VentanaCategoriaA();
+				VentanaCategoriaA a= new VentanaCategoriaA();
 				dispose();
 		});
 
