@@ -1,9 +1,12 @@
 package erm.ventanasSecundarias;
 
 import javax.swing.JFrame;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,6 +21,7 @@ import erm.ventanasPrimarias.VentanaLogIn;
 
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 
 public class VentanaSeguridad extends JFrame {
 	int a = VentanaLogIn.getUsuarioId();
@@ -25,51 +29,61 @@ public class VentanaSeguridad extends JFrame {
 	private JPasswordField pfActual;
 	private JPasswordField pfNueva;
 	private JPasswordField pfConfirmarNueva;
+	private JPanel panelNorte, panelCentro, panelBotonera;
 	
 	public VentanaSeguridad() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 449, 451);
+		setBounds(100, 100, 449, 379);
 		getContentPane().setBackground(SystemColor.menu);
-		getContentPane().setLayout(null);
+		
+		panelNorte = new JPanel();
+		panelBotonera = new JPanel();
+		panelCentro = new JPanel();
 		
 		JLabel lblCambiarContrasenya = new JLabel("Cambiar contrase\u00F1a");
 		lblCambiarContrasenya.setForeground(new Color(255, 165, 0));
 		lblCambiarContrasenya.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
 		lblCambiarContrasenya.setBounds(128, 23, 223, 20);
-		getContentPane().add(lblCambiarContrasenya);
+		panelNorte.add(lblCambiarContrasenya);
+		
+		getContentPane().add(panelNorte, BorderLayout.NORTH);
+		panelCentro.setLayout(null);
 		
 		JLabel lblContrasenyaAntigua = new JLabel("Contrase\u00F1a actual");
-		lblContrasenyaAntigua.setBounds(10, 75, 160, 20);
-		getContentPane().add(lblContrasenyaAntigua);
+		lblContrasenyaAntigua.setBounds(10, 50, 89, 14);
+		panelCentro.add(lblContrasenyaAntigua);
 		
 		pfActual = new JPasswordField();
-		pfActual.setBounds(10, 107, 398, 26);
-		getContentPane().add(pfActual);
+		pfActual.setBounds(185, 44, 208, 26);
+		panelCentro.add(pfActual);
 		
 		JLabel lblNuevaContrasea = new JLabel("Nueva contrase\u00F1a");
-		lblNuevaContrasea.setBounds(10, 158, 160, 20);
-		getContentPane().add(lblNuevaContrasea);
+		lblNuevaContrasea.setBounds(10, 114, 89, 14);
+		panelCentro.add(lblNuevaContrasea);
 		
 		pfNueva = new JPasswordField();
-		pfNueva.setBounds(10, 189, 398, 26);
-		getContentPane().add(pfNueva);
+		pfNueva.setBounds(185, 111, 208, 20);
+		panelCentro.add(pfNueva);
 		
 		JLabel label = new JLabel("Confirmar nueva contrase\u00F1a");
-		label.setBounds(10, 243, 208, 20);
-		getContentPane().add(label);
+		label.setBounds(10, 177, 139, 14);
+		panelCentro.add(label);
 		
 		pfConfirmarNueva = new JPasswordField();
-		pfConfirmarNueva.setBounds(10, 274, 398, 26);
-		getContentPane().add(pfConfirmarNueva);
+		pfConfirmarNueva.setBounds(185, 174, 208, 20);
+		panelCentro.add(pfConfirmarNueva);
+		
+		getContentPane().add(panelCentro, BorderLayout.CENTER);
 		
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.setBounds(10, 366, 160, 29);
-		getContentPane().add(btnAtras);
+		panelBotonera.add(btnAtras);
 		
 		JButton btnCambiar = new JButton("Cambiar");
 		btnCambiar.setBounds(248, 367, 160, 26);
-		getContentPane().add(btnCambiar);
+		panelBotonera.add(btnCambiar);
 		
+		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
