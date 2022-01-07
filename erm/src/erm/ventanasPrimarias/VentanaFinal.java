@@ -33,27 +33,27 @@ public class VentanaFinal extends JFrame{
 		getContentPane().add(lblTitulo);
 		
 		JLabel lblCamion = new JLabel("");
-		lblCamion.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\icons8-cami\u00F3n-verificado-64.png"));
+		lblCamion.setIcon(new ImageIcon("imagenes/icons8-cami\u00F3n-verificado-64.png"));
 		lblCamion.setBounds(370, 171, 75, 88);
 		getContentPane().add(lblCamion);
 		
 		JLabel lblCaja = new JLabel("");
-		lblCaja.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoCaja.png"));
+		lblCaja.setIcon(new ImageIcon("imagenes/iconoCaja.png"));
 		lblCaja.setBounds(234, 171, 75, 88);
 		getContentPane().add(lblCaja);
 		
 		JLabel lblCoche = new JLabel("");
-		lblCoche.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\iconoCocche.png"));
+		lblCoche.setIcon(new ImageIcon("imagenes/iconoCocche.png"));
 		lblCoche.setBounds(44, 107, 145, 128);
 		getContentPane().add(lblCoche);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\icons8-flecha-16.png"));
+		lblNewLabel.setIcon(new ImageIcon("imagenes/icons8-flecha-16.png"));
 		lblNewLabel.setBounds(199, 183, 41, 63);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\icons8-flecha-16.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("imagenes/icons8-flecha-16.png"));
 		lblNewLabel_1.setBounds(319, 183, 41, 63);
 		getContentPane().add(lblNewLabel_1);
 		
@@ -62,12 +62,12 @@ public class VentanaFinal extends JFrame{
 		getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\icons8-casa-48.png"));
+		lblNewLabel_3.setIcon(new ImageIcon("imagenes/icons8-casa-48.png"));
 		lblNewLabel_3.setBounds(515, 186, 99, 73);
 		getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\gutia\\git\\EasyRentingMotors\\imagenes\\icons8-flecha-16.png"));
+		lblNewLabel_4.setIcon(new ImageIcon("imagenes/icons8-flecha-16.png"));
 		lblNewLabel_4.setBounds(470, 211, 35, 14);
 		getContentPane().add(lblNewLabel_4);
 		
