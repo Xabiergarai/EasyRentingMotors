@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import erm.clasesBasicas.Alquiler;
+import erm.excepciones.ExcepcionExplicita;
 
 /**
  * 
@@ -19,7 +20,7 @@ class AlquilerTest {
 	private Alquiler a1;
 	
 	@BeforeEach
-	public void setUp() {
+	public void setUp() throws ExcepcionExplicita {
 		 a= new Alquiler("pepe019", "Fiat 500", "2021-12-20", "2021-12-31");
 		 a1 = new Alquiler();
 	}
@@ -61,7 +62,13 @@ class AlquilerTest {
 	public void testGetNomCoche() {
 		assertEquals("Fiat 500", a.getnomCoche());
 	}
-	
+	@Test
+	public void testExcepcionExplicita() {
+		assertThrows(ExcepcionExplicita.class, ()->{
+			Alquiler c = new Alquiler("", a.getnomCoche(), a.getFechaInicio(),a.getFechaFin());
+			});
+
+	}
 	
 
 	@Test

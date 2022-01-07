@@ -32,6 +32,7 @@ import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.Alquiler;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+import erm.excepciones.ExcepcionExplicita;
 import erm.excepciones.ExcepcionImplicita;
 import erm.ventanasSecundarias.VentanaAjustes;
 import erm.ventanasSecundarias.VentanaPago;
@@ -54,6 +55,8 @@ public class VentanaAlquiler extends JFrame {
 	private JButton btnALquilar, btnAtras;
 
 	private VentanaAjustes va;
+	private Alquiler al;
+
 
 	/**
 	 * Create the frame
@@ -151,7 +154,12 @@ public class VentanaAlquiler extends JFrame {
 				String fInicio = sdf.format(d);
 				String fFin = sdf.format(d2);
 
-				Alquiler al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
+								try {
+					al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
+				} catch (ExcepcionExplicita e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 
 				if (textNombre.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");

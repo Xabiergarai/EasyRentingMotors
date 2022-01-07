@@ -2,6 +2,8 @@ package erm.clasesBasicas;
 
 import java.util.Date;
 
+import erm.excepciones.ExcepcionExplicita;
+
 public class Alquiler {
 
 	private String nomUsuario;
@@ -13,9 +15,14 @@ public class Alquiler {
 	
 	}
 
-	public Alquiler(String nomUsuario, String nomCoche, String fechaInicio, String fechaFin) {
+	public Alquiler(String nomUsuario, String nomCoche, String fechaInicio, String fechaFin) throws ExcepcionExplicita {
 		super();
-		this.nomUsuario = nomUsuario;
+		if(nomUsuario.length()>0) {
+			this.nomUsuario=nomUsuario;
+		}else {
+			throw new ExcepcionExplicita("El campo no puede estar vacio");
+		}
+		
 		this.nomCoche = nomCoche;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
