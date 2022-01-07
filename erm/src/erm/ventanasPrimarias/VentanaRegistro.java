@@ -15,11 +15,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import erm.clasesBasicas.*;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 public class VentanaRegistro extends JFrame {
@@ -29,6 +32,7 @@ public class VentanaRegistro extends JFrame {
 	private JLabel lbNombre, lbApellidos, lbnomUsuario, lbEmail, lbContrasenia;
 	private JPasswordField pfContrasenia;
 	private JButton btnRegistrarse, btnAtras;
+	private JPanel panelNorte, panelCentro, panelBotonera;
 	private TextPrompt tP;
 	public static Pattern patronEmail = Pattern
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -43,52 +47,59 @@ public class VentanaRegistro extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 545, 409);
 		this.setMinimumSize(new Dimension(250, 300));
+	
+		panelNorte = new JPanel();
+		panelBotonera = new JPanel();
+		panelCentro = new JPanel();
 
 		lbNombre = new JLabel("Nombre: ");
 		lbNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbNombre.setBounds(104, 87, 74, 16);
+		lbNombre.setBounds(112, 57, 62, 16);
 		tfNombre = new JTextField();
-		tfNombre.setBounds(274, 87, 137, 22);
+		tfNombre.setBounds(295, 56, 170, 20);
 		tP = new TextPrompt("Nombre", tfNombre);
-		getContentPane().setLayout(null);
-		getContentPane().add(lbNombre);
-		getContentPane().add(tfNombre);
-
+		
 		lbApellidos = new JLabel("Apellidos: ");
 		lbApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbApellidos.setBounds(104, 127, 74, 16);
+		lbApellidos.setBounds(112, 99, 70, 16);
 		tfApellidos = new JTextField();
-		tfApellidos.setBounds(274, 127, 137, 22);
+		tfApellidos.setBounds(295, 98, 170, 20);
 		tP = new TextPrompt("Apellidos", tfApellidos);
-		getContentPane().add(lbApellidos);
-		getContentPane().add(tfApellidos);
 
 		lbnomUsuario = new JLabel("Nombre de usuario: ");
 		lbnomUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbnomUsuario.setBounds(104, 167, 143, 16);
+		lbnomUsuario.setBounds(112, 137, 137, 16);
 		tfNombreUsuario = new JTextField();
-		tfNombreUsuario.setBounds(274, 167, 137, 22);
+		tfNombreUsuario.setBounds(295, 136, 170, 20);
 		tP = new TextPrompt("Nombre de Usuario", tfNombreUsuario);
-		getContentPane().add(lbnomUsuario);
-		getContentPane().add(tfNombreUsuario);
 
 		lbEmail = new JLabel("Email: ");
 		lbEmail.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbEmail.setBounds(104, 207, 56, 16);
+		lbEmail.setBounds(112, 175, 45, 16);
 		tfEmail = new JTextField();
-		tfEmail.setBounds(274, 207, 137, 22);
+		tfEmail.setBounds(295, 174, 170, 20);
 		tP = new TextPrompt("Email", tfEmail);
-		getContentPane().add(lbEmail);
-		getContentPane().add(tfEmail);
 
 		lbContrasenia = new JLabel("Contraseña: ");
 		lbContrasenia.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbContrasenia.setBounds(104, 247, 90, 16);
+		lbContrasenia.setBounds(112, 213, 85, 16);
 		pfContrasenia = new JPasswordField();
-		pfContrasenia.setBounds(274, 247, 137, 22);
+		pfContrasenia.setBounds(295, 212, 170, 20);
 		tP = new TextPrompt("Contraseña", pfContrasenia);
-		getContentPane().add(lbContrasenia);
-		getContentPane().add(pfContrasenia);
+		panelCentro.setLayout(null);
+		
+	
+		panelCentro.add(lbNombre);
+		panelCentro.add(tfNombre);
+		panelCentro.add(lbApellidos);
+		panelCentro.add(tfApellidos);
+		panelCentro.add(lbnomUsuario);
+		panelCentro.add(tfNombreUsuario);
+		panelCentro.add(lbEmail);
+		panelCentro.add(tfEmail);
+		panelCentro.add(lbContrasenia);
+		panelCentro.add(pfContrasenia);
+		getContentPane().add(panelCentro);
 
 		btnAtras = new JButton("Volver");
 		btnAtras.setBounds(125, 301, 97, 25);
@@ -98,17 +109,22 @@ public class VentanaRegistro extends JFrame {
 			vi.setVisible(true);
 			dispose();
 		});
-		getContentPane().add(btnAtras);
+		
 
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBounds(283, 301, 109, 25);
-		getContentPane().add(btnRegistrarse);
+		
+		panelBotonera.add(btnAtras);
+		panelBotonera.add(btnRegistrarse);
+		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 
-		JLabel lblPorFavorRellene = new JLabel("Por favor, rellene todos los campos.");
-		lblPorFavorRellene.setForeground(new Color(255, 165, 0));
-		lblPorFavorRellene.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblPorFavorRellene.setBounds(104, 40, 307, 16);
-		getContentPane().add(lblPorFavorRellene);
+		JLabel lblTitulo = new JLabel("Por favor, rellene todos los campos.");
+		lblTitulo.setForeground(new Color(255, 165, 0));
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		lblTitulo.setBounds(104, 40, 307, 16);
+		panelNorte.add(lblTitulo);
+		
+		getContentPane().add(panelNorte, BorderLayout.NORTH);
 		btnRegistrarse.addActionListener(e -> {
 
 			//SACAR DIRECCION IP LOCAL
