@@ -18,18 +18,7 @@ public class VentanaTransaccionCompra extends JFrame {
 	 * Método que contiene un hilo que salta al a hora de realizar la compra de la tabla de coches seleccionados
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaTransaccionCompra window = new VentanaTransaccionCompra();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 	
 	private JPanel pCentral;
 	public VentanaTransaccionCompra() {

@@ -22,22 +22,6 @@ public class VentanaCategoriaC {
 	private ListaCoche Coches;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaCategoriaC window = new VentanaCategoriaC();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public VentanaCategoriaC() {
@@ -88,35 +72,34 @@ public class VentanaCategoriaC {
 
 		JMenuItem mntmCatA = new JMenuItem("Categoria A");
 		mntmCatA.addActionListener(e -> {
-				VentanaCategoriaA.main();
+				VentanaCategoriaA a= new VentanaCategoriaA();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatA);
 
 		JMenuItem mntmCatB = new JMenuItem("Categoria B");
 		mntmCatB.addActionListener(e -> {
-				VentanaCategoriaB.main();
+				VentanaCategoriaB b= new VentanaCategoriaB();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatB);
 
 		JMenuItem mntmCatC = new JMenuItem("Categoria C");
 		mntmCatC.addActionListener(e -> {
-				VentanaCategoriaC.main();
+				VentanaCategoriaC c=new VentanaCategoriaC();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatC);
 
 		JMenuItem mntmCatD = new JMenuItem("Categoria D");
 		mntmCatD.addActionListener(e -> {
-				VentanaCategoriaD.main();
+				VentanaCategoriaD d=new VentanaCategoriaD();
 				frame.dispose();
 		});
 		mnCat.add(mntmCatD);
 
 		JMenuItem mntmInicio = new JMenuItem("Volver a inicio");
 		mntmInicio.addActionListener(e -> {
-				VentanaPrincipal.main(null);
 				frame.dispose();
 		});
 		mnCat.add(mntmInicio);
@@ -130,7 +113,7 @@ public class VentanaCategoriaC {
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main();
+				VentanaCarritoCompra vc=new VentanaCarritoCompra();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}

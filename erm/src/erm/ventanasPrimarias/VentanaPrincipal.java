@@ -43,23 +43,8 @@ public class VentanaPrincipal extends JFrame {
 	ListaCoche listaCoche = new ListaCoche();
 
 	
-	/**
-	 * Launch the application
-	 */
-
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal window = new VentanaPrincipal();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	
 
 	VentanaLogIn vp = new VentanaLogIn();
 	private JLabel lblCategoriaA;
@@ -102,7 +87,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaA);
 
 		btncategoriaA.addActionListener(e -> {
-				VentanaCategoriaA.main();
+				VentanaCategoriaA a=new VentanaCategoriaA();
 				dispose();
 		});
 
@@ -121,7 +106,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaB);
 
 		btncategoriaB.addActionListener(e -> {
-				VentanaCategoriaB.main();
+				VentanaCategoriaB b=new VentanaCategoriaB();
 				dispose();
 		});
 
@@ -141,7 +126,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaC);
 
 		btncategoriaC.addActionListener(e -> {
-				VentanaCategoriaC.main();
+				VentanaCategoriaC c=new VentanaCategoriaC();
 				dispose();
 		});
 
@@ -161,7 +146,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaD);
 
 		btncategoriaD.addActionListener(e -> {
-				VentanaCategoriaD.main();
+				VentanaCategoriaD d=new VentanaCategoriaD();
 				dispose();
 		});
 
