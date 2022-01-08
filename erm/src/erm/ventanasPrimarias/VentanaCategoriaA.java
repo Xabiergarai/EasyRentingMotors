@@ -190,8 +190,6 @@ import java.util.Random;
 			
 			btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 			panel.add(btnAnadirAlCarrito);
-			
-			
 		
 
 			return panel;

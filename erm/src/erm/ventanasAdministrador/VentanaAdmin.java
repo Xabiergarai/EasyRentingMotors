@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -13,11 +14,16 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window;
+import java.awt.GridLayout;
+import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import java.awt.Font;
 
 
 public class VentanaAdmin extends JFrame {
 
-	private JPanel contentPane;
+	private JPanel contentPane, panelNorte, panelCentro, panelBotonera;
+	
 
 	/**
 	 * Create the frame.
@@ -28,7 +34,9 @@ public class VentanaAdmin extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		panelNorte = new JPanel();
+		panelBotonera = new JPanel();
+		panelCentro = new JPanel();
 		
 		JButton btnStock = new JButton("STOCK DISPONIBLE");
 		btnStock.addActionListener(new ActionListener() {
@@ -38,10 +46,12 @@ public class VentanaAdmin extends JFrame {
 				dispose();
 		}
 		});
+		contentPane.setLayout(new BorderLayout(0, 0));
+		panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER, 125, 125));
 		btnStock.setForeground(Color.WHITE);
 		btnStock.setBackground(new Color(255, 165, 0));
-		btnStock.setBounds(129, 81, 348, 66);
-		contentPane.add(btnStock);
+		btnStock.setBounds(5, 81, 348, 66);
+		panelCentro.add(btnStock);
 		
 		JButton btnUsuarios = new JButton("GESTION DE USUARIOS");
 		btnUsuarios.addActionListener(new ActionListener() {
@@ -52,20 +62,20 @@ public class VentanaAdmin extends JFrame {
 				
 			}
 		});
+		
 		btnUsuarios.setForeground(Color.WHITE);
 		btnUsuarios.setBackground(new Color(255, 165, 0));
 		btnUsuarios.setBounds(129, 187, 348, 66);
-		contentPane.add(btnUsuarios);
+		panelCentro.add(btnUsuarios);
 		
-		JButton btnCerrarSesion = new JButton("Cerrar Sesion");
-		btnCerrarSesion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaInicial.main(null);
-				dispose();
-			}
-		});
-		btnCerrarSesion.setBounds(469, 303, 138, 23);
-		contentPane.add(btnCerrarSesion);
+		contentPane.add(panelCentro, BorderLayout.CENTER);
+		
+		JLabel lblTitulo = new JLabel("MEN\u00DA");
+		lblTitulo.setForeground(new Color(255, 165, 0));
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		panelNorte.add(lblTitulo);
+		contentPane.add(lblTitulo, BorderLayout.NORTH);
 		
 		JButton btnVlvAtras = new JButton("Volver atras");
 		btnVlvAtras.addActionListener(new ActionListener() {
@@ -76,8 +86,20 @@ public class VentanaAdmin extends JFrame {
 			}
 		});
 		btnVlvAtras.setBounds(10, 303, 138, 23);
-		contentPane.add(btnVlvAtras);
+		panelBotonera.add(btnVlvAtras);
 		
+		contentPane.add(panelBotonera, BorderLayout.SOUTH);
+		
+		JButton btnCerrarSesion = new JButton("Cerrar Sesion");
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaInicial.main(null);
+				dispose();
+			}
+		});
+		btnCerrarSesion.setBounds(469, 303, 138, 23);
+		
+		panelBotonera.add(btnCerrarSesion);
 		
 	}
 }
