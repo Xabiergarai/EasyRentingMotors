@@ -160,9 +160,10 @@ public class VentanaPago extends javax.swing.JFrame {
 		BotonGuardar.setForeground(new Color(0, 0, 0));
 		BotonGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaTransaccionCompra vt = new VentanaTransaccionCompra();
+				VentanaTransaccionCompra vtt = new VentanaTransaccionCompra();
 				setVisible(false);
-				vt.setVisible(true);
+				vtt.setVisible(true);
+				
 			}
 		});
 		BotonGuardar.setFont(new Font("Tahoma", Font.BOLD, 16));
