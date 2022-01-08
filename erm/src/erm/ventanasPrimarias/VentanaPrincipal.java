@@ -188,7 +188,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnPerfil.addActionListener(e -> {
 			
-			VentanaPerfil v2 = new VentanaPerfil();
+			VentanaPerfil v2 = new VentanaPerfil(VentanaLogIn.u);
 			v2.setVisible(true);
 			dispose();
 		});

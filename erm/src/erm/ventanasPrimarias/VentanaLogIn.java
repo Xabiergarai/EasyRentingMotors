@@ -64,6 +64,7 @@ public class VentanaLogIn extends JFrame {
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenia;
 	private JButton btnMostrarContraseña;
+	public static Usuario u;
 
 	/**
 	 * Create the frame
@@ -214,6 +215,7 @@ public class VentanaLogIn extends JFrame {
 				if (conexion.loginUsuario(nick, contrasenia) == true) {
 
 					idUsuario = conexion.obtenerId(nick);
+					u = conexion.buscarUsuarioId(idUsuario);
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS", "BIENVENIDO",
 							JOptionPane.INFORMATION_MESSAGE);
 					VentanaPrincipal vi = new VentanaPrincipal();
@@ -297,3 +299,4 @@ public class VentanaLogIn extends JFrame {
 		return idUsuario;
 	}
 }
+

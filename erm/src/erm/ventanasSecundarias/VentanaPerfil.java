@@ -25,6 +25,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import erm.clasesBasicas.Usuario;
 import erm.ventanasPrimarias.VentanaLogIn;
 import erm.ventanasPrimarias.VentanaPrincipal;
 
@@ -45,7 +47,7 @@ public class VentanaPerfil extends JFrame{
 	private JTextField textDireccionIP;
 	private JPanel panelNorte, panelCentro, panelBotonera;
 	
-	public VentanaPerfil() {
+	public VentanaPerfil(Usuario u) {
 		
 		int contBarra = 0;
 		int idUsuario = VentanaLogIn.getUsuarioId();
@@ -88,6 +90,7 @@ public class VentanaPerfil extends JFrame{
 		textNombre.setBounds(161, 55, 193, 20);
 		panelCentro.add(textNombre);
 		textNombre.setColumns(10);
+		textNombre.setText(u.getNombre());
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
