@@ -34,6 +34,7 @@ import javax.swing.JTextPane;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
+import javax.swing.JFormattedTextField;
 
 public class VentanaPerfil extends JFrame{
 	
@@ -82,25 +83,30 @@ public class VentanaPerfil extends JFrame{
 		panelCentro.add(lblNickname);
 		
 		JLabel lblMisDatos = new JLabel("Mis datos");
-		lblMisDatos.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 11));
-		lblMisDatos.setBounds(11, 22, 55, 14);
+		lblMisDatos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMisDatos.setBounds(11, 22, 119, 14);
 		panelCentro.add(lblMisDatos);
 		
 		textNombre = new JTextField();
+		textNombre.setEditable(false);
 		textNombre.setBounds(161, 55, 193, 20);
 		panelCentro.add(textNombre);
 		textNombre.setColumns(10);
 		textNombre.setText(u.getNombre());
 		
 		textApellidos = new JTextField();
+		textApellidos.setEditable(false);
 		textApellidos.setColumns(10);
 		textApellidos.setBounds(161, 80, 193, 20);
 		panelCentro.add(textApellidos);
+		textApellidos.setText(u.getApellidos());
 		
 		textNickname = new JTextField();
+		textNickname.setEditable(false);
 		textNickname.setColumns(10);
 		textNickname.setBounds(161, 105, 193, 20);
 		panelCentro.add(textNickname);
+		textNickname.setText(u.getNickname());
 		
 		JLabel lblMail = new JLabel("E-Mail");
 		lblMail.setBounds(55, 277, 96, 14);
@@ -111,28 +117,34 @@ public class VentanaPerfil extends JFrame{
 		panelCentro.add(lblContrasenya);
 		
 		textCorreo = new JTextField();
+		textCorreo.setEditable(false);
 		textCorreo.setColumns(10);
 		textCorreo.setBounds(161, 277, 193, 20);
 		panelCentro.add(textCorreo);
+		textCorreo.setText(u.getEmail());
 		
 		JLabel lblDetallesCompra = new JLabel("Detalles de la cuenta");
-		lblDetallesCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 11));
-		lblDetallesCompra.setBounds(11, 237, 119, 14);
+		lblDetallesCompra.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDetallesCompra.setBounds(11, 237, 269, 14);
 		panelCentro.add(lblDetallesCompra);
 		
 		textContrasenya = new JTextField();
+		textContrasenya.setEditable(false);
 		textContrasenya.setColumns(10);
 		textContrasenya.setBounds(161, 314, 193, 20);
 		panelCentro.add(textContrasenya);
+		textContrasenya.setText(u.getContrasenya());
 		
 		JLabel lblDireccionIP = new JLabel("Direccion IP");
 		lblDireccionIP.setBounds(55, 133, 96, 14);
 		panelCentro.add(lblDireccionIP);
 		
 		textDireccionIP = new JTextField();
+		textDireccionIP.setEditable(false);
 		textDireccionIP.setColumns(10);
 		textDireccionIP.setBounds(161, 130, 193, 20);
 		panelCentro.add(textDireccionIP);
+		textDireccionIP.setText(u.getDireccionIP());
 		
 		getContentPane().add(panelCentro, BorderLayout.CENTER);
 		
@@ -146,21 +158,6 @@ public class VentanaPerfil extends JFrame{
 		
 		btnAtras.setBounds(26, 394, 126, 23);
 		panelBotonera.add(btnAtras);
-		
-		JButton btnGuardarCambios = new JButton("Guardar cambios\r\n");
-		btnGuardarCambios.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				VentanaPrincipal principal = new VentanaPrincipal();
-				principal.setVisible(true);
-				JOptionPane.showMessageDialog(null, "¡Enhorabuena! Ya estas registrado", "Cuenta creada", JOptionPane.INFORMATION_MESSAGE);
-				dispose();
-			}
-		});
-		
-		btnGuardarCambios.setBounds(259, 394, 138, 23);
-		panelBotonera.add(btnGuardarCambios);
 		
 		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 		
