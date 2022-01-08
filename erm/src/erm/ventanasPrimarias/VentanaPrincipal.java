@@ -42,6 +42,25 @@ public class VentanaPrincipal extends JFrame {
 	public static ArrayList<Coche> carrito = new ArrayList<Coche>();
 	ListaCoche listaCoche = new ListaCoche();
 
+	
+	/**
+	 * Launch the application
+	 */
+
+	public static void main(String[] args) {
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaPrincipal window = new VentanaPrincipal();
+					window.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	VentanaLogIn vp = new VentanaLogIn();
 	private JLabel lblCategoriaA;
 
@@ -83,7 +102,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaA);
 
 		btncategoriaA.addActionListener(e -> {
-				VentanaCategoriaA a= new VentanaCategoriaA();
+				VentanaCategoriaA.main();
 				dispose();
 		});
 
@@ -102,7 +121,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaB);
 
 		btncategoriaB.addActionListener(e -> {
-				VentanaCategoriaB b=new VentanaCategoriaB();
+				VentanaCategoriaB.main();
 				dispose();
 		});
 
@@ -122,7 +141,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaC);
 
 		btncategoriaC.addActionListener(e -> {
-				VentanaCategoriaC c=new VentanaCategoriaC();
+				VentanaCategoriaC.main();
 				dispose();
 		});
 
@@ -142,7 +161,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(btncategoriaD);
 
 		btncategoriaD.addActionListener(e -> {
-				VentanaCategoriaD d=new VentanaCategoriaD();
+				VentanaCategoriaD.main();
 				dispose();
 		});
 

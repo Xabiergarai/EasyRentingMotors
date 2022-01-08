@@ -38,6 +38,19 @@ public class VentanaCarritoCompra extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	public static void main() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaCarritoCompra window = new VentanaCarritoCompra(null);
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	
 
 	/**

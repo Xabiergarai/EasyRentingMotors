@@ -37,110 +37,101 @@ public class VentanaPerfil extends JFrame{
 	
 	private JPanel contentPane;
 	
-	private JTextField textField;
 	private JTextField textNombre;
 	private JTextField textApellidos;
-	private JTextField textDireccion;
-	private JTextField textPais;
-	private JTextField textTelefono;
-	private JTextField textMisDatos;
+	private JTextField textNickname;
+	private JTextField textCorreo;
+	private JTextField textContrasenya;
+	private JTextField textDireccionIP;
+	private JPanel panelNorte, panelCentro, panelBotonera;
 	
 	public VentanaPerfil() {
 		
 		int contBarra = 0;
 		int idUsuario = VentanaLogIn.getUsuarioId();
-	
+		
+		panelBotonera = new JPanel();
+		panelNorte = new JPanel();
+		panelCentro = new JPanel();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
 		getContentPane().setBackground(new Color(245, 245, 245));
-		getContentPane().setLayout(null);
 		
 		JLabel lblMiCuenta = new JLabel("MI CUENTA");
 		lblMiCuenta.setForeground(new Color(255, 165, 0));
 		lblMiCuenta.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblMiCuenta.setBounds(151, 11, 147, 40);
-		getContentPane().add(lblMiCuenta);
+		panelNorte.add(lblMiCuenta);
+		
+		getContentPane().add(panelNorte, BorderLayout.NORTH);
+		panelCentro.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(36, 82, 66, 14);
-		getContentPane().add(lblNombre);
+		lblNombre.setBounds(55, 58, 96, 14);
+		panelCentro.add(lblNombre);
 		
 		JLabel lblApellidos = new JLabel("Apellidos");
-		lblApellidos.setBounds(36, 107, 89, 14);
-		getContentPane().add(lblApellidos);
+		lblApellidos.setBounds(55, 83, 96, 14);
+		panelCentro.add(lblApellidos);
 		
-		JLabel lblDireccion = new JLabel("Direcci\u00F3n");
-		lblDireccion.setBounds(36, 132, 76, 14);
-		getContentPane().add(lblDireccion);
-		
-		JLabel lblPais = new JLabel("Pa\u00EDs");
-		lblPais.setBounds(36, 157, 46, 14);
-		getContentPane().add(lblPais);
-		
-		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-		lblTelefono.setBounds(36, 182, 76, 14);
-		getContentPane().add(lblTelefono);
+		JLabel lblNickname = new JLabel("Nickname");
+		lblNickname.setBounds(55, 108, 96, 14);
+		panelCentro.add(lblNickname);
 		
 		JLabel lblMisDatos = new JLabel("Mis datos");
-		lblMisDatos.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblMisDatos.setBounds(26, 57, 126, 14);
-		getContentPane().add(lblMisDatos);
-		
-		textField = new JTextField();
-		textField.setBounds(172, 79, 201, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		lblMisDatos.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 11));
+		lblMisDatos.setBounds(11, 22, 55, 14);
+		panelCentro.add(lblMisDatos);
 		
 		textNombre = new JTextField();
+		textNombre.setBounds(161, 55, 193, 20);
+		panelCentro.add(textNombre);
 		textNombre.setColumns(10);
-		textNombre.setBounds(172, 104, 201, 20);
-		getContentPane().add(textNombre);
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(172, 129, 201, 20);
-		getContentPane().add(textApellidos);
+		textApellidos.setBounds(161, 80, 193, 20);
+		panelCentro.add(textApellidos);
 		
-		textDireccion = new JTextField();
-		textDireccion.setColumns(10);
-		textDireccion.setBounds(172, 154, 201, 20);
-		getContentPane().add(textDireccion);
-		
-		textPais = new JTextField();
-		textPais.setColumns(10);
-		textPais.setBounds(172, 179, 201, 20);
-		getContentPane().add(textPais);
-		
-		JLabel lblDetallesCompra = new JLabel("Detalles de la cuenta");
-		lblDetallesCompra.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDetallesCompra.setBounds(26, 220, 157, 14);
-		getContentPane().add(lblDetallesCompra);
+		textNickname = new JTextField();
+		textNickname.setColumns(10);
+		textNickname.setBounds(161, 105, 193, 20);
+		panelCentro.add(textNickname);
 		
 		JLabel lblMail = new JLabel("E-Mail");
-		lblMail.setBounds(36, 245, 76, 14);
-		getContentPane().add(lblMail);
+		lblMail.setBounds(55, 277, 96, 14);
+		panelCentro.add(lblMail);
 		
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
-		lblContrasenya.setBounds(26, 270, 76, 14);
-		getContentPane().add(lblContrasenya);
+		lblContrasenya.setBounds(55, 314, 96, 14);
+		panelCentro.add(lblContrasenya);
 		
-		textTelefono = new JTextField();
-		textTelefono.setColumns(10);
-		textTelefono.setBounds(172, 242, 201, 20);
-		getContentPane().add(textTelefono);
+		textCorreo = new JTextField();
+		textCorreo.setColumns(10);
+		textCorreo.setBounds(161, 277, 193, 20);
+		panelCentro.add(textCorreo);
 		
-		textMisDatos = new JTextField();
-		textMisDatos.setColumns(10);
-		textMisDatos.setBounds(172, 267, 201, 20);
-		getContentPane().add(textMisDatos);
+		JLabel lblDetallesCompra = new JLabel("Detalles de la cuenta");
+		lblDetallesCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 11));
+		lblDetallesCompra.setBounds(11, 237, 119, 14);
+		panelCentro.add(lblDetallesCompra);
 		
-		JLabel lblNewLabel_9 = new JLabel("Forma de pago");
-		lblNewLabel_9.setBounds(28, 316, 138, 14);
-		getContentPane().add(lblNewLabel_9);
+		textContrasenya = new JTextField();
+		textContrasenya.setColumns(10);
+		textContrasenya.setBounds(161, 314, 193, 20);
+		panelCentro.add(textContrasenya);
 		
-		JButton btnTarjeta = new JButton("TARJETA");
-		btnTarjeta.setBounds(284, 312, 89, 23);
-		getContentPane().add(btnTarjeta);
+		JLabel lblDireccionIP = new JLabel("Direccion IP");
+		lblDireccionIP.setBounds(55, 133, 96, 14);
+		panelCentro.add(lblDireccionIP);
+		
+		textDireccionIP = new JTextField();
+		textDireccionIP.setColumns(10);
+		textDireccionIP.setBounds(161, 130, 193, 20);
+		panelCentro.add(textDireccionIP);
+		
+		getContentPane().add(panelCentro, BorderLayout.CENTER);
 		
 		JButton btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(e -> {
@@ -151,7 +142,7 @@ public class VentanaPerfil extends JFrame{
 		});
 		
 		btnAtras.setBounds(26, 394, 126, 23);
-		getContentPane().add(btnAtras);
+		panelBotonera.add(btnAtras);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios\r\n");
 		btnGuardarCambios.addMouseListener(new MouseAdapter() {
@@ -166,7 +157,11 @@ public class VentanaPerfil extends JFrame{
 		});
 		
 		btnGuardarCambios.setBounds(259, 394, 138, 23);
-		getContentPane().add(btnGuardarCambios);
+		panelBotonera.add(btnGuardarCambios);
+		
+		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
+		
+		
 		
 
 		

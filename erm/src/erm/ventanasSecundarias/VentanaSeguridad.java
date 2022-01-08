@@ -50,15 +50,15 @@ public class VentanaSeguridad extends JFrame {
 		panelCentro.setLayout(null);
 		
 		JLabel lblContrasenyaAntigua = new JLabel("Contrase\u00F1a actual");
-		lblContrasenyaAntigua.setBounds(10, 50, 89, 14);
+		lblContrasenyaAntigua.setBounds(10, 50, 165, 14);
 		panelCentro.add(lblContrasenyaAntigua);
 		
 		pfActual = new JPasswordField();
-		pfActual.setBounds(185, 44, 208, 26);
+		pfActual.setBounds(185, 44, 208, 20);
 		panelCentro.add(pfActual);
 		
 		JLabel lblNuevaContrasea = new JLabel("Nueva contrase\u00F1a");
-		lblNuevaContrasea.setBounds(10, 114, 89, 14);
+		lblNuevaContrasea.setBounds(10, 114, 139, 14);
 		panelCentro.add(lblNuevaContrasea);
 		
 		pfNueva = new JPasswordField();
@@ -66,7 +66,7 @@ public class VentanaSeguridad extends JFrame {
 		panelCentro.add(pfNueva);
 		
 		JLabel label = new JLabel("Confirmar nueva contrase\u00F1a");
-		label.setBounds(10, 177, 139, 14);
+		label.setBounds(10, 177, 165, 14);
 		panelCentro.add(label);
 		
 		pfConfirmarNueva = new JPasswordField();

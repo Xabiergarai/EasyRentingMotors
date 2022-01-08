@@ -27,7 +27,18 @@ public class VentanaCategoriaB {
 	/**
 	 * Launch the application.
 	 */
-	
+	public static void main() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaCategoriaB window = new VentanaCategoriaB();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -80,28 +91,28 @@ public class VentanaCategoriaB {
 
 		JMenuItem mntmCatA = new JMenuItem("Categoria A");
 		mntmCatA.addActionListener(e -> {
-			VentanaCategoriaA a= new VentanaCategoriaA();
+			VentanaCategoriaA.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatA);
 
 		JMenuItem mntmCatB = new JMenuItem("Categoria B");
 		mntmCatB.addActionListener(e -> {
-			VentanaCategoriaB b=new VentanaCategoriaB();
+			VentanaCategoriaB.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatB);
 
 		JMenuItem mntmCatC = new JMenuItem("Categoria C");
 		mntmCatC.addActionListener(e -> {
-			VentanaCategoriaC c=new VentanaCategoriaC();
+			VentanaCategoriaC.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatC);
 
 		JMenuItem mntmCatD = new JMenuItem("Categoria D");
 		mntmCatD.addActionListener(e -> {
-			VentanaCategoriaD d=new VentanaCategoriaD();
+			VentanaCategoriaD.main();
 			frame.dispose();
 		});
 		mnCat.add(mntmCatD);
@@ -109,7 +120,7 @@ public class VentanaCategoriaB {
 		JMenuItem mntmCatInicio = new JMenuItem("Volver a inicio");
 		mntmCatInicio.addActionListener(e -> {
 
-			
+			VentanaPrincipal.main(null);
 			frame.dispose();
 		});
 		mnCat.add(mntmCatInicio);
@@ -122,7 +133,7 @@ public class VentanaCategoriaB {
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-			VentanaCarritoCompra a=new VentanaCarritoCompra();
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}

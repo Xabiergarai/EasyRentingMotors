@@ -22,7 +22,22 @@ import erm.clasesBasicas.*;
 		private JFrame frame;
 		private ListaCoche Coches;
 
-		
+		/**
+		 * Launch the application.
+		 */
+		public static void main() {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						VentanaCategoriaD window = new VentanaCategoriaD();
+						window.frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+
 		/**
 		 * Create the application.
 		 */
@@ -77,28 +92,28 @@ import erm.clasesBasicas.*;
 
 			JMenuItem mntmCatA = new JMenuItem("Categoria A");
 			mntmCatA.addActionListener(e -> {
-					VentanaCategoriaA a=new VentanaCategoriaA();
+					VentanaCategoriaA.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatA);
 
 			JMenuItem mntmCatB = new JMenuItem("Categoria B");
 			mntmCatB.addActionListener(e -> {
-					VentanaCategoriaB b=new VentanaCategoriaB();
+					VentanaCategoriaB.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatB);
 
 			JMenuItem mntmCatC = new JMenuItem("Categoria C");
 			mntmCatC.addActionListener(e -> {
-					VentanaCategoriaC c=new VentanaCategoriaC();
+					VentanaCategoriaC.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatC);
 
 			JMenuItem mntmCatD = new JMenuItem("Categoria D");
 			mntmCatD.addActionListener(e -> {
-					VentanaCategoriaD d=new VentanaCategoriaD();
+					VentanaCategoriaD.main();
 					frame.dispose();
 			});
 			mnCat.add(mntmCatD);
@@ -107,6 +122,7 @@ import erm.clasesBasicas.*;
 			JMenuItem mntmInicio = new JMenuItem("Volver a inicio");
 			mntmInicio.addActionListener(e -> {
 				
+					VentanaPrincipal.main(null);
 					frame.dispose();
 			});
 			mnCat.add(mntmInicio);
@@ -120,7 +136,7 @@ import erm.clasesBasicas.*;
 			btnCarritoCompra.setBounds(250, 550, 80, 30);
 			
 			btnCarritoCompra.addActionListener(e -> {
-					VentanaCarritoCompra vc=new VentanaCarritoCompra();
+					VentanaCarritoCompra.main();
 			});
 			frame.getContentPane().add(btnCarritoCompra);
 		}
@@ -171,7 +187,3 @@ import erm.clasesBasicas.*;
 
 		}	
 	
-
-
-
-
