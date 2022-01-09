@@ -32,6 +32,7 @@ import erm.ventanasPrimarias.*;
  * Base de datos de Easy Renting Motors
  *
  */
+
 public class DBManager {
 
 	private static Connection conn = null;
@@ -283,6 +284,58 @@ public class DBManager {
 		} else {
 			logger.log(level, msg, exception);
 		}
+	}
+
+	/**
+	 * Nos permite iniciar sesion en ERM
+	 * 
+	 * @param nomUsuario
+	 * @param contrasenya
+	 * @return
+	 * @throws DBException
+	 */
+	public boolean loginUsuario(String nomUsuario, String contrasenya) throws DBException {
+
+		boolean acceso = false;
+
+		if (nomUsuario.contains("@")) {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nickname, contrasenya, email FROM usuario WHERE email = ? AND contrasenya = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenya);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo datos de la query", e);
+			}
+
+		} else {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nickname, contrasenya, email FROM usuario WHERE nickname = ? AND contrasenya = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenya);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo datos de la query", e);
+			}
+		}
+
+		return acceso;
 	}
 
 	/**
@@ -577,58 +630,6 @@ public class DBManager {
 	}
 
 	/**
-	 * Nos permite iniciar sesion en ERM
-	 * 
-	 * @param nomUsuario
-	 * @param contrasenya
-	 * @return
-	 * @throws DBException
-	 */
-	public boolean loginUsuario(String nomUsuario, String contrasenya) throws DBException {
-
-		boolean acceso = false;
-
-		if (nomUsuario.contains("@")) {
-			try (PreparedStatement stmt = conn.prepareStatement(
-					"SELECT id, nickname, contrasenya, email FROM usuario WHERE email = ? AND contrasenya = ?")) {
-				stmt.setString(1, nomUsuario);
-				stmt.setString(2, contrasenya);
-
-				ResultSet rs = stmt.executeQuery();
-
-				if (rs.next()) {
-					acceso = true;
-				} else {
-					acceso = false;
-				}
-
-			} catch (SQLException e) {
-				throw new DBException("Error obteniendo datos de la query", e);
-			}
-
-		} else {
-			try (PreparedStatement stmt = conn.prepareStatement(
-					"SELECT id, nickname, contrasenya, email FROM usuario WHERE nickname = ? AND contrasenya = ?")) {
-				stmt.setString(1, nomUsuario);
-				stmt.setString(2, contrasenya);
-
-				ResultSet rs = stmt.executeQuery();
-
-				if (rs.next()) {
-					acceso = true;
-				} else {
-					acceso = false;
-				}
-
-			} catch (SQLException e) {
-				throw new DBException("Error obteniendo datos de la query", e);
-			}
-		}
-
-		return acceso;
-	}
-
-	/**
 	 * Obtiene el id del usuario que ha iniciado sesión
 	 * 
 	 * @param nick
@@ -741,10 +742,11 @@ public class DBManager {
 
 	/**
 	 * Eliminar cuenta de usuario por id
+	 * 
 	 * @param idUsuario
 	 * @throws DBException
 	 */
-	
+
 	public void eliminarUsuario(int idUsuario) throws DBException {
 		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
 			stmt.setInt(1, idUsuario);
@@ -754,23 +756,27 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+
 	/**
 	 * Borra de la base de datos un usuario dependiendo del email
+	 * 
 	 * @param u
 	 * @throws SQLException
 	 * @throws DBException
 	 */
-	
+
 	public static void borrarUsuarioGestion(Usuario u) throws SQLException, DBException {
 		Connection con = initBD("EasyRentingMotors.db");
-		
-			PreparedStatement ps = con.prepareStatement("DELETE FROM usuario WHERE email = ?");
-			ps.setString(1, u.getEmail());
-			ps.execute();
+
+		PreparedStatement ps = con.prepareStatement("DELETE FROM usuario WHERE email = ?");
+		ps.setString(1, u.getEmail());
+		ps.execute();
 
 	}
+
 	/**
 	 * Insertar un usuario en la base de datos
+	 * 
 	 * @param id
 	 * @param nombre
 	 * @param apellidos
@@ -780,225 +786,219 @@ public class DBManager {
 	 * @param direccionIP
 	 * @throws DBException
 	 */
-		
-	 public static void insertarUsuario(String id, String nombre,String apellidos, String nickname,String email, String contrasenya, String direccionIP) throws DBException {
-			
-			String s = "INSERT INTO usuario VALUES("+id+",'"+nombre+"','"+email+"','"+contrasenya+"','"+apellidos+"','"+nickname+"','"+direccionIP+"')";
-			Connection c = DBManager.initBD("EasyRentingMotors.db");
-			try {
-				Statement st = c.createStatement();
-				st.executeUpdate(s);
-				cerrarBD(c, st);
-				logger.log(Level.INFO,"Statement correctamente");
-			} catch (SQLException e) {
-				logger.log(Level.WARNING,e.getMessage());
-			}
-			
-		} 
-	
 
-	 /**
-	  * Metodo para obtener un ArrayList de los usuarios guardados en la base de datos
-	  * @return
-	  * @throws DBException
-	  */
-	
-	 public static ArrayList <Usuario> listarUsuarios() throws DBException{
-			ArrayList <Usuario> usuarios = new ArrayList<>();
-			Connection con = initBD("EasyRentingMotors.db");
-			
-	
-			try (Statement stmt = con.createStatement()) {
-				ResultSet rs = stmt.executeQuery("SELECT id, nombre, apellidos, nickname, email,contrasenya, direccionIP FROM usuario");
-	
-				while(rs.next()) {
-					Usuario usuario = new Usuario();
-					usuario.setId(Integer.parseInt(rs.getString("id")));
-					usuario.setNombre(rs.getString("nombre"));
-					usuario.setApellidos(rs.getString("apellidos"));
-					usuario.setNickname(rs.getString("nickname"));
-					usuario.setEmail(rs.getString("email"));
-					usuario.setContrasenya(rs.getString("contrasenya"));
-					usuario.setDireccionIP(rs.getString("direccionIP"));
-					usuarios.add(usuario);
-				}
-				
-			} catch (SQLException e) {
-				throw new DBException("Error obteniendo los usuarios", e);
-			}
-		
-		return usuarios;
-			
+	public static void insertarUsuario(String id, String nombre, String apellidos, String nickname, String email,
+			String contrasenya, String direccionIP) throws DBException {
+
+		String s = "INSERT INTO usuario VALUES(" + id + ",'" + nombre + "','" + email + "','" + contrasenya + "','"
+				+ apellidos + "','" + nickname + "','" + direccionIP + "')";
+		Connection c = DBManager.initBD("EasyRentingMotors.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
 		}
-	 
-	 public static ArrayList <String> mostrarUsuario() throws DBException{
-			ArrayList <String> usuarios = new ArrayList<>();
-			Connection con = initBD("EasyRentingMotors.db");
-			
-	
-			try (Statement stmt = con.createStatement()) {
-				ResultSet rs = stmt.executeQuery("SELECT id, nombre, apellidos, email FROM usuario");
-	
-				while(rs.next()) {
-					
-					int i = Integer.parseInt(rs.getString("id"));
-					String n = rs.getString("nombre");
-					String a = rs.getString("apellidos");
-					String e =rs.getString("email");
-				}
-				
-			} catch (SQLException e) {
-				throw new DBException("Error obteniendo los usuarios", e);
-			}
-		
-		return usuarios;
-			
-		}
-	 
+
+	}
+
 	/**
-	 * Metodo que devuelvelve un ArrayList de coches independientmente a que categoria pertenezca
+	 * Metodo para obtener un ArrayList de los usuarios guardados en la base de
+	 * datos
+	 * 
 	 * @return
 	 * @throws DBException
 	 */
-	
-	 public static ArrayList <String> listarcoches() throws DBException{
-			ArrayList <String> coches = new ArrayList<>();
-			Connection con = initBD("EasyRentingMotors.db");
-				
-			
-				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaA");
-	
-					while(rs.next()) {
-						String coche = rs.getString("nombre");
-						coches.add(coche);
-					}
-					
-				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los coches de Categoria A", e);
-				}
-				
-				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaB");
-	
-					while(rs.next()) {
-						String coche = rs.getString("nombre");
-						coches.add(coche);
-					}
-					
-				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los coches de Categoria B", e);
-				}
-				
-				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaC");
-	
-					while(rs.next()) {
-						String coche = rs.getString("nombre");
-						coches.add(coche);
-					}
-					
-				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los coches de Categoria C", e);
-				}
-				
-				try (Statement stmt = con.createStatement()) {
-					ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaD");
-	
-					while(rs.next()) {
-						String coche = rs.getString("nombre");
-						coches.add(coche);
-					}
-					
-				} catch (SQLException e) {
-					throw new DBException("Error obteniendo todos los coches de Categoria D", e);
-				}
-			
-			return coches;
-				
+
+	public static ArrayList<Usuario> listarUsuarios() throws DBException {
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+		Connection con = initBD("EasyRentingMotors.db");
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery(
+					"SELECT id, nombre, apellidos, nickname, email,contrasenya, direccionIP FROM usuario");
+
+			while (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(Integer.parseInt(rs.getString("id")));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setApellidos(rs.getString("apellidos"));
+				usuario.setNickname(rs.getString("nickname"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setContrasenya(rs.getString("contrasenya"));
+				usuario.setDireccionIP(rs.getString("direccionIP"));
+				usuarios.add(usuario);
 			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo los usuarios", e);
+		}
+
+		return usuarios;
+
+	}
+
 	/**
-	 * Metodo que borra un coche de la base de datos 
+	 * Metodo que devuelvelve un ArrayList de coches independientmente a que
+	 * categoria pertenezca
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
+
+	public static ArrayList<String> listarcoches() throws DBException {
+		ArrayList<String> coches = new ArrayList<>();
+		Connection con = initBD("EasyRentingMotors.db");
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaA");
+
+			while (rs.next()) {
+				String coche = rs.getString("nombre");
+				coches.add(coche);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de Categoria A", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaB");
+
+			while (rs.next()) {
+				String coche = rs.getString("nombre");
+				coches.add(coche);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de Categoria B", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaC");
+
+			while (rs.next()) {
+				String coche = rs.getString("nombre");
+				coches.add(coche);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de Categoria C", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM CategoriaD");
+
+			while (rs.next()) {
+				String coche = rs.getString("nombre");
+				coches.add(coche);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los coches de Categoria D", e);
+		}
+
+		return coches;
+
+	}
+
+	/**
+	 * Metodo que borra un coche de la base de datos
+	 * 
 	 * @param p
 	 * @throws SQLException
 	 * @throws DBException
 	 */
-	
-	 public static void borrarCoche(String p) throws SQLException, DBException {
-			Connection con = initBD("EasyRentingMotors.db");
-			
-				PreparedStatement ps = con.prepareStatement("DELETE FROM CategoriaA WHERE nombre = ?");
-				ps.setString(1, p);
-				ps.execute();
-	
-				ps = con.prepareStatement("DELETE FROM CategoriaB WHERE nombre = ?");
-				ps.setString(1, p);
-				ps.execute();
-				
-				ps = con.prepareStatement("DELETE FROM CategoriaC WHERE nombre = ?");
-				ps.setString(1, p);
-				ps.execute();
-	
-				ps = con.prepareStatement("DELETE FROM CategoriaD WHERE nombre = ?");
-				ps.setString(1, p);
-				ps.execute();
-	
+
+	public static void borrarCoche(String p) throws SQLException, DBException {
+		Connection con = initBD("EasyRentingMotors.db");
+
+		PreparedStatement ps = con.prepareStatement("DELETE FROM CategoriaA WHERE nombre = ?");
+		ps.setString(1, p);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM CategoriaB WHERE nombre = ?");
+		ps.setString(1, p);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM CategoriaC WHERE nombre = ?");
+		ps.setString(1, p);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM CategoriaD WHERE nombre = ?");
+		ps.setString(1, p);
+		ps.execute();
+
+	}
+
+	/**
+	 * Metodo para insertar un coche en categoriaA
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param categoria
+	 * @param marca
+	 * @param fecha_matriculacion
+	 * @param combustible
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
+	public static void insertarCategoriaA(String id, String nombre, String categoria, String marca,
+			String fecha_matriculacion, String combustible, String precio, String rutaFoto) throws DBException {
+
+		String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + categoria + "', '" + marca + "','" + fecha_matriculacion + "', '"
+				+ combustible + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("EasyRentingMotors.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
 		}
-		/**
-		 * Metodo para insertar un coche en categoriaA
-		 * @param id
-		 * @param nombre
-		 * @param categoria
-		 * @param marca
-		 * @param fecha_matriculacion
-		 * @param combustible
-		 * @param precio
-		 * @param rutaFoto
-		 * @throws DBException
-		 */
-	 public static void insertarCategoriaA(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
-	
-	        String s = "INSERT INTO CategoriaA (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";
-	        Connection c = DBManager.initBD("EasyRentingMotors.db");
-	        try {
-	            Statement st = c.createStatement();
-	            st.executeUpdate(s);
-	            cerrarBD(c, st);
-	            logger.log(Level.INFO,"Statement correctamente");
-	        } catch (SQLException e) {
-	            logger.log(Level.WARNING,e.getMessage());
-	        }
-	
-	    }
-	 /**
-	  *Metodo para insertar un coche en categoriaB
-	  * @param id
-	  * @param nombre
-	  * @param categoria
-	  * @param marca
-	  * @param fecha_matriculacion
-	  * @param combustible
-	  * @param precio
-	  * @param rutaFoto
-	  * @throws DBException
-	  */
-	 
-	public static void insertarCategoriaB(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
-	
-	        String s = "INSERT INTO CategoriaB (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";
-	        Connection c = DBManager.initBD("EasyRentingMotors.db");
-	        try {
-	            Statement st = c.createStatement();
-	            st.executeUpdate(s);
-	            cerrarBD(c, st);
-	            logger.log(Level.INFO,"Statement correctamente");
-	        } catch (SQLException e) {
-	            logger.log(Level.WARNING,e.getMessage());
-	        }
-	
-	    }
+
+	}
+
+	/**
+	 * Metodo para insertar un coche en categoriaB
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param categoria
+	 * @param marca
+	 * @param fecha_matriculacion
+	 * @param combustible
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
+
+	public static void insertarCategoriaB(String id, String nombre, String categoria, String marca,
+			String fecha_matriculacion, String combustible, String precio, String rutaFoto) throws DBException {
+
+		String s = "INSERT INTO CategoriaB (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + categoria + "', '" + marca + "','" + fecha_matriculacion + "', '"
+				+ combustible + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("EasyRentingMotors.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
+
+	}
+
 	/**
 	 * Metodo para insertar un coche en categoriaC
+	 * 
 	 * @param id
 	 * @param nombre
 	 * @param categoria
@@ -1009,22 +1009,28 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	
-	public static void insertarCategoriaC(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
-		
-        String s = "INSERT INTO CategoriaC (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')";Connection c = DBManager.initBD("EasyRentingMotors.db");
-        try {
-            Statement st = c.createStatement();
-            st.executeUpdate(s);
-            cerrarBD(c, st);
-            logger.log(Level.INFO,"Statement correctamente");
-        } catch (SQLException e) {
-            logger.log(Level.WARNING,e.getMessage());
-        }
 
-    }
+	public static void insertarCategoriaC(String id, String nombre, String categoria, String marca,
+			String fecha_matriculacion, String combustible, String precio, String rutaFoto) throws DBException {
+
+		String s = "INSERT INTO CategoriaC (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + categoria + "', '" + marca + "','" + fecha_matriculacion + "', '"
+				+ combustible + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("EasyRentingMotors.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
+
+	}
+
 	/**
 	 * Metodo para insertar un coche en categoriaD
+	 * 
 	 * @param id
 	 * @param nombre
 	 * @param categoria
@@ -1035,24 +1041,30 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	public static void insertarCategoriaD(String id, String nombre,String categoria, String marca,String fecha_matriculacion,String combustible, String precio, String rutaFoto) throws DBException {
-		
-        String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"+id+"','"+nombre+"','"+categoria+"', '"+marca+"','"+fecha_matriculacion+"', '"+combustible+"', '"+precio+"','"+rutaFoto+"')"; Connection c = DBManager.initBD("EasyRentingMotors.db");
-        try {
-            Statement st = c.createStatement();
-            st.executeUpdate(s);
-            cerrarBD(c, st);
-            logger.log(Level.INFO,"Statement correctamente");
-        } catch (SQLException e) {
-            logger.log(Level.WARNING,e.getMessage());
-        }
+	public static void insertarCategoriaD(String id, String nombre, String categoria, String marca,
+			String fecha_matriculacion, String combustible, String precio, String rutaFoto) throws DBException {
 
-    }
+		String s = "INSERT INTO CategoriaD (id, nombre, categoria, marca, fecha_matriculacion, combustible, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + categoria + "', '" + marca + "','" + fecha_matriculacion + "', '"
+				+ combustible + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("EasyRentingMotors.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
+
+	}
+
 	/**
 	 * Se encarga de poner una categoriaA en oferta
+	 * 
 	 * @throws SQLException
 	 */
-	
+
 	public static void ponerCategoriaAEnOferta() throws SQLException {
 		Connection c;
 		try {
@@ -1064,10 +1076,12 @@ public class DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	/**
 	 * Se encarga de quitar la oferta que hay en la categoriaA
+	 * 
 	 * @throws SQLException
 	 */
 	public static void seAcabaLaOferta() throws SQLException {
@@ -1081,145 +1095,155 @@ public class DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
-	
+
+	public static void disconnect() throws DBException {
+		try {
+			conn = initBD("EasyRentingMotors.db");
+			conn.close();
+		} catch (SQLException e) {
+			throw new DBException("Error cerrando la conexiÃƒÂ³n con la BD", e);
+		}
+	}
+
 	/**
 	 * Metodo que inseta un coche de la categoriaA en el carrtio
+	 * 
 	 * @param catA
 	 * @throws DBException
 	 */
-			public void insertarCategoriaACarrito (CategoriaA catA) throws DBException{
-				String id = catA.getId();
-				String nombre = catA.getNombre();
-				String fecha = catA.getfecha_matriculacion();
-				double precio = catA.getPrecio();
-				
-				
-				try (Statement stmt = conn.createStatement()){
-					
-					
-					
-					stmt.executeUpdate("INSERT INTO carrito (id, nombre, fecha, precio) VALUES (' " + id + " ',  ' "+ nombre + "', ' "+ fecha + ", '"+ precio +"')");
-					
-					
-				}catch (SQLException e) {
-					throw new DBException("No ha sido posible ejecutar la query");
-				}
-			}
-	
-		/**
-		 * Metodo que recoje un Vector de Vectores y guarda en la base de datos la lista de los coches que habia en el carrito
-		 * @param carrito
-		 * @throws SQLException
-		 * @throws DBException
-		 */
-			
-			@SuppressWarnings("rawtypes")
-			public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
+	public void insertarCategoriaACarrito(CategoriaA catA) throws DBException {
+		String id = catA.getId();
+		String nombre = catA.getNombre();
+		String fecha = catA.getfecha_matriculacion();
+		double precio = catA.getPrecio();
 
-				Statement st = conn.createStatement();
-				
-						
-				int max= carrito.size();
-			for (int i = 0; i < max; i++) {
-				 String id=(String) carrito.elementAt(i).elementAt(0);
-				String nombre=(String) carrito.elementAt(i).elementAt(1);		
-				String fecha=(String) (carrito.elementAt(i).elementAt(2));
-				String precio=String.valueOf (carrito.elementAt(i).elementAt(3));
-				
-				String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('"+id+"','"+nombre+"','"+fecha+"','"+precio+"')";
-				st.executeUpdate(sql);
-					
-			System.out.println("llega");
-			}
-				}
+		try (Statement stmt = conn.createStatement()) {
 
-			/**
-			 * Metodo encargado de devolver el ArrayList que hay en ese momento de coches en el carrito
-			 * @param nom
-			 * @return
-			 * @throws ExcepcionExplicita 
-			 */
-			public ArrayList<Carrito> obtenerCarrito(String nom) throws ExcepcionExplicita {
-				String sentSQL = "SELECT * FROM carrito WHERE "+nom+"";
-				ArrayList<Carrito> al = new ArrayList<>();
-				try {
-					Statement st = conn.createStatement();
-					ResultSet rs = st.executeQuery(sentSQL);
-					while (rs.next()) {
-						String id = rs.getString("id");
-						String nombre = rs.getString("nombre");
-						double precio = rs.getDouble("precio");
-						String fecha = rs.getString("fecha");
+			stmt.executeUpdate("INSERT INTO carrito (id, nombre, fecha, precio) VALUES (' " + id + " ',  ' " + nombre
+					+ "', ' " + fecha + ", '" + precio + "')");
 
-						Carrito p = new Carrito(id, nombre, fecha, precio);
-						al.add(p);
-					}
-					rs.close();
-					st.close();
-				} catch (SQLException e) { // TODO Auto-generated catch block
-					e.printStackTrace();
-					try {
-						throw new DBException("No se han obtenido Coches", e);
-					} catch (DBException e1) { // TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-				return al;
-			}
-			
-			/**
-			 * Metodo encargado de insertar los datos necesarios de una targeta de credito
-			 * @param tarjeta
-			 * @throws DBException
-			 */
-			public void insertarDatosTarjeta (Tarjeta tarjeta) throws DBException{
-				
-				try (Statement stmt= conn.createStatement()) {
-					
-					int idUsuario = tarjeta.getidUsuario();
-					String tipo =  tarjeta.getTipo();
-					String numeroTarjeta = tarjeta.getNumeroTarjeta();
-					String fecha =	tarjeta.getFecha();
-					String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
-					String codigoPostal2 =	tarjeta.getCodigoPostal2();
-					String nombreCompleto =	tarjeta.getNombreCompleto();
-					String direccion =	tarjeta.getDireccion();
-					String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
-					String ciudad =	tarjeta.getCiudad();
-					String estadoProvincia	= tarjeta.getEstadoProvincia();
-					String codigoPostal	= tarjeta.getCodigoPostal();
-					
-					stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
-					
-					
-				} catch (SQLException e) {
-					throw new DBException("No ha sido posible ejecutar la query");
-				}
-			}
-	
-		/**
-		 * Cerramos conexión con la BD
-		 * 
-		 * @throws DBException
-		 */
-	public static void cerrarBD( Connection con, Statement st ) {
-		try {
-			if (st!=null) st.close();
-			if (con!=null) con.close();
-		logger.log(Level.INFO,"Se ha cerrado correctamente");
 		} catch (SQLException e) {
-		logger.log(Level.WARNING,e.getMessage());
+			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
-		public static void disconnect() throws DBException {
+
+	/**
+	 * Metodo que recoje un Vector de Vectores y guarda en la base de datos la lista
+	 * de los coches que habia en el carrito
+	 * 
+	 * @param carrito
+	 * @throws SQLException
+	 * @throws DBException
+	 */
+
+	@SuppressWarnings("rawtypes")
+	public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
+
+		Statement st = conn.createStatement();
+
+		int max = carrito.size();
+		for (int i = 0; i < max; i++) {
+			String id = (String) carrito.elementAt(i).elementAt(0);
+			String nombre = (String) carrito.elementAt(i).elementAt(1);
+			String fecha = (String) (carrito.elementAt(i).elementAt(2));
+			String precio = String.valueOf(carrito.elementAt(i).elementAt(3));
+
+			String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('" + id + "','" + nombre + "','"
+					+ fecha + "','" + precio + "')";
+			st.executeUpdate(sql);
+
+			System.out.println("llega");
+		}
+	}
+
+	/**
+	 * Metodo encargado de devolver el ArrayList que hay en ese momento de coches en
+	 * el carrito
+	 * 
+	 * @param nom
+	 * @return
+	 * @throws ExcepcionExplicita
+	 */
+	public ArrayList<Carrito> obtenerCarrito(String nom) throws ExcepcionExplicita {
+		String sentSQL = "SELECT * FROM carrito WHERE " + nom + "";
+		ArrayList<Carrito> al = new ArrayList<>();
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sentSQL);
+			while (rs.next()) {
+				String id = rs.getString("id");
+				String nombre = rs.getString("nombre");
+				double precio = rs.getDouble("precio");
+				String fecha = rs.getString("fecha");
+
+				Carrito p = new Carrito(id, nombre, fecha, precio);
+				al.add(p);
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) { // TODO Auto-generated catch block
+			e.printStackTrace();
 			try {
-				conn = initBD("EasyRentingMotors.db");
-				conn.close();
-			} catch (SQLException e) {
-				throw new DBException("Error cerrando la conexiÃƒÂ³n con la BD", e);
+				throw new DBException("No se han obtenido Coches", e);
+			} catch (DBException e1) { // TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		}
-
+		return al;
 	}
+
+	/**
+	 * Metodo encargado de insertar los datos necesarios de una targeta de credito
+	 * 
+	 * @param tarjeta
+	 * @throws DBException
+	 */
+	public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
+
+		try (Statement stmt = conn.createStatement()) {
+
+			int idUsuario = tarjeta.getidUsuario();
+			String tipo = tarjeta.getTipo();
+			String numeroTarjeta = tarjeta.getNumeroTarjeta();
+			String fecha = tarjeta.getFecha();
+			String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
+			String codigoPostal2 = tarjeta.getCodigoPostal2();
+			String nombreCompleto = tarjeta.getNombreCompleto();
+			String direccion = tarjeta.getDireccion();
+			String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
+			String ciudad = tarjeta.getCiudad();
+			String estadoProvincia = tarjeta.getEstadoProvincia();
+			String codigoPostal = tarjeta.getCodigoPostal();
+
+			stmt.executeUpdate(
+					"INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('"
+							+ idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
+							+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion
+							+ "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '"
+							+ codigoPostal + "')");
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+
+	/**
+	 * Cerramos conexión con la BD
+	 * 
+	 * @throws DBException
+	 */
+	public static void cerrarBD(Connection con, Statement st) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+			logger.log(Level.INFO, "Se ha cerrado correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
+	}
+
+}

@@ -57,7 +57,6 @@ public class VentanaAlquiler extends JFrame {
 	private VentanaAjustes va;
 	private Alquiler al;
 
-
 	/**
 	 * Create the frame
 	 * 
@@ -154,7 +153,7 @@ public class VentanaAlquiler extends JFrame {
 				String fInicio = sdf.format(d);
 				String fFin = sdf.format(d2);
 
-								try {
+				try {
 					al = new Alquiler(nomUsuario, nomCoche, fInicio, fFin);
 				} catch (ExcepcionExplicita e2) {
 					// TODO Auto-generated catch block
@@ -163,7 +162,7 @@ public class VentanaAlquiler extends JFrame {
 
 				if (textNombre.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
-					 throw new ExcepcionImplicita("No se pueden dejar campos vacios");
+					throw new ExcepcionImplicita("No se pueden dejar campos vacios");
 
 				} else {
 
@@ -210,6 +209,7 @@ public class VentanaAlquiler extends JFrame {
 		con = DBManager.initBD(nombreBD);
 		TreeSet<String> ac = DBManager.obtenerNombresCoches();
 		DBManager.disconnect();
+
 		for (String v : ac) {
 			comboCoche.addItem(v);
 		}
