@@ -26,7 +26,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextPane;
 
-import erm.webcam.WebcamViewerExample;
 import erm.categoriasCoche.Coche;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
@@ -209,20 +208,10 @@ public class VentanaVenta extends JFrame {
 		panelCentro.add(comboBox);
 		comboBox.setBounds(148, 56, 111, 22);
 
-		JButton btnCamara = new JButton("Camara");
-		btnCamara.setBounds(148, 176, 111, 22);
-		panelCentro.add(btnCamara);
-
 		getContentPane().add(panelCentro, BorderLayout.CENTER);
 		
 		
 
-		btnCamara.addActionListener(e -> {
-
-			WebcamViewerExample wc = new WebcamViewerExample();
-			wc.run();
-
-		});
 
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
