@@ -146,9 +146,7 @@ import java.util.Random;
 			});
 			frame.getContentPane().add(btnCarritoCompra);
 
-			//frame.setPreferredSize(new Dimension(600, 650));
-			//scrollPane.setViewportView(frame);
-			//frame.getContentPane().add(scrollPane);
+			
 		}
 			
 		

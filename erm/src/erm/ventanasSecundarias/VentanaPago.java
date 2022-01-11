@@ -163,6 +163,8 @@ public class VentanaPago extends javax.swing.JFrame {
 				VentanaTransaccionCompra vtt = new VentanaTransaccionCompra();
 				setVisible(false);
 				vtt.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente",
+						"Correcto", 1);
 				
 			}
 		});
@@ -527,9 +529,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 				try {
 					conexionT.initBD("EasyRentingMotors.db");
-					conexionT.insertarDatosTarjeta(tarjeta);
-					JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente",
-							"Correcto", 1);
+					conexionT.insertarDatosTarjeta(tarjeta); 
 					conexionT.disconnect();
 
 				} catch (DBException e1) {
