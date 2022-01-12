@@ -23,7 +23,7 @@ public class Coche implements Serializable {
 		this.fecha_matriculacion = fecha_matriculacion;
 		try {
 			Date f = sdf.parse(fecha_matriculacion);
-			Date fechaLimite = sdf.parse("1900-01-01");
+			Date fechaLimite = sdf.parse("2000-01-01");
 			if(f.before(fechaLimite))
 				throw new ExcepcionExplicita("Es un coche demasiado antiguo");
 		} catch (ParseException e) {
