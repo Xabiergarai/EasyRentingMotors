@@ -158,7 +158,7 @@ public class DBManager {
 				statement.executeUpdate("CREATE TABLE if not exists opinion "
 						+ "(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, titulo string, descripcion string");
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Ventas ya existente");
+				logger.log(Level.WARNING, "Tabla Opinion ya existente");
 				throw new DBException("Error creando tabla de Ventas a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada
 
