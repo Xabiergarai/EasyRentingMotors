@@ -1,26 +1,39 @@
 package erm.categoriasCoche;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import erm.excepciones.ExcepcionExplicita;
 
 public class Coche implements Serializable {
 
 	private String id, nombre, categoria, marca, fecha_matriculacion, combustible, rutaFoto;
 	private double precio;
-
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	
 	public Coche(String id, String nombre,String Categoria,  String clase, String marca, String fecha_matriculacion, String combustible,
-			double precio, String rutaFoto) {
+			double precio, String rutaFoto) throws ExcepcionExplicita {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = clase;
 		this.marca = marca;
 		this.fecha_matriculacion = fecha_matriculacion;
+		try {
+			Date f = sdf.parse(fecha_matriculacion);
+			Date fechaLimite = sdf.parse("1900-01-01");
+			if(f.before(fechaLimite))
+				throw new ExcepcionExplicita("Es un coche demasiado antiguo");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.combustible = combustible;
 		this.precio = precio;
 		this.rutaFoto = rutaFoto;
 	}
-
-	//
 	
 	public Coche() {
 		super();
@@ -113,6 +126,7 @@ public class Coche implements Serializable {
 				+ ", fecha_matriculacion=" + fecha_matriculacion + ", combustible=" + combustible + ", precio=" + precio
 				+ ", rutaFoto=" + rutaFoto + "]";
 	}
+	
 
 }
 

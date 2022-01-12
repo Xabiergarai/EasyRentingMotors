@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import erm.categoriasCoche.Coche;
+import erm.excepciones.ExcepcionExplicita;
 
 public class ListaCoche extends Coche {
 
@@ -16,7 +17,12 @@ public class ListaCoche extends Coche {
 
 		Map<Integer, Coche> lista = listaCoche.getCoches();
 
-		lista.put(01, new Coche("CCB", "Audi A3", "CategoriaB","Clase B",  "Audi", "2018-07-06", "Gasolina", 20.0000, ""));
+		try {
+			lista.put(01, new Coche("CCB", "Audi A3", "CategoriaB","Clase B",  "Audi", "2018-07-06", "Gasolina", 20.0000, ""));
+		} catch (ExcepcionExplicita e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		lista.get(01);
 

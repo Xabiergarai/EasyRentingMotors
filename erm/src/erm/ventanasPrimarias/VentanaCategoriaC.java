@@ -67,12 +67,10 @@ public class VentanaCategoriaC {
 		} catch (DBException e1) {
 			e1.printStackTrace();
 		}
-
+		
 		JPanel CategoriaCPanel = new JPanel(new FlowLayout());
-		for (CategoriaC o : CategoriaC) {
-			JPanel CategoriaCsPanel = CochePanel(o, VentanaPrincipal.carrito);
-			CategoriaCPanel.add(CategoriaCsPanel);
-		}
+		cargarRecursivamente(CategoriaCPanel, CategoriaC, 0);
+		
 		CategoriaCPanel.setBounds(50, 100, 500, 700);
 		JScrollPane scrollPane = new JScrollPane(CategoriaCPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -133,6 +131,14 @@ public class VentanaCategoriaC {
 				VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
+	}
+	
+	private void cargarRecursivamente(JPanel CategoriaCPanel, ArrayList<CategoriaC> CategoriaC, int i) {
+		if(i<CategoriaC.size()) {
+			JPanel CategoriaCsPanel = CochePanel(CategoriaC.get(i), VentanaPrincipal.carrito);
+			CategoriaCPanel.add(CategoriaCsPanel);
+			cargarRecursivamente(CategoriaCPanel, CategoriaC, i+1);
+		}
 	}
 
 	private JPanel CochePanel(CategoriaC o, ArrayList<Coche> carrito) {

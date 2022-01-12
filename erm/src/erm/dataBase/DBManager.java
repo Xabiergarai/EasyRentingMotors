@@ -580,6 +580,9 @@ public class DBManager {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ExcepcionExplicita e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return av;

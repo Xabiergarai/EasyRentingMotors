@@ -78,10 +78,11 @@ import java.util.Random;
 			}
 
 			JPanel CategoriaAPanel = new JPanel(new FlowLayout());
-			for (CategoriaA o : CategoriaA) {
+			cargarRecursivamente(CategoriaAPanel,CategoriaA,0);
+			/*for (CategoriaA o : CategoriaA) {
 				JPanel CategoriaAsPanel = CochePanel(o, VentanaPrincipal.carrito);
 				CategoriaAPanel.add(CategoriaAsPanel);
-			}
+			}*/
 			CategoriaAPanel.setBounds(50,100,500,700);
 			JScrollPane scrollPane = new JScrollPane(
 					CategoriaAPanel,
@@ -149,6 +150,13 @@ import java.util.Random;
 			
 		}
 			
+		private void cargarRecursivamente(JPanel CategoriaAPanel, ArrayList<CategoriaA> CategoriaA, int i) {
+			if(i<CategoriaA.size()) {
+				JPanel CategoriaAsPanel = CochePanel(CategoriaA.get(i), VentanaPrincipal.carrito);
+				CategoriaAPanel.add(CategoriaAsPanel);
+				cargarRecursivamente(CategoriaAPanel, CategoriaA, i+1);
+			}
+		}
 		
 		private JPanel CochePanel(CategoriaA o, ArrayList<Coche> carrito) {
 			

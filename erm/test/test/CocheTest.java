@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import erm.categoriasCoche.Coche;
+import erm.clasesBasicas.Carrito;
+import erm.excepciones.ExcepcionExplicita;
 
 /**
  * 
@@ -21,8 +23,23 @@ class CocheTest  {
 	
 	@BeforeEach
 	void setUpCoche() {
-		 c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "imagen");	
+		 try {
+			c = new Coche("01","Audi A5", "A5", "A", "Audi", "2008-01-12", "Diesel", 50.000, "imagen");
+		} catch (ExcepcionExplicita e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		 c1= new Coche();
+	}
+	@Test
+	void testCoche() {
+			assertThrows(ExcepcionExplicita.class, ()->{new Coche("01","Audi A5", "A5", "A", "Audi", "1800-01-12", "Diesel", 50.000, "imagen");});
+			assertThrows(AssertionError.class, ()-> {
+				assertThrows(ExcepcionExplicita.class, () -> {
+					new Coche("01","Audi A5", "A5", "A", "Audi", "2000-01-12", "Diesel", 50.000, "imagen");
+				});
+								
+			});
 	}
 			
 	@Test

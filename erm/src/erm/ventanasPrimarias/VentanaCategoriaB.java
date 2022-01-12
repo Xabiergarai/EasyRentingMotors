@@ -1,8 +1,6 @@
 package erm.ventanasPrimarias;
 
 import erm.dataBase.*;
-import erm.categoriasCoche.CategoriaB;
-import erm.categoriasCoche.Coche;
 import erm.clasesBasicas.ListaCoche;
 import erm.dataBase.DBException;
 import erm.dataBase.DBManager;
@@ -72,10 +70,11 @@ public class VentanaCategoriaB {
 		}
 
 		JPanel CategoriaBPanel = new JPanel(new FlowLayout());
-		for (CategoriaB o : CategoriaB) {
+		cargarRecursivamente(CategoriaBPanel, CategoriaB, 0);
+		/*for (CategoriaB o : CategoriaB) {
 			JPanel CategoriaBsPanel = CochePanel(o, VentanaPrincipal.carrito);
 			CategoriaBPanel.add(CategoriaBsPanel);
-		}
+		}*/
 		CategoriaBPanel.setBounds(50, 100, 500, 700);
 		JScrollPane scrollPane = new JScrollPane(CategoriaBPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -136,6 +135,14 @@ public class VentanaCategoriaB {
 			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
+	}
+	
+	private void cargarRecursivamente(JPanel CategoriaBPanel, ArrayList<CategoriaB> CategoriaB, int i) {
+		if(i<CategoriaB.size()) {
+			JPanel CategoriaBsPanel = CochePanel(CategoriaB.get(i), VentanaPrincipal.carrito);
+			CategoriaBPanel.add(CategoriaBsPanel);
+			cargarRecursivamente(CategoriaBPanel, CategoriaB, i+1);
+		}
 	}
 
 	private JPanel CochePanel(CategoriaB o, ArrayList<Coche> carrito) {
