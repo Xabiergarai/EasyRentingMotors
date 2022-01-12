@@ -1,10 +1,34 @@
 # EasyRentingMotors
 
----
-Proyecto Prog III
----
 
-Resumen/Contexto
+
+<h1 align="center">Bienvenido al Readme de ERM 👋</h1>
+
+
+## Equipo de Trabajo
+
+<ol >
+  <li>👤 Aitor Gutierrez <br /> </li>
+  <li>👤 Javier Contreras <br /> </li>
+  <li>👤 Gorka Zarate <br /> </li>
+  <li>👤 Xabier Garai  </li>
+</ol>
+
+
+## 💻 Sobre el equipo
+
+- 🎓 &nbsp; Grupo de cuatro estudiantes de Ingenieria Informática en la Universidad de Deusto.
+- ⚙️ &nbsp; Asignatura: Programación III
+
+## 🛠 Lenguaje del proyecto
+
+
+- 💻 &nbsp; Java 
+- 🌐 &nbsp; Database: SqLite 
+
+## 🚀 Funcionamiento del proyecto
+
+<h2> Resumen/Contexto </h2>
 
     Aplicación que se basará en una tienda online de un concesionario de vehículos. Easy
     Renting Motors ofrecerá al consumidor una gran variedad de automóviles, incluyendo
@@ -24,7 +48,7 @@ Resumen/Contexto
     usuario a la hora de utilizar la aplicación es lo que más nos interesa y por ella
     intentaremos crear algo que sea lo más intuitivo para el cliente.
 
-Ideas de interfaz
+<h2> Ideas de Interfaz </h2>
 
     ● Ventana login: Habrá un login donde se introducirá el usuario y la contraseña que
       nos llevará a una ventana donde se encontrarán las secciones de coches que tendrá
@@ -76,7 +100,17 @@ Ideas de interfaz
       vender y alquilar un coche.
       
       
-Instrucciones para cargar el programa
+## 🧐 Dos maneras de iniciar sesión
+
+Tipos de Usuario|Usuario normal | Administrador
+-------------|------------- | -------------
+Usuario|usuario*  | admin
+Contraseña|usuario123*  | admin123
+
+*Es una cuenta que te recomendamos para iniciar sesión. Si esta no te convence, puedes registrarte en nuestra aplicación con tus credenciales.
+
+      
+<h2> Instrucciones </h2>
 
     ● Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta erm/src/erm.main/App.java,
       ahi encontraremos la ventana 'main' llamada App la cual deberemos correrla click-ando con el botón derecho del ratón y
@@ -91,9 +125,28 @@ Instrucciones para cargar el programa
       podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc.  
       
       
+ 
+ <h3>💬 Contacto </h3>
+
+
+<p align="center">
+
+<a href="https://www.instagram.com/erMotors_/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-erMotors_-purple?style=flat-square&logo=instagram"> </a>
+
+<a href="mailto:ermotors@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-ermotos@gmail.com-red?style=flat-square&logo=gmail"></a>
+
+<a href="https://twitter.com/erMotors"> <img alt="Twitter" src="https://img.shields.io/badge/Twitter-erMotors-blue?style=flat-square&logo=twitter"></a>
+  
+</p>
+
+
+
+
+
+
+
       
-      
-      
+     
       
       
       
