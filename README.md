@@ -74,3 +74,20 @@ Ideas de interfaz
     ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el recibo final con
       los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
       vender y alquilar un coche.
+      
+      
+Instrucciones para cargar el programa
+ 
+       Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta erm/src/erm.main/App.java, ahi encontraremos la ventana 'main' llamada App la          cual deberemos correrla click-ando con el botón derecho del ratón y dirigiendonos a 'run as'. Una vez hayamos iniciado la aplicación nos encontraremos con la ventana            inicial, tendremos diferentes secciones para elegir, entre ellas la de iniciar sesión o la de administrador. Para iniciar sesión, deberemos utilizar el nombre de                usuario: gutiaitor, con la contraseña: 12345. Otra opción es la de registrarse mediante el botón de registro, el cual nos permitira registrarnos con un nuevo nombre de          usuario. Para iniciar sesión como administrador deberemos utilizar el nombre de usuario: admin, con la contraseña: admin123. 
+       
+       Una vez dentro de la aplicación, tendremos la posibilidad de comprar un coche dirigiendonos a la/s catergorias deseadas. Por otro lado, en la parte superior de la ventana        tendremos un icono de ajustes el cual nos llevara a una ventana donde podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la            cuenta, etc.
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
