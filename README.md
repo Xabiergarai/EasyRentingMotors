@@ -3,9 +3,11 @@
 
    [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
-
-<h1 align="center">Bienvenido al Readme de ERM 👋</h1>
-
+<h1 align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=Bienvenido!+👋;Esto+es+ERM....;Empecemos!😊&center=true&size=30">
+  </a>
+</h1>
 
 
 ## 🛠 Equipo de Trabajo
