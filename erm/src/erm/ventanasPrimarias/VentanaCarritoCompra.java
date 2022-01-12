@@ -203,10 +203,14 @@ public class VentanaCarritoCompra extends JFrame {
 		btnGuardarFichero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
-					PrintWriter pw = new PrintWriter("Carrito.txt");
-					escribirProductosEnFichero(0, carritoModeloTabla, pw);
-					pw.close();
+				    int respuesta = JOptionPane.showConfirmDialog(null, "Quieres guardar el carrito en el fichero?", "Confirmacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if(respuesta == JOptionPane.YES_OPTION) {
+                        PrintWriter pw = new PrintWriter("Carrito.txt");
+                        escribirProductosEnFichero(0, carritoModeloTabla, pw);
+                        pw.close();
+                    }else if (respuesta == JOptionPane.NO_OPTION) {                    
+                    }else if (respuesta == JOptionPane.CLOSED_OPTION) {
+                    }
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
