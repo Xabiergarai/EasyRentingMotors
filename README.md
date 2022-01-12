@@ -1,11 +1,14 @@
 # EasyRentingMotors
 
 
+   [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+
 
 <h1 align="center">Bienvenido al Readme de ERM 👋</h1>
 
 
-## Equipo de Trabajo
+
+## 🛠 Equipo de Trabajo
 
 <ol >
   <li>👤 Aitor Gutierrez <br /> </li>
@@ -20,11 +23,14 @@
 - 🎓 &nbsp; Grupo de cuatro estudiantes de Ingenieria Informática en la Universidad de Deusto.
 - ⚙️ &nbsp; Asignatura: Programación III
 
-## 🛠 Lenguaje del proyecto
 
+## 👩‍💻 Lenguaje del proyecto 
 
-- 💻 &nbsp; Java 
-- 🌐 &nbsp; Database: SqLite 
+Badge | URL
+------------ | -------------
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" /> | `https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white`
+<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" /> | `https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white`
+
 
 ## 🚀 Funcionamiento del proyecto
 
@@ -124,7 +130,8 @@ Contraseña|usuario123*  | admin123
       Por otro lado, en la parte superior de la ventana tendremos un icono de ajustes el cual nos llevara a una ventana donde
       podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc.  
       
-      
+ [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+
  
  <h3>💬 Contacto </h3>
 
