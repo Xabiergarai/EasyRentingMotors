@@ -218,6 +218,7 @@ public class VentanaLogIn extends JFrame {
 					u = conexion.buscarUsuarioId(idUsuario);
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A EASY RENTING MOTORS", "BIENVENIDO",
 							JOptionPane.INFORMATION_MESSAGE);
+			//		cargarProperties();
 					VentanaPrincipal vi = new VentanaPrincipal();
 					setVisible(false);
 					vi.setVisible(true);
@@ -273,7 +274,7 @@ public class VentanaLogIn extends JFrame {
 		tempPanel.add(campo);
 		cont.add(tempPanel);
 	}
-
+/*
 	// carga en el fichero properties el usuario y contrasenia que inicie sesion
 	public void cargarProperties() {
 		FileOutputStream fos = null;
@@ -284,16 +285,23 @@ public class VentanaLogIn extends JFrame {
 			fos = new FileOutputStream(configFile);
 
 			Properties propConfig = new Properties();
+			String database = propConfig.getProperty("database");
+	      //  String dataDir = propConfig.getProperty("datadir");
+	        
 			propConfig.setProperty("username", txtNombre.getText());
 			propConfig.setProperty("password", txtContrasenia.getText());
-			propConfig.store(fos, "Configuracion del programa");
+	//		propConfig.setProperty("database", database);
+			
+			
+			
+	        propConfig.store(fos, "Configuracion del programa");
 			fos.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-
+*/
 	// METODO GET ID USUARIO
 	public static int getUsuarioId() {
 		return idUsuario;
