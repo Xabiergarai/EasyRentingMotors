@@ -3,8 +3,7 @@ package erm.clasesBasicas;
 public class Opinion {
 
 	private int idUsuario;
-	private String titulo;
-	private String descripcion;
+	private String titulo, descripcion;
 	
 	public Opinion(int idUsuario, String titulo, String descripcion) {
 		super();

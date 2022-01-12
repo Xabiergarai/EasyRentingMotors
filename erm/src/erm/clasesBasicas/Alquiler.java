@@ -6,9 +6,7 @@ import erm.excepciones.ExcepcionExplicita;
 
 public class Alquiler {
 
-	private String nomUsuario;
-	private String nomCoche;
-	private String fechaInicio,fechaFin;
+	private String nomUsuario, nomCoche, fechaInicio,fechaFin;
 	
 	public Alquiler(){
 		super();

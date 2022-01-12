@@ -7,8 +7,7 @@ public class CategoriaB extends Coche {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int numPuertas;
-	private boolean descapotable;
-	private boolean deportivo;
+	private boolean descapotable, deportivo;
 
 	public CategoriaB(String id, String nombre, String categoria, String marca, String fecha_matriculacion,
 			String combustible, double precio, String rutaFoto, int numPuertas, boolean descapotable,

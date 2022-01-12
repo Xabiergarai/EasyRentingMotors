@@ -3,10 +3,8 @@ package erm.clasesBasicas;
 import erm.excepciones.ExcepcionExplicita;
 
 public class Carrito {
-	private String id;
-	private String nombre;
+	private String id, nombre, fecha;
 	private double precio;
-	private String fecha;
 
 	public Carrito(String id, String nombre, String fecha, double precio) throws ExcepcionExplicita {
 		super();

@@ -4,14 +4,8 @@ import java.io.Serializable;
 
 public class Coche implements Serializable {
 
-	private String id;
-	private String nombre;
-	private String categoria;
-	private String marca;
-	private String fecha_matriculacion;
-	private String combustible;
+	private String id, nombre, categoria, marca, fecha_matriculacion, combustible, rutaFoto;
 	private double precio;
-	private String rutaFoto;
 
 	public Coche(String id, String nombre,String Categoria,  String clase, String marca, String fecha_matriculacion, String combustible,
 			double precio, String rutaFoto) {

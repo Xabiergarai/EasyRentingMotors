@@ -2,10 +2,8 @@ package erm.clasesBasicas;
 
 public class Administrador extends Usuario {
 
-	private String AdminUsuario;
-	private String AdminInterfaz;
-	private String AdminVerificar;
-	private String AdminRecuperacion;
+	private String AdminUsuario, AdminInterfaz, AdminVerificar, AdminRecuperacion;
+	
 
 	public Administrador(String nomUsuario, String contrasenya, String email, String nombre, String apellidos, String direccionIP,
 			String adminUsuario, String adminInterfaz, String adminVerificar, String adminRecuperacion) {
