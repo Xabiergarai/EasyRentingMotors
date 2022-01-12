@@ -69,6 +69,7 @@ public class VentanaLogIn extends JFrame {
 	/**
 	 * Create the frame
 	 */
+	@SuppressWarnings("static-access")
 	public VentanaLogIn() {
 		super();
 
@@ -151,7 +152,7 @@ public class VentanaLogIn extends JFrame {
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(148, 158, 100, 25);
+		lblContrasenya.setBounds(148, 158, 112, 25);
 		panelCentro.add(lblContrasenya);
 		
 		txtNombre = new JTextField();
@@ -206,6 +207,7 @@ public class VentanaLogIn extends JFrame {
 			DBManager conexion = new DBManager();
 
 			String nick = txtNombre.getText();
+			@SuppressWarnings("deprecation")
 			String contrasenia = txtContrasenia.getText();
 
 			try {
