@@ -15,12 +15,8 @@ public class Alquiler {
 
 	public Alquiler(String nomUsuario, String nomCoche, String fechaInicio, String fechaFin) throws ExcepcionExplicita {
 		super();
-		if(nomUsuario.length()>0) {
-			this.nomUsuario=nomUsuario;
-		}else {
-			throw new ExcepcionExplicita("El campo no puede estar vacio");
-		}
-		
+	
+		this.nomUsuario=nomUsuario;
 		this.nomCoche = nomCoche;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;

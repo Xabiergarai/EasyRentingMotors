@@ -62,14 +62,6 @@ class AlquilerTest {
 	public void testGetNomCoche() {
 		assertEquals("Fiat 500", a.getnomCoche());
 	}
-	@Test
-	public void testExcepcionExplicita() {
-		assertThrows(ExcepcionExplicita.class, ()->{
-			Alquiler c = new Alquiler("", a.getnomCoche(), a.getFechaInicio(),a.getFechaFin());
-			});
-
-	}
-	
 
 	@Test
 	public void testToString() {

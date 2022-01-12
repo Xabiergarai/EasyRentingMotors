@@ -95,10 +95,9 @@ public class VentanaPrivacidad extends JFrame  {
 				DBManager dbm = new DBManager();
 					if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar permanentemente su cuenta?", "Eliminacion de cuenta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
 						try {
-							dbm.initBD("EasyRentingMotors.db");
+							
 							
 							dbm.eliminarUsuario(idU);
-							dbm.disconnect();
 							dispose();
 							VentanaInicial vl = new VentanaInicial();
 							vl.setVisible(true);

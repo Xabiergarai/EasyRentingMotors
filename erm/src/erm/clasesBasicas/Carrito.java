@@ -10,11 +10,7 @@ public class Carrito {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		if(precio > 0.0)
-			this.precio = precio;
-		else
-			throw new ExcepcionExplicita("El precio tiene que ser > 0");
-			
+		this.precio = precio;
 		this.fecha = fecha;
 	}
 

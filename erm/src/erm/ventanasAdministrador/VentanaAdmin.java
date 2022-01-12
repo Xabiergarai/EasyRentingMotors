@@ -1,7 +1,7 @@
 package erm.ventanasAdministrador;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,11 +19,9 @@ import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
-
 public class VentanaAdmin extends JFrame {
 
 	private JPanel contentPane, panelNorte, panelCentro, panelBotonera;
-	
 
 	/**
 	 * Create the frame.
@@ -37,14 +35,14 @@ public class VentanaAdmin extends JFrame {
 		panelNorte = new JPanel();
 		panelBotonera = new JPanel();
 		panelCentro = new JPanel();
-		
+
 		JButton btnStock = new JButton("STOCK DISPONIBLE");
 		btnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionStock vgs = new VentanaGestionStock();
 				vgs.setVisible(true);
 				dispose();
-		}
+			}
 		});
 		contentPane.setLayout(new BorderLayout(0, 0));
 		panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER, 125, 125));
@@ -52,31 +50,31 @@ public class VentanaAdmin extends JFrame {
 		btnStock.setBackground(new Color(255, 165, 0));
 		btnStock.setBounds(5, 81, 348, 66);
 		panelCentro.add(btnStock);
-		
+
 		JButton btnUsuarios = new JButton("GESTION DE USUARIOS");
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionUsuarios vgu = new VentanaGestionUsuarios();
 				vgu.setVisible(true);
 				dispose();
-				
+
 			}
 		});
-		
+
 		btnUsuarios.setForeground(Color.WHITE);
 		btnUsuarios.setBackground(new Color(255, 165, 0));
 		btnUsuarios.setBounds(129, 187, 348, 66);
 		panelCentro.add(btnUsuarios);
-		
+
 		contentPane.add(panelCentro, BorderLayout.CENTER);
-		
+
 		JLabel lblTitulo = new JLabel("MEN\u00DA");
 		lblTitulo.setForeground(new Color(255, 165, 0));
 		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		panelNorte.add(lblTitulo);
 		contentPane.add(lblTitulo, BorderLayout.NORTH);
-		
+
 		JButton btnVlvAtras = new JButton("Volver atras");
 		btnVlvAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -87,9 +85,9 @@ public class VentanaAdmin extends JFrame {
 		});
 		btnVlvAtras.setBounds(10, 303, 138, 23);
 		panelBotonera.add(btnVlvAtras);
-		
+
 		contentPane.add(panelBotonera, BorderLayout.SOUTH);
-		
+
 		JButton btnCerrarSesion = new JButton("Cerrar Sesion");
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,9 +96,8 @@ public class VentanaAdmin extends JFrame {
 			}
 		});
 		btnCerrarSesion.setBounds(469, 303, 138, 23);
-		
+
 		panelBotonera.add(btnCerrarSesion);
-		
+
 	}
 }
-

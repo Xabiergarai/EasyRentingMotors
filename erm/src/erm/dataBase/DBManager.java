@@ -198,72 +198,7 @@ public class DBManager {
 		}
 	}
 
-	/**
-	 * Este metodo comprueba si existe un usuario en concreto
-	 * 
-	 * @param nick        - Nick del usuario
-	 * @param contrasenia - Contraseña del usuario
-	 * @return
-	 * @throws DBException
-	 */
-
-	public static int existeUsuario(String nick, String contrasenia) throws DBException {
-		conn = initBD("EasyRentingMotors.db");
-		String sql = "SELECT  id, nickname, contrasenya, email FROM usuario WHERE nickname = ?";
-		logger.log(Level.INFO, "Seleccionando usuario: " + nick);
-		Statement st = null;
-		ResultSet rs = null;
-		int resultado = 0;
-
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-			stmt.setString(1, nick);
-			rs = stmt.executeQuery();
-
-			if (!rs.next()) {
-				resultado = 0;
-				logger.log(Level.WARNING, "Usuario no existente");
-
-			} else {
-				String c = rs.getString(3);
-				if (c.equals(contrasenia)) {
-					resultado = 2;
-					logger.log(Level.FINE, "Usuario existente");
-
-				} else {
-					resultado = 1;
-					logger.log(Level.WARNING, "ContraseÃ±a incorrecta");
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new DBException("Error al mirar si existe usuarios en BD", e);
-		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if (st != null)
-				try {
-					st.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
-		return resultado;
-	}
+	
 
 	/**
 	 * Logging

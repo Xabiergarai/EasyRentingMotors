@@ -1,13 +1,12 @@
 package erm.excepciones;
 /**
- * Utilizamos esta excepcion para la clase carrito. El precio no podrá ser 0 o menor que 0. 
- * Si fuera así, saltaría la excepcion explicita que estamos creando. Hay un metodo en CarritoTest que comprueba que estamos declarando la 
- * excepcion en carrito de forma correcta.
- * @author gutia
+ * Utilizamos esta clase para hacer que la fecha de matriculación no pueda ser menor al año 2000. Esta
+ * fecha seria demasiado antigua para poder matricularse en nuestra aplicación.
  *
  */
 
 public class ExcepcionExplicita extends Exception{
+	
 	private String mensaje;
 	
 	public ExcepcionExplicita(String m) {
