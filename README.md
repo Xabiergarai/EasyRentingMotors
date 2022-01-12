@@ -75,8 +75,7 @@ Ideas de interfaz
       los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
       vender y alquilar un coche.
       
-      
-Instrucciones para cargar el programa
+ Instrucciones para cargar el programa
 
    Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta erm/src/erm.main/App.java,
    ahi encontraremos la ventana 'main' llamada App la cual deberemos correrla click-ando con el botón derecho del ratón y
@@ -89,15 +88,3 @@ Instrucciones para cargar el programa
    Una vez dentro de la aplicación, tendremos la posibilidad de comprar un coche dirigiendonos a la/s catergorias deseadas.
    Por otro lado, en la parte superior de la ventana tendremos un icono de ajustes el cual nos llevara a una ventana donde
    podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc.
- 
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
