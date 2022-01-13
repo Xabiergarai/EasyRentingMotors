@@ -38,17 +38,26 @@ Badge | URL
 
 <h2> Resumen/Contexto </h2>
 
-    Aplicación que se basará en una tienda online de un concesionario de vehículos. Easy
-    Renting Motors ofrecerá al consumidor una gran variedad de automóviles, incluyendo
-    coches de diferentes clases, desde clase A hasta D. La aplicación estará dividida en
-    varias partes. Antes de todo, tendremos el login, donde el usuario podrá entrar en la
-    plataforma. En caso de que no estuviera registrado, procedería a realizar el registro
-    del usuario. Una vez dentro, la aplicación contendrá una sección donde se mostrarán
-    los vehículos, divididos en las categorías mencionadas anteriormente. El usuario
-    podrá seleccionar cualquier tipo de vehículo en el que esté interesado. Podrá tener
-    toda la información que necesite sobre el automovil que le interese. Tendrá tres
-    diferentes formas de realizar el pago (A plazos, normal e incluso a alquiler donde el
-    precio estará adecuado a su medida).
+    Esta aplicacion es el prototipo de lo que llegaria a ser una concesinario online de coches.
+    Easy Renting Motors ofrece a los usuarios diferentes clases y tipos de coches, mas concretamente
+    desde la A hasta la D. La aplicación estará dividida en varias partes. Antes de todo, tendremos
+    el login, donde el usuario podrá entrar en la plataforma. En caso de que no estuviera registrado,
+    procedería a realizar el registro del usuario. Una vez dentro, la aplicación presenta várias
+    funciones; por un lado, tenemos la posibilidad de comprar cualquier veiculo de las categorias
+    anteriormente mencionadas, tambien es posible solicitar informacion sobre cualquier veiculo
+    antes de proceder al pago. Ademas, si simplemente los usuarios necesitan el coche para un
+    periodo concreto de tiempo, podran realizar un alquiler de cualquier coche que este
+    disponible en nuesto concesionario. Todos estos pagos, tanto la compra simultanea de varios
+    veiculos como los alquileres, podran realizarse con diferentes metodos de pago pensados 
+    para la maxima comodidas de nuestos clientes. Tras realizar cualquier compra, los usuarios 
+    pueden dejar su opinion acerca de la pagina web; si ha sido amigable, si el diseño es el mas
+    adecuado, etc.
+    Ademas, los usuarios tambien tienen la opcion de vender su coche de forma rapida y segura pudiendo
+    agregar una foto del respectivo vehiculo.En relacion con la seguridad, con usuarios podran cambiar 
+    de contraseña en cualquier momento, asi como eleminar su cuenta si asi lo desean.
+    
+    
+   
     Objetivos del proyecto
     El objetivo principal es programar una tienda/aplicación donde ofrezcamos comodidad
     a la hora de que el usuario entre en ella. Queremos crear una interfaz gráfica que
