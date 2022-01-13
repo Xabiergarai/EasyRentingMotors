@@ -130,8 +130,17 @@ Contraseña|usuario123*  | admin123
      
     ● Una vez dentro de la aplicación, tendremos la posibilidad de comprar un coche dirigiendonos a la/s catergorias deseadas.
       Por otro lado, en la parte superior de la ventana tendremos un icono de ajustes el cual nos llevara a una ventana donde
-      podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc.  
+      podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc. 
       
+    ● Hemos implementado una seccion donde se pretende usar como una intranet, para los administradores (que solamente podran
+      acceder con un usuario y contraseña especificos(admin, admin, respectivamente).
+             - Por una parte hemos creado una ventana para poder gestionar el stock que hay actualmente en la tienda(mediante
+               una lista con todos los coches que hay en la tienda). Donde se puede agregar o eliminar coches segun las necesidades
+               del administrador, entre otras funciones.
+             - Por otra parte hemos creado tambien una ventana en la que se podran gestionar todos los usuarios registrados en la
+               tienda. Asi como tambien crear nuevos usuarios y/o  eliminar los usuarios que se desee. Ambas secciones trabajan
+               con una base de datos que se actualiza constantemente agregando o eliminando productos o usuarios.
+       
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
  
