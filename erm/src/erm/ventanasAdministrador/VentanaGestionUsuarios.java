@@ -28,6 +28,7 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
 import java.awt.Component;
 import javax.swing.ListModel;
 import java.awt.Font;
@@ -36,6 +37,8 @@ import javax.swing.JLabel;
 public class VentanaGestionUsuarios extends JFrame {
 
 	private JPanel contentPane;
+	private JTable tablaUsuarios;
+	private DefaultTableModel modeloTabla;
 	private ArrayList<Usuario> usuarios = new ArrayList<>();
 
 
@@ -117,7 +120,12 @@ public class VentanaGestionUsuarios extends JFrame {
 		});
 		mnGestion.add(mnCerrarSesion);
 
-		
+		Object[] columnas = {"id", "nombre", "apellidos", "nickname", "contraseña", "email", "direccionIP"};
+		modeloTabla = new DefaultTableModel();
+		modeloTabla.setColumnIdentifiers(columnas);
+		tablaUsuarios = new JTable(modeloTabla);
+		JScrollPane scroll = new JScrollPane(tablaUsuarios);
+		contentPane.add(scroll);
 		
 		try {
 			usuarios = DBManager.listarUsuarios();
@@ -133,15 +141,15 @@ public class VentanaGestionUsuarios extends JFrame {
 		listaUsuarios.setBackground(new Color(255, 255, 255));
 		listaUsuarios.setBounds(50, 54, 487, 234);
 		contentPane.add(listaUsuarios);
+
+		JScrollPane scrollpane = new JScrollPane(listaUsuarios);
+		getContentPane().add(scrollpane, BorderLayout.CENTER);
+		scrollpane.setBounds(50, 54, 487, 234);
+		contentPane.add(scrollpane);
+
 		JLabel lblGestionUsuarios = new JLabel("                Gestion de usuarios");
 		lblGestionUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		contentPane.add(lblGestionUsuarios, BorderLayout.NORTH);
-		
-		JLabel lblGestionDeUsuarios = new JLabel("Gestion de Usuarios");
-		lblGestionDeUsuarios.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
-		lblGestionDeUsuarios.setBounds(201, 35, 230, 16);
-		contentPane.add(lblGestionDeUsuarios);
-				
+		scrollpane.setColumnHeaderView(lblGestionUsuarios);
 
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

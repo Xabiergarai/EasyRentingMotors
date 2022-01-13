@@ -17,3 +17,4 @@ Aitor  Gutierrez Gonzalez ha iniciado sesion con el usuario gutiaitor con contra
 gorka  zarate ha iniciado sesion con el usuario zarate con contrasenia 23
 Pepe  Gonzalez ha iniciado sesion con el usuario pepe012 con contrasenia 123
 Javier  Contreras Alegria ha creado un usario con el nombre de javicoa y con contrasenia 123 el 22/01/08 a las 10:25:50
+Usuario  Prueba ha iniciado sesion con el usuario usuario con contrasenia usuario123
