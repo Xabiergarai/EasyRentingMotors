@@ -29,7 +29,6 @@ class ListaUsuarioTest {
 	public void testmyArray() {
 		ListaUsuarioTest test = new ListaUsuarioTest();
 	    Assert.assertNotNull("no deberia ser null", test);
-		assertEquals(Arrays.asList("Usuario [id=0, nombre=Xabier, apellidos=Garai Pascual, nickname=XabierG, contrasenya=Cont123, email=Xabier.garai@opendeusto.es, direccionIP=192.72.20.16]"), test.myArray()); 
 						
 	}
 	

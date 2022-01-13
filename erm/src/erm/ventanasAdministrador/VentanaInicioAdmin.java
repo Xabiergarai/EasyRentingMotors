@@ -61,7 +61,7 @@ public class VentanaInicioAdmin extends JFrame {
 		panelCentro.add(lblUsuario);
 		
 		JLabel lblContrasenya = new JLabel("Contrase\u00F1a");
-		lblContrasenya.setBounds(139, 142, 100, 25);
+		lblContrasenya.setBounds(139, 142, 127, 25);
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasenya.setEnabled(true);
 		panelCentro.add(lblContrasenya);

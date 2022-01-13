@@ -27,7 +27,7 @@ public class VentanaVentasInformacion extends JFrame {
 	
 	public VentanaVentasInformacion() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 454, 555);
+		setBounds(100, 100, 456, 474);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setForeground(Color.WHITE);
 		
@@ -43,11 +43,6 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().add(panelNorte, BorderLayout.NORTH);
 		panelBotonera.setLayout(null);
 
-		JButton btnInfoVentas = new JButton("Informacion de ventas");
-		btnInfoVentas.setBackground(UIManager.getColor("CheckBox.background"));
-		btnInfoVentas.setBounds(67, 117, 297, 29);
-		panelBotonera.add(btnInfoVentas);
-
 		JButton btnVenderCoche = new JButton("Vender coche");
 		btnVenderCoche.setBackground(UIManager.getColor("CheckBox.background"));
 		btnVenderCoche.setBounds(67, 77, 297, 29);
@@ -62,7 +57,7 @@ public class VentanaVentasInformacion extends JFrame {
 
 		JButton btnVolverAtras = new JButton("Volver atras");
 		btnVolverAtras.setBackground(UIManager.getColor("CheckBox.background"));
-		btnVolverAtras.setBounds(67, 197, 297, 29);
+		btnVolverAtras.setBounds(67, 161, 297, 29);
 		panelBotonera.add(btnVolverAtras);
 		
 		btnVolverAtras.addActionListener(e -> {
@@ -74,7 +69,7 @@ public class VentanaVentasInformacion extends JFrame {
 
 		JButton btnOpiniones = new JButton("Opiniones");
 		btnOpiniones.setBackground(UIManager.getColor("CheckBox.background"));
-		btnOpiniones.setBounds(67, 157, 297, 29);
+		btnOpiniones.setBounds(67, 119, 297, 29);
 		panelBotonera.add(btnOpiniones);
 	
 

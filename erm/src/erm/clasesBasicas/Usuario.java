@@ -111,7 +111,7 @@ public class Usuario {
 	
 	@Override
 	public String toString() {		
-		return "El id: "+id+ "  Nombre: " + nombre+ "  Apellido: " + apellidos+ "  Nickname: "+ nickname+ "  Contraseña: " + contrasenya+ "  Email: " +email;						
+		return "   Nombre: "+nombre+ " | Nickname: " + nickname+ " | Contraseña: " + contrasenya;
 	}
 
 

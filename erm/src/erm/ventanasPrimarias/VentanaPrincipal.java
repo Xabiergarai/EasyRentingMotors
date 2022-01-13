@@ -78,7 +78,6 @@ public class VentanaPrincipal extends JFrame {
 	private void initialize() {
 
 		setBounds(100, 100, 500, 480);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Easy Renting Motors");
 		getContentPane().setLayout(null);
 

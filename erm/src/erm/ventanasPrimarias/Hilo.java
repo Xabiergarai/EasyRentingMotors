@@ -10,7 +10,7 @@ public class Hilo extends Thread{
 			String textoNuevo = texto.substring(1)+String.valueOf(primercaracter);
 			VentanaCarritoCompra.lblPremium.setText(textoNuevo);
 			try {
-				sleep(200);
+				sleep(600);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

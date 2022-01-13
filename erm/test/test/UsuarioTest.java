@@ -112,8 +112,7 @@ public class UsuarioTest  {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Usuario [id=0, nombre=Javier, apellidos=Contreras, nickname=j.contre, contrasenya=123, email=javicoa@opendeusto.es, direccionIP=192.72.54.1]"
-, u.toString());
+		assertEquals("   Nombre: Javier | Nickname: j.contre | Contraseña: 123", u.toString());
 	}
 		
 	
