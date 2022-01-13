@@ -59,8 +59,8 @@ Badge | URL
 
 <h2> Descripcion de interfaz </h2>
 
-      Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la 
-      carpeta erm/src/erm.main/App.java.
+      Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta 
+      erm/src/erm.main/App.java.
    
       Easy Renting Motors se inicia desde VentanaInicial. Si tenemos cuenta, iniciamos sesión. 
       Si es nuestra primera vez en la aplicación, elegimos la opcion de "Registrar Usuario".
@@ -76,22 +76,23 @@ Badge | URL
       Esta sección está únicamente pensada para el equipo administrativo. El objetivo es poder manejar 
       de una forma mucho mas accesible y cómoda los usuarios y coches de Easy Renting Motors.
       
-      - VentanaGestionStocck: Gestiona el stock que hay actualmente en la tienda(mediante una lista con todos 
+      		● VentanaGestionStock: Gestiona el stock que hay actualmente en la tienda(mediante una lista con todos 
                               los coches que hay en la tienda). Donde se puede agregar o eliminar coches segun 
                               las necesidades del administrador, entre otras funciones.
                               
-             - VentanaGestionUsuarios: Gestiona todos los usuarios registrados en la tienda. Asi como tambien 
-                                       crea nuevos usuarios y/o  eliminar los usuarios que se desee. 
+      		● VentanaGestionUsuarios: Gestiona todos los usuarios registrados en la tienda. Asi como tambien 
+                              crea nuevos usuarios y/o  eliminar los usuarios que se desee. 
         
    <h4> Como usuario: </h4>
+   
+      El usuario podrá comprar, vender o alquilar un coche. Además, podrá escribir una opinión, cambiar su contraseña, ver
+      su perfil, politica de privacidad, contactar con ERM a traves de sus redes sociales etc.
       
-      La primera Ventana que obtendremos es VentanaPrincipal. En ella tenemos una serie de coches 
-      divididos por categorias (A,B,C,D). En esa misma Ventana tenemos tres botones que nos llevan a "Mi Perfil", y "Ajustes".
+      Iniciaremos en VentanaPrincipal. En ella tenemos una serie de coches divididos por categorias (A,B,C,D). 
+      Además en esa ventana tenemos dos botones que nos llevan a "Mi Perfil", y "Ajustes". (Mas abajo se detallan estos 
+      aspectos)
       
-      Aquí se podrá decidir en qué clase está interesado el usuario, para mas tarde ir a la ventana de esa categoría que desee
-      el usuario. Se mostrarán imágenes de cada sección para una mejor interacción con el cliente.
-      
- ## 🧐 Dos maneras de iniciar sesión
+ ## 🧐 Usuario/Admin
 
 Tipos de Usuario|Usuario normal | Administrador
 -------------|------------- | -------------
@@ -103,36 +104,39 @@ credenciales.
       
       
    <h2> Opciones como usuario </h2>
+   
+   <h3> Mi Perfil </h3>
+   
+     ● En "Mi Perfil" accedes a la informacion de tu cuenta. Esta ventana te mostrará todos los datos del usuario con el que 
+     has iniciado sesión.
+
       
    <h3> Compra</h3>
    
      ● Ventana CategoríaA/B/C/D: Cuando seleccionemos la sección del automóvil en el que estamos interesados, pasaremos a una 
       ventana donde encontraremos todos los automóviles disponibles que hay en esa categoría.
       
-     ●  VentanaCarritoCompra: Una vez el usuario  ha decidido que compra desea hacer, podrá ver el resumen de su carrito en 
+     ● VentanaCarritoCompra: Una vez el usuario  ha decidido que compra desea hacer, podrá ver el resumen de su carrito en 
       esta venta, además del precio y algún detalle más. Una vez desea realizar el pedido, procederá a la ventana de pago.
       
      ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
     
-      En "Mi Perfil" accedes a Informacion de cuenta. Esta ventana te mostrará todos los datos del usuario con el que has 
-      iniciado sesión.
-
       
   <h3> Venta </h3>
   
-		   ● Ventas e información: En este apartado el usuario tiene la opción de poner su coche
-				                    	a la venta, especificando la categoria del coche que pondrá a la venta.
-                                 Además, cada usuario podrá publicar una opinión acerca de su experiencia en 
-                                 la aplicación.
+     ● Ventas e información: En este apartado el usuario tiene la opción de poner su coche
+			     a la venta, especificando la categoria del coche que pondrá a la venta.
+                             Además, cada usuario podrá publicar una opinión acerca de su experiencia en 
+                             la aplicación.
                                  
                                  
   <h3> Alquiler </h3>                             
                
-                ● Alquiler: El usuario también tiene la opción de poder alquilar jun coche para un tiempo.
+     ● Alquiler: El usuario también tiene la opción de poder alquilar jun coche para un tiempo.
                             A través del calendario que falicitamos podrá seleccionar el ccoche que desea
                             y el tiempo que lo va a adquirir.
-                            
-                ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
+			    
+     ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
                      
   <h3> Mas de "Ajustes" </h3>      
                
@@ -146,19 +150,27 @@ credenciales.
 			             su contraseña.            
     ● Sesión:
        
-		   Cerrar Sesion
-		   Salir de la aplicacion
+		    - Cerrar Sesion
+		    - Salir de la aplicacion
 
     ● Servicio:
-		   Contacto: Podrás contactar a traves de gmail y nuestro instagram.
+		    - Contacto: Podrás contactar a traves de gmail y nuestro instagram.
     
-    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el recibo final con
-      los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
-      vender y alquilar un coche.
+    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el proceso de envio. El 
+    			   usuario tiene la opción de escribir su opinión de la atención recibida en la app ERM.
+    
+      
+      
+  <h2> BASE DE DATOS </h2>
+  <b> BD: EasyRentingMotors.db (SqLite) </b>
+  <br> </br>
+      
+      Todo lo que hace el usuario, tanto el normal como el admin, se amacena en la base de datos de ERM.
+   
       
   <h2> TEST </h2>
   
-      En el paquete Test hemos probado todas las clases de las clases basicas, categorias
+      En el paquete Test hemos probado todas las clases de las clases basicas, categorias.
    
        
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
