@@ -34,8 +34,6 @@ Badge | URL
 <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" /> | `https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white`
 
 
-## 🚀 Funcionamiento del proyecto
-
 <h2> Resumen/Contexto </h2>
 
     Esta aplicacion es el prototipo de lo que llegaria a ser una concesinario online de coches.
@@ -55,93 +53,113 @@ Badge | URL
     Ademas, los usuarios tambien tienen la opcion de vender su coche de forma rapida y segura pudiendo
     agregar una foto del respectivo vehiculo.En relacion con la seguridad, con usuarios podran cambiar 
     de contraseña en cualquier momento, asi como eleminar su cuenta si asi lo desean.
-    
-    
-  
-<h2> Ideas de Interfaz </h2>
 
-    ● Ventana login: Habrá un login donde se introducirá el usuario y la contraseña que
-      nos llevará a una ventana donde se encontrarán las secciones de coches que tendrá
-      el concesionario. Por ejemplo, dividiremos la interfaz de secciones en 4 ‘partes’, 
-      desde coche de clase A hasta D. Además, nos dará la opción de recuperar contraseña
-      si no nos acordáramos de ella.
+
+## 🚀 Funcionamiento del proyecto
+
+<h2> Descripcion de interfaz </h2>
+
+      Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la 
+      carpeta erm/src/erm.main/App.java.
+   
+      Easy Renting Motors se inicia desde VentanaInicial. Si tenemos cuenta, iniciamos sesión. 
+      Si es nuestra primera vez en la aplicación, elegimos la opcion de "Registrar Usuario".
+
+      En el registro debemos poner un nombre de Usuario, contraseña y el email (@ y .).
+
+      Una vez registrados, entramos en la aplicación. 
       
-    ● Ventana Registro: En el caso de que no estuvieras registrado en “Easy Renting
-      Motors”, esta ventana nos permitirá crear nuestro propio usuario. En esta interfaz
-      tendremos la opción de insertar todos los datos necesarios para el registro. Una vez
-      terminado este proceso, nos llevará a la “ventana login” para ahora sí, iniciar sesión
-      en nuestro concesionario.
-    
-    ● Ventana Inicio: Esta ventana nos mostrará un pequeño resumen de todas las
-      categorías. Aquí se podrá decidir en qué clase está interesado el usuario, para mas
-      tarde ir a la ventana de esa categoría que desee el usuario. Se mostrarán imágenes
-      de cada sección para una mejor interacción con el cliente.
-    
-    ● Ventana CategoríaCoche: Cuando seleccionemos la sección del automóvil en el que
-      estamos interesados, pasaremos a una ventana donde encontraremos todos los
-      automóviles disponibles que hay en esa categoría.
-    
-    ● Ventana InformaciónCoche: Una vez hayamos seleccionado el coche deseado en
-      la ventana ClaseCoche, pasaremos a una nueva donde nos saldrá la propia
-      información del coche: foto,precio,etc. Además, se podrá seleccionar algún extra si el
-      usuario lo solicitara. Extras como gps integrado o techo panorámico.
-    
-    ● Ventana Pago: Una vez tenemos claro qué coche queremos pasaremos a tramitar el
-      pago. Habrá tres diferentes opciones:
-        ○ Comprar en un pago
-        ○ Pagar a plazos
-        ○ Alquiler
+   <h2> Dos opciones: </h2>
+                      
+   <h4> Como administrador: </h4>
+      
+      Esta sección está únicamente pensada para el equipo administrativo. El objetivo es poder manejar 
+      de una forma mucho mas accesible y cómoda los usuarios y coches de Easy Renting Motors.
+      
+      - VentanaGestionStocck: Gestiona el stock que hay actualmente en la tienda(mediante una lista con todos 
+                              los coches que hay en la tienda). Donde se puede agregar o eliminar coches segun 
+                              las necesidades del administrador, entre otras funciones.
+                              
+             - VentanaGestionUsuarios: Gestiona todos los usuarios registrados en la tienda. Asi como tambien 
+                                       crea nuevos usuarios y/o  eliminar los usuarios que se desee. 
         
-    ● Ventana VenderCoche: Otra opción que ofrecera la tienda a los usuarios será la de vender coches.
-      Un usuario tendra la posibilidad de meter los datos de su coche en la web y podra venderselo a la tienda.
+   <h4> Como usuario: </h4>
       
-    ● Ventana AlquilarCoche: ERM también ofrecerá a sus usuarios de realizar el alquiler sus propios coches. El proceso
-      de alquiler será sencillo, primero se elegirá el coche deseado y posteriormente se elegiran las fechas deseadas
-      para la utilidad del coche.
+      La primera Ventana que obtendremos es VentanaPrincipal. En ella tenemos una serie de coches 
+      divididos por categorias (A,B,C,D). En esa misma Ventana tenemos tres botones que nos llevan a "Mi Perfil", y "Ajustes".
       
-    ● Ventanas Administrador: ERM tendra un modo usuario dentro de la web. Este administrador tendrá el uso exclusivo de 
-      gestionar la stock de coches y los usuarios de la web. El admin podrá agregar y eliminar coches y usuarios de la BBDD.
-     
-    ● Ventana Opciones: La web tendra un apartado de opciones donde habra diferentes sub-ventanas donde habra información como
-      la privacidad de la pagina web, protección de datos, redes sociales, etc.
-
-    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el recibo final con
-      los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
-      vender y alquilar un coche.
+      Aquí se podrá decidir en qué clase está interesado el usuario, para mas tarde ir a la ventana de esa categoría que desee
+      el usuario. Se mostrarán imágenes de cada sección para una mejor interacción con el cliente.
       
-      
-## 🧐 Dos maneras de iniciar sesión
+ ## 🧐 Dos maneras de iniciar sesión
 
 Tipos de Usuario|Usuario normal | Administrador
 -------------|------------- | -------------
 Usuario|usuario*  | admin
 Contraseña|usuario123*  | admin123
 
-*Es una cuenta que te recomendamos para iniciar sesión. Si esta no te convence, puedes registrarte en nuestra aplicación con tus credenciales.
+*Es una cuenta que te recomendamos para iniciar sesión. Si esta no te convence, puedes registrarte en nuestra aplicación con tus 
+credenciales.
+      
+      
+   <h2> Opciones como usuario </h2>
+      
+   <h3> Compra</h3>
+   
+     ● Ventana CategoríaA/B/C/D: Cuando seleccionemos la sección del automóvil en el que estamos interesados, pasaremos a una 
+      ventana donde encontraremos todos los automóviles disponibles que hay en esa categoría.
+      
+     ●  VentanaCarritoCompra: Una vez el usuario  ha decidido que compra desea hacer, podrá ver el resumen de su carrito en 
+      esta venta, además del precio y algún detalle más. Una vez desea realizar el pedido, procederá a la ventana de pago.
+      
+     ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
+    
+      En "Mi Perfil" accedes a Informacion de cuenta. Esta ventana te mostrará todos los datos del usuario con el que has 
+      iniciado sesión.
 
       
-<h2> Instrucciones </h2>
+  <h3> Venta </h3>
+  
+		   ● Ventas e información: En este apartado el usuario tiene la opción de poner su coche
+				                    	a la venta, especificando la categoria del coche que pondrá a la venta.
+                                 Además, cada usuario podrá publicar una opinión acerca de su experiencia en 
+                                 la aplicación.
+                                 
+                                 
+  <h3> Alquiler </h3>                             
+               
+                ● Alquiler: El usuario también tiene la opción de poder alquilar jun coche para un tiempo.
+                            A través del calendario que falicitamos podrá seleccionar el ccoche que desea
+                            y el tiempo que lo va a adquirir.
+                            
+                ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
+                     
+  <h3> Mas de "Ajustes" </h3>      
+               
+    ● VentanaAjustes:    
+   
+		   - Privacidad: Dentro de esta tenemos las opciones de
+			              "Politica de Privacidad", "Acerca de" y la
+			                opcion de eliminar su cuenta.
+               
+		   - Seguridad: El usuario tendrá la posibilidad de cambiar
+			             su contraseña.            
+    ● Sesión:
+       
+		   Cerrar Sesion
+		   Salir de la aplicacion
 
-    ● Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta erm/src/erm.main/App.java,
-      ahi encontraremos la ventana 'main' llamada App la cual deberemos correrla click-ando con el botón derecho del ratón y
-      dirigiendonos a 'run as'. Una vez hayamos iniciado la aplicación nos encontraremos con la ventana inicial, tendremos
-      diferentes secciones para elegir, entre ellas la de iniciar sesión o la de administrador. Para iniciar sesión, deberemos
-      utilizar el nombre de usuario: usuario, con la contraseña: 123. Otra opción es la de registrarse mediante el botón de
-      registro, el cual nos permitira registrarnos con un    nuevo nombre de usuario. Para iniciar sesión como administrador
-      deberemos utilizar el nombre de usuario: admin, con la contraseña: admin123. 
-     
-    ● Una vez dentro de la aplicación, tendremos la posibilidad de comprar un coche dirigiendonos a la/s catergorias deseadas.
-      Por otro lado, en la parte superior de la ventana tendremos un icono de ajustes el cual nos llevara a una ventana donde
-      podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc. 
+    ● Servicio:
+		   Contacto: Podrás contactar a traves de gmail y nuestro instagram.
+    
+    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el recibo final con
+      los datos del coche y la factura. Habra diferentes métodos de pago tanto a la hora de compra,
+      vender y alquilar un coche.
       
-    ● Hemos implementado una seccion donde se pretende usar como una intranet, para los administradores (que solamente podran
-      acceder con un usuario y contraseña especificos(señalados en la tabla superior).
-             - Por una parte hemos creado una ventana para poder gestionar el stock que hay actualmente en la tienda(mediante
-               una lista con todos los coches que hay en la tienda). Donde se puede agregar o eliminar coches segun las necesidades
-               del administrador, entre otras funciones.
-             - Por otra parte hemos creado tambien una ventana en la que se podran gestionar todos los usuarios registrados en la
-               tienda. Asi como tambien crear nuevos usuarios y/o  eliminar los usuarios que se desee. Ambas secciones trabajan
-               con una base de datos que se actualiza constantemente agregando o eliminando productos o usuarios.
+  <h2> TEST </h2>
+  
+      En el paquete Test hemos probado todas las clases de las clases basicas, categorias
+   
        
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
@@ -158,15 +176,6 @@ Contraseña|usuario123*  | admin123
 <a href="https://twitter.com/erMotors"> <img alt="Twitter" src="https://img.shields.io/badge/Twitter-erMotors-blue?style=flat-square&logo=twitter"></a>
   
 </p>
-
-
-
-
-
-
-
-      
-     
       
       
       
