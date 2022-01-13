@@ -33,6 +33,30 @@ Badge | URL
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" /> | `https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white`
 <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" /> | `https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white`
 
+   
+   
+ ## Requisitos del proyecto
+   <h3> EasyRentingmotors cumple los siguientes requisitos: </h3>    
+      
+      ● Pruebas de unidad                              
+                              
+      ● Herencia / interfaces 
+	
+      ● Gestión de excepciones                             
+                              
+      ● Uso del logger 
+      
+      ● Hilos 
+
+      ● Configuración (fichero de propiedades)
+
+      ● Uso de ficheros de E/S de datos
+
+      ● Base de datos
+
+      ● Métodos recursivos
+
+      ● Uso de Java Collections 
 
 <h2> Resumen/Contexto </h2>
 
@@ -57,7 +81,7 @@ Badge | URL
 
 ## 🚀 Funcionamiento del proyecto
 
-<h2> Descripcion de interfaz </h2>
+<h2> Antes que nada... </h2>
 
       Para poner en marcha la aplicación de Easy Renting Motors debemos dirigirnos a la carpeta 
       erm/src/erm.main/App.java.
@@ -157,9 +181,9 @@ credenciales.
     
     
     
-   <h2> Ventana Final/Factura </h2>
+   <h2> Ventana Final </h2>
    
-	Esta será la última ventana en la cual aparecerán el proceso de envio. El usuario tiene la 
+	Esta será la última ventana en la cual aparecerá el proceso de envio. El usuario tiene la 
 	opción de escribir su opinión de la atención recibida en la app ERM.
     
       
@@ -173,35 +197,7 @@ credenciales.
       
   <h2> TEST </h2>
   
-      Esta comprobado todo el código de Easy Renting Motors.
-   
-   
- ## Requisitos del proyecto
-   <h3> EasyRentingmotor cumple los siguientes requisitos: </h3>    
-      
-      ● Pruebas de unidad                              
-                              
-      ● Herencia / interfaces 
-	
-      ● Gestión de excepciones                             
-                              
-      ● Uso del logger 
-      
-      ● Hilos 
-
-      ● Configuración (fichero de propiedades)
-
-      ● Uso de ficheros de E/S de datos
-
-      ● Base de datos
-
-      ● Métodos recursivos
-
-      ● Uso de Java Collections 
-
-      
-
-
+      Está comprobado todo el código de Easy Renting Motors.
 
        
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
@@ -220,11 +216,4 @@ credenciales.
   
 </p>
       
-      
-      
-      
-
-    
- 
-       
-  
+   
