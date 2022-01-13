@@ -126,7 +126,7 @@ Contraseña|usuario123*  | admin123
       ahi encontraremos la ventana 'main' llamada App la cual deberemos correrla click-ando con el botón derecho del ratón y
       dirigiendonos a 'run as'. Una vez hayamos iniciado la aplicación nos encontraremos con la ventana inicial, tendremos
       diferentes secciones para elegir, entre ellas la de iniciar sesión o la de administrador. Para iniciar sesión, deberemos
-      utilizar el nombre de usuario: gutiaitor, con la contraseña: 12345. Otra opción es la de registrarse mediante el botón de
+      utilizar el nombre de usuario: usuario, con la contraseña: 123. Otra opción es la de registrarse mediante el botón de
       registro, el cual nos permitira registrarnos con un    nuevo nombre de usuario. Para iniciar sesión como administrador
       deberemos utilizar el nombre de usuario: admin, con la contraseña: admin123. 
      
