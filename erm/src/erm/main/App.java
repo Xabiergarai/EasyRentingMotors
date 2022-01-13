@@ -18,21 +18,7 @@ public class App {
 		
 		logger.info("Programa comenzado");
 		
-		Properties properties= new Properties();
-	    try {
-	      properties.load(new FileInputStream(new File("config.properties")));
-	      
-	      System.out.println(properties.get("password"));
-	      System.out.println(properties.get("username"));
-	      System.out.println(properties.get("driver"));
-	    } catch (FileNotFoundException e) {
-	      // TODO Auto-generated catch block
-	      e.printStackTrace();
-	    } catch (IOException e) {
-	      // TODO Auto-generated catch block
-	      e.printStackTrace();
-	    }
-		
+	
 
 		EventQueue.invokeLater(new Runnable() {
 			@Override

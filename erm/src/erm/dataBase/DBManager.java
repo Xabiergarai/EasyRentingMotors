@@ -1,5 +1,9 @@
 package erm.dataBase;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +19,9 @@ import java.util.TreeSet;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Properties;
+
+
 import erm.clasesBasicas.Opinion;
 import erm.clasesBasicas.Tarjeta;
 import erm.dataBase.DBException;
@@ -40,20 +47,32 @@ public class DBManager {
 	private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
-
+	private static Properties properties = new Properties();
+	
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
 	 * @param nombreBD Nombre de fichero de la base de datos
 	 * @return Conexion con la base de datos indicada. Si hay algún error, se
 	 *         devuelve null
+	 * @throws FileNotFoundException 
 	 * @throws BDException
 	 */
-
+			
+	
 	public static Connection initBD(String nombre) throws DBException {
 		try {
-			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:data/EasyRentingMotors.db");
+		      properties.load(new FileInputStream(new File("config.properties")));
+		    } catch (FileNotFoundException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    } catch (IOException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    } 
+		try {
+			Class.forName(properties.getProperty("DRIVER"));		
+			conn = DriverManager.getConnection(properties.getProperty("jdbc"));
 			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
