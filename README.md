@@ -57,14 +57,7 @@ Badge | URL
     de contraseña en cualquier momento, asi como eleminar su cuenta si asi lo desean.
     
     
-   
-    Objetivos del proyecto
-    El objetivo principal es programar una tienda/aplicación donde ofrezcamos comodidad
-    a la hora de que el usuario entre en ella. Queremos crear una interfaz gráfica que
-    satisfaga las necesidades del cliente y que a la vez sea atractiva. La comodidad del
-    usuario a la hora de utilizar la aplicación es lo que más nos interesa y por ella
-    intentaremos crear algo que sea lo más intuitivo para el cliente.
-
+  
 <h2> Ideas de Interfaz </h2>
 
     ● Ventana login: Habrá un login donde se introducirá el usuario y la contraseña que
