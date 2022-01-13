@@ -8,6 +8,8 @@ import erm.ventanasSecundarias.VentanaPago;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -125,13 +127,12 @@ public class VentanaCarritoCompra extends JFrame {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 400, 750);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Easy Renting Motors");
 		frame.getContentPane().setLayout(null);
 		updatePrecioTotal();
 		lblTotal.setBounds(14, 527, 360, 16);
 		frame.getContentPane().add(lblTotal);
-
+	
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
 		btnVaciarCesta.addActionListener(e -> {
@@ -205,18 +206,19 @@ public class VentanaCarritoCompra extends JFrame {
 				try {
 				    int respuesta = JOptionPane.showConfirmDialog(null, "Quieres guardar el carrito en el fichero?", "Confirmacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(respuesta == JOptionPane.YES_OPTION) {
-                        PrintWriter pw = new PrintWriter("Carrito.txt");
+                    	// Crea un documento en blanco
+                    	PrintWriter pw = new PrintWriter("Carrito.txt");
                         escribirProductosEnFichero(0, carritoModeloTabla, pw);
                         pw.close();
-                    }else if (respuesta == JOptionPane.NO_OPTION) {                    
-                    }else if (respuesta == JOptionPane.CLOSED_OPTION) {
+        				JOptionPane.showMessageDialog(null, "Fichero guardado correctamente");
+                    }else if (respuesta == JOptionPane.NO_OPTION) {                      	
+                    }else if (respuesta == JOptionPane.CLOSED_OPTION) {                    	
                     }
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				} // Crea un documento en blanco
+				} 
 
-				JOptionPane.showMessageDialog(null, "Fichero guardado correctamente");
 			}
 
 		});
@@ -365,4 +367,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private void updatePrecioTotal() {
 		this.lblTotal.setText("TOTAL:   " + this.precioTotal + " €");
 	}
+	
+	
+	
 }
