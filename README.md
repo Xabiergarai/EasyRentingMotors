@@ -133,7 +133,7 @@ Contraseña|usuario123*  | admin123
       podremos seleccionar operaciones como la de vender o alquilar un coche, revisar los datos de la cuenta, etc. 
       
     ● Hemos implementado una seccion donde se pretende usar como una intranet, para los administradores (que solamente podran
-      acceder con un usuario y contraseña especificos(admin, admin, respectivamente).
+      acceder con un usuario y contraseña especificos(señalados en la tabla superior).
              - Por una parte hemos creado una ventana para poder gestionar el stock que hay actualmente en la tienda(mediante
                una lista con todos los coches que hay en la tienda). Donde se puede agregar o eliminar coches segun las necesidades
                del administrador, entre otras funciones.
