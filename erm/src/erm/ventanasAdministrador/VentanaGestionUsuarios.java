@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import org.sqlite.core.DB;
 
@@ -36,7 +37,8 @@ import javax.swing.JLabel;
 public class VentanaGestionUsuarios extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tablaUsuarios;
+	private DefaultTableModel modeloTabla;
 	private ArrayList<Usuario> usuarios = new ArrayList<>();
 
 
@@ -118,6 +120,13 @@ public class VentanaGestionUsuarios extends JFrame {
 		});
 		mnGestion.add(mnCerrarSesion);
 
+		Object[] columnas = {"id", "nombre", "apellidos", "nickname", "contraseña", "email", "direccionIP"};
+		modeloTabla = new DefaultTableModel();
+		modeloTabla.setColumnIdentifiers(columnas);
+		tablaUsuarios = new JTable(modeloTabla);
+		JScrollPane scroll = new JScrollPane(tablaUsuarios);
+		contentPane.add(scroll);
+		
 		try {
 			usuarios = DBManager.listarUsuarios();
 		} catch (DBException e) {

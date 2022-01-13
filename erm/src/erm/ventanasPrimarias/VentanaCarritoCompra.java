@@ -183,7 +183,7 @@ public class VentanaCarritoCompra extends JFrame {
 		frame.getContentPane().add(chckbxContratoTarifa);
 
 		JButton btnRealizarPedido = new JButton("REALIZAR PEDIDO");
-		btnRealizarPedido.setBackground(Color.ORANGE);
+		btnRealizarPedido.setBackground(new Color(255, 165, 0));
 		btnRealizarPedido.setBounds(90, 569, 188, 29);
 		frame.getContentPane().add(btnRealizarPedido);
 		btnRealizarPedido.addActionListener(e -> {
