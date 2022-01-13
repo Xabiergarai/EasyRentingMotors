@@ -125,9 +125,8 @@ credenciales.
   <h3> Venta </h3>
   
      ● Ventas e información: En este apartado el usuario tiene la opción de poner su coche
-			     a la venta, especificando la categoria del coche que pondrá a la venta.
-                             Además, cada usuario podrá publicar una opinión acerca de su experiencia en 
-                             la aplicación.
+			     a la venta, especificando la categoria del coche que pondrá a la venta. Este coche
+			     aparecerá en las ventanas de las diferentes categorías.
                                  
                                  
   <h3> Alquiler </h3>                             
@@ -156,8 +155,12 @@ credenciales.
     ● Servicio:
 		    - Contacto: Podrás contactar a traves de gmail y nuestro instagram.
     
-    ● Ventana Final/Factura: Esta será la última ventana en la cual aparecerán el proceso de envio. El 
-    			   usuario tiene la opción de escribir su opinión de la atención recibida en la app ERM.
+    
+    
+   <h2> Ventana Final/Factura </h2>
+   
+	Esta será la última ventana en la cual aparecerán el proceso de envio. El usuario tiene la 
+	opción de escribir su opinión de la atención recibida en la app ERM.
     
       
       
@@ -170,7 +173,7 @@ credenciales.
       
   <h2> TEST </h2>
   
-      En el paquete Test hemos probado todas las clases de las clases basicas, categorias.
+      Esta comprobado todo el código de Easy Renting Motors.
    
        
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
