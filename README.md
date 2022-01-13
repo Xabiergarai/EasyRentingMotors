@@ -175,6 +175,34 @@ credenciales.
   
       Esta comprobado todo el código de Easy Renting Motors.
    
+   
+ ## Requisitos del proyecto
+   <h3> EasyRentingmotor cumple los siguientes requisitos: </h3>    
+      
+      ● Pruebas de unidad                              
+                              
+      ● Herencia / interfaces 
+	
+      ● Gestión de excepciones                             
+                              
+      ● Uso del logger 
+      
+      ● Hilos 
+
+      ● Configuración (fichero de propiedades)
+
+      ● Uso de ficheros de E/S de datos
+
+      ● Base de datos
+
+      ● Métodos recursivos
+
+      ● Uso de Java Collections 
+
+      
+
+
+
        
  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
