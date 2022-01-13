@@ -52,11 +52,10 @@ public class DBManager {
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
-	 * @param nombreBD Nombre de fichero de la base de datos
+	 * @param nombre Nombre de fichero de la base de datos
 	 * @return Conexion con la base de datos indicada. Si hay algún error, se
-	 *         devuelve null
-	 * @throws FileNotFoundException 
-	 * @throws BDException
+	 *         devuelve null 
+	 * @throws DBException Excepcion de la BD
 	 */
 			
 	
@@ -194,7 +193,7 @@ public class DBManager {
 	 * @param con Conexión ya creada y abierta a la base de datos
 	 * @return sentencia de trabajo si se borra correctamente, null si hay cualquier
 	 *         error
-	 * @throws BDException
+	 * @throws DBException
 	 */
 	public static Statement reiniciarBD(Connection con) throws DBException {
 		logger.log(Level.INFO, "Reiniciando la base de datos...");
@@ -1190,7 +1189,6 @@ public class DBManager {
 	/**
 	 * Cerramos conexi�n con la BD
 	 * 
-	 * @throws DBException
 	 */
 	public static void cerrarBD(Connection con, Statement st) {
 		try {
