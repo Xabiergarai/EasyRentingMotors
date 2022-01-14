@@ -5,22 +5,32 @@
 
 <h1 align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com/?lines=Bienvenido!+👋;Esto+es+ERM....;Empecemos!😊&center=true&size=30">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=Bienvenido/a!+👋;Esto+es+ERM...;Empecemos!😊&center=true&size=30">
   </a>
 </h1>
 
+<h2> 📖 Resumen/Contexto </h2>
 
-## 🛠 Equipo de Trabajo
+    Esta aplicación es el prototipo de lo que llegaría a ser una concesionario online de coches.
+    Easy Renting Motors ofrece a los usuarios diferentes clases y tipos de coches, desde la categoria
+    A hasta la D. La aplicación estará dividida en dos partes. Usuario y administrador.
+    Antes de todo, tendremos el login, donde el usuario podrá entrar en la plataforma. 
+    En caso de que no estuviera registrado, procedería a realizar el registro del usuario. 
+    Una vez dentro, la aplicación presenta várias funciones. Por un lado, tenemos la 
+    posibilidad de comprar cualquier vehiculo de las categorias anteriormente mencionadas. Tambien 
+    es posible solicitar informacion sobre cualquier veiculo  antes de proceder al pago.
+    Ademas, si simplemente los usuarios necesitan el coche para un  periodo concreto de tiempo,
+    podran realizar un alquiler de cualquier coche que este disponible en nuesto concesionario.
+    Todos estos pagos, tanto la compra simultanea de varios vehiculos como los alquileres, 
+    podran realizarse con diferentes metodos de pago pensados para la maxima comodidas de nuestos 
+    clientes. Tras realizar cualquier compra, los usuarios pueden dejar su opinion acerca de la pagina
+    web.
+    Ademas, los usuarios tambien tienen la opcion de vender su coche de forma rapida y segura podiendo
+    agregar una foto del respectivo vehiculo. En relación con la seguridad, los usuarios podran cambiar 
+    de contraseña en cualquier momento, asi como eliminar su cuenta si así lo desean.
 
-<ol >
-  <li>👤 Aitor Gutierrez <br /> </li>
-  <li>👤 Javier Contreras <br /> </li>
-  <li>👤 Gorka Zarate <br /> </li>
-  <li>👤 Xabier Garai  </li>
-</ol>
 
-
-## 💻 Sobre el equipo
+## 💻🛠 Sobre el equipo
 
 - 🎓 &nbsp; Grupo de cuatro estudiantes de Ingenieria Informática en la Universidad de Deusto.
 - ⚙️ &nbsp; Asignatura: Programación III
@@ -35,7 +45,8 @@ Badge | URL
 
    
    
- ## Requisitos del proyecto
+ ## ⭐️ Requisitos del proyecto
+ 
    <h3> EasyRentingmotors cumple los siguientes requisitos: </h3>    
       
       ● Pruebas de unidad                              
@@ -58,26 +69,6 @@ Badge | URL
 
       ● Uso de Java Collections 
 
-<h2> Resumen/Contexto </h2>
-
-    Esta aplicacion es el prototipo de lo que llegaria a ser una concesinario online de coches.
-    Easy Renting Motors ofrece a los usuarios diferentes clases y tipos de coches, mas concretamente
-    desde la A hasta la D. La aplicación estará dividida en varias partes. Antes de todo, tendremos
-    el login, donde el usuario podrá entrar en la plataforma. En caso de que no estuviera registrado,
-    procedería a realizar el registro del usuario. Una vez dentro, la aplicación presenta várias
-    funciones; por un lado, tenemos la posibilidad de comprar cualquier veiculo de las categorias
-    anteriormente mencionadas, tambien es posible solicitar informacion sobre cualquier veiculo
-    antes de proceder al pago. Ademas, si simplemente los usuarios necesitan el coche para un
-    periodo concreto de tiempo, podran realizar un alquiler de cualquier coche que este
-    disponible en nuesto concesionario. Todos estos pagos, tanto la compra simultanea de varios
-    veiculos como los alquileres, podran realizarse con diferentes metodos de pago pensados 
-    para la maxima comodidas de nuestos clientes. Tras realizar cualquier compra, los usuarios 
-    pueden dejar su opinion acerca de la pagina web; si ha sido amigable, si el diseño es el mas
-    adecuado, etc.
-    Ademas, los usuarios tambien tienen la opcion de vender su coche de forma rapida y segura pudiendo
-    agregar una foto del respectivo vehiculo.En relacion con la seguridad, con usuarios podran cambiar 
-    de contraseña en cualquier momento, asi como eleminar su cuenta si asi lo desean.
-
 
 ## 🚀 Funcionamiento del proyecto
 
@@ -95,7 +86,7 @@ Badge | URL
       
    <h2> Dos opciones: </h2>
                       
-   <h4> Como administrador: </h4>
+   <h4> ⚠️ Como administrador: </h4>
       
       Esta sección está únicamente pensada para el equipo administrativo. El objetivo es poder manejar 
       de una forma mucho mas accesible y cómoda los usuarios y coches de Easy Renting Motors.
@@ -107,7 +98,7 @@ Badge | URL
       		● VentanaGestionUsuarios: Gestiona todos los usuarios registrados en la tienda. Asi como tambien 
                               crea nuevos usuarios y/o  eliminar los usuarios que se desee. 
         
-   <h4> Como usuario: </h4>
+   <h4> 📝Como usuario: </h4>
    
       El usuario podrá comprar, vender o alquilar un coche. Además, podrá escribir una opinión, cambiar su contraseña, ver
       su perfil, politica de privacidad, contactar con ERM a traves de sus redes sociales etc.
@@ -127,7 +118,7 @@ Contraseña|usuario123*  | admin123
 credenciales.
       
       
-   <h2> Opciones como usuario </h2>
+   <h2>🐳 Opciones como usuario </h2>
    
    <h3> Mi Perfil </h3>
    
@@ -181,21 +172,21 @@ credenciales.
     
     
     
-   <h2> Ventana Final </h2>
+   <h2> 🚚 Ventana Final </h2>
    
 	Esta será la última ventana en la cual aparecerá el proceso de envio. El usuario tiene la 
 	opción de escribir su opinión de la atención recibida en la app ERM.
     
       
       
-  <h2> BASE DE DATOS </h2>
+  <h2> ⚡️ BASE DE DATOS </h2>
   <b> BD: EasyRentingMotors.db (SqLite) </b>
   <br> </br>
       
       Todo lo que hace el usuario, tanto el normal como el admin, se amacena en la base de datos de ERM.
    
       
-  <h2> TEST </h2>
+  <h2> 📖 TEST </h2>
   
       Está comprobado todo el código de Easy Renting Motors.
 
@@ -208,7 +199,7 @@ credenciales.
 
 <p align="center">
 
-<a href="https://www.instagram.com/erMotors_/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-erMotors_-purple?style=flat-square&logo=instagram"> </a>
+<a href="https://www.instagram.com/erMotors_/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-_erMotors_-purple?style=flat-square&logo=instagram"> </a>
 
 <a href="mailto:ermotors@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-ermotos@gmail.com-red?style=flat-square&logo=gmail"></a>
 
