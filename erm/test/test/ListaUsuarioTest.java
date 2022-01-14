@@ -16,14 +16,7 @@ class ListaUsuarioTest {
 	ListaUsuario listaUsuario = new ListaUsuario();
 	private ArrayList<Usuario> usuarios;
 	ArrayList<Usuario> lista = listaUsuario.getUsuarios();
-	
-	@Test
-	public ArrayList<Usuario> myArray(){
-		lista.add(new Usuario("Xabier", "Garai Pascual", "XabierG", "Cont123", "Xabier.garai@opendeusto.es", "192.72.20.16"));
-		lista.get(0);
-		return lista;		
-	}
-	
+			
 	
 	@Test
 	public void testmyArray() {
@@ -33,11 +26,10 @@ class ListaUsuarioTest {
 	}
 	
 	@Test
-	public void testSet() {
+	public void testSetUsuarios() {
 		listaUsuario.setUsuarios(lista);
-		assertEquals(lista,listaUsuario.getUsuarios() );
+		assertNotNull(listaUsuario.getUsuarios());
 	}
-	
 	
 	
 	

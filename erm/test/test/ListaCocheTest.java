@@ -39,8 +39,6 @@ class ListaCocheTest {
 	public void testSetCoches() {
 		listaCoche.setProductos(lista);
 		assertNotNull( listaCoche.getCoches());
-	}
-	
-	
+	}				
 	
 }
